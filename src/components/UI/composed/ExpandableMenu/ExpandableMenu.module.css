@@ -1,0 +1,40 @@
+.Container {
+  position: absolute;
+  margin: auto;
+}
+
+.Container.top {
+  top: 4%;
+}
+
+.Container.top-right {
+  top: 4%;
+  right: 2%;
+}
+
+.Container.top-left {
+  top: 4%;
+  left: 2%;
+}
+
+.Container.right {
+  right: 2%;
+}
+
+.Container.bottom {
+  bottom: 4%;
+}
+
+.Container.bottom-right {
+  bottom: 4%;
+  right: 2%;
+}
+
+.Container.bottom-left {
+  bottom: 4%;
+  left: 2%;
+}
+
+.Container.left {
+  left: 2%;
+}

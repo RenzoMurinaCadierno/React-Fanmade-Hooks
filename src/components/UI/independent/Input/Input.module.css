@@ -1,0 +1,38 @@
+/* all devices landscape */
+.Container {
+  /* '*input*' JSX */
+  color: var(--primary-0);
+  background: transparent;
+  border: none;
+  letter-spacing: var(--letter-spacing-vw);
+  font-size: var(--font-size-vw);
+  opacity: 0.9;
+  transition: var(--generic-transition);
+  outline: none;
+}
+
+.Container:disabled {
+  cursor: not-allowed;
+  filter: var(--disabled-filter);
+}
+
+.Container[type="password"] {
+  /* `type` === 'password' */
+  letter-spacing: var(--letter-spacing-medium-vw);
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    /* '*input*' JSX */
+    letter-spacing: var(--letter-spacing-vh);
+    font-size: var(--font-size-vh);
+  }
+
+  .Container[type="password"] {
+    /* `type` === 'password' */
+    letter-spacing: var(--letter-spacing-medium-vh);
+  }
+}
+/* end all devices portrait */

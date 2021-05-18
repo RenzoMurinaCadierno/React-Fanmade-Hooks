@@ -1,0 +1,19 @@
+/* all devices landscape */
+.Carousel {
+  /* '*Carousel*' */
+  max-width: 40vw;
+  height: 35vw;
+  margin: auto;
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Carousel {
+    /* '*Carousel*' */
+    width: 75%;
+    max-width: 40vh;
+    min-height: 40vh;
+  }
+}
+/* end all devices portrait */

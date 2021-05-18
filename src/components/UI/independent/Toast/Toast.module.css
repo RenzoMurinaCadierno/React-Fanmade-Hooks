@@ -1,0 +1,218 @@
+/* all devices landscape */
+.Container {
+  /* wrapper container */
+  width: 60%;
+  padding: var(--generic-padding-vw);
+  border: var(--border-primary-2-vw);
+  border-radius: var(--border-radius-vw);
+  box-shadow: var(--box-shadow-primary-1-vw);
+  font-size: var(--font-size-h6-vw);
+  letter-spacing: var(--letter-spacing-vw);
+  position: fixed;
+  margin: auto;
+  background-color: var(--translucent-background);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Content {
+  /* content section, where children render */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 100%;
+  margin-right: 1%;
+  word-wrap: break-word;
+}
+
+.Toggler {
+  /* 'dismiss' toggler '*div*' */
+  width: 3.2vw;
+  height: 0.4vw;
+  border-radius: var(--border-radius-vw);
+  transform: rotate(45deg);
+  background-color: var(--primary-1);
+}
+
+.Toggler::after {
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+  background-color: inherit;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(90deg);
+}
+/* end all devices landscape */
+
+/* all devices direction positioning when triggering */
+.center {
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.center-open {
+  animation: animate-center 150ms linear forwards;
+}
+
+.center-close {
+  animation: animate-center 150ms linear reverse;
+}
+
+.top {
+  transform: rotate(180deg);
+  top: 4%;
+}
+
+.top-open {
+  animation: animate-top 150ms linear forwards;
+}
+
+.top-close {
+  animation: animate-top 150ms linear reverse;
+}
+
+.right {
+  transform: translate(0, -50%) rotate(90deg);
+  top: 50%;
+  right: -13%;
+  width: 35%;
+}
+
+.right-open {
+  animation: animate-right 130ms linear forwards;
+}
+
+.right-close {
+  animation: animate-right 150ms linear reverse;
+}
+
+.bottom {
+  bottom: 4%;
+}
+
+.bottom-open {
+  animation: animate-bottom 150ms linear forwards;
+}
+
+.bottom-close {
+  animation: animate-bottom 150ms linear reverse;
+}
+
+.left {
+  transform: translate(0, -50%) rotate(-90deg);
+  top: 50%;
+  left: -13%;
+  width: 35%;
+}
+
+.left-open {
+  animation: animate-left 150ms linear forwards;
+}
+
+.left-close {
+  animation: animate-left 150ms linear reverse;
+}
+/* end all devices direction positioning when triggering */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    /* wrapper container */
+    width: 70%;
+    padding: var(--generic-padding-vh);
+    border: var(--border-primary-2-vh);
+    border-radius: var(--border-radius-vh);
+    box-shadow: var(--box-shadow-primary-1-vh);
+    font-size: var(--font-size-vh);
+    letter-spacing: var(--letter-spacing-vh);
+  }
+
+  .Toggler {
+    /* 'dismiss' toggler '*div*' */
+    width: 3.2vh;
+    height: 0.4vh;
+    border-radius: var(--border-radius-vh);
+  }
+
+  .top {
+    top: 4%;
+  }
+
+  .right {
+    right: -30%;
+    width: 80%;
+  }
+
+  .bottom {
+    bottom: 4%;
+  }
+
+  .left {
+    left: -30%;
+    width: 80%;
+  }
+}
+/* end all devices portrait */
+
+/* animation keyframes */
+@keyframes animate-center {
+  0% {
+    filter: opacity(0);
+  }
+  100% {
+    filter: opacity(1);
+  }
+}
+
+@keyframes animate-bottom {
+  0% {
+    filter: opacity(0);
+    transform: translateY(30%);
+  }
+  100% {
+    filter: opacity(1);
+    transform: translateY(0);
+  }
+}
+
+@keyframes animate-right {
+  0% {
+    filter: opacity(0);
+    transform: translate(10%, -50%) rotate(90deg);
+  }
+  100% {
+    filter: opacity(1);
+    transform: translateX(0, -50%) rotate(90deg);
+  }
+}
+
+@keyframes animate-top {
+  0% {
+    filter: opacity(0);
+    transform: translateY(-30%) rotate(180deg);
+  }
+  100% {
+    filter: opacity(1);
+    transform: translateY(0) rotate(180deg);
+  }
+}
+
+@keyframes animate-left {
+  0% {
+    filter: opacity(0);
+    transform: translate(-10%, -50%) rotate(-90deg);
+  }
+  100% {
+    filter: opacity(1);
+    transform: translateX(0, -50%) rotate(-90deg);
+  }
+}
+/* end animation keyframes */

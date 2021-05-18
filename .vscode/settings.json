@@ -1,0 +1,6 @@
+{
+  "editor.rulers": [70, 80],
+  "workbench.colorCustomizations": {
+    "editorRuler.foreground": "#4a4a4a"
+  }
+}

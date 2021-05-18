@@ -1,0 +1,24 @@
+:root {
+  --small-margin-vw: 0.5vw;
+  --small-margin-vh: 0.5vh;
+  --generic-margin-vw: 1vw;
+  --generic-margin-vh: 1vh;
+  --large-margin-vw: 2vw;
+  --large-margin-vh: 2vh;
+  --extra-large-margin-vw: 4vw;
+  --extra-large-margin-vh: 4vh;
+
+  --small-padding-vw: 0.5vw;
+  --small-padding-vh: 0.5vh;
+  --generic-padding-vw: 1vw;
+  --generic-padding-vh: 1vh;
+  --large-padding-vw: 2vw;
+  --large-padding-vh: 2vh;
+  --extra-large-padding-vw: 4vw;
+  --extra-large-padding-vh: 4vh;
+
+  --generic-transition: all 250ms ease;
+  --generic-transition-in: all 250ms ease-in;
+  --generic-transition-out: all 250ms ease-out;
+  --generic-transition-in-out: all 250ms ease-in-out;
+}

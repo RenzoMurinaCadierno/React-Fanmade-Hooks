@@ -1,0 +1,43 @@
+/* all devices landscape */
+.Container {
+  width: 100%;
+  height: 0.2vw;
+  position: absolute;
+  bottom: -3%;
+  background-color: var(--primary-0);
+  display: block;
+  opacity: 0.8;
+  transition: var(--generic-transition);
+}
+
+.Container:after {
+  /* active (focused) underline effect. Inactive unless .Focused */
+  content: "";
+  position: absolute;
+  margin: auto;
+  right: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--primary-2);
+  display: block;
+  transition: var(--generic-transition);
+}
+
+.Focused:after {
+  /* enable full width for underline effect */
+  width: 100%;
+}
+
+.Container[disabled] {
+  filter: var(--disabled-filter);
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    height: 0.2vh;
+  }
+}
+/* end all devices portrait */

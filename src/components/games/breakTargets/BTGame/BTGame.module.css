@@ -1,0 +1,17 @@
+/* all devices landscape */
+.Container {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    width: 80%;
+    flex-direction: column;
+  }
+}
+/* end all devices portrait */

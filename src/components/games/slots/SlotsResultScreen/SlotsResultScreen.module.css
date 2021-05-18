@@ -1,0 +1,39 @@
+/* all devices landscape */
+.Container {
+  /* 'Backdrop' component */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.ResultsContainer {
+  /* wrapper for both 'SlotsResultSection' components */
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  margin-bottom: var(--generic-margin-vw);
+}
+
+.Button {
+  /* "Retry" button */
+  padding: var(--generic-padding-vw) var(--extra-large-padding-vw);
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .ResultsContainer {
+    /* wrapper for both 'SlotsResultSection' components */
+    flex-direction: row;
+    height: 65%;
+    margin-bottom: var(--generic-margin-vh);
+  }
+
+  .Button {
+    /* "Retry" button */
+    padding: var(--generic-padding-vh) var(--extra-large-padding-vh);
+  }
+}
+/* end all devices portrait */

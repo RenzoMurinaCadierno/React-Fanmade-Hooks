@@ -1,0 +1,36 @@
+:root {
+  --border-width-vw: 0.2vw;
+  --border-width-vh: 0.2vh;
+
+  --border-radius-vw: 1vw;
+  --border-radius-vh: 1vh;
+  --border-radius-large-vw: 2vw;
+  --border-radius-large-vh: 2vh;
+
+  --border-primary-0-vw: var(--border-width-vw) solid var(--primary-0);
+  --border-primary-0-vh: var(--border-width-vh) solid var(--primary-0);
+  --border-primary-1-vw: var(--border-width-vw) solid var(--primary-1);
+  --border-primary-1-vh: var(--border-width-vh) solid var(--primary-1);
+  --border-primary-2-vw: var(--border-width-vw) solid var(--primary-2);
+  --border-primary-2-vh: var(--border-width-vh) solid var(--primary-2);
+  --border-primary-3-vw: var(--border-width-vw) solid var(--primary-3);
+  --border-primary-3-vh: var(--border-width-vh) solid var(--primary-2);
+
+  --border-secondary-0-vw: var(--border-width-vw) solid var(--secondary-0);
+  --border-secondary-0-vh: var(--border-width-vh) solid var(--secondary-0);
+  --border-secondary-1-vw: var(--border-width-vw) solid var(--secondary-1);
+  --border-secondary-1-vh: var(--border-width-vh) solid var(--secondary-1);
+  --border-secondary-2-vw: var(--border-width-vw) solid var(--secondary-2);
+  --border-secondary-2-vh: var(--border-width-vh) solid var(--secondary-2);
+  --border-secondary-3-vw: var(--border-width-vw) solid var(--secondary-3);
+  --border-secondary-3-vh: var(--border-width-vh) solid var(--secondary-3);
+
+  --border-danger-0-vw: var(--border-width-vw) solid var(--danger-0);
+  --border-danger-0-vh: var(--border-width-vh) solid var(--danger-0);
+  --border-danger-1-vw: var(--border-width-vw) solid var(--danger-1);
+  --border-danger-1-vh: var(--border-width-vh) solid var(--danger-1);
+  --border-danger-2-vw: var(--border-width-vw) solid var(--danger-2);
+  --border-danger-2-vh: var(--border-width-vh) solid var(--danger-2);
+  --border-danger-3-vw: var(--border-width-vw) solid var(--danger-3);
+  --border-danger-3-vh: var(--border-width-vh) solid var(--danger-3);
+}

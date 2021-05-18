@@ -1,0 +1,69 @@
+/* all devices landscape */
+.Container {
+  /* wrapper container */
+  width: 7vw;
+  height: 7vw;
+  color: var(--primary-1);
+  border: var(--border-primary-2-vw);
+  border-radius: var(--border-radius-vw);
+  box-shadow: var(--box-shadow-primary-1-vw);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Digit {
+  /* inner '*span*', where "res" digit is rendered */
+  font-size: var(--font-size-h3-vw);
+  width: 80%;
+  height: 80%;
+}
+
+.Roll {
+  /* className added by "dieSt.isRolling" === true */
+  animation: roll 500ms ease forwards;
+  pointer-events: none;
+}
+
+.Frozen {
+  /* className added by `isFrozen` */
+  filter: var(--disabled-filter);
+  cursor: not-allowed;
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    /* wrapper container */
+    width: 7vh;
+    height: 7vh;
+    border: var(--border-primary-2-vh);
+    border-radius: var(--border-radius-vh);
+    box-shadow: var(--box-shadow-primary-1-vh);
+  }
+
+  .Digit {
+    /* inner '*span*', where "res" digit is rendered */
+    font-size: var(--font-size-h3-vh);
+  }
+}
+/* end all devices portrait */
+
+/* animation keyframes */
+@keyframes roll {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  40% {
+    transform: rotate(360deg) scale(0);
+  }
+  60% {
+    transform: rotate(-360deg) scale(0);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+/* end animation keyframes */

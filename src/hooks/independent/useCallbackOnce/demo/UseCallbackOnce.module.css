@@ -1,0 +1,31 @@
+.CmpTitle {
+  width: 90%;
+  margin-bottom: 3%;
+}
+
+.Grid {
+  width: 80%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
+  margin-bottom: 2%;
+}
+
+.Button {
+  width: 70%;
+}
+
+@media screen and (orientation: portrait) {
+  .CmpTitle {
+    height: 45%;
+    margin-bottom: 0;
+  }
+
+  .Grid {
+    height: 40%;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+}

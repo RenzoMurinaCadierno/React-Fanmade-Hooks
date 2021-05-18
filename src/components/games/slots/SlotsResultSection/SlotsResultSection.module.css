@@ -1,0 +1,63 @@
+/* all devices portrait */
+.Container {
+  /* outer wrapper container for everything */
+  width: unset;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--translucent-background);
+}
+
+.Title {
+  /* 'Text' title component */
+  position: relative;
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.TitleBackground {
+  /* div as colored background for 'Text' title component */
+  position: absolute;
+  top: -10%;
+  left: -50%;
+  width: 160%;
+  height: 120%;
+  background-color: var(--secondary-2-translucent-background);
+  border: var(--border-secondary-2-vw);
+  box-shadow: var(--box-shadow-secondary-1-vw);
+  transform: skew(45deg);
+}
+/* end all devices portrait */
+
+/* all devices landscape */
+@media screen and (orientation: portrait) {
+  .Container {
+    /* outer wrapper container for everything */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 35%;
+  }
+
+  .Title {
+    /* 'Text' title component */
+    width: 100%;
+    height: 10%;
+    padding: var(--generic-padding-vh) var(--generic-padding-vh);
+  }
+
+  .TitleBackground {
+    /* div as colored background for 'Text' title component */
+    top: -60%;
+    left: unset;
+    width: 100%;
+    height: 175%;
+    background-color: var(--secondary-2-translucent-background);
+    border: var(--border-secondary-2-vh);
+    box-shadow: var(--box-shadow-secondary-1-vh);
+    transform: skewY(13deg);
+  }
+}
+/* end all devices landscape */

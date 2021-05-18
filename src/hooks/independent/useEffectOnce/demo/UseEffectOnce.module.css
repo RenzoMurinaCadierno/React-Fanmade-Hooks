@@ -1,0 +1,69 @@
+/* all devices landscape */
+.Container {
+  width: 100%;
+  height: 100%;
+}
+
+.CmpDescContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  width: 50%;
+}
+
+.CmpDescContent {
+  font-weight: normal;
+  margin: var(--small-margin-vw);
+  width: 90%;
+}
+
+.CmpTestContainer {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.CmpTestContainer > * {
+  /* larger margins for everything inside Component Test section */
+  margin: var(--large-margin-vh) var(--small-margin-vw);
+}
+
+.CmpTestContainer button {
+  /* phone dial + retry buttons */
+  font-size: var(--font-size-vw);
+  font-style: italic;
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    margin: 0 var(--generic-margin-vh);
+    flex-direction: column;
+  }
+
+  .CmpDescContainer {
+    width: 95%;
+  }
+
+  .CmpDescContent {
+    margin: var(--small-margin-vh);
+    width: 95%;
+  }
+
+  .CmpTestContainer {
+    width: 95%;
+    height: 40%;
+  }
+
+  .CmpTestContainer > * {
+    margin: 0;
+  }
+
+  .CmpTestContainer button {
+    font-size: var(--font-size-vh);
+  }
+}
+/* end all devices portrait */

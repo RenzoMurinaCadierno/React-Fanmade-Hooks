@@ -1,0 +1,106 @@
+/* all devices landscape */
+.Container {
+  /* wrapper for the whole component */
+  outline: none;
+}
+
+.Container[disabled] {
+  filter: var(--disabled-filter);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.Icon {
+  /* '*Icon*' wrapper container */
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.Content {
+  /* '*Icon*' inner '*span*' */
+  position: absolute;
+  height: 100%; /* mimic '*Icon*' (its parent) */
+  min-width: 100%; /* 100%; min-width instead of width as not to override parent's */
+  font-size: 0; /* no text while not expanded */
+  font-weight: normal;
+  border: none; /* no border while not expanded */
+  border-radius: var(--border-radius-large-vw);
+  box-shadow: none; /* no shadow while not expanded */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0; /* invisible while not expanded */
+  filter: unset !important; /* override '*Icon*'s priority */
+  z-index: -1;
+  background-color: var(--generic-background);
+  transition: var(--generic-transition);
+}
+
+.Content.left {
+  /* '*span*' must exactly overlay with '*Icon*', but '*span*'s border adds an 
+  extra "--border-width" to its container to slightly displace it. So, set an 
+  equally large negative value as "position: right" to correct it */
+  right: calc(-1 * var(--border-width-vw));
+}
+
+.Content.right {
+  /* same as .Content.left */
+  left: calc(-1 * var(--border-width-vw));
+}
+
+.ContentExpanded {
+  /* '*Icon*' inner '*span*' when `expanded` is true */
+  max-width: unset;
+  min-width: 310%; /* min-width instead of width to ensure a default */
+  font-size: var(--font-size-vw);
+  opacity: 1; /* restore visibility */
+  border: inherit; /* inherit border from the '*Icon*' */
+  box-shadow: inherit; /* inherit shadows from the '*Icon*' */
+  filter: brightness(130%) !important; /* override '*Icon*'s priority */
+}
+
+.ContentExpanded[disabled] {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.ContentExpanded.left {
+  padding-right: 80%; /* as not to collide with the icon */
+  padding-left: 15%;
+}
+
+.ContentExpanded.right {
+  padding-left: 80%; /* same as above */
+  padding-right: 15%;
+}
+
+.Barrier {
+  /* invisible '*div*' to block clicks at border if `expanded` is false */
+  min-width: 110%;
+  height: 110%;
+  position: absolute;
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Content {
+    /* '*Icon*' inner '*span*' */
+    border-radius: var(--border-radius-large-vh);
+  }
+
+  .ContentExpanded {
+    /* '*Icon*' inner '*span*' when `expanded` is true */
+    font-size: var(--font-size-vh);
+  }
+
+  .Content.left {
+    right: calc(-1 * var(--border-width-vh));
+  }
+
+  .Content.right {
+    left: calc(-1 * var(--border-width-vh));
+  }
+}
+/* end all devices portrait */

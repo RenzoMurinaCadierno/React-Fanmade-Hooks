@@ -1,0 +1,133 @@
+/* all devices landscape */
+.Container {
+  /* wrapper container */
+  position: relative;
+  min-width: 8vw;
+}
+
+.InputContainer {
+  /* StyledInput's container '*div*' */
+  max-width: 100%;
+  min-width: 100%;
+}
+
+.ValidationContainer {
+  /* validation msg bubble '*div*' container */
+  min-width: 100%;
+  max-height: 200%;
+  position: absolute;
+  margin: auto !important;
+  background: var(--translucent-background);
+  overflow-y: auto;
+  animation: fade-in 200ms ease-in forwards;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.ValidationMessage {
+  /* validation msg '*Text*' */
+  max-height: 200%;
+  z-index: 2;
+}
+
+.Container > span {
+  /* validation msg arrow */
+  position: absolute;
+  width: 2.5vw !important;
+  height: 2.5vw;
+  background: var(--generic-background);
+  border-top: none;
+  border-left: none;
+  box-shadow: none;
+  clip-path: polygon(100% 0, 100% 0, 100% 100%, 0 100%, 0 50%);
+  animation: fade-in 200ms ease-in forwards;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ValidationContainer.top {
+  /* validation msg bubble '*div*' on "top" `validationContainerAnchor` */
+  bottom: 140%;
+  left: 0;
+  right: 0;
+}
+
+.Container > span.top {
+  /* validation msg arrow on "top" `validationContainerAnchor` */
+  bottom: 150%;
+  right: 3%;
+  transform: rotate(45deg) translate(45%, 55%);
+}
+
+.ValidationContainer.right {
+  /* validation msg bubble '*div*' on "right" `validationContainerAnchor` */
+  top: 50%;
+  right: -87%;
+  transform: translateY(-50%);
+  min-width: 50%;
+  max-height: 300%;
+}
+
+.Container > span.right {
+  /* validation msg arrow on "right" `validationContainerAnchor` */
+  top: 50%;
+  right: -13%;
+  transform: rotate(135deg) translate(-75%, 25%);
+}
+
+.ValidationContainer.bottom {
+  /* validation msg bubble '*div*' on "bottom" `validationContainerAnchor` */
+  top: 140%;
+  left: 0;
+  right: 0;
+}
+
+.Container > span.bottom {
+  /* validation msg arrow on "bottom" `validationContainerAnchor` */
+  transform: rotate(-135deg) translate(45%, 55%);
+  top: 150%;
+  right: 3%;
+}
+
+.ValidationContainer.left {
+  /* validation msg bubble '*div*' on "left" `validationContainerAnchor` */
+  top: 50%;
+  left: -87%;
+  transform: translateY(-50%);
+  min-width: 50%;
+  max-height: 300%;
+}
+
+.Container > span.left {
+  /* validation msg arrow on "left" `validationContainerAnchor` */
+  top: 50%;
+  left: -20%;
+  transform: rotate(-45deg) translate(75%, -25%);
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    /* wrapper container */
+    min-width: 8vh;
+  }
+
+  .Container > span {
+    /* validation msg arrow */
+    width: 2.5vh !important;
+    height: 2.5vh;
+  }
+}
+/* end all devices portrait */
+
+/* animation keyframes */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* end animation keyframes */

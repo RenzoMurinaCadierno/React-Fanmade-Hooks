@@ -1,0 +1,63 @@
+/* all devices landscape */
+.Container {
+  /* wrapper for buttons, '*SlotsSpinningSlot*' and '*SlotsScoreSide*' */
+  position: relative;
+}
+
+.ImgToggleButton,
+.ResetButton {
+  /* reset game and svg/icon toggler buttons */
+  position: absolute;
+  top: 17%;
+  right: -4%;
+  width: 20%;
+  font-size: var(--font-size-vw);
+  /* font-weight: bold; */
+}
+
+.ImgToggleButton {
+  /* svg/icon toggler button */
+  right: unset;
+  left: -4%;
+}
+
+.Scores,
+.Stats {
+  /* both '*SlotScoreSide*'s */
+  width: 49%;
+  height: 25%;
+  margin-top: 1.5%;
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .ImgToggleButton,
+  .ResetButton {
+    /* reset game and svg/icon toggler buttons */
+    top: -15%;
+    width: 40%;
+    font-size: var(--font-size-vh);
+    left: 2%;
+  }
+
+  .ResetButton {
+    /* svg/icon toggler button */
+    left: unset;
+    right: 2%;
+  }
+
+  .Scores {
+    /* "Scores" '*SlotScoreSide*'s */
+    order: -1;
+    width: 25%;
+    margin-top: unset;
+  }
+
+  .Stats {
+    /* "Stats" '*SlotScoreSide*'s */
+    width: 25%;
+    margin-top: unset;
+  }
+}
+/* end all devices portrait */

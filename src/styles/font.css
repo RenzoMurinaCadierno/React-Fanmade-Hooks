@@ -1,0 +1,37 @@
+:root {
+  --font-size-small-vw: 1.7vw;
+  --font-size-small-vh: 1.7vh;
+
+  --font-size-vw: 2.2vw;
+  --font-size-vh: 2.2vh;
+
+  --font-size-h6-vw: 2.4vw;
+  --font-size-h6-vh: 2.4vh;
+
+  --font-size-h5-vw: 2.8vw;
+  --font-size-h5-vh: 2.8vh;
+
+  --font-size-h4-vw: 3.2vw;
+  --font-size-h4-vh: 3.2vh;
+
+  --font-size-h3-vw: 3.8vw;
+  --font-size-h3-vh: 3.8vh;
+
+  --font-size-h2-vw: 4.5vw;
+  --font-size-h2-vh: 4.5vh;
+
+  --font-size-h1-vw: 5vw;
+  --font-size-h1-vh: 5vh;
+
+  --letter-spacing-small-vw: 0.1vw;
+  --letter-spacing-small-vh: 0.1vh;
+
+  --letter-spacing-vw: 0.2vw;
+  --letter-spacing-vh: 0.2vh;
+
+  --letter-spacing-medium-vw: 0.4vw;
+  --letter-spacing-medium-vh: 0.4vh;
+
+  --letter-spacing-large-vw: 0.8vw;
+  --letter-spacing-large-vh: 0.8vh;
+}

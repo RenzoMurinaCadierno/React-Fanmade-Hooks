@@ -1,0 +1,80 @@
+/* all devices landscape */
+.Container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  height: 95%;
+  width: 100%;
+}
+
+.CmpDescContainer {
+  margin: 0 var(--small-margin-vw);
+}
+
+.CmpDescContent {
+  font-size: 2.1vw;
+  font-weight: normal;
+  margin: var(--small-margin-vw);
+}
+
+.CmpDescExpIconContainer {
+  top: unset;
+  bottom: 0;
+  left: 0;
+  margin: 0 0 1vw 1vw;
+}
+
+.CmpDescExpIconContent {
+}
+
+.CmpTest {
+  width: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    flex-direction: column;
+    width: 95%;
+  }
+
+  .CmpDescContainer {
+    width: 90%;
+    margin: 0;
+  }
+
+  .CmpDescContent {
+    font-size: 2vh;
+    margin: var(--small-margin-vh);
+  }
+
+  .CmpDescExpIconContainer {
+    /* since we are not listening to media query changes using JS, we need to 
+       directly modify the classes. This would have been much easier by simply 
+       using the right "props" in 'ExpandableIcon' */
+    top: 0;
+    bottom: unset;
+    left: unset;
+    margin: 1vh 1vh 0 0;
+  }
+
+  .CmpDescExpIconContent {
+    /* same as above */
+    right: 0;
+    left: unset !important;
+    padding-right: 85% !important;
+    padding-left: 10% !important;
+  }
+
+  .CmpTest {
+    width: 100%;
+    margin: var(--large-margin-vh);
+  }
+}
+/* end all devices portrait */

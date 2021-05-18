@@ -1,0 +1,28 @@
+{
+  "appbarItems": {
+    "UI & UX": ["useMediaQuery", "useTimer"],
+    "Form handlers": ["useInputHandlers"],
+    "State managers": [
+      "useCount",
+      "useClassNameToggle",
+      "useLocalStorage",
+      "usePreviousValue",
+      "useReRender",
+      "useToggle"
+    ],
+    "Effect controllers": [
+      "useAnimatedNumber",
+      "useEffectOnce",
+      "useEffectXTimes"
+    ],
+    "Callbacks": ["useCallbackOnce", "useCallbackXTimes"]
+  },
+  "urls": {
+    "github": {
+      "main": "https://github.com/RenzoMurinaCadierno/",
+      "repo": "https://github.com/RenzoMurinaCadierno/Yugi-Calculator-Max/",
+      "hooks": "https://github.com/RenzoMurinaCadierno/Yugi-Calculator-Max/tree/master/src/hooks/independent/"
+    },
+    "linkedin": "https://www.linkedin.com/in/renzomurinacadierno/"
+  }
+}

@@ -1,0 +1,198 @@
+/* all devices landscape */
+.Container {
+  width: 95%;
+}
+
+.CmpDescContainer {
+  margin: 0;
+}
+
+.CmpDescContent {
+  font-weight: normal;
+  margin: var(--small-margin-vw);
+  font-size: 2.2vw;
+}
+
+.CmpTest {
+  width: 70%;
+  height: 80%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.CmpTest h4 {
+  /* "Practice mode" / game words */
+  grid-row: 1/3; /* should take one full row */
+  margin-top: var(--small-margin-vw);
+  transition: var(--generic-transition);
+}
+
+.CmpTest p {
+  /* Help text */
+  font-size: var(--font-size-small-vw);
+  align-self: flex-start;
+  margin-top: var(--small-margin-vw);
+  transition: unset;
+}
+
+.CmpTest button {
+  width: 55%;
+}
+
+.CmpTest button:nth-child(3) {
+  /* "Start game" button */
+  align-self: flex-end;
+}
+
+.Summary {
+  /* upper part (first wrapper '*div*') of '*ResultsSummary*' */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  gap: 2%;
+  margin: 1%;
+}
+
+.Summary h4 {
+  /* top-left percentage number in '*Modal*' */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12%;
+  margin: 3% 1%;
+  transform: rotate(-30deg);
+  opacity: 0.7;
+}
+
+.Summary h5 {
+  /* "Accuracy x/x in '*Modal*' */
+  grid-area: 1/4/1/1; /* should take the full row */
+  margin: 0 0 0.5% 0;
+}
+
+.Summary p {
+  margin: 0;
+}
+
+.Answer {
+  /* individual '*div*' for 'correct words | typed words' */
+  display: inline-block;
+  height: 3.5vw; /* keep height and line-height always aligned */
+  line-height: 3.5vw;
+  padding: var(--small-padding-vw) var(--large-padding-vw);
+  margin: var(--generic-margin-vw);
+  border: var(--border-secondary-3-vw);
+  border-radius: var(--border-radius-large-vw);
+  box-shadow: var(--box-shadow-secondary-1-vw);
+  color: var(--secondary-1);
+  font-size: var(--font-size-vw);
+  font-style: italic;
+  letter-spacing: var(--letter-spacing-vw);
+  overflow-y: auto;
+}
+
+.CorrectAnswer {
+  /* .Answer '*div*'s but with primary coloring */
+  border: var(--border-primary-3-vw);
+  box-shadow: var(--box-shadow-primary-1-vw);
+  color: var(--primary-1);
+}
+
+.InputContainer {
+  /* outermost '*div*' in '*StyledInput*' */
+  width: 85%;
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    flex-direction: column;
+    height: 90%;
+  }
+
+  .CmpDescContent {
+    margin: var(--small-margin-vh);
+    font-size: 2.25vh;
+  }
+
+  .CmpDescContent {
+    margin: var(--small-margin-vh);
+  }
+
+  .CmpTest {
+    width: 95%;
+    height: 45%;
+    grid-template-rows: repeat(5, 1fr);
+  }
+
+  .CmpTest h4 {
+    /* "Practice mode" / game words */
+    grid-row: unset;
+    margin-top: var(--large-margin-vh);
+  }
+
+  .CmpTest p {
+    /* Help text */
+    font-size: var(--font-size-small-vh);
+    margin-top: var(--small-margin-vh);
+    align-self: center;
+  }
+
+  .CmpTest button {
+    width: 65%;
+    align-self: flex-start;
+  }
+
+  .Summary {
+    /* upper part (first wrapper '*div*') of '*ResultsSummary*' */
+    height: 40%;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    gap: unset;
+    margin: 8% 0 3% 0;
+  }
+
+  .Summary h4 {
+    /* top-left percentage number in '*Modal*' */
+    width: 28%;
+    margin: 6% 2%;
+    transform: rotate(-30deg);
+  }
+
+  .Summary h5 {
+    /* "Accuracy x/x in '*Modal*' */
+    grid-area: unset;
+    margin-bottom: 3%;
+  }
+
+  .Answer {
+    /* individual '*div*' for 'correct words | typed words' */
+    height: 3.5vh;
+    line-height: 3.5vh;
+    padding: var(--small-padding-vh) var(--large-padding-vh);
+    margin: var(--generic-margin-vh);
+    border: var(--border-secondary-3-vh);
+    border-radius: var(--border-radius-large-vh);
+    box-shadow: var(--box-shadow-secondary-1-vh);
+    font-size: var(--font-size-vh);
+    letter-spacing: var(--letter-spacing-vh);
+  }
+
+  .CorrectAnswer {
+    /* .Answer '*div*'s but with primary coloring */
+    border: var(--border-primary-3-vh);
+    box-shadow: var(--box-shadow-primary-1-vh);
+  }
+
+  .InputContainer {
+    /* outermost '*div*' in '*StyledInput*' */
+    width: 75%;
+    align-self: flex-end;
+  }
+}
+/* end all devices portrait */

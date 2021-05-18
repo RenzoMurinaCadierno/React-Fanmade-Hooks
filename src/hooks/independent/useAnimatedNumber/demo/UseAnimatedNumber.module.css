@@ -1,0 +1,42 @@
+/* all devices landscape */
+.CmpDescContainer {
+  /* hook description wrapper */
+  width: 95%;
+  height: 35%;
+  margin: 0 !important;
+}
+
+.CmpDescContent {
+  /* paragraphs in hook description */
+  font-weight: normal;
+  margin: var(--small-margin-vw);
+}
+
+.CmpTest {
+  /* section that contains the 'Carousel' */
+  width: 90%;
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .CmpDescContainer {
+    /* hook description wrapper */
+    height: 30%;
+    margin-bottom: 10vw !important;
+  }
+
+  .CmpDescContent {
+    /* paragraphs in hook description */
+    margin: var(--small-margin-vh);
+    font-size: var(--font-size-vh);
+  }
+
+  .CmpTest {
+    /* section that contains the 'Carousel' */
+    height: 50%;
+    width: 95%;
+    display: flex;
+  }
+}
+/* end all devices portrait */

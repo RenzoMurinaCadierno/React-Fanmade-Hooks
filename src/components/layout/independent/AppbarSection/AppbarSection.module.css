@@ -1,0 +1,123 @@
+/* all devices portrait */
+.Container {
+  /* wrapper container */
+  margin: var(--small-margin-vw) auto;
+  transform: scaleX(0);
+  transition: all 200ms ease-out;
+  outline: none;
+  cursor: pointer;
+  width: 95%;
+}
+
+.ShowContainer {
+  /* wrapper container, when "st.showContainer" is true */
+  transform: scaleX(1);
+}
+
+.Title {
+  /* the sections's title '*div*' */
+  margin: var(--small-margin-vw) auto;
+  padding: var(--small-padding-vw) 0;
+  background: linear-gradient(
+    135deg,
+    rgba(6, 6, 6, 1) 5%,
+    var(--primary-3) 50%,
+    rgba(6, 6, 6, 1) 95%
+  );
+  opacity: 0.9;
+  color: var(--primary-0);
+  letter-spacing: var(--letter-spacing-vw);
+  font-size: var(--font-size-h6-vw);
+  font-style: italic;
+  text-shadow: var(--text-shadow-background-vw);
+  transition: all 200ms ease-out;
+}
+
+.Content {
+  /* '*AppbarLink*'s wrapper */
+  transform: scale(0) translateY(-100%);
+  transition: all 250ms ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.ShowContent {
+  /* '*AppbarLink*'s wrapper, when the "st.showContent" is true */
+  padding: var(--small-padding-vw) 0;
+  transform: scale(1) translateY(0);
+  max-height: 4000px;
+}
+
+.Title:hover {
+  /* hovering on title */
+  background: linear-gradient(
+    135deg,
+    rgba(6, 6, 6, 1) 5%,
+    var(--primary-2) 50%,
+    rgba(6, 6, 6, 1) 95%
+  );
+}
+
+.Container:focus .Title {
+  /* styles for .Title when "st.showContainer" is true */
+  font-weight: bold;
+  background: linear-gradient(
+    135deg,
+    rgba(6, 6, 6, 1) 5%,
+    var(--primary-1) 50%,
+    rgba(6, 6, 6, 1) 95%
+  );
+  opacity: 1;
+}
+/* end all devices portrait */
+
+/* all devices landscape */
+@media screen and (orientation: portrait) {
+  .Container {
+    /* wrapper container */
+    margin: var(--small-margin-vh) auto;
+  }
+
+  .Title {
+    /* the section's title '*div*' */
+    margin: var(--small-margin-vh) auto;
+    padding: var(--small-padding-vh) 0;
+    letter-spacing: var(--letter-spacing-vh);
+    font-size: var(--font-size-h6-vh);
+    text-shadow: var(--text-shadow-background-vh);
+    background: linear-gradient(
+      135deg,
+      rgba(6, 6, 6, 1) 11%,
+      var(--primary-3) 50%,
+      rgba(6, 6, 6, 1) 89%
+    );
+  }
+
+  .Title:hover {
+    /* hovering on title */
+    background: linear-gradient(
+      135deg,
+      rgba(6, 6, 6, 1) 11%,
+      var(--primary-2) 50%,
+      rgba(6, 6, 6, 1) 89%
+    );
+  }
+
+  .Container:focus .Title {
+    /* styles for .Title when this "st.showContainer" is true */
+    font-weight: bold;
+    background: linear-gradient(
+      135deg,
+      rgba(6, 6, 6, 1) 11%,
+      var(--primary-1) 50%,
+      rgba(6, 6, 6, 1) 89%
+    );
+    opacity: 1;
+  }
+
+  .ShowContent {
+    /* '*AppbarLink*'s wrapper, when the "st.showContent" is true */
+    padding: var(--generic-padding-vh) 0;
+  }
+}
+/* end all devices landscape */

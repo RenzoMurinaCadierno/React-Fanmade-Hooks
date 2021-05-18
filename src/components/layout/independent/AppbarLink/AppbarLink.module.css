@@ -1,0 +1,59 @@
+/* all devices landscape */
+.Container {
+  /* outer wrapper */
+  display: inline-block;
+  vertical-align: middle;
+  padding: var(--generic-padding-vw) var(--large-padding-vw);
+  margin: var(--generic-margin-vw);
+  border: var(--border-secondary-3-vw);
+  border-radius: var(--border-radius-large-vw);
+  box-shadow: var(--box-shadow-secondary-1-vw);
+  color: var(--secondary-1);
+  font-size: var(--font-size-vw);
+  font-style: italic;
+  letter-spacing: var(--letter-spacing-vw);
+  cursor: pointer;
+  outline: none;
+}
+
+.Active,
+.Container:hover,
+.Container:active,
+.Container.focus {
+  /* outer wrapper when `isActive` is true */
+  color: var(--primary-0);
+  border: var(--border-primary-1-vw);
+  box-shadow: var(--box-shadow-primary-0-vw-hover);
+}
+
+.Container * {
+  /* center everything rendered inside wrapper container */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    /* outer wrapper */
+    padding: var(--generic-padding-vh) var(--large-padding-vh);
+    margin: var(--generic-margin-vh);
+    border: var(--border-secondary-3-vh);
+    border-radius: var(--border-radius-large-vh);
+    box-shadow: var(--box-shadow-secondary-1-vh);
+    font-size: var(--font-size-vh);
+    letter-spacing: var(--letter-spacing-vh);
+  }
+
+  .Active,
+  .Container:hover,
+  .Container:active,
+  .Container.focus {
+    /* outer wrapper when `isActive` is true */
+    border: var(--border-primary-1-vh);
+    box-shadow: var(--box-shadow-primary-0-vh-hover);
+  }
+}
+/* end all devices portrait */

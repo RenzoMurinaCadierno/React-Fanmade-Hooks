@@ -1,0 +1,163 @@
+/* all devices landscape */
+.Container {
+  /* wrapper '*div*' */
+  width: 4vw; /* hard-coded dimensions. Can be changed by... */
+  height: 3.95vw; /* ...assigning a className to target container. */
+  font-size: var(--font-size-vw);
+  font-weight: bold;
+  font-style: italic;
+  letter-spacing: var(--letter-spacing-small-vw);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--generic-transition);
+}
+
+.Container * {
+  width: 55%; /* everything inside container should adjust width */
+}
+
+.Container[disabled] {
+  filter: var(--disabled-filter); /* gray everything out */
+  cursor: not-allowed;
+  pointer-events: none; /* disable clicks */
+}
+
+/* classNames added by `type` */
+.primary,
+.primary-0 {
+  color: var(--primary-1);
+  border: var(--border-primary-0-vw);
+  box-shadow: var(--box-shadow-primary-0-vw);
+}
+
+.primary:hover,
+.primary:active,
+.primary:focus,
+.primary-0:hover,
+.primary-0:active,
+.primary-0:focus {
+  background-color: var(--primary-1-translucent-background);
+  color: var(--primary-0);
+}
+
+.primary-1 {
+  color: var(--primary-3);
+  border: var(--border-primary-3-vw);
+  box-shadow: var(--box-shadow-primary-1-vw);
+}
+
+.primary-1:hover,
+.primary-1:active,
+.primary-1:focus {
+  background-color: var(--primary-2-translucent-background);
+  color: var(--primary-1);
+}
+
+.Container.primary-1 * {
+  opacity: 0.8; /* darker style than 0, make it a little opaque */
+}
+
+.Container.primary *:hover,
+.Container.primary *:active,
+.Container.primary *:focus,
+.Container.primary-0 *:hover,
+.Container.primary-0 *:active,
+.Container.primary-0 *:focus,
+.Container.primary-1 *:hover,
+.Container.primary-1 *:active,
+.Container.primary-1 *:focus {
+  filter: brightness(130%);
+}
+
+.secondary,
+.secondary-0 {
+  color: var(--secondary-1);
+  border: var(--border-secondary-0-vw);
+  box-shadow: var(--box-shadow-secondary-0-vw);
+}
+
+.secondary:hover,
+.secondary:active,
+.secondary:focus,
+.secondary-0:hover,
+.secondary-0:active,
+.secondary-0:focus {
+  background-color: var(--secondary-1-translucent-background);
+  color: var(--secondary-0);
+}
+
+.Container.secondary *,
+.Container.secondary-0 * {
+  filter: hue-rotate(200deg); /* starting from #47cbfc (primary-2) */
+}
+
+.secondary-1 {
+  color: var(--secondary-3);
+  border: var(--border-secondary-3-vw);
+  box-shadow: var(--box-shadow-secondary-1-vw);
+}
+
+.secondary-1:hover,
+.secondary-1:active,
+.secondary-1:focus {
+  background-color: var(--secondary-2-translucent-background);
+  color: var(--secondary-1);
+}
+
+.Container.secondary-1 * {
+  filter: hue-rotate(200deg);
+  opacity: 0.8; /* darker style than 0, make it a little opaque */
+}
+
+.Container.secondary *:hover,
+.Container.secondary *:active,
+.Container.secondary *:focus,
+.Container.secondary-0 *:hover,
+.Container.secondary-0 *:active,
+.Container.secondary-0 *:focus,
+.Container.secondary-1 *:hover,
+.Container.secondary-1 *:active,
+.Container.secondary-1 *:focus {
+  filter: hue-rotate(200deg) brightness(130%);
+}
+/* end classNames added by `type` */
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  /* wrapper '*div*' */
+  .Container {
+    width: 4vh;
+    height: 3.95vh;
+    font-size: var(--font-size-vh);
+    letter-spacing: var(--letter-spacing-small-vh);
+  }
+
+  /* classNames added by `type` */
+  .primary,
+  .primary-0 {
+    border: var(--border-primary-0-vh);
+    box-shadow: var(--box-shadow-primary-0-vh);
+  }
+
+  .primary-1 {
+    border: var(--border-primary-3-vh);
+    box-shadow: var(--box-shadow-primary-1-vh);
+  }
+
+  .secondary,
+  .secondary-0 {
+    border: var(--border-secondary-0-vh);
+    box-shadow: var(--box-shadow-secondary-0-vh);
+  }
+
+  .secondary-1 {
+    border: var(--border-secondary-3-vh);
+    box-shadow: var(--box-shadow-secondary-1-vh);
+  }
+  /* end classNames added by `type` */
+}
+/* end all devices portrait */

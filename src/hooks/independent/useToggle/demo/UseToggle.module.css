@@ -1,0 +1,22 @@
+/* all devices landscape */
+.Title {
+  margin-bottom: 3%;
+}
+
+.Container {
+  width: 70%;
+  height: 18%;
+}
+/* end devices portrait */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Title {
+    margin-bottom: 10%;
+  }
+
+  .Container {
+    flex-direction: column;
+  }
+}
+/* end all devices portrait */

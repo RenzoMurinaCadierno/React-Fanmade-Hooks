@@ -1,0 +1,62 @@
+/* all devices landscape */
+.PrevRolls {
+  /* each '*PrevRollContainer*', the rendered die */
+  height: 25%;
+  width: 95%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  align-items: center;
+  margin-right: 3.5%;
+}
+
+.DiceRoll {
+  /* main die (rollable) */
+  height: 20%;
+  width: 40%;
+}
+
+.Division {
+  /* '*PrevRollContainer*'s wrapper container */
+  width: 95%;
+}
+
+.Border {
+  /* '*PrevRollContainer*'s inner container */
+  width: 4.7vw;
+  height: 4.7vw;
+  font-size: var(--font-size-h4-vw);
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .DiceRoll {
+    /* main die (rollable) */
+    width: 75%;
+    height: 10%;
+  }
+
+  .PrevRolls {
+    /* each '*PrevRollContainer*', the rendered die */
+    height: 35%;
+    width: 80%;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 1fr;
+    margin-right: 0;
+  }
+
+  .Division {
+    /* '*PrevRollContainer*'s wrapper container */
+    width: 95%;
+    justify-content: space-between;
+  }
+
+  .Border {
+    /* '*PrevRollContainer*'s inner container */
+    width: 4.7vh;
+    height: 4.7vh;
+    font-size: var(--font-size-h4-vh);
+  }
+}
+/* end all devices portrait */

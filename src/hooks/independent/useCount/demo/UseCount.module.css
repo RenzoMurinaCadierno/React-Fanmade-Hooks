@@ -1,0 +1,43 @@
+.Grid {
+  width: 80%;
+  height: 40%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+.CountContainer {
+  width: 90%;
+}
+
+.StepCountContainer {
+  width: 55%;
+}
+
+.StepCountBarButton {
+  width: 45% !important;
+}
+
+@media screen and (orientation: portrait) {
+  .Grid {
+    height: 50%;
+    grid-template-rows: repeat(2, 1fr 4fr);
+    grid-template-columns: 1fr;
+    margin-top: 5%;
+  }
+
+  .StepCountContainer,
+  .CountContainer {
+    padding-bottom: 20%;
+  }
+
+  .CountContainer {
+    width: 100%;
+  }
+
+  .StepCountContainer {
+    width: 65% !important;
+  }
+}

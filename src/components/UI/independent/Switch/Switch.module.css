@@ -1,0 +1,123 @@
+/* all devices landscape */
+.Container {
+  /* wrapper container */
+  width: 10vw;
+  height: 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.Container[disabled] {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.Slider {
+  /* slide bar where button grinds */
+  position: relative;
+  width: 80%;
+  height: 50%;
+  border: var(--border-secondary-2-vw);
+  box-shadow: var(--box-shadow-secondary-1-vw);
+  border-radius: var(--border-radius-vw);
+  background-color: var(--secondary-3);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+.Slider::after {
+  /* "off" text when `isOn` is true */
+  content: "off";
+  margin: 0 5% 3% 0;
+  font-size: var(--font-size-small-vw);
+  color: var(--primary-0);
+  font-weight: bold;
+  font-style: italic;
+  letter-spacing: var(--letter-spacing-vw);
+  filter: brightness(150%);
+  transition: var(--generic-transition-out);
+}
+
+.Button {
+  /* circled button that grinds on slide bar */
+  position: absolute;
+  left: -5%;
+  top: -46%;
+  width: 55%;
+  height: 175%;
+  border: var(--border-primary-2-vw);
+  box-shadow: var(--box-shadow-primary-1-vw);
+  border-radius: 50%;
+  background-color: var(--primary-3);
+  transition: var(--generic-transition-out);
+  pointer-events: none;
+}
+
+.ContainerActive {
+  /* className added by `isOn` = true */
+  opacity: 0.8;
+}
+
+.SliderActive {
+  /* className added by `isOn` = true */
+  justify-content: flex-start;
+}
+
+.SliderActive::after {
+  /* "on" text when `isOn` is false */
+  content: "on";
+  margin: 0 0 5% 5%;
+  font-size: var(--font-size-vw);
+}
+
+.ButtonActive {
+  /* className added by `isOn` = true */
+  left: 47%;
+  background-color: var(--primary-2);
+}
+
+.Frozen {
+  /* className added by `isFrozen` = true */
+  filter: var(--disabled-filter);
+  pointer-events: none;
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    /* wrapper container */
+    width: 10vh;
+    height: 5vh;
+  }
+
+  .Slider {
+    /* slide bar where button grinds */
+    border: var(--border-secondary-2-vh);
+    box-shadow: var(--box-shadow-secondary-1-vh);
+    border-radius: var(--border-radius-vh);
+  }
+
+  .Slider::after {
+    /* "off" text when `isOn` is true */
+    font-size: var(--font-size-small-vh);
+    letter-spacing: var(--letter-spacing-vh);
+  }
+
+  .SliderActive::after {
+    /* "on" text when `isOn` is false */
+    font-size: var(--font-size-vh);
+  }
+
+  .Button {
+    /* circled button that grinds on slide bar */
+    border: var(--border-primary-2-vh);
+    box-shadow: var(--box-shadow-primary-1-vh);
+  }
+}
+/* end all devices portrait */

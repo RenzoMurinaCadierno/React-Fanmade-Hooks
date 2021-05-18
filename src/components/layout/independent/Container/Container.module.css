@@ -1,0 +1,127 @@
+/* all devices landscape */
+.Container {
+  /* component default className */
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  color: var(--primary-1);
+  margin: var(--generic-margin-vw);
+  font-size: var(--font-size-vw);
+  transition: var(--generic-transition);
+}
+
+.Container[disabled] {
+  filter: var(--disabled-filter);
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* classNames added by `flexDirection` */
+.column {
+  flex-direction: column;
+}
+
+.row {
+  flex-direction: row;
+}
+/* end classNames added by `flexDirection` */
+
+/* classNames added by `alignItems` */
+.align-center {
+  align-items: center;
+}
+
+.align-flex-start {
+  align-items: flex-start;
+}
+
+.align-flex-end {
+  align-items: flex-end;
+}
+/* end classNames added by `alignItems` */
+
+/* classNames added by `justifyContent` */
+.justify-space-around {
+  justify-content: space-around;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.justify-space-evenly {
+  justify-content: space-evenly;
+}
+
+.justify-center {
+  justify-content: center;
+}
+/* end classNames added by `justifyContent` */
+
+/* classNames added by `type` */
+.primary {
+  border: var(--border-primary-2-vw);
+  box-shadow: var(--box-shadow-primary-1-vw);
+}
+
+.secondary {
+  color: var(--secondary-1);
+  border: var(--border-secondary-2-vw);
+  box-shadow: var(--box-shadow-secondary-1-vw);
+}
+
+.danger {
+  color: var(--danger-1);
+  border: var(--border-danger-2-vw);
+  box-shadow: var(--box-shadow-danger-1-vw);
+}
+/* end classNames added by `type` */
+
+/* classNames added by `roundBorders` */
+.RoundBorders {
+  border-radius: var(--border-radius-vw);
+}
+/* end classNames added by `roundBorders` */
+
+/* classNames added by `circle` */
+.Circle {
+  border-radius: 50%;
+}
+/* end classNames added by `circle` */
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    /* component default className */
+    width: 90%;
+    font-size: var(--font-size-vh);
+    margin: var(--generic-margin-vh);
+  }
+
+  /* classNames added by `type` */
+  .primary {
+    border: var(--border-primary-2-vh);
+    box-shadow: var(--box-shadow-primary-1-vh);
+  }
+
+  .secondary {
+    border: var(--border-secondary-2-vh);
+    box-shadow: var(--box-shadow-secondary-1-vh);
+  }
+
+  .danger {
+    border: var(--border-danger-2-vh);
+    box-shadow: var(--box-shadow-danger-1-vh);
+  }
+  /* end classNames added by `type` */
+
+  /* classNames added by `roundBorders` */
+  .RoundBorders {
+    border-radius: var(--border-radius-vh);
+  }
+  /* end classNames added by `roundBorders` */
+}
+/* end all devices portrait */

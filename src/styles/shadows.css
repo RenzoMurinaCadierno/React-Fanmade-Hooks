@@ -1,0 +1,143 @@
+:root {
+  --box-shadow-primary-0-vw: 0 0 1.3vw var(--primary-2),
+    inset 0 0 1.3vw var(--primary-1);
+  --box-shadow-primary-0-vh: 0 0 1.3vh var(--primary-2),
+    inset 0 0 1.3vh var(--primary-1);
+  --box-shadow-primary-0-vw-hover: 0 0 1.7vw var(--primary-2),
+    inset 0 0 1.7vw var(--primary-1);
+  --box-shadow-primary-0-vh-hover: 0 0 1.7vh var(--primary-2),
+    inset 0 0 1.7vh var(--primary-1);
+
+  --box-shadow-primary-1-vw: 0 0 1.3vw var(--primary-3),
+    inset 0 0 1.3vw var(--primary-2);
+  --box-shadow-primary-1-vh: 0 0 1.3vh var(--primary-3),
+    inset 0 0 1.3vh var(--primary-2);
+  --box-shadow-primary-1-vw-hover: 0 0 1.7vw var(--primary-3),
+    inset 0 0 1.7vw var(--primary-2);
+  --box-shadow-primary-1-vh-hover: 0 0 1.7vh var(--primary-3),
+    inset 0 0 1.7vh var(--primary-2);
+
+  --box-shadow-secondary-0-vw: 0 0 1.3vw var(--secondary-2),
+    inset 0 0 1.3vw var(--secondary-1);
+  --box-shadow-secondary-0-vh: 0 0 1.3vh var(--secondary-2),
+    inset 0 0 1.3vh var(--secondary-1);
+  --box-shadow-secondary-0-vw-hover: 0 0 1.7vw var(--secondary-2),
+    inset 0 0 1.7vw var(--secondary-1);
+  --box-shadow-secondary-0-vh-hover: 0 0 1.7vh var(--secondary-2),
+    inset 0 0 1.7vh var(--secondary-1);
+
+  --box-shadow-secondary-1-vw: 0 0 1.3vw var(--secondary-3),
+    inset 0 0 1.3vw var(--secondary-2);
+  --box-shadow-secondary-1-vh: 0 0 1.3vh var(--secondary-3),
+    inset 0 0 1.3vh var(--secondary-2);
+  --box-shadow-secondary-1-vw-hover: 0 0 1.7vw var(--secondary-3),
+    inset 0 0 1.7vw var(--secondary-2);
+  --box-shadow-secondary-1-vh-hover: 0 0 1.7vh var(--secondary-3),
+    inset 0 0 1.7vh var(--secondary-2);
+
+  --box-shadow-danger-0-vw: 0 0 1.3vw var(--danger-2),
+    inset 0 0 1.3vw var(--danger-1);
+  --box-shadow-danger-0-vh: 0 0 1.3vh var(--danger-2),
+    inset 0 0 1.3vh var(--danger-1);
+  --box-shadow-danger-0-vw-hover: 0 0 1.7vw var(--danger-2),
+    inset 0 0 1.7vw var(--danger-1);
+  --box-shadow-danger-0-vh-hover: 0 0 1.7vh var(--danger-2),
+    inset 0 0 1.7vh var(--danger-1);
+
+  --box-shadow-danger-1-vw: 0 0 1.3vw var(--danger-3),
+    inset 0 0 1.3vw var(--danger-2);
+  --box-shadow-danger-1-vh: 0 0 1.3vh var(--danger-3),
+    inset 0 0 1.3vh var(--danger-2);
+  --box-shadow-danger-1-vw-hover: 0 0 1.7vw var(--danger-3),
+    inset 0 0 1.7vw var(--danger-2);
+  --box-shadow-danger-1-vh-hover: 0 0 1.7vh var(--danger-3),
+    inset 0 0 1.7vh var(--danger-2);
+
+  --text-shadow-primary-0-vw: 0 0 1.1vw var(--primary-1),
+    0 0 1.3vw var(--primary-2);
+  --text-shadow-primary-0-vh: 0 0 1.1vh var(--primary-1),
+    0 0 1.3vh var(--primary-2);
+  --text-shadow-primary-0-vw-hover: 0 0 1.3vw var(--primary-1),
+    0 0 1.6vw var(--primary-2);
+  --text-shadow-primary-0-vh-hover: 0 0 1.3vh var(--primary-1),
+    0 0 1.6vh var(--primary-2);
+
+  --text-shadow-primary-1-vw: 0 0 1.1vw var(--primary-2),
+    0 0 1.3vw var(--primary-3);
+  --text-shadow-primary-1-vh: 0 0 1.1vh var(--primary-2),
+    0 0 1.3vh var(--primary-3);
+  --text-shadow-primary-1-vw-hover: 0 0 1.3vw var(--primary-2),
+    0 0 1.6vw var(--primary-3);
+  --text-shadow-primary-1-vh-hover: 0 0 1.3vh var(--primary-2),
+    0 0 1.6vh var(--primary-3);
+
+  --text-shadow-secondary-0-vw: 0 0 1.1vw var(--secondary-1),
+    0 0 1.3vw var(--secondary-2);
+  --text-shadow-secondary-0-vh: 0 0 1.1vh var(--secondary-1),
+    0 0 1.3vh var(--secondary-2);
+  --text-shadow-secondary-0-vw-hover: 0 0 1.3vw var(--secondary-1),
+    0 0 1.6vw var(--secondary-2);
+  --text-shadow-secondary-0-vh-hover: 0 0 1.3vh var(--secondary-1),
+    0 0 1.6vh var(--secondary-2);
+
+  --text-shadow-secondary-1-vw: 0 0 1.1vw var(--secondary-2),
+    0 0 1.3vw var(--secondary-3);
+  --text-shadow-secondary-1-vh: 0 0 1.1vh var(--secondary-2),
+    0 0 1.3vh var(--secondary-3);
+  --text-shadow-secondary-1-vw-hover: 0 0 1.3vw var(--secondary-2),
+    0 0 1.6vw var(--secondary-3);
+  --text-shadow-secondary-1-vh-hover: 0 0 1.3vh var(--secondary-2),
+    0 0 1.6vh var(--secondary-3);
+
+  --text-shadow-danger-0-vw: 0 0 1.1vw var(--danger-1),
+    0 0 1.3vw var(--danger-2);
+  --text-shadow-danger-0-vh: 0 0 1.1vh var(--danger-1),
+    0 0 1.3vh var(--danger-2);
+  --text-shadow-danger-0-vw-hover: 0 0 1.3vw var(--danger-1),
+    0 0 1.6vw var(--danger-2);
+  --text-shadow-danger-0-vh-hover: 0 0 1.3vh var(--danger-1),
+    0 0 1.6vh var(--danger-2);
+
+  --text-shadow-danger-1-vw: 0 0 1.1vw var(--danger-2),
+    0 0 1.3vw var(--danger-3);
+  --text-shadow-danger-1-vh: 0 0 1.1vh var(--danger-2),
+    0 0 1.3vh var(--danger-3);
+  --text-shadow-danger-1-vw-hover: 0 0 1.3vw var(--danger-2),
+    0 0 1.6vw var(--danger-3);
+  --text-shadow-danger-1-vh-hover: 0 0 1.3vh var(--danger-2),
+    0 0 1.6vh var(--danger-3);
+
+  --text-shadow-background-vw: 0 0 1.1vw var(--translucent-background),
+    0 0 1.3vw var(--generic-background);
+
+  --text-shadow-background-vh: 0 0 1.1vh var(--translucent-background),
+    0 0 1.3vh var(--generic-background);
+
+  --drop-shadow-secondary-sm-vw: 0 0 0.4vw var(--secondary-1);
+  --drop-shadow-secondary-sm-vh: 0 0 0.4vh var(--secondary-1);
+  --drop-shadow-secondary-md-vw: 0 0 0.6vw var(--secondary-2);
+  --drop-shadow-secondary-md-vh: 0 0 0.6vh var(--secondary-2);
+  --drop-shadow-secondary-lg-vw: 0 0 0.8vw var(--secondary-3);
+  --drop-shadow-secondary-lg-vh: 0 0 0.8vh var(--secondary-3);
+
+  --drop-shadow-primary-sm-vw: 0 0 0.4vw var(--primary-1);
+  --drop-shadow-primary-sm-vh: 0 0 0.4vh var(--primary-1);
+  --drop-shadow-primary-md-vw: 0 0 0.6vw var(--primary-2);
+  --drop-shadow-primary-md-vh: 0 0 0.6vh var(--primary-2);
+  --drop-shadow-primary-lg-vw: 0 0 0.8vw var(--primary-3);
+  --drop-shadow-primary-lg-vh: 0 0 0.8vh var(--primary-3);
+
+  --drop-shadow-danger-sm-vw: 0 0 0.4vw var(--danger-1);
+  --drop-shadow-danger-sm-vh: 0 0 0.4vh var(--danger-1);
+  --drop-shadow-danger-md-vw: 0 0 0.6vw var(--danger-2);
+  --drop-shadow-danger-md-vh: 0 0 0.6vh var(--danger-2);
+  --drop-shadow-danger-lg-vw: 0 0 0.8vw var(--danger-3);
+  --drop-shadow-danger-lg-vh: 0 0 0.8vh var(--danger-3);
+
+  --drop-shadow-background-sm-vw: 0 0 0.4vw var(--generic-background);
+  --drop-shadow-background-sm-vh: 0 0 0.4vh var(--generic-background);
+  --drop-shadow-background-md-vw: 0 0 0.6vw var(--generic-background);
+  --drop-shadow-background-md-vh: 0 0 0.6vh var(--generic-background);
+  --drop-shadow-background-lg-vw: 0 0 0.8vw var(--generic-background);
+  --drop-shadow-background-lg-vh: 0 0 0.8vh var(--generic-background);
+}

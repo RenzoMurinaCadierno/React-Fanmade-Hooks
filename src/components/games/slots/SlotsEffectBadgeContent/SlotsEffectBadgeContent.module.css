@@ -1,0 +1,56 @@
+/* all devices landscape */
+.Container {
+  /* wrapper 'div' container */
+  width: 100%;
+  height: 100%;
+}
+
+.Container.primary {
+  color: var(--primary-0);
+}
+
+.Container.secondary {
+  color: var(--secondary-0);
+}
+
+.Content {
+  /* 'span' JSX inside wrapper 'div' */
+  z-index: 1;
+  font-style: italic;
+  font-weight: bold;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: var(--text-shadow-background-vw);
+}
+
+.Image {
+  /* 'img' JSX inside wrapper 'div' */
+  position: absolute;
+  bottom: 10%;
+  right: -10%;
+  opacity: 0.9;
+  width: 80%;
+  filter: drop-shadow(var(--drop-shadow-background-md-vw)) brightness(120%);
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Content {
+    /* 'span' JSX inside wrapper 'div' */
+    text-shadow: var(--text-shadow-background-vh);
+    opacity: 0.9;
+  }
+
+  .Image {
+    /* 'img' JSX inside wrapper 'div' */
+    bottom: 20%;
+    right: 0;
+    opacity: 0.9;
+    width: 70%;
+    filter: drop-shadow(var(--drop-shadow-background-md-vh)) brightness(120%);
+  }
+}
+/* end all devices portrait */

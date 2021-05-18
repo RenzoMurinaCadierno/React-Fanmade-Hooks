@@ -1,0 +1,116 @@
+/* 
+  NOTE: Unlike all other components' CSS files, we do not immediately apply 
+    rules for "landscape" and "portrait" views. The respective classes are
+    to be added by "useMediaQuery" hook, which is the idea of this example.
+*/
+
+/* generic styling */
+.Container,
+.Header,
+.CurrentMQs,
+.DescAndMQs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.Header {
+  /* wrapper for social media '*ExpandableIcon*'s */
+  justify-content: space-evenly;
+  transition: var(--generic-transition-out);
+}
+
+.CmpDescContainer,
+.CurrentMQs,
+.DescAndMQs {
+  width: 95%;
+}
+
+.CmpDescContent {
+  font-weight: normal;
+}
+
+.MQSeparation {
+  /* wrapper for both media query rules and media query matches '*Text*'  */
+  display: grid;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.DescAndMQs {
+  flex-direction: column;
+}
+/* end generic styling */
+
+/* dynamically-added landscape classes */
+.Container-landscape {
+  flex-direction: row;
+}
+
+.Header-landscape {
+  width: 8%;
+  flex-direction: column;
+}
+
+.Header-landscape * {
+  margin: var(--small-margin-vw) 0;
+}
+
+.DescAndMQs-landscape {
+  width: 95%;
+}
+
+.CmpDescContent-landscape {
+  margin: 0.5%;
+}
+
+.MQSeparation-landscape {
+  grid-template-columns: repeat(7, 1fr);
+}
+/* end dynamically-added landscape classes */
+
+/* dynamically-added portrait classes */
+.Container-portrait {
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.Header-portrait {
+  width: 90%;
+  height: 8%;
+}
+
+.Header-portrait * {
+  margin: var(--small-margin-vh) 0;
+}
+
+.DescAndMQs-portrait {
+  width: 90%;
+  height: 85%;
+}
+
+.CmpDescContent-portrait {
+  margin: 2% 0;
+}
+
+.MQSeparation-portrait {
+  grid-auto-flow: dense;
+  margin-bottom: 10%;
+  margin-top: 2%;
+}
+
+.MQSeparation-portrait p:nth-child(-n + 8) {
+  grid-column: 1/2;
+}
+
+.MQSeparation-portrait p:nth-child(n + 8) {
+  grid-column: 2/3;
+}
+/* end dynamically-added portrait classes */

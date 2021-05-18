@@ -1,0 +1,17 @@
+change utils.js classes on all components to be cmpDesc and cmpTest
+
+useTextProcessor (read write) https://codepen.io/rkotze/pen/zjRXYr
+useMouseCoords -> example button that moves when hovered closeby
+useLatency -> simulate a promise.resolve after timeout
+
+hitTarget spawn % 3 NO. make it % prevst.hits / 3, then by +3, +6, +12
+
+change github url
+
+arrows in carrousel. They are inconsistent
+
+fiddle SlotsSpinningSlots timeouts
+
+jsconfig.json!!!!:  quitar "React" y ../../../hub
+
+Appbar.Section

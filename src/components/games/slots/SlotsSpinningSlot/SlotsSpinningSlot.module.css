@@ -1,0 +1,72 @@
+/* all devices landscape */
+.SlotCarouselContainer {
+  /* root wrapper */
+  width: 15vw;
+  height: 15vw;
+}
+
+.SlotImage {
+  /* '*CarouselSlide*' svg image children (no icon) */
+  width: 75%;
+  cursor: pointer;
+}
+
+.SlotIcon {
+  /* '*CarouselSlide*' children when using plain icons instead of svg */
+  height: 90%;
+  font-size: 400%;
+  line-height: 115%;
+  cursor: pointer;
+}
+
+.SlotCarouselContainer[disabled] {
+  /* on score animation playing or on game over */
+  filter: var(--disabled-filter);
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .SlotCarouselContainer {
+    /* root wrapper */
+    width: 15vh;
+    height: 17vh;
+  }
+
+  .SlotIcon {
+    /* '*CarouselSlide*' children when using plain icons instead of svg */
+    font-size: 450%;
+    line-height: 115%;
+  }
+}
+/* end all devices portrait */
+
+/* '*CarouselSlide*' useClassNameToggle added classNames */
+.AnimateMount {
+  animation: animate-mount 120ms linear forwards;
+}
+
+.AnimateUnmount {
+  animation: animate-unmount 120ms linear forwards;
+}
+/* end '*CarouselSlide*' useClassNameToggle added classNames */
+
+/* '*CarouselSlide*' useClassNameToggle animation keyframes */
+@keyframes animate-mount {
+  from {
+    transform: translateY(130%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes animate-unmount {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-130%);
+  }
+}
+/* end '*CarouselSlide*' useClassNameToggle animation keyframes */

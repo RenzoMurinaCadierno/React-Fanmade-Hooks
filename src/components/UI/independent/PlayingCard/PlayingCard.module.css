@@ -1,0 +1,124 @@
+/* all devices landscape */
+.Container {
+  /* wrapper for the whole component */
+  width: 7vw;
+  height: 12vw;
+  padding: var(--generic-padding-vw);
+  margin: var(--generic-margin-vw);
+  border: var(--border-primary-2-vw);
+  box-shadow: var(--box-shadow-primary-1-vw);
+  border-radius: var(--border-radius-vw);
+  background: var(--generic-background);
+  color: var(--primary-0);
+  letter-spacing: var(--letter-spacing-vw);
+  font-size: var(--font-size-h2-vw);
+  opacity: 0.9;
+  outline: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--generic-transition);
+}
+
+.Container:hover:enabled {
+  /* adds highlight box shadow when hovered */
+  box-shadow: var(--box-shadow-primary-0-vw-hover);
+}
+
+.Container:disabled {
+  filter: var(--disabled-filter);
+  cursor: not-allowed;
+}
+
+.Clickable {
+  cursor: pointer;
+}
+
+.Clickable:hover,
+.Clickable:focus,
+.Clickable:active {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.Clickable:active,
+.Clickable:focus {
+  border: var(--border-primary-1-vw);
+  box-shadow: var(--box-shadow-primary-0-vw);
+  transform: scale(1.1);
+}
+
+.Suit {
+  /* 'suit' strings or JSX */
+  position: absolute;
+  top: -1%;
+  left: 4%;
+  font-size: var(--font-size-h5-vw);
+  width: 30%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.Reverse {
+  /* upside-down 'suit' string or JSX */
+  transform: rotate(180deg);
+  left: unset;
+  top: unset;
+  right: 4%;
+  bottom: -1%;
+}
+
+.Suit > * {
+  width: 85%; /* width for anything inside .Suit is 85% */
+}
+
+.d,
+.h {
+  /* poker card's diamonds and hearts suits */
+  color: var(--secondary-2);
+}
+
+.c,
+.s {
+  /* poker card's clubs and spades suits */
+  color: var(--primary-2);
+}
+
+.j {
+  /* poker card's joker suit (card, really. But suit jsx) */
+  color: var(--secondary-0);
+}
+
+.string-suit {
+  /* non-poker card's string suits */
+  color: var(--primary-2);
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    /* wrapper for the whole component */
+    width: 7vh;
+    height: 12vh;
+    padding: var(--generic-padding-vh);
+    margin: var(--generic-margin-vh);
+    border: var(--border-primary-2-vh);
+    box-shadow: var(--box-shadow-primary-1-vh);
+    border-radius: var(--border-radius-vh);
+    letter-spacing: var(--letter-spacing-vh);
+    font-size: var(--font-size-h2-vh);
+  }
+
+  .Container:hover:enabled {
+    /* adds highlight box shadow when hovered */
+    box-shadow: var(--box-shadow-primary-0-vh-hover);
+  }
+
+  .Suit {
+    /* 'suit' strings or JSX */
+    font-size: var(--font-size-h5-vh);
+  }
+}
+/* end all devices portrait */

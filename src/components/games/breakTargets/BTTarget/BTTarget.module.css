@@ -1,0 +1,189 @@
+/* all devices landscape */
+.Container {
+  width: 5vw;
+  height: 5vw;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.Target {
+  width: 95%;
+  height: 95%;
+  border-radius: 50%;
+  animation: appear 150ms ease-in forwards;
+}
+
+.Target::after,
+.Target::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 55%;
+  height: 55%;
+  border-radius: 50%;
+  transition: inherit;
+}
+
+.Target::after {
+  width: 15%;
+  height: 15%;
+}
+
+.Content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-shadow: var(--text-shadow-background-vw);
+  pointer-events: none;
+}
+
+.Content.primary,
+.Content.secondary {
+  box-shadow: unset;
+  border: unset;
+}
+
+.Content.primary {
+  color: var(--primary-2);
+}
+
+.Content.secondary {
+  color: var(--secondary-2);
+}
+
+.primary {
+  border: var(--border-primary-3-vw);
+  box-shadow: var(--box-shadow-primary-1-vw);
+}
+
+.primary::before {
+  border: var(--border-primary-2-vw);
+  box-shadow: var(--box-shadow-primary-1-vw);
+}
+
+.primary::after {
+  border: var(--border-primary-1-vw);
+  box-shadow: var(--box-shadow-primary-0-vw);
+}
+
+.secondary {
+  border: var(--border-secondary-3-vw);
+  box-shadow: var(--box-shadow-secondary-1-vw);
+}
+
+.secondary::before {
+  border: var(--border-secondary-2-vw);
+  box-shadow: var(--box-shadow-secondary-1-vw);
+}
+
+.secondary::after {
+  width: 15%;
+  height: 15%;
+  border: var(--border-secondary-1-vw);
+  box-shadow: var(--box-shadow-secondary-0-vw);
+}
+
+.Destroyed {
+  pointer-events: none;
+  cursor: unset;
+}
+
+.AnimateTargetDestroyed {
+  animation: animateTargetDestroyed 350ms ease-out forwards;
+}
+
+.AnimateScore {
+  animation: animateScore 350ms ease-out forwards;
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    width: 5vh;
+    height: 5vh;
+  }
+
+  .Content {
+    text-shadow: var(--text-shadow-background-vh);
+  }
+
+  .primary {
+    border: var(--border-primary-3-vh);
+    box-shadow: var(--box-shadow-primary-1-vh);
+  }
+
+  .primary::before {
+    border: var(--border-primary-2-vh);
+    box-shadow: var(--box-shadow-primary-1-vh);
+  }
+
+  .primary::after {
+    border: var(--border-primary-1-vh);
+    box-shadow: var(--box-shadow-primary-0-vh);
+  }
+
+  .secondary {
+    border: var(--border-secondary-3-vh);
+    box-shadow: var(--box-shadow-secondary-1-vh);
+  }
+
+  .secondary::before {
+    border: var(--border-secondary-2-vh);
+    box-shadow: var(--box-shadow-secondary-1-vh);
+  }
+
+  .secondary::after {
+    border: var(--border-secondary-1-vh);
+    box-shadow: var(--box-shadow-secondary-0-vh);
+  }
+}
+/* end all devices portrait */
+
+/* animation keyframes */
+@keyframes appear {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes animateTargetDestroyed {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes animateScore {
+  0% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.3) translateY(-50%);
+    opacity: 0;
+  }
+}
+/* end animation keyframes */

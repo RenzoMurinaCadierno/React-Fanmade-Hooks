@@ -1,0 +1,16 @@
+/* all devices landscape */
+.ExpIconContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 1vw 1vw 0 0;
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .ExpIconContainer {
+    margin: 1vh 1vh 0 0;
+  }
+}
+/* end all devices portrait */

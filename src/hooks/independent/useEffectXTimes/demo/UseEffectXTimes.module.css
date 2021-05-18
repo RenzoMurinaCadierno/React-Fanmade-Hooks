@@ -1,0 +1,153 @@
+/* all devices landscape */
+.Container {
+  width: 100%;
+  height: 100%;
+  margin: 0 var(--generic-margin-vw);
+}
+
+.CmpDescContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  width: 50%;
+}
+
+.CmpDescContent {
+  font-weight: normal;
+  margin: var(--small-margin-vw);
+  width: 95%;
+}
+
+.CmpDescExpIconContainer {
+  top: unset;
+  bottom: 0;
+  left: 0;
+  margin: 0 0 1vw 1vw;
+}
+
+.CmpDescExpIconContent {
+}
+
+.Grid {
+  width: 60%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr 1fr 1fr;
+}
+
+.Grid button {
+  font-size: var(--font-size-vw);
+  font-style: italic;
+}
+
+.Board {
+  /* '*Board*' wrapper '*Container*' */
+  width: 90%;
+  height: 95%;
+  position: relative;
+}
+
+.Card {
+  /* '*PlayingCard*' className. In *utils.js* */
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.Boolean,
+.BoardName {
+  position: absolute;
+  color: var(--secondary-);
+  text-shadow: var(--text-shadow-secondary-1-vw);
+  font-weight: bold;
+  letter-spacing: var(--letter-spacing-vw);
+}
+
+.BoardName {
+  /* board name '*span*' */
+  top: 20%;
+  left: -13%;
+  transform: rotate(-90deg);
+}
+
+.Boolean {
+  /* board boolean's state '*span*' */
+  bottom: 12%;
+  right: -5%;
+  transform: rotate(90deg);
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    margin: 0 var(--generic-margin-vh);
+    flex-direction: column;
+  }
+
+  .CmpDescContainer {
+    width: 95%;
+  }
+
+  .CmpDescContent {
+    margin: var(--small-margin-vh);
+  }
+
+  .CmpDescExpIconContainer {
+    /* since we are not listening to media query changes using JS, we need to 
+       directly modify the classes. This would have been much easier by simply 
+       using the right "props" in 'ExpandableIcon' */
+    top: 0;
+    bottom: unset;
+    left: unset;
+    margin: 1vh 1vh 0 0;
+  }
+
+  .CmpDescExpIconContent {
+    /* same as above */
+    right: 0;
+    left: unset !important;
+    padding-right: 85% !important;
+    padding-left: 10% !important;
+  }
+
+  .Grid {
+    width: 95%;
+    height: 45%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 1fr 1fr;
+  }
+
+  .Grid button {
+    font-size: var(--font-size-vh);
+    padding: var(--generic-padding-vh) var(--small-padding-vh);
+    height: 80%;
+    width: 90%;
+  }
+
+  .BoardName,
+  .Boolean {
+    text-shadow: var(--text-shadow-secondary-1-vh);
+    letter-spacing: var(--letter-spacing-small-vh);
+    transform: rotate(0);
+    font-style: italic;
+  }
+
+  .BoardName {
+    /* board name '*span*' */
+    top: -8%;
+    left: 4%;
+  }
+
+  .Boolean {
+    /* board boolean's state '*span*' */
+    bottom: -6%;
+    right: 4%;
+  }
+}
+/* end all devices portrait */

@@ -1,0 +1,28 @@
+:root {
+  --primary-0: rgb(146, 224, 233); /* 92e0e9 */
+  --primary-1: rgb(101, 208, 247); /* 65d0f7 */
+  --primary-2: rgb(71, 203, 252); /* 47cbfc */
+  --primary-3: rgb(27, 177, 231); /* 1bb1e7 */
+  --secondary-0: rgb(255, 219, 173); /* ffdb11 */
+  --secondary-1: rgb(255, 192, 110); /* ffc06e */
+  --secondary-2: rgb(255, 171, 60); /* ffab3c */
+  --secondary-3: rgb(214, 133, 26); /* d6851a */
+  --danger-0: rgb(251, 99, 99);
+  --danger-1: rgb(221, 88, 88);
+  --danger-2: rgb(201, 65, 65);
+  --danger-3: rgb(157, 16, 16);
+
+  --generic-background: rgb(6, 6, 6);
+  --translucent-background: rgba(6, 6, 6, 0.85);
+  --primary-0-translucent-background: rgba(101, 208, 247, 0.2);
+  --primary-1-translucent-background: rgba(71, 203, 252, 0.2);
+  --primary-2-translucent-background: rgba(27, 177, 231, 0.2);
+  --secondary-0-translucent-background: rgba(255, 192, 110, 0.2);
+  --secondary-1-translucent-background: rgba(255, 171, 60, 0.2);
+  --secondary-2-translucent-background: rgba(214, 133, 26, 0.2);
+  --danger-0-translucent-background: rgba(245, 125, 125, 0.2);
+  --danger-1-translucent-background: rgba(211, 77, 77, 0.2);
+  --danger-2-translucent-background: rgba(191, 34, 34, 0.2);
+
+  --disabled-filter: grayscale(0.9) brightness(0.55);
+}

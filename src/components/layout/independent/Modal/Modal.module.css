@@ -1,0 +1,227 @@
+/* all devices landscape */
+.Backdrop {
+  /* wrapper for the whole component. Acts as backdrop too */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--translucent-background);
+  z-index: 10;
+}
+
+.Container {
+  /* container for everything inside the modal. Rendered inside backdrop */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  padding: var(--generic-padding-vw);
+  height: 75%;
+  width: 75%;
+  border-radius: var(--border-radius-vw);
+  font-size: var(--font-size-vw);
+  letter-spacing: var(--letter-spacing-small-vw);
+  border: var(--border-primary-0-vw);
+  box-shadow: var(--box-shadow-primary-0-vw);
+  color: var(--primary-0);
+  overflow: auto;
+  background: var(--translucent-background);
+}
+
+.IconContainer {
+  /* container for "close icon" '*img*' */
+  float: right;
+  position: sticky;
+  top: 0;
+  right: 0;
+  /* extremely low width, as to regulate it across devices width with the own
+     "close icon" '*img*'s width */
+  width: 0.01%;
+}
+
+.CloseIcon {
+  /* "close icon" '*img*' */
+  position: absolute;
+  margin: -6000% -45000%;
+  width: 50000%;
+  min-width: 1.3vw;
+  cursor: pointer;
+  filter: drop-shadow(var(--drop-shadow-secondary-sm-vw))
+    drop-shadow(var(--drop-shadow-secondary-md-vw)) brightness(0.8);
+  transition: var(--generic-transition);
+}
+
+.CloseIcon:hover,
+.CloseIcon:active,
+.CloseIcon:focus {
+  filter: drop-shadow(var(--drop-shadow-secondary-sm-vw))
+    drop-shadow(var(--drop-shadow-secondary-md-vw)) brightness(1.1);
+  transform: scale(1.05);
+}
+
+.AnimateOpen {
+  /* classNames added by !`isClosing` */
+  animation: open-modal 200ms ease-in forwards;
+}
+
+.AnimateClose {
+  /* classNames added by `isClosing` */
+  animation: close-modal 200ms ease-out forwards;
+}
+
+.NotScrollable {
+  /* classNames added by !`scrollable` */
+  overflow: hidden;
+}
+
+/* classNames added by `type` */
+.primary,
+.primary-0 {
+  border: var(--border-primary-0-vw);
+  box-shadow: var(--box-shadow-primary-0-vw);
+  color: var(--primary-0);
+}
+
+.primary-1 {
+  border: var(--border-primary-2-vw);
+  box-shadow: var(--box-shadow-primary-1-vw);
+  color: var(--primary-1);
+}
+
+.secondary,
+.secondary-0 {
+  border: var(--border-secondary-1-vw);
+  box-shadow: var(--box-shadow-secondary-0-vw);
+  color: var(--secondary-0);
+}
+
+.secondary-1 {
+  border: var(--border-secondary-2-vw);
+  box-shadow: var(--box-shadow-secondary-1-vw);
+  color: var(--secondary-1);
+}
+/* end classNames added by `type` */
+
+/* classNames added by `size` */
+.small {
+  width: 35%;
+  height: 35%;
+}
+
+.medium {
+  height: 55%;
+  width: 55%;
+}
+
+.large {
+  height: 75%;
+  width: 75%;
+}
+/* end classNames added by `size` */
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    /* container for everything inside the modal. Rendered inside backdrop */
+    padding: var(--generic-padding-vh);
+    width: 70%;
+    height: 80%;
+    border-radius: var(--border-radius-vh);
+    font-size: var(--font-size-vh);
+    letter-spacing: var(--letter-spacing-small-vh);
+    border: var(--border-primary-0-vh);
+    box-shadow: var(--box-shadow-primary-0-vh);
+  }
+
+  .CloseIcon {
+    /* "close icon" '*img*' */
+    margin: -5500% -90000%;
+    width: 100000%;
+    min-width: 1.3vh;
+    filter: drop-shadow(var(--drop-shadow-secondary-sm-vh))
+      drop-shadow(var(--drop-shadow-secondary-md-vh)) brightness(0.8);
+  }
+
+  .CloseIcon:hover,
+  .CloseIcon:active,
+  .CloseIcon:focus {
+    filter: drop-shadow(var(--drop-shadow-secondary-sm-vh))
+      drop-shadow(var(--drop-shadow-secondary-md-vh)) brightness(1.1);
+  }
+
+  /* classNames added by `type` */
+  .primary,
+  .primary-0 {
+    border: var(--border-primary-0-vh);
+    box-shadow: var(--box-shadow-primary-0-vh);
+  }
+
+  .primary-1 {
+    border: var(--border-primary-2-vh);
+    box-shadow: var(--box-shadow-primary-1-vh);
+  }
+
+  .secondary,
+  .secondary-0 {
+    border: var(--border-secondary-1-vh);
+    box-shadow: var(--box-shadow-secondary-0-vh);
+  }
+
+  .secondary-1 {
+    border: var(--border-secondary-2-vh);
+    box-shadow: var(--box-shadow-secondary-1-vh);
+  }
+  /* end classNames added by`type` */
+
+  /* classNames added by `size` */
+  .small {
+    width: 60%;
+    height: 35%;
+  }
+
+  .medium {
+    width: 65%;
+    height: 50%;
+  }
+
+  .large {
+    width: 70%;
+    height: 80%;
+  }
+  /* end classNames added by `size` */
+}
+/* end all devices portrait */
+
+/* animation keyframes */
+@keyframes open-modal {
+  0% {
+    transform: translateY(-12%);
+    opacity: 0;
+  }
+  75% {
+    transform: translateY(5%);
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes close-modal {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translateY(5%);
+  }
+  100% {
+    transform: translateY(-12%);
+    opacity: 0;
+  }
+}
+/* end animation keyframes */

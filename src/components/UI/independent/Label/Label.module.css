@@ -1,0 +1,46 @@
+/* all devices landscape */
+.Container {
+  /* '*label*' JSX */
+  color: var(--primary-0);
+  font-size: var(--font-size-vw);
+  font-style: italic;
+  letter-spacing: var(--letter-spacing-vw);
+  outline: none;
+  transition: var(--generic-transition);
+  display: inline-block;
+}
+
+.Container[disabled] {
+  filter: var(--disabled-filter);
+}
+
+.text {
+  /* `targetInputType` === 'text' */
+  position: absolute;
+  top: 0;
+  text-align: left;
+}
+
+.textActive {
+  /* `targetInputType` === 'text' && `isActive` */
+  top: -60%;
+  font-size: var(--font-size-small-vw);
+  letter-spacing: var(--letter-spacing-small-vw);
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    /* '*label*' JSX */
+    letter-spacing: var(--letter-spacing-vh);
+    font-size: var(--font-size-vh);
+  }
+
+  .textActive {
+    /* `targetInputType` === 'text' && `isActive` */
+    font-size: var(--font-size-small-vh);
+    letter-spacing: var(--letter-spacing-small-vh);
+  }
+}
+/* end all devices portrait */

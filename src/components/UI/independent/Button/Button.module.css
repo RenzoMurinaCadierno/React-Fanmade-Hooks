@@ -1,0 +1,184 @@
+/* all devices landscape */
+.Container {
+  /* '*button*' className */
+  padding: var(--generic-padding-vw) var(--large-padding-vw);
+  margin: var(--generic-margin-vw);
+  border: var(--border-primary-1-vw);
+  box-shadow: var(--box-shadow-primary-0-vw);
+  background: transparent;
+  border-radius: var(--border-radius-vw);
+  color: var(--primary-0);
+  letter-spacing: var(--letter-spacing-vw);
+  font-size: var(--font-size-h6-vw);
+  opacity: 0.9;
+  cursor: pointer;
+  transition: var(--generic-transition);
+  outline: none;
+}
+
+.Container:hover:enabled {
+  box-shadow: var(--box-shadow-primary-0-vw-hover);
+}
+
+.Container:disabled {
+  filter: var(--disabled-filter);
+  cursor: not-allowed;
+}
+
+.Grow {
+  /* className added by "growState" === true */
+  transform: scale(1.1);
+}
+
+.primary {
+  /* className added by `type` */
+  color: var(--primary-0);
+  border: var(--border-primary-1-vw);
+  box-shadow: var(--box-shadow-primary-0-vw);
+}
+
+.primary-colored {
+  /* "-colored" added by `coloredBg` when `type` is defined */
+  background: var(--primary-1-translucent-background);
+}
+
+.primary-1 {
+  color: var(--primary-1);
+  border: var(--border-primary-2-vw);
+  box-shadow: var(--box-shadow-primary-1-vw);
+}
+
+.primary-1:hover:enabled {
+  box-shadow: var(--box-shadow-primary-1-vw-hover);
+}
+
+.primary-1-colored {
+  background: var(--primary-2-translucent-background);
+}
+
+.secondary {
+  color: var(--secondary-0);
+  border: var(--border-secondary-1-vw);
+  box-shadow: var(--box-shadow-secondary-0-vw);
+}
+
+.secondary:hover:enabled {
+  box-shadow: var(--box-shadow-secondary-0-vw-hover);
+}
+
+.secondary-colored {
+  background: var(--secondary-1-translucent-background);
+}
+
+.secondary-1 {
+  color: var(--secondary-1);
+  border: var(--border-secondary-2-vw);
+  box-shadow: var(--box-shadow-secondary-1-vw);
+}
+
+.secondary-1:hover:enabled {
+  box-shadow: var(--box-shadow-secondary-2-vw-hover);
+}
+
+.secondary-1-colored {
+  background: var(--secondary-1-translucent-background);
+}
+
+.danger {
+  color: var(--danger-0);
+  border: var(--border-danger-1-vw);
+  box-shadow: var(--box-shadow-danger-0-vw);
+}
+
+.danger:hover:enabled {
+  box-shadow: var(--box-shadow-danger-0-vw-hover);
+}
+
+.danger-colored {
+  background: var(--danger-1-translucent-background);
+}
+
+.danger-1 {
+  color: var(--danger-1);
+  border: var(--border-danger-2-vw);
+  box-shadow: var(--box-shadow-danger-1-vw);
+}
+
+.danger-1:hover:enabled {
+  box-shadow: var(--box-shadow-danger-1-vw-hover);
+}
+
+.danger-1-colored {
+  background: var(--danger-2-translucent-background);
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    /* '*button*' className */
+    padding: var(--generic-padding-vh) var(--large-padding-vh);
+    margin: var(--generic-margin-vh);
+    border: var(--border-primary-1-vh);
+    box-shadow: var(--box-shadow-primary-0-vh);
+    border-radius: var(--border-radius-vh);
+    letter-spacing: var(--letter-spacing-vh);
+    font-size: var(--font-size-h6-vh);
+  }
+
+  .Container:hover:enabled {
+    box-shadow: var(--box-shadow-primary-0-vh-hover);
+  }
+
+  .primary {
+    /* className added by "growState" === true */
+    border: var(--border-primary-1-vh);
+    box-shadow: var(--box-shadow-primary-0-vh);
+  }
+
+  .primary-1 {
+    border: var(--border-primary-2-vh);
+    box-shadow: var(--box-shadow-primary-1-vh);
+  }
+
+  .primary-1:hover:enabled {
+    box-shadow: var(--box-shadow-primary-1-vh-hover);
+  }
+
+  .secondary {
+    border: var(--border-secondary-1-vh);
+    box-shadow: var(--box-shadow-secondary-0-vh);
+  }
+
+  .secondary:hover:enabled {
+    box-shadow: var(--box-shadow-secondary-0-vh-hover);
+  }
+
+  .secondary-1 {
+    border: var(--border-secondary-2-vh);
+    box-shadow: var(--box-shadow-secondary-1-vh);
+  }
+
+  .secondary-1:hover:enabled {
+    box-shadow: var(--box-shadow-secondary-1-vh-hover);
+  }
+
+  .danger {
+    border: var(--border-danger-1-vh);
+    box-shadow: var(--box-shadow-danger-0-vh);
+  }
+
+  .danger:hover:enabled {
+    box-shadow: var(--box-shadow-danger-0-vh-hover);
+  }
+
+  .danger-1 {
+    border: var(--border-danger-2-vh);
+    box-shadow: var(--box-shadow-danger-1-vh);
+  }
+
+  .danger-1:hover:enabled {
+    box-shadow: var(--box-shadow-danger-1-vh-hover);
+  }
+}
+/* end all devices portrait */

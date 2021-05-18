@@ -1,0 +1,94 @@
+/* all devices landscape */
+.Container {
+  /* wrapper '*div*' */
+  width: 7vw;
+  height: 7vw;
+  color: var(--primary-1);
+  border: var(--border-primary-2-vw);
+  border-radius: 50%;
+  box-shadow: var(--box-shadow-primary-1-vw);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Result {
+  /* inner '*div*' where "res" is rendered */
+  font-size: var(--font-size-h3-vw);
+  width: 80%;
+  height: 80%;
+  position: relative;
+}
+
+.Result > *:first-child {
+  /* everything inside inner '*div*' should be centered, and a little larger 
+     and wider than half its parent's dimensions. This adjusts both strings and 
+     images to be rendered in place of "toss", "tails" and "heads". */
+  width: 60%;
+  height: 60%;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.Toss {
+  /* toss animation className, added by "coinSt.isTossing" */
+  animation: toss 700ms ease forwards;
+  pointer-events: none;
+}
+
+.Frozen {
+  /* disabled styles, added by `isFrozen` */
+  filter: var(--disabled-filter);
+  cursor: not-allowed;
+}
+
+.InvertColor {
+  /* invert default styles, added by `changeColor` */
+  color: var(--secondary-1);
+  border: var(--border-secondary-2-vw);
+  box-shadow: var(--box-shadow-secondary-1-vw);
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    /* wrapper '*div*' */
+    width: 7vh;
+    height: 7vh;
+    border: var(--border-primary-2-vh);
+    box-shadow: var(--box-shadow-primary-1-vh);
+  }
+
+  .Result {
+    /* inner '*div*' where "res" is rendered */
+    font-size: var(--font-size-h3-vh);
+  }
+
+  .InvertColor {
+    /* invert default styles, added by `changeColor` */
+    border: var(--border-secondary-2-vh);
+    box-shadow: var(--box-shadow-secondary-1-vh);
+  }
+}
+/* end all devices portrait */
+
+/* animation keyframes */
+@keyframes toss {
+  0%,
+  100% {
+    transform: translateY(0) rotateX(0deg) scale(1);
+  }
+  45% {
+    transform: translateY(-150%) rotateX(-360deg) scale(1.3);
+  }
+  55% {
+    transform: translateY(-150%) rotateX(360deg) scale(1.3);
+  }
+}
+/* end animation keyframes */

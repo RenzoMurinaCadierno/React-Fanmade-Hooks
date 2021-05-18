@@ -1,0 +1,79 @@
+/* all devices landscape */
+.Container {
+  /*  wrapper for the whole component */
+  margin: auto !important;
+}
+
+.MinusButton,
+.PlusButton {
+  width: 25%;
+  border: var(--border-secondary-1-vw);
+  box-shadow: var(--box-shadow-secondary-1-vw);
+  font-size: var(--font-size-h6-vw);
+  color: var(--secondary-0);
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.MinusButton:hover,
+.PlusButton:hover {
+  box-shadow: var(--box-shadow-secondary-0-vw-hover);
+}
+
+.MinusButton[disabled],
+.PlusButton[disabled] {
+  filter: var(--disabled-filter);
+  cursor: not-allowed;
+}
+
+.MinusButton {
+  /* button-like '*div*' to the left of '*Progressbar*' */
+  border-radius: var(--border-radius-vw) 0 0 var(--border-radius-vw);
+}
+
+.PlusButton {
+  /* button-like '*div*' to the right of '*Progressbar*' */
+  border-radius: 0 var(--border-radius-vw) var(--border-radius-vw) 0;
+}
+
+.ProgressContainer {
+  border-radius: unset !important;
+  min-width: unset !important;
+  margin: 0 !important;
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    /*  wrapper for the whole component */
+    width: 80%;
+  }
+
+  .MinusButton,
+  .PlusButton {
+    width: 30%;
+    border: var(--border-secondary-1-vh);
+    box-shadow: var(--box-shadow-secondary-1-vh);
+    font-size: var(--font-size-h6-vh);
+  }
+
+  .MinusButton:hover,
+  .PlusButton:hover {
+    box-shadow: var(--box-shadow-secondary-0-vh-hover);
+  }
+
+  .MinusButton {
+    /* button-like '*div*' to the left of '*Progressbar*' */
+    border-radius: var(--border-radius-vh) 0 0 var(--border-radius-vh);
+  }
+
+  .PlusButton {
+    /* button-like '*div*' to the right of '*Progressbar*' */
+    border-radius: 0 var(--border-radius-vh) var(--border-radius-vh) 0;
+  }
+}
+/* end all devices portrait */

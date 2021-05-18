@@ -1,0 +1,464 @@
+/************************** all devices landscape  ***************************/
+.Container {
+  /* wrapper '*div*' container */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 55%;
+  height: 0;
+  padding-bottom: 55%;
+  border-radius: 50%;
+  background-color: var(--translucent-background);
+  transition: var(--generic-transition);
+}
+
+.Container * {
+  /* everything inside container. Used mostly to fix '*img*' width, if any */
+  width: 60%;
+}
+
+.Content {
+  /* '*div*' inside container, with displayed content */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* classNames added by `size` */
+.smallest {
+  width: 25%;
+  padding-bottom: 25%;
+  font-size: var(--font-size-small-vw);
+}
+
+.small {
+  width: 40%;
+  padding-bottom: 40%;
+  font-size: var(--font-size-small-vw);
+}
+
+.medium {
+  width: 50%;
+  padding-bottom: 50%;
+}
+
+.large {
+  width: 60%;
+  padding-bottom: 60%;
+  font-size: var(--font-size-h6-vw);
+}
+
+.largest {
+  width: 70%;
+  padding-bottom: 70%;
+  font-size: var(--font-size-h6-vw);
+}
+/* classNames added by `size` */
+
+/* classNames added by `anchor` */
+.top {
+  top: -13%;
+  margin-top: unset;
+}
+
+.right {
+  right: -13%;
+  margin-right: unset;
+}
+
+.bottom {
+  bottom: -13%;
+  margin-bottom: unset;
+}
+
+.left {
+  left: -13%;
+  margin-left: unset;
+}
+
+.top.close {
+  top: -10%;
+}
+
+.right.close {
+  right: -10%;
+}
+
+.bottom.close {
+  bottom: -10%;
+}
+
+.left.close {
+  left: -10%;
+}
+
+.top.closest {
+  top: -8%;
+}
+
+.right.closest {
+  right: -8%;
+}
+
+.bottom.closest {
+  bottom: -8%;
+}
+
+.left.closest {
+  left: -8%;
+}
+
+.top.far {
+  top: -16%;
+}
+
+.right.far {
+  right: -16%;
+}
+
+.bottom.far {
+  bottom: -16%;
+}
+
+.left.far {
+  left: -16%;
+}
+
+.top.farthest {
+  top: -20%;
+}
+
+.right.farthest {
+  right: -20%;
+}
+
+.bottom.farthest {
+  bottom: -20%;
+}
+
+.left.farthest {
+  left: -20%;
+}
+/* end classNames added by `anchor` */
+
+/* classNames added by `type` */
+.primary,
+.primary-0 {
+  border: var(--border-primary-0-vw);
+  box-shadow: var(--box-shadow-primary-0-vw);
+  color: var(--primary-0);
+}
+
+.primary-1 {
+  border: var(--border-primary-2-vw);
+  box-shadow: var(--box-shadow-primary-1-vw);
+  color: var(--primary-1);
+}
+
+.secondary,
+.secondary-0 {
+  border: var(--border-secondary-1-vw);
+  box-shadow: var(--box-shadow-secondary-0-vw);
+  color: var(--secondary-0);
+}
+
+.secondary-1 {
+  border: var(--border-secondary-2-vw);
+  box-shadow: var(--box-shadow-secondary-1-vw);
+  color: var(--secondary-1);
+}
+
+.danger,
+.danger-0 {
+  border: var(--border-danger-1-vw);
+  box-shadow: var(--box-shadow-danger-0-vw);
+  color: var(--danger-0);
+}
+
+.danger-1 {
+  border: var(--border-danger-2-vw);
+  box-shadow: var(--box-shadow-danger-1-vw);
+  color: var(--danger-1);
+}
+/* end classNames added by `type` */
+
+/* classNames added by `typeBackground` */
+.primary.TypeBackground,
+.primary-0.TypeBackground {
+  background-color: var(--primary-1-translucent-background);
+}
+
+.primary-1.TypeBackground {
+  background-color: var(--primary-2-translucent-background);
+}
+
+.secondary.TypeBackground,
+.secondary-0.TypeBackground {
+  background-color: var(--secondary-1-translucent-background);
+}
+
+.secondary-1.TypeBackground {
+  background-color: var(--secondary-2-translucent-background);
+}
+
+.danger.TypeBackground,
+.danger-0.TypeBackground {
+  background-color: var(--danger-1-translucent-background);
+}
+
+.danger-1.TypeBackground {
+  background-color: var(--danger-2-translucent-background);
+}
+/* end classNames added by `typeBackground` */
+
+/* classNames added by `noBorder` */
+.NoBorder {
+  border: unset;
+  box-shadow: unset;
+  background-color: unset;
+}
+
+.NoBorder .Content {
+  overflow: unset;
+}
+
+.primary.NoBorder,
+.primary-0.NoBorder {
+  text-shadow: var(--text-shadow-primary-0-vw);
+}
+
+.primary-1.NoBorder {
+  text-shadow: var(--text-shadow-primary-1-vw);
+}
+
+.secondary.NoBorder,
+.secondary-0.NoBorder {
+  text-shadow: var(--text-shadow-secondary-0-vw);
+}
+
+.secondary-1.NoBorder {
+  text-shadow: var(--text-shadow-secondary-1-vw);
+}
+
+.danger.NoBorder,
+.danger-0.NoBorder {
+  text-shadow: var(--text-shadow-danger-0-vw);
+}
+
+.danger-1.NoBorder {
+  text-shadow: var(--text-shadow-danger-1-vw);
+}
+/* end classNames added by `noBorder` */
+
+/* classNames added by `fontVariant` */
+.sm {
+  font-size: var(--font-size-small-vw);
+}
+
+.p {
+  font-size: var(--font-size-vw);
+}
+
+.h1 {
+  font-size: var(--font-size-h1-vw);
+}
+
+.h2 {
+  font-size: var(--font-size-h2-vw);
+}
+
+.h3 {
+  font-size: var(--font-size-h3-vw);
+}
+
+.h4 {
+  font-size: var(--font-size-h4-vw);
+}
+
+.h5 {
+  font-size: var(--font-size-h5-vw);
+}
+
+.h6 {
+  font-size: var(--font-size-h6-vw);
+}
+/* end classNames added by `fontVariant` */
+/************************ end all devices landscape  *************************/
+
+/************************** all devices portrait  ****************************/
+@media screen and (orientation: portrait) {
+  /* classNames added by `size` */
+  .smallest {
+    font-size: var(--font-size-small-vh);
+  }
+
+  .small {
+    font-size: var(--font-size-small-vh);
+  }
+
+  .large {
+    font-size: var(--font-size-h6-vh);
+  }
+
+  .largest {
+    font-size: var(--font-size-h6-vh);
+  }
+  /* end classNames added by `size` */
+
+  /* classNames added by `type` */
+  .primary,
+  .primary-0 {
+    border: var(--border-primary-0-vh);
+    box-shadow: var(--box-shadow-primary-0-vh);
+  }
+
+  .primary-1 {
+    border: var(--border-primary-2-vh);
+    box-shadow: var(--box-shadow-primary-1-vh);
+  }
+
+  .secondary,
+  .secondary-0 {
+    border: var(--border-secondary-1-vh);
+    box-shadow: var(--box-shadow-secondary-0-vh);
+  }
+
+  .secondary-1 {
+    border: var(--border-secondary-2-vh);
+    box-shadow: var(--box-shadow-secondary-1-vh);
+  }
+
+  .danger,
+  .danger-0 {
+    border: var(--border-danger-1-vh);
+    box-shadow: var(--box-shadow-danger-0-vh);
+  }
+
+  .danger-1 {
+    border: var(--border-danger-2-vh);
+    box-shadow: var(--box-shadow-danger-1-vh);
+  }
+  /* end classNames added by `type` */
+
+  /* classNames added by `noBorder` */
+  .NoBorder {
+    border: unset;
+    box-shadow: unset;
+    background-color: unset;
+  }
+
+  .NoBorder .Content {
+    overflow: unset;
+  }
+
+  .primary.NoBorder,
+  .primary-0.NoBorder {
+    text-shadow: var(--text-shadow-primary-0-vh);
+  }
+
+  .primary-1.NoBorder {
+    text-shadow: var(--text-shadow-primary-1-vh);
+  }
+
+  .secondary.NoBorder,
+  .secondary-0.NoBorder {
+    text-shadow: var(--text-shadow-secondary-0-vh);
+  }
+
+  .secondary-1.NoBorder {
+    text-shadow: var(--text-shadow-secondary-1-vh);
+  }
+
+  .danger.NoBorder,
+  .danger-0.NoBorder {
+    text-shadow: var(--text-shadow-danger-0-vh);
+  }
+
+  .danger-1.NoBorder {
+    text-shadow: var(--text-shadow-danger-1-vh);
+  }
+  /* end classNames added by `noBorder` */
+
+  /* classNames added by `fontVariant` */
+  .sm {
+    font-size: var(--font-size-small-vh);
+  }
+
+  .p {
+    font-size: var(--font-size-vh);
+  }
+
+  .h1 {
+    font-size: var(--font-size-h1-vh);
+  }
+
+  .h2 {
+    font-size: var(--font-size-h2-vh);
+  }
+
+  .h3 {
+    font-size: var(--font-size-h3-vh);
+  }
+
+  .h4 {
+    font-size: var(--font-size-h4-vh);
+  }
+
+  .h5 {
+    font-size: var(--font-size-h5-vh);
+  }
+
+  .h6 {
+    font-size: var(--font-size-h6-vh);
+  }
+}
+/************************ end all devices portrait  **************************/
+
+/* animation classNames */
+.AnimateMount {
+  animation: animate-mount 175ms ease forwards;
+}
+
+.AnimateUnmount {
+  animation: animate-mount 175ms ease reverse;
+}
+
+.AnimateOnChange {
+  animation: animate-on-change 175ms ease forwards;
+}
+/* end animation classNames */
+
+/* animation keyframes */
+@keyframes animate-mount {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes animate-on-change {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+/* end animation keyframes */

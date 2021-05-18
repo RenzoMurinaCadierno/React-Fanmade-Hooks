@@ -1,0 +1,144 @@
+/* all devices landscape */
+.Title {
+  /* title '*Text*' */
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: var(--large-margin-vw);
+}
+
+.InputsContainer {
+  /* wrapper for both '*input*'s */
+  width: 70%;
+}
+
+.InputContainer:nth-child(1) {
+  /* username '*input*' */
+  margin-bottom: var(--large-margin-vw);
+}
+
+.InputContainer:nth-child(2) {
+  /* password '*input*' */
+  margin-top: var(--large-margin-vw);
+}
+
+.InputLabel {
+  /* label for both '*input*'s */
+  margin-left: var(--generic-margin-vw);
+}
+
+.Button {
+  /* auth '*button*' */
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: var(--large-margin-vw);
+  margin-bottom: var(--large-margin-vw);
+}
+
+.AuthBanner {
+  /* oblique '*div*' that appears when mounting while already logged in */
+  position: absolute;
+  height: 5vw;
+  line-height: 4.5vw;
+  font-size: var(--font-size-h6-vw);
+  letter-spacing: var(--letter-spacing-vw);
+  width: 250%;
+  transform: scale(0);
+  opacity: 0;
+  animation: show-auth-banner-landscape 300ms 200ms ease-in forwards;
+}
+
+.AuthBanner.primary {
+  color: var(--primary-0);
+  border: var(--border-primary-2-vw);
+  box-shadow: var(--box-shadow-primary-1-vw);
+  background: var(--primary-2-translucent-background);
+}
+
+.AuthBanner.secondary {
+  color: var(--secondary-0);
+  border: var(--border-secondary-2-vw);
+  box-shadow: var(--box-shadow-secondary-1-vw);
+  background: var(--secondary-2-translucent-background);
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Title {
+    /* title '*Text*' */
+    margin-left: var(--large-margin-vh);
+  }
+
+  .InputsContainer {
+    /* wrapper for both '*input*'s */
+    width: 70%;
+  }
+
+  .InputContainer:nth-child(1) {
+    /* username '*input*' */
+    margin-bottom: var(--large-margin-vh);
+  }
+
+  .InputContainer:nth-child(2) {
+    /* password '*input*' */
+    margin-top: var(--large-margin-vh);
+    margin-bottom: var(--large-margin-vh);
+  }
+
+  .InputLabel {
+    /* label for both '*input*'s */
+    margin-left: var(--generic-margin-vh);
+  }
+
+  .Button {
+    /* auth '*button*' */
+    margin-right: var(--large-margin-vh);
+    margin-bottom: var(--large-margin-vh);
+  }
+
+  .AuthBanner {
+    /* oblique '*div*' that appears when mounting while already logged in */
+    height: 5vh;
+    line-height: 4.5vh;
+    font-size: var(--font-size-h6-vh);
+    letter-spacing: var(--letter-spacing-vh);
+    animation: show-auth-banner-portrait 300ms 200ms ease-in forwards;
+  }
+
+  .AuthBanner.primary {
+    border: var(--border-primary-2-vh);
+    box-shadow: var(--box-shadow-primary-1-vh);
+  }
+
+  .AuthBanner.secondary {
+    border: var(--border-secondary-2-vh);
+    box-shadow: var(--box-shadow-secondary-1-vh);
+  }
+}
+/* end all devices portrait */
+
+/* animation keyframes */
+@keyframes show-auth-banner-landscape {
+  from {
+    opacity: 0;
+    transform: scale(0) rotate(-35deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(-35deg);
+  }
+}
+
+@keyframes show-auth-banner-portrait {
+  from {
+    opacity: 0;
+    transform: scale(0) rotate(-45deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(-45deg);
+  }
+}
+/* end animation keyframes */

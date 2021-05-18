@@ -1,0 +1,23 @@
+/* all devices landscape */
+.Container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  align-items: center;
+  justify-content: center;
+}
+
+.Buttons {
+  margin: var(--small-margin-vw);
+  font-size: var(--font-size-h5-vw);
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Buttons {
+    margin: var(--small-margin-vh);
+    font-size: var(--font-size-h5-vh);
+  }
+}
+/* end all devices portrait */

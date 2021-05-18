@@ -1,0 +1,211 @@
+/* all devices landscape */
+.Container {
+  /* wrapper container */
+  letter-spacing: var(--letter-spacing-vw);
+  transition: var(--generic-transition);
+  margin: var(--generic-margin-vw);
+  font-size: var(--font-size-vw);
+}
+
+.Container[disabled] {
+  filter: var(--disabled-filter);
+}
+
+/* classNames added by `htmlElem` */
+.span,
+.p {
+  font-size: var(--font-size-vw);
+}
+
+.h6 {
+  font-size: var(--font-size-h6-vw);
+}
+
+.h5 {
+  font-size: var(--font-size-h5-vw);
+}
+
+.h4 {
+  font-size: var(--font-size-h4-vw);
+  letter-spacing: var(--letter-spacing-medium-vw);
+}
+
+.h3 {
+  font-size: var(--font-size-h3-vw);
+  letter-spacing: var(--letter-spacing-medium-vw);
+}
+
+.h2 {
+  font-size: var(--font-size-h2-vw);
+  letter-spacing: var(--letter-spacing-large-vw);
+}
+
+.h1 {
+  font-size: var(--font-size-h1-vw);
+  letter-spacing: var(--letter-spacing-large-vw);
+}
+/* end classNames added by `htmlElem` */
+
+/* classNames added by `small` */
+.Small {
+  font-size: var(--font-size-small-vw);
+}
+/* end classNames added by `small` */
+
+/* classNames added by `type` */
+.primary,
+.primary-0 {
+  color: var(--primary-0);
+}
+
+.primary-1 {
+  color: var(--primary-1);
+}
+
+.primary-2 {
+  color: var(--primary-2);
+}
+
+.primary-3 {
+  color: var(--primary-3);
+}
+
+.secondary,
+.secondary-0 {
+  color: var(--secondary-0);
+}
+
+.secondary-1 {
+  color: var(--secondary-1);
+}
+
+.secondary-2 {
+  color: var(--secondary-2);
+}
+
+.secondary-3 {
+  color: var(--secondary-3);
+}
+/* end classNames added by `type` */
+
+/* classNames added by `textShadow` */
+.text-shadow-primary,
+.text-shadow-primary-0 {
+  text-shadow: var(--text-shadow-primary-0-vw);
+}
+
+.text-shadow-primary-1,
+.text-shadow-primary-2,
+.text-shadow-primary-3 {
+  text-shadow: var(--text-shadow-primary-1-vw);
+}
+
+.text-shadow-secondary,
+.text-shadow-secondary-0 {
+  text-shadow: var(--text-shadow-secondary-0-vw);
+}
+
+.text-shadow-secondary-1,
+.text-shadow-secondary-2,
+.text-shadow-secondary-3 {
+  text-shadow: var(--text-shadow-secondary-1-vw);
+}
+/* end classNames added by `textShadow` */
+
+/* classNames added by `italic` */
+.Italic {
+  font-style: italic;
+}
+/* end classNames added by `italic` */
+
+/* classNames added by `bold` */
+.Bold {
+  font-weight: bold;
+}
+/* classNames added by `bold` */
+
+/* classNames added by `onClick` */
+.Clickable {
+  cursor: pointer;
+}
+
+.Clickable:hover {
+  transform: scale(1.1);
+}
+/* classNames added by `onClick` */
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    /* wrapper container */
+    font-size: var(--font-size-vh);
+    letter-spacing: var(--letter-spacing-vh);
+    margin: var(--generic-margin-vh);
+  }
+
+  /* classNames added by `htmlElem` */
+  .p {
+    font-size: var(--font-size-vh);
+  }
+
+  .h6 {
+    font-size: var(--font-size-h6-vh);
+  }
+
+  .h5 {
+    font-size: var(--font-size-h5-vh);
+  }
+
+  .h4 {
+    font-size: var(--font-size-h4-vh);
+    letter-spacing: var(--letter-spacing-medium-vh);
+  }
+
+  .h3 {
+    font-size: var(--font-size-h3-vh);
+    letter-spacing: var(--letter-spacing-medium-vh);
+  }
+
+  .h2 {
+    font-size: var(--font-size-h2-vh);
+    letter-spacing: var(--letter-spacing-large-vh);
+  }
+
+  .h1 {
+    font-size: var(--font-size-h1-vh);
+    letter-spacing: var(--letter-spacing-large-vh);
+  }
+  /* end classNames added by `htmlElem` */
+
+  /* classNames added by `small` */
+  .Small {
+    font-size: var(--font-size-small-vh);
+  }
+  /* end classNames added by `small` */
+
+  /* classNames added by `textShadow` */
+  .text-shadow-primary,
+  .text-shadow-primary-0 {
+    text-shadow: var(--text-shadow-primary-0-vh);
+  }
+
+  .text-shadow-primary-1,
+  .text-shadow-primary-2,
+  .text-shadow-primary-3 {
+    text-shadow: var(--text-shadow-primary-1-vh);
+  }
+
+  .text-shadow-secondary,
+  .text-shadow-secondary-0 {
+    text-shadow: var(--text-shadow-secondary-0-vh);
+  }
+
+  .text-shadow-secondary-1,
+  .text-shadow-secondary-2,
+  .text-shadow-secondary-3 {
+    text-shadow: var(--text-shadow-secondary-1-vh);
+  }
+  /* end classNames added by `textShadow` */
+}
+/* end all devices portrait */

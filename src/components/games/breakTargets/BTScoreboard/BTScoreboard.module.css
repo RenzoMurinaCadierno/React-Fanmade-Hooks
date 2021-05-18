@@ -1,0 +1,63 @@
+/*
+NOTE: I'm using !important a lot here temporarily, since I cannot seem to find an
+easy way for CSS to position the following classes after '*Text*' ones, so that
+they are overriden by BreakTargetsScoreboard's (currently, '*Text*' ones takes 
+precedence, hence !important).
+*/
+
+/* all devices landscape */
+.Container {
+  width: 98%;
+  height: 30%;
+  display: grid;
+  grid-template: 1fr 1fr 1fr / 25% 41% 34%;
+  align-items: center;
+  margin-bottom: var(--generic-margin-vw);
+}
+
+.Container * {
+  margin: var(--small-margin-vw) !important;
+  font-weight: normal;
+  font-style: normal;
+  letter-spacing: var(--letter-spacing-vw) !important;
+}
+
+.Container p {
+  /* every '*Text*' that's not a '*span*' */
+  font-weight: bold;
+  font-style: italic;
+}
+
+.Container button {
+  /* "Start" / "Restart" '*Button*' */
+  padding: var(--small-padding-vw) 0 !important;
+  width: 80% !important;
+  margin: auto !important;
+  margin-top: var(--small-margin-vw) !important;
+  letter-spacing: var(--letter-spacing-medium-vw) !important;
+  font-weight: bold;
+  font-style: italic;
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    order: 1;
+    width: 85%;
+    min-width: 245px;
+  }
+
+  .Container * {
+    font-size: var(--font-size-small-vh) !important;
+    margin: var(--generic-margin-vh) 0 !important;
+    letter-spacing: var(--letter-spacing-vh) !important;
+  }
+
+  .Container button {
+    width: 70%;
+    padding: var(--generic-padding-vh) 0 !important;
+    letter-spacing: var(--letter-spacing-medium-vh) !important;
+  }
+}
+/* end all devices portrait*/

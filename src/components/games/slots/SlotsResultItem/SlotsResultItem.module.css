@@ -1,0 +1,93 @@
+/* all devices portrait */
+.Container {
+  /* wrapper for slot/stat img, and its badge and multiplier figure, if any */
+  width: 20%;
+  height: 100%;
+  margin: var(--large-margin-vw) auto;
+  padding-bottom: var(--small-padding-vw);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Container[disabled] {
+  filter: var(--disabled-filter);
+}
+
+.Image {
+  /* slot/stat img component */
+  width: 45%;
+}
+
+.BadgeContainer {
+  /* 'Badge' component containing slot's/stat's content */
+  right: 15% !important;
+  bottom: 13% !important;
+}
+
+.MultiplierFigure {
+  /* figure wrapper for slot's multiplier */
+  position: absolute;
+  top: -15%;
+  margin-left: -23%;
+  width: 30%;
+}
+
+.MultiplierImage {
+  /* img component for slot's multiplier (holding the star img src) */
+  width: 100%;
+  opacity: 75%;
+  margin: auto;
+  filter: drop-shadow(var(--drop-shadow-secondary-lg-vw));
+}
+
+.MultiplierFigure figcaption {
+  /* the multiplier caption (holding x2, x3, x4 strings) */
+  width: 100%;
+  position: absolute;
+  top: 0;
+  font-weight: bold;
+  color: var(--primary-2);
+  letter-spacing: var(--letter-spacing-vw);
+  text-shadow: var(--text-shadow-background-vw);
+  transform: rotate(-25deg) translate(-9%, 23%);
+}
+/* end all devices portrait */
+
+/* all devices landscape */
+@media screen and (orientation: portrait) {
+  .Container {
+    /* wrapper for slot img, its badge and multiplier figure, if any */
+    width: 95%;
+    max-height: 18%;
+    margin: auto;
+  }
+
+  .BadgeContainer {
+    /* 'Badge' component containing slot's/stat's content */
+    bottom: 18% !important;
+    right: 12% !important;
+  }
+
+  .MultiplierFigure {
+    /* figure wrapper for slot's multiplier */
+    top: unset;
+    left: 1%;
+    margin-left: unset;
+    margin-bottom: 50%;
+    width: 30%;
+  }
+
+  .MultiplierFigure figcaption {
+    /* the multiplier caption (holding x2, x3, x4 strings) */
+    font-size: var(--font-size-h6-vh);
+    letter-spacing: var(--letter-spacing-vh);
+    text-shadow: var(--text-shadow-background-vh);
+    transform: rotate(-25deg);
+    bottom: 10%;
+    right: -15%;
+    top: unset;
+  }
+}
+/* end all devices landscape */

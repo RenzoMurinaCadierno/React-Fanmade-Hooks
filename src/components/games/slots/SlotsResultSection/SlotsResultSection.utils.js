@@ -1,0 +1,54 @@
+import PropTypes from "prop-types"
+import styles from "./SlotsResultSection.module.css"
+
+export const classes = {
+  container: (className) => (className ?? "") + " " + styles.Container,
+  title: (className) => (className ?? "") + " " + styles.Title,
+  titleBackground: (className) =>
+    (className ?? "") + " " + styles.TitleBackground,
+  item: (classNames) => classNames
+}
+
+export const slotsResultSectionPropTypes = {
+  isStatsSection: PropTypes.bool,
+  imageArrays: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string))
+    .isRequired,
+  multiplierImageArray: PropTypes.arrayOf(PropTypes.string),
+  scoreData: PropTypes.objectOf(
+    PropTypes.shape({
+      1: PropTypes.number,
+      2: PropTypes.number,
+      3: PropTypes.number,
+      multiplier: PropTypes.number.isRequired
+    })
+  ),
+  badgesProps: PropTypes.objectOf(
+    PropTypes.arrayOf(PropTypes.object.isRequired).isRequired
+  ).isRequired,
+  classNames: PropTypes.shape({
+    container: PropTypes.string,
+    title: PropTypes.string,
+    titleBackground: PropTypes.string,
+    item: PropTypes.object
+  })
+}
+
+/**
+ * Given current '*Badge*' props in *slotsGame.reducer*'s state (in "scores"
+ *   and "stats" objects there), it returns current `content` prop as is if
+ *   incoming `badgeProps` is from "stats" object, or the sum of `content`s of
+ *   all '*Badge*'s whose `show` prop is false (meaning that slot's score was
+ *   hit during gameplay).
+ *
+ * @param {object} badgeProps '*Badge*' component's props in reducer state.
+ * @param {boolean} isStatsSection True if we are dealing with "stats" section
+ *   (heart, star). False if we are at "slots" (apple, cherry, lemon, berry).
+ *
+ * @returns {number} The number to display as '*Badge*' content prop
+ */
+export function getBadgeContent(badgeProps, isStatsSection) {
+  return badgeProps.reduce((acc, prop) => {
+    if (isStatsSection) return (acc += prop.content)
+    return prop.show ? acc : (acc += prop.content)
+  }, 0)
+}

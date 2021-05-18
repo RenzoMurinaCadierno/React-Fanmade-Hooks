@@ -1,0 +1,133 @@
+/* all devices landscape */
+.Container {
+  width: 95%;
+  height: 100%;
+  margin: 0;
+  justify-content: flex-start;
+}
+
+.CmpContainer {
+  width: 70%;
+  margin-left: 2%;
+  margin-right: 4%;
+}
+
+.CmpDesc {
+  margin: var(--small-margin-vw);
+  font-weight: normal;
+}
+
+.Grid {
+  width: 18vw;
+  height: 18vw;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  transform: rotate(45deg);
+  position: relative;
+}
+
+.Arrow {
+  /* directional arrows around "open modal" button */
+  width: 65%;
+  cursor: pointer;
+  transition: var(--generic-transition-out);
+  opacity: 0.7;
+}
+
+.Arrow:hover,
+.Arrow:active {
+  opacity: 1;
+}
+
+.Arrow[disabled] {
+  filter: var(--disabled-filter);
+  pointer-events: none;
+}
+
+.arrow-top {
+  transform: rotate(45deg) translateX(-40%);
+}
+
+.arrow-top:hover,
+.arrow-top:active {
+  transform: rotate(45deg) translateX(-40%) scale(1.3);
+}
+
+.arrow-right {
+  transform: rotate(135deg) translateX(-40%);
+}
+
+.arrow-right:hover,
+.arrow-right:active {
+  transform: rotate(135deg) translateX(-40%) scale(1.3);
+}
+
+.arrow-bottom {
+  transform: rotate(-135deg) translateX(-40%);
+}
+
+.arrow-bottom:hover,
+.arrow-bottom:active {
+  transform: rotate(-135deg) translateX(-40%) scale(1.3);
+}
+
+.arrow-left {
+  transform: rotate(-45deg) translateX(-40%);
+}
+
+.arrow-left:hover,
+.arrow-left:active {
+  transform: rotate(-45deg) translateX(-40%) scale(1.3);
+}
+
+.Button {
+  /* "open modal" '*Button*' */
+  width: 40%;
+  height: 40%;
+  position: absolute;
+  padding: var(--small-padding-vw);
+  margin: var(--small-margin-vw);
+  font-size: var(--font-size-small-vw);
+}
+
+.Button img {
+  width: 70%;
+}
+/* end all devices landscape */
+
+/* all devices portrait  */
+@media screen and (orientation: portrait) {
+  .Container {
+    justify-content: center;
+    flex-direction: column;
+    height: 90%;
+    margin-bottom: 10%;
+  }
+
+  .CmpContainer {
+    width: 100%;
+    margin: 0 0 20% 0;
+  }
+
+  .CmpDesc {
+    margin: var(--generic-margin-vh);
+  }
+
+  .Grid {
+    width: 20vh;
+    height: 20vh;
+  }
+
+  .Button {
+    /* "open modal" '*Button*' */
+    width: 40%;
+    height: 40%;
+    padding: var(--small-padding-vh);
+    margin: var(--small-margin-vh);
+    font-size: var(--font-size-small-vh);
+  }
+}
+/* end all devices portrait  */

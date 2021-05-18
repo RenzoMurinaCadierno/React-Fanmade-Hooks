@@ -1,0 +1,30 @@
+/* animated classes for "score effect" '*Badge*' */
+.AnimatedContainer {
+  /* all "score effect" badges but "star" */
+  animation: animate-score-container 1100ms ease-in forwards;
+  z-index: 1;
+}
+
+.AnimatedStarContainer {
+  /* "star" score effect badge */
+  animation: animate-score-container 1100ms ease-out reverse;
+  z-index: 1;
+}
+/* end animated classes for "score effect" '*Badge*' */
+
+/* animation keyframes */
+@keyframes animate-score-container {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1.8) translateY(-45%);
+  }
+  100% {
+    transform: scale(1.8) translateY(-120%);
+    opacity: 0;
+  }
+}
+/* end animation keyframes */

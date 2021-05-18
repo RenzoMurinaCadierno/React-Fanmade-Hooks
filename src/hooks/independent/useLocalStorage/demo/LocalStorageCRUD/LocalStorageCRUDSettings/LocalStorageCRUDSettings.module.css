@@ -1,0 +1,160 @@
+/* all devices landscape */
+.Container {
+  /* '*Container*' wrapping the whole component */
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius-vw);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 300ms ease-in;
+}
+
+.Title {
+  /* "Settings" '*Text*' */
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: var(--large-margin-vw);
+}
+
+.ConfigsGrid {
+  /* grid-styled '*div*' containing everything but the title */
+  display: grid;
+  width: 88%;
+  grid-template: 1fr 1fr 1fr / 5fr 3fr;
+  gap: 12% 2%;
+  align-items: center;
+  justify-content: center;
+}
+
+.ConfigsGrid * {
+  /* everything inside grid */
+  margin: auto;
+}
+
+.ConfigsGrid p {
+  /* '*Text*' options inside grid */
+  margin: 0;
+  justify-self: flex-end;
+}
+
+.ConfigsGrid button:nth-child(2n - 1) {
+  /* "delete user" '*button*' */
+  width: 88%;
+}
+
+.ConfigsGrid button:nth-child(2n) {
+  /* "logout" '*button*' */
+  width: 100%;
+}
+
+.AuthBanner {
+  /* oblique '*div*' that appears when mounting while not logged in */
+  position: absolute;
+  height: 5vw;
+  line-height: 5vw;
+  font-size: var(--font-size-h6-vw);
+  letter-spacing: var(--letter-spacing-vw);
+  width: 250%;
+  transform: scale(0);
+  opacity: 0;
+  animation: show-auth-banner-landscape 300ms 200ms ease-in forwards;
+}
+
+.AuthBanner.primary {
+  color: var(--primary-0);
+  border: var(--border-primary-2-vw);
+  box-shadow: var(--box-shadow-primary-1-vw);
+  background: var(--primary-2-translucent-background);
+}
+
+.AuthBanner.secondary {
+  color: var(--secondary-0);
+  border: var(--border-secondary-2-vw);
+  box-shadow: var(--box-shadow-secondary-1-vw);
+  background: var(--secondary-2-translucent-background);
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    /* '*Container*' wrapping the whole component */
+    border-radius: var(--border-radius-vh);
+  }
+
+  .Title {
+    /* "Settings" '*Text*' */
+    margin-left: var(--large-margin-vh);
+  }
+
+  .ConfigsGrid {
+    /* grid-styled '*div*' containing everything but the title */
+    width: 80%;
+    height: 75%;
+    grid-template: 1fr 1fr 1fr / 1fr 1fr;
+    gap: 4% 6%;
+    margin-top: 10%;
+  }
+
+  .ConfigsGrid button {
+    /* both '*button*'s in grid */
+    height: 95%;
+  }
+
+  .ConfigsGrid button:nth-child(2n - 1) {
+    /* "delete user" '*button*' */
+    width: 95%;
+  }
+
+  .ConfigsGrid button:nth-child(2n) {
+    /* "logout" '*button*' */
+    width: 95%;
+  }
+
+  .AuthBanner {
+    /* oblique '*div*' that appears when mounting while not logged in */
+    height: 5vh;
+    line-height: 4.5vh;
+    font-size: var(--font-size-h6-vh);
+    letter-spacing: var(--letter-spacing-vh);
+    animation: show-auth-banner-portrait 300ms 200ms ease-in forwards;
+  }
+
+  .AuthBanner.primary {
+    border: var(--border-primary-2-vh);
+    box-shadow: var(--box-shadow-primary-1-vh);
+  }
+
+  .AuthBanner.secondary {
+    border: var(--border-secondary-2-vh);
+    box-shadow: var(--box-shadow-secondary-1-vh);
+  }
+}
+/* end all devices portrait */
+
+/* animation keyframes */
+@keyframes show-auth-banner-landscape {
+  from {
+    opacity: 0;
+    transform: scale(0) rotate(-35deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(-35deg);
+  }
+}
+
+@keyframes show-auth-banner-portrait {
+  from {
+    opacity: 0;
+    transform: scale(0) rotate(-45deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(-45deg);
+  }
+}
+/* end animation keyframes */

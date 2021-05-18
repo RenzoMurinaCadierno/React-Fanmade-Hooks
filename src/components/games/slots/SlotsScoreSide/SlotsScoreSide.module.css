@@ -1,0 +1,31 @@
+/* all devices landscape */
+.Container {
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.Image {
+  width: 5vw;
+}
+
+.Image[disabled] {
+  /* override .HeartStatImg's filter when disabled */
+  filter: var(--disabled-filter) !important;
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .Image {
+    width: 6vh;
+  }
+}
+/* end all devices portrait */

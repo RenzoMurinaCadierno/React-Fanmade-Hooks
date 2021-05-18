@@ -1,0 +1,28 @@
+/* all devices landscape */
+.Container {
+  /* root wrapper */
+  width: 100%;
+  height: 20vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.Screen {
+  /* wrapper for children and arrows (not indicators) */
+  height: 85%;
+  min-width: 100%;
+  margin: unset !important;
+  position: relative;
+}
+
+.SlidesContainer {
+  /* wrapper for children */
+  min-width: inherit;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  outline: none;
+}
+/* end all devices landscape */

@@ -12,6 +12,7 @@
 /build
 
 # misc
+/utils/todo.txt
 .DS_Store
 .env.local
 .env.development.local

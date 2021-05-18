@@ -1,0 +1,22 @@
+/* all devices landscape */
+.Container {
+  /* wrapper for '*SlotsSpinningSlot*'s  */
+  width: 60%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    /* wrapper for '*SlotsSpinningSlot*'s  */
+    width: 40%;
+    display: inline-flex;
+    flex-direction: column;
+  }
+}
+/* end all devices portrait */

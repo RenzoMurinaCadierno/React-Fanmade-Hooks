@@ -1,0 +1,21 @@
+/* all devices landscape */
+.Container {
+  position: relative;
+}
+
+.Label,
+.Input {
+  margin: var(--small-margin-vw) 0;
+  width: 100%;
+  padding-left: 1%;
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Label,
+  .Input {
+    margin: var(--small-margin-vh) 0;
+  }
+}
+/* end all devices portrait */

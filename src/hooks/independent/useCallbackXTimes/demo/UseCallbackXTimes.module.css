@@ -1,0 +1,39 @@
+.CmpTitleContainer {
+  width: 90%;
+}
+
+.Grid {
+  width: 90%;
+  height: 45%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(3, 3fr 2fr);
+  margin-top: 5%;
+}
+
+.CoinContainer {
+  justify-self: flex-start;
+  margin-left: 8%;
+}
+
+@media screen and (orientation: portrait) {
+  .Grid {
+    height: 65%;
+    width: 80%;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    margin-top: var(--generic-margin-vh);
+  }
+
+  .Grid h6 {
+    justify-self: flex-end;
+    margin-right: 0;
+  }
+
+  .CoinContainer {
+    justify-self: center;
+    margin-left: 0;
+  }
+}

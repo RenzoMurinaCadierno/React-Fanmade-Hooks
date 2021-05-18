@@ -1,0 +1,14 @@
+/* all devices landscape */
+.Container {
+  height: 25vw;
+  position: relative;
+}
+/* end all devices landscape */
+
+/* all screens portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    height: 25vh;
+  }
+}
+/* end all screens portrait */

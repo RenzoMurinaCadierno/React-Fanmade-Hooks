@@ -1,0 +1,80 @@
+/* all devices landscape */
+.Container {
+  /* progressbar container, with borders and shadows */
+  width: 100%;
+  min-width: 150px;
+  margin: var(--generic-margin-vw);
+  text-align: center;
+  font-size: var(--font-size-h6-vw);
+  font-weight: bold;
+  letter-spacing: var(--letter-spacing-vw);
+  color: var(--primary-0);
+  border: var(--border-primary-2-vw);
+  border-radius: var(--border-radius-vw);
+  box-shadow: var(--box-shadow-primary-1-vw);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Container[disabled] {
+  filter: var(--disabled-filter);
+  cursor: not-allowed;
+}
+
+.Progress {
+  /* bottom progress' '*div*', which fills up gradually */
+  position: absolute;
+  background-color: var(--primary-3);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  transition: var(--generic-transition-out);
+}
+
+.Clickable {
+  /* `onClick` adds this className */
+  cursor: pointer;
+}
+
+.Clickable:hover {
+  box-shadow: var(--box-shadow-primary-1-vw-hover);
+}
+
+.grow-center {
+  /* `growFrom` = "center" */
+  right: auto;
+  left: auto;
+}
+
+.grow-right {
+  /* `growFrom` = "right" */
+  left: auto;
+  right: 0;
+}
+
+.grow-left {
+  /* `growFrom` = "left" */
+  left: 0;
+  right: auto;
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    /* progressbar container, with borders and shadows */
+    margin: var(--generic-margin-vh);
+    font-size: var(--font-size-h6-vh);
+    letter-spacing: var(--letter-spacing-vh);
+    border: var(--border-primary-2-vh);
+    border-radius: var(--border-radius-vh);
+    box-shadow: var(--box-shadow-primary-1-vh);
+  }
+
+  .Clickable:hover {
+    box-shadow: var(--box-shadow-primary-1-vh-hover);
+  }
+}
+/* end all devices portrait */

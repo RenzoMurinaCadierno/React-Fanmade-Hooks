@@ -1,0 +1,57 @@
+/* all devices landscape */
+.Container {
+  /* outermost wrapper container */
+  min-width: 100%;
+  height: 100%;
+}
+
+.CmpDescContainer {
+  /* hook description wrapper */
+  max-width: 50%;
+  margin: 0 !important;
+}
+
+.CmpDescContent {
+  /* paragraphs in hook description */
+  font-weight: normal;
+  margin: var(--small-margin-vw);
+  width: 95%;
+}
+
+.CmpTest {
+  /* section that contains the '*Carousel*' */
+  width: 45%;
+  margin-right: 2%;
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    /* outermost wrapper container */
+    margin: 0 var(--generic-margin-vh);
+    min-width: 100%;
+    height: unset;
+    flex-direction: column !important;
+  }
+
+  .CmpDescContainer {
+    /* hook description wrapper */
+    max-width: unset;
+    margin-bottom: 5vw !important;
+  }
+
+  .CmpDescContent {
+    /* paragraphs in hook description */
+    margin: var(--small-margin-vh);
+    font-size: var(--font-size-vh);
+  }
+
+  .CmpTest {
+    /* section that contains the '*Carousel*' */
+    width: 100%;
+    margin-right: unset;
+    margin-bottom: 10vw;
+  }
+}
+/* end all devices portrait */

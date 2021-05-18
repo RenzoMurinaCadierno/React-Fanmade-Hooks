@@ -1,0 +1,25 @@
+/* all devices landscape */
+.Container {
+  position: relative;
+  width: 30vw;
+}
+
+.Label,
+.Input {
+  margin: var(--small-margin-vw) 0;
+  width: 100%;
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    width: 30vh;
+  }
+
+  .Label,
+  .Input {
+    margin: var(--small-margin-vh) 0;
+  }
+}
+/* end all devices portrait */

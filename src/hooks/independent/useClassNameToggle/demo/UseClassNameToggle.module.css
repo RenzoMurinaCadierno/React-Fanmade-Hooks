@@ -1,0 +1,70 @@
+.Grid {
+  width: 80%;
+  height: 40%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 6fr 2fr;
+}
+
+.Heart {
+  width: 45%;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.Heartbeat {
+  animation: heartbeat 1.25s 2 linear forwards;
+}
+
+.GrowText {
+  animation: growText 200ms linear forwards;
+}
+
+@media screen and (orientation: portrait) {
+  .Grid {
+    height: 50%;
+    grid-template-rows: 1fr, 4fr;
+    grid-template-columns: 1fr;
+  }
+
+  .Heart {
+    width: 25%;
+    align-self: flex-start;
+  }
+}
+
+@keyframes growText {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes heartbeat {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  15% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+}
