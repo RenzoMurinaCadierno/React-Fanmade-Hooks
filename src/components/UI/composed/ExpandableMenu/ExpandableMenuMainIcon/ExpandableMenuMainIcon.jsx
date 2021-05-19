@@ -1,4 +1,4 @@
-import { ExpandableIcon } from "hub"
+import { ExpandableIcon, Aura } from "hub"
 import { classes } from "./ExpandableMenuMain.utils"
 
 export default function ExpandableMenuMainIcon({
@@ -7,6 +7,7 @@ export default function ExpandableMenuMainIcon({
   classNames = {},
   ...otherProps
 }) {
+  // console.log("render")
   return (
     <>
       <ExpandableIcon
@@ -15,7 +16,8 @@ export default function ExpandableMenuMainIcon({
         classNames={classes.icon(classNames.icon, open)}
         {...otherProps}
       />
-      <div className={classes.aura(classNames.aura, open, type)} />
+      <Aura isActive={!open} type={type} forceCircularShape />
+      {/* <div className={classes.aura(classNames.aura, open, type)} /> */}
     </>
   )
 }

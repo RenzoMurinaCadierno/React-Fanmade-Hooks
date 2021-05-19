@@ -10,6 +10,7 @@ export default function ExpandableMenuListIcon({
   classNames = {},
   ...otherProps
 }) {
+  // console.log("render")
   return (
     <ExpandableIcon
       expandDirection={iconExpandDirection}

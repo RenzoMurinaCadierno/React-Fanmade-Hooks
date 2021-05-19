@@ -16,7 +16,7 @@ import { classes } from "./Icon.utils"
  *
  * `type?` (string): main or secondary generic stylings to apply to everything
  *   rendered here. Can be one of "primary", "primary-1", "secondary",
- *   "secondary-1". Defaults to "primary".
+ *   "secondary-1", "danger", "danger-1". Defaults to "primary".
  *
  * `className?` (string): incoming className to append to wrapper '*div*'.
  */

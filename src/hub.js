@@ -10,6 +10,7 @@ import PhoneDial from "./components/UI/composed/PhoneDial/PhoneDial"
 import StyledInput from "./components/UI/composed/StyledInput/StyledInput"
 import StyledInputWithValidation from "./components/UI/composed/StyledInputWithValidation/StyledInputWithValidation"
 
+import Aura from "./components/UI/independent/Aura/Aura"
 import Backdrop from "./components/UI/independent/Backdrop/Backdrop"
 import Badge from "./components/UI/composed/Badge/Badge"
 import Button from "./components/UI/independent/Button/Button"
@@ -142,6 +143,7 @@ export {
   Router,
   HomePage,
   _404Page,
+  Aura,
   Backdrop,
   Badge,
   Button,

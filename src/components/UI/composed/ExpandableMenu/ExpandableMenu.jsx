@@ -1,21 +1,23 @@
 import { useToggle, ExpandableMenuMainIcon, ExpandableMenuListIcon } from "hub"
 import {
   classes,
-  defaultIconProps,
-  getType,
+  getDefaultIconProps,
   getIconExpandDirection,
+  getIconSpreadDirection,
+  getType,
   expandableMenuPropTypes
 } from "./ExpandableMenu.utils"
 
 export default function ExpandableMenu({
   // anchor = "bottom-right",
-  anchor = "left",
-  spread = "right",
+  anchor = "bottom-right",
+  spread = getIconSpreadDirection(anchor),
   type = "secondary",
-  iconProps = defaultIconProps,
+  iconsProps = getDefaultIconProps(spread),
+  listIconsExpandDirection = getIconExpandDirection(anchor),
   classNames = {},
-  expandableMenuMainIconProps = {},
-  expandableMenuListIconProps = {},
+  menuIconProps = {},
+  listIconsProps = {},
   ...otherProps
 }) {
   const [isMenuOpen, toggleMenuOpen] = useToggle(false)
@@ -28,27 +30,26 @@ export default function ExpandableMenu({
       >
         <ExpandableMenuMainIcon
           type={getType(type, isMenuOpen)}
-          icon={iconProps.main.icon}
-          content={iconProps.main.content}
+          icon={iconsProps.main.icon}
+          content={iconsProps.main.content}
           open={isMenuOpen}
           onIconClick={toggleMenuOpen}
           classNames={classes.mainIcon(classNames.mainIcon)}
-          {...expandableMenuMainIconProps}
+          {...menuIconProps}
         />
-        {iconProps.list.map((prop, i) => (
+        {iconsProps.list.map((currentIconProps, i) => (
           <ExpandableMenuListIcon
             key={i}
             type={type}
-            icon={prop.icon}
-            content={prop.content}
             show={isMenuOpen}
             order={i}
-            amountOfIcons={iconProps.list.length}
+            amountOfIcons={iconsProps.list.length}
             spread={spread}
-            iconExpandDirection={getIconExpandDirection(anchor)}
-            onContentClick={() => console.log(prop.content)}
+            iconExpandDirection={listIconsExpandDirection}
+            onContentClick={() => console.log(currentIconProps)}
             classNames={classes.listIcon(classNames.listIcon)}
-            {...expandableMenuListIconProps}
+            {...listIconsProps}
+            {...currentIconProps}
           />
         ))}
       </div>

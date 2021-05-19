@@ -3,6 +3,7 @@ change utils.js classes on all components to be cmpDesc and cmpTest
 useTextProcessor (read write) https://codepen.io/rkotze/pen/zjRXYr
 useMouseCoords -> example button that moves when hovered closeby
 useLatency -> simulate a promise.resolve after timeout
+usePagination
 
 hitTarget spawn % 3 NO. make it % prevst.hits / 3, then by +3, +6, +12
 
@@ -14,4 +15,5 @@ fiddle SlotsSpinningSlots timeouts
 
 jsconfig.json!!!!:  quitar "React" y ../../../hub
 
-Appbar.Section
+// commit msg
+added '*Icon*' `type` danger, automatized `spread` and `anchor` in '*ExpandableMenu*', started '*Aura*'

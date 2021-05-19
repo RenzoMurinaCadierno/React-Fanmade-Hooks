@@ -1,7 +1,6 @@
 .Icon {
   transition: all 250ms ease-in;
   z-index: 1;
-  background: var(--generic-background);
 }
 
 .Icon.Open {

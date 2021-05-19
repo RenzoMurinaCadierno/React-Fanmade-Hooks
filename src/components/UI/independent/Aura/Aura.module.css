@@ -1,0 +1,83 @@
+.Container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  width: 0;
+  height: 0;
+  border: inherit;
+  border-radius: inherit;
+  background-color: inherit;
+  pointer-events: none;
+}
+
+.Container.primary,
+.Container.primary-0 {
+  background-color: var(--primary-0);
+}
+
+.Container.primary-1 {
+  background-color: var(--primary-1);
+}
+
+.Container.primary-2 {
+  background-color: var(--primary-2);
+}
+
+.Container.secondary,
+.Container.secondary-0 {
+  background-color: var(--secondary-0);
+}
+
+.Container.secondary-1 {
+  background-color: var(--secondary-1);
+}
+
+.Container.secondary-2 {
+  background-color: var(--secondary-2);
+}
+
+.Container.danger,
+.Container.danger-0 {
+  background-color: var(--danger-0);
+}
+
+.Container.danger-1 {
+  background-color: var(--danger-1);
+}
+
+.Container.danger-2 {
+  background-color: var(--danger-2);
+}
+
+.Circular {
+  border-radius: 50%;
+}
+
+.NoBorder {
+  border: none;
+}
+
+.Container.Animate {
+  animation: base-animation 1s 1s linear infinite;
+}
+
+@keyframes base-animation {
+  0% {
+    width: 75%;
+    height: 75%;
+    opacity: 1;
+  }
+  90% {
+    width: 75%;
+    height: 75%;
+    transform: scale(2.3);
+    opacity: 0;
+  }
+  91%,
+  100% {
+    transform: scale(0);
+  }
+}

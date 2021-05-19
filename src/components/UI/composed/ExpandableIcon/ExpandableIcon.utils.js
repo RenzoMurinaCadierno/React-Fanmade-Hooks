@@ -22,7 +22,10 @@ export const expandableIconPropTypes = {
     "primary-1",
     "secondary",
     "secondary-0",
-    "secondary-1"
+    "secondary-1",
+    "danger",
+    "danger-0",
+    "danger-1"
   ]),
   icon: validateStringOrImgElem,
   content: PropTypes.node,

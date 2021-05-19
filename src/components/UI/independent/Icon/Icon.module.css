@@ -13,6 +13,7 @@
   justify-content: center;
   cursor: pointer;
   transition: var(--generic-transition);
+  background-color: var(--generic-background);
 }
 
 .Container * {
@@ -39,7 +40,7 @@
 .primary-0:hover,
 .primary-0:active,
 .primary-0:focus {
-  background-color: var(--primary-1-translucent-background);
+  filter: brightness(130%);
   color: var(--primary-0);
 }
 
@@ -52,7 +53,7 @@
 .primary-1:hover,
 .primary-1:active,
 .primary-1:focus {
-  background-color: var(--primary-2-translucent-background);
+  filter: brightness(130%);
   color: var(--primary-1);
 }
 
@@ -85,7 +86,7 @@
 .secondary-0:hover,
 .secondary-0:active,
 .secondary-0:focus {
-  background-color: var(--secondary-1-translucent-background);
+  filter: brightness(130%);
   color: var(--secondary-0);
 }
 
@@ -103,7 +104,7 @@
 .secondary-1:hover,
 .secondary-1:active,
 .secondary-1:focus {
-  background-color: var(--secondary-2-translucent-background);
+  filter: brightness(130%);
   color: var(--secondary-1);
 }
 
@@ -122,6 +123,58 @@
 .Container.secondary-1 *:active,
 .Container.secondary-1 *:focus {
   filter: hue-rotate(200deg) brightness(130%);
+}
+
+.danger,
+.danger-0 {
+  color: var(--danger-1);
+  border: var(--border-danger-0-vw);
+  box-shadow: var(--box-shadow-danger-0-vw);
+}
+
+.danger:hover,
+.danger:active,
+.danger:focus,
+.danger-0:hover,
+.danger-0:active,
+.danger-0:focus {
+  filter: brightness(130%);
+  color: var(--danger-0);
+}
+
+.Container.danger *,
+.Container.danger-0 * {
+  filter: hue-rotate(155deg); /* starting from #47cbfc (primary-2) */
+}
+
+.danger-1 {
+  color: var(--danger-3);
+  border: var(--border-danger-3-vw);
+  box-shadow: var(--box-shadow-danger-1-vw);
+}
+
+.danger-1:hover,
+.danger-1:active,
+.danger-1:focus {
+  filter: brightness(130%);
+  color: var(--danger-1);
+}
+
+.Container.danger-1 * {
+  filter: hue-rotate(155deg);
+  opacity: 0.8; /* darker style than 0, make it a little opaque */
+}
+
+.Container.danger *:hover,
+.Container.danger *:active,
+.Container.danger *:focus,
+.Container.danger-0 *:hover,
+.Container.danger-0 *:active,
+.Container.danger-0 *:focus,
+.Container.danger-1 *:hover,
+.Container.danger-1 *:active,
+.Container.danger-1 *:focus {
+  filter: hue-rotate(155deg) brightness(130%);
 }
 /* end classNames added by `type` */
 /* end all devices landscape */
@@ -157,6 +210,17 @@
   .secondary-1 {
     border: var(--border-secondary-3-vh);
     box-shadow: var(--box-shadow-secondary-1-vh);
+  }
+
+  .danger,
+  .danger-0 {
+    border: var(--border-danger-0-vh);
+    box-shadow: var(--box-shadow-danger-0-vh);
+  }
+
+  .danger-1 {
+    border: var(--border-danger-3-vh);
+    box-shadow: var(--box-shadow-danger-1-vh);
   }
   /* end classNames added by `type` */
 }

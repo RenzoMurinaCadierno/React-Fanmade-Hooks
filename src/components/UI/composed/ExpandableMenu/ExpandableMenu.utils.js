@@ -12,48 +12,64 @@ export const classes = {
     " " +
     styles.Container,
   mainIcon: (classNames) => classNames,
-  listIcon: (classNames) => classNames,
-  animateMenu: styles.AnimateMenu
+  listIcon: (classNames) => classNames
 }
 
-const anchorsThatExpandIconsToLeft = ["bottom", "bottom-left", "bottom-right"]
-anchors that spread icons to left right bottom top
+const spreadOrientations = {
+  top: ["bottom", "bottom-right", "bottom-left"],
+  bottom: ["top", "top-right", "top-left"],
+  right: ["left", "center"],
+  left: ["right"]
+}
+
+const anchorPropTypesOneOf = Object.values(spreadOrientations).flat()
 
 export const expandableMenuPropTypes = {
-  anchor: PropTypes.oneOf([
-    ...anchorsThatExpandIconsToLeft,
-    "top",
-    "top-left",
-    "top-right",
-    "left",
-    "right",
-    "bottom",
-    "top",
-    "center"
-  ])
+  anchor: PropTypes.oneOf(anchorPropTypesOneOf)
 }
 
-const pointerStyle = { transform: "rotate(90deg)" }
+const pointerRotations = { top: 90, bottom: -90, right: 180, left: 0 }
 
-export const defaultIconProps = {
-  main: {
-    icon: <img src={pointer} alt="ispointer" style={pointerStyle} />,
-    content: "pointer"
-  },
-  list: [
-    {
-      icon: <img src={facebook} alt="facebook" />,
-      content: "facebook"
+export function getDefaultIconProps(spread) {
+  return {
+    main: {
+      icon: (
+        <img
+          src={pointer}
+          alt="menu"
+          style={{ transform: `rotate(${pointerRotations[spread] ?? 90}deg)` }}
+        />
+      ),
+      content: "pointer"
     },
-    {
-      icon: <img src={linkedin} alt="linkedin" />,
-      content: "linkedin"
-    },
-    {
-      icon: <img src={twitter} alt="twitter" />,
-      content: "twitter"
-    }
-  ]
+    list: [
+      {
+        icon: <img src={facebook} alt="facebook" />,
+        content: "facebook"
+      },
+      {
+        icon: <img src={linkedin} alt="linkedin" />,
+        content: "linkedin"
+      },
+      {
+        icon: <img src={twitter} alt="twitter" />,
+        content: "twitter"
+      }
+    ]
+  }
+}
+
+export function getIconSpreadDirection(anchor) {
+  for (const spreadName in spreadOrientations) {
+    if (spreadOrientations[spreadName].includes(anchor)) return spreadName
+  }
+  return "top"
+}
+
+const anchorsThatExpandIconsToLeft = ["right", "top-right", "bottom-right"]
+
+export function getIconExpandDirection(anchor) {
+  return anchorsThatExpandIconsToLeft.includes(anchor) ? "left" : "right"
 }
 
 export function getType(typeProp, isOpen) {
@@ -65,8 +81,4 @@ export function getType(typeProp, isOpen) {
     default:
       return typeProp
   }
-}
-
-export function getIconExpandDirection(anchor) {
-  return anchorsThatExpandIconsToLeft.includes(anchor) ? "left" : "right"
 }
