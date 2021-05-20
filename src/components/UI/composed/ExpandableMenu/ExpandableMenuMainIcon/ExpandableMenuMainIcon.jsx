@@ -9,15 +9,13 @@ export default function ExpandableMenuMainIcon({
 }) {
   // console.log("render")
   return (
-    <>
+    <Aura isActive={!open} type={"primary"}>
       <ExpandableIcon
         type={type}
         expand={false}
         classNames={classes.icon(classNames.icon, open)}
         {...otherProps}
       />
-      <Aura isActive={!open} type={type} forceCircularShape />
-      {/* <div className={classes.aura(classNames.aura, open, type)} /> */}
-    </>
+    </Aura>
   )
 }

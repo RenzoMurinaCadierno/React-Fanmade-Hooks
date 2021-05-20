@@ -16,4 +16,3 @@ fiddle SlotsSpinningSlots timeouts
 jsconfig.json!!!!:  quitar "React" y ../../../hub
 
 // commit msg
-added '*Icon*' `type` danger, automatized `spread` and `anchor` in '*ExpandableMenu*', started '*Aura*'

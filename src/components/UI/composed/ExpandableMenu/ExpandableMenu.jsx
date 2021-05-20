@@ -10,7 +10,7 @@ import {
 
 export default function ExpandableMenu({
   // anchor = "bottom-right",
-  anchor = "bottom-right",
+  anchor = "center",
   spread = getIconSpreadDirection(anchor),
   type = "secondary",
   iconsProps = getDefaultIconProps(spread),

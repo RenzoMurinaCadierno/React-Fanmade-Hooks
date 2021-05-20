@@ -1,4 +1,11 @@
 .Container {
+  z-index: 0;
+  position: relative;
+  width: inherit;
+  height: inherit;
+}
+
+.Aura {
   position: absolute;
   top: 0;
   right: 0;
@@ -11,44 +18,45 @@
   border-radius: inherit;
   background-color: inherit;
   pointer-events: none;
+  z-index: -1;
 }
 
-.Container.primary,
-.Container.primary-0 {
+.Aura.primary,
+.Aura.primary-0 {
   background-color: var(--primary-0);
 }
 
-.Container.primary-1 {
+.Aura.primary-1 {
   background-color: var(--primary-1);
 }
 
-.Container.primary-2 {
+.Aura.primary-2 {
   background-color: var(--primary-2);
 }
 
-.Container.secondary,
-.Container.secondary-0 {
+.Aura.secondary,
+.Aura.secondary-0 {
   background-color: var(--secondary-0);
 }
 
-.Container.secondary-1 {
+.Aura.secondary-1 {
   background-color: var(--secondary-1);
 }
 
-.Container.secondary-2 {
+.Aura.secondary-2 {
   background-color: var(--secondary-2);
 }
 
-.Container.danger,
-.Container.danger-0 {
+.Aura.danger,
+.Aura.danger-0 {
   background-color: var(--danger-0);
 }
 
-.Container.danger-1 {
+.Aura.danger-1 {
   background-color: var(--danger-1);
 }
 
-.Container.danger-2 {
+.Aura.danger-2 {
   background-color: var(--danger-2);
 }
 
@@ -56,27 +64,223 @@
   border-radius: 50%;
 }
 
-.NoBorder {
-  border: none;
+.VerticalEllipse {
+  border-radius: 50%;
 }
 
-.Container.Animate {
-  animation: base-animation 1s 1s linear infinite;
+.Aura.BaseAnimation {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
-@keyframes base-animation {
+.Aura.ShortInterval {
+  animation-delay: 1s;
+  animation-duration: 1s;
+}
+
+.Aura.NormalInterval {
+  animation-delay: 3s;
+  animation-duration: 3s;
+}
+
+.Aura.LongInterval {
+  animation-delay: 5s;
+  animation-duration: 5s;
+}
+
+.Aura.ShortBlink.SmallSize {
+  animation-name: short-blink-small-size;
+}
+
+.Aura.ShortBlink.NormalSize {
+  animation-name: short-blink-normal-size;
+}
+
+.Aura.ShortBlink.LargeSize {
+  animation-name: short-blink-large-size;
+}
+
+.Aura.NormalBlink.SmallSize {
+  animation-name: normal-blink-small-size;
+}
+
+.Aura.NormalBlink.NormalSize {
+  animation-name: normal-blink-normal-size;
+}
+
+.Aura.NormalBlink.LargeSize {
+  animation-name: normal-blink-large-size;
+}
+
+.Aura.LongBlink.SmallSize {
+  animation-name: long-blink-small-size;
+}
+
+.Aura.LongBlink.NormalSize {
+  animation-name: long-blink-normal-size;
+}
+
+.Aura.LongBlink.LargeSize {
+  animation-name: long-blink-large-size;
+}
+
+@keyframes short-blink-small-size {
   0% {
-    width: 75%;
-    height: 75%;
+    width: 100%;
+    height: 100%;
     opacity: 1;
   }
-  90% {
-    width: 75%;
-    height: 75%;
+  15% {
+    width: 100%;
+    height: 100%;
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  16%,
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes short-blink-normal-size {
+  0% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  15% {
+    width: 100%;
+    height: 100%;
+    transform: scale(1.8);
+    opacity: 0;
+  }
+  16%,
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes short-blink-large-size {
+  0% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  15% {
+    width: 100%;
+    height: 100%;
     transform: scale(2.3);
     opacity: 0;
   }
-  91%,
+  16%,
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes normal-blink-small-size {
+  0% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  40% {
+    width: 100%;
+    height: 100%;
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  41%,
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes normal-blink-normal-size {
+  0% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  40% {
+    width: 100%;
+    height: 100%;
+    transform: scale(2);
+    opacity: 0;
+  }
+  41%,
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes normal-blink-large-size {
+  0% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  40% {
+    width: 100%;
+    height: 100%;
+    transform: scale(2.5);
+    opacity: 0;
+  }
+  41%,
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes long-blink-small-size {
+  0% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  40% {
+    width: 100%;
+    height: 100%;
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  41%,
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes long-blink-normal-size {
+  0% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  40% {
+    width: 100%;
+    height: 100%;
+    transform: scale(2);
+    opacity: 0;
+  }
+  41%,
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes long-blink-large-size {
+  0% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  40% {
+    width: 100%;
+    height: 100%;
+    transform: scale(2.5);
+    opacity: 0;
+  }
+  41%,
   100% {
     transform: scale(0);
   }

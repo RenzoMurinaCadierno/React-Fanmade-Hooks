@@ -13,22 +13,22 @@ export default function HomePage() {
       <Text htmlElem="h6" type="secondary-2">
         Hit the toggler at the top-left of the screen and start exploring!
       </Text>
-      <div
-        style={{
-          position: "absolute",
-          top: "30%",
-          width: "20%",
-          height: "20%",
-          zIndex: 0,
-          // borderRadius: "20vw",
-          // clipPath: "circle(50px at 0 100px)",
-          borderTop: "10vw dashed red",
-          borderBottom: "10vw dotted blue",
-          background: "var(--primary-0)"
-        }}
-      >
-        <Aura style={{ zIndex: -1 }} />
-      </div>
+      {/* <Aura>
+        <div
+          style={{
+            // position: "absolute",
+            top: "30%",
+            width: "20%",
+            height: "20%",
+            // zIndex: 1,
+            // borderRadius: "20vw",
+            // clipPath: "circle(50px at 0 100px)",
+            borderTop: "10vw dashed red",
+            borderBottom: "10vw dotted blue",
+            background: "var(--primary-0)"
+          }}
+        />
+      </Aura> */}
       <ExpandableMenu />
     </div>
   )
