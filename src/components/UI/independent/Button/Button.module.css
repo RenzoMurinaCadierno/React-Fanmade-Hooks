@@ -77,7 +77,7 @@
 }
 
 .secondary-1:hover:enabled {
-  box-shadow: var(--box-shadow-secondary-2-vw-hover);
+  box-shadow: var(--box-shadow-secondary-1-vw-hover);
 }
 
 .secondary-1-colored {

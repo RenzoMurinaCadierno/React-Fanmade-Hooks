@@ -4,7 +4,7 @@ import styles from "./Aura.module.css"
 
 export const classes = {
   container: (className) => (className ?? "") + " " + styles.Container,
-  aura: (isActive, type, blink, size, interval, isCircle, className) =>
+  aura: (isActive, type, blink, size, interval, inheritBoxShape, className) =>
     (className ?? "") +
     (isActive
       ? styles.BaseAnimation +
@@ -18,11 +18,18 @@ export const classes = {
     " " +
     (type ? styles[type.toLowerCase()] : "") +
     " " +
-    (isCircle ? styles.Circular : "") +
+    (inheritBoxShape ? styles.InheritBoxShape : "") +
     " " +
     styles.Aura
 }
 
+/**
+ * Pascal-cases each string in `words` and returns all of them joined together.
+ *
+ * @param  {...Array} words Array of strings to pascal-case.
+ *
+ * @returns {string} The joint string of all resulting pascal-cased words.
+ */
 function getPascalCasedJoinedWords(...words) {
   return words.reduce(
     (acc, word) => (acc += word[0].toUpperCase() + word.slice(1).toLowerCase()),
@@ -32,9 +39,10 @@ function getPascalCasedJoinedWords(...words) {
 
 const validTypePropTypes = getCartesianProduct(
   ["primary", "secondary", "danger"],
-  ["", 0, 1, 2]
+  ["", 0, 1, 2],
+  "-"
 )
-test Proptypes and comment
+
 export const auraPropTypes = {
   children: validateChildren,
   isActive: PropTypes.bool,
@@ -42,7 +50,7 @@ export const auraPropTypes = {
   blink: PropTypes.oneOf(["short", "normal", "long"]),
   size: PropTypes.oneOf(["small", "normal", "large"]),
   interval: PropTypes.oneOf(["short", "normal", "long"]),
-  isCircle: PropTypes.bool,
+  inheritBoxShape: PropTypes.bool,
   classNames: PropTypes.shape({
     container: PropTypes.string,
     aura: PropTypes.string
@@ -51,29 +59,60 @@ export const auraPropTypes = {
   otherProps: PropTypes.object
 }
 
+/**
+ * Tests for `children` being only one React.Element, string or number.
+ *
+ * Throws a "PropType" error if validation fails.
+ *
+ * @param {object} props '*Aura*' `props`
+ * @param {string} propName `children`
+ * @param {string} componentName 'Aura'
+ */
 function validateChildren(props, propName, componentName) {
-  const prop = props[propName]
-  if (typeof prop === "undefined") return
+  const targetProp = props[propName]
+  if (typeof targetProp === "undefined") return
   if (
-    !prop ||
-    (!isValidElement(prop) &&
-      typeof prop !== "string" &&
-      typeof prop !== "number")
+    !targetProp ||
+    (!isValidElement(targetProp) &&
+      typeof targetProp !== "string" &&
+      typeof targetProp !== "number")
   ) {
     return new Error(
-      `Invalid prop \`${propName}\` supplied to \`${componentName}\`. Expected only one React Element.`
+      `Invalid prop \`${propName}\` supplied to '*${componentName}*'.\n\nExpected only one React Element, string or number.\n`
     )
   }
 }
 
+/**
+ * Combines each element in `arr_1` with each element in `arr_2` and returns an
+ * array with the results.
+ *
+ * If `separator` is defined, it will be applied between each combination,
+ * unless the iterated element in `arr_2` is an empty string.
+ *
+ * Examples:
+ * > * **>>** `arr_1` = ["a", "b", "c"]; `arr_2` = ["d", "e"]
+ * > * **<<** ["ad", "ae", "bd", "be", "cd", "ce"]
+ *
+ * > * **>>** `arr_1` = ["a", "b", "c"]; `arr_2` = ["1", ""]; `separator` = "-"
+ * > * **<<** ["a-1", "a", "b-1", "b", "c-1", "c"]
+ *
+ * @param {Array} arr_1 Elements to combine with the ones in `arr_2`.
+ * @param {Array} arr_2 Elements to append to each element in `arr_1`.
+ * @param {string} separator String to add in the middle of each resulting
+ *   combination of elements. Defaults to "" (adds nothing in-between).
+ *
+ * @returns {Array} an array with all combinations between elements of `arr_1`
+ *   and `arr_2`.
+ */
 function getCartesianProduct(arr_1, arr_2, separator = "") {
   return arr_1
-    .map((i) =>
+    .map((it_1) =>
       arr_2
         .reduce(
-          (acc, j) => [
+          (acc, it_2) => [
             ...acc,
-            !j && typeof j === "string" ? i : i + separator + j
+            !it_2 && typeof it_2 === "string" ? it_1 : it_1 + separator + it_2
           ],
           []
         )

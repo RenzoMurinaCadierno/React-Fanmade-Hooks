@@ -50,15 +50,16 @@ export function resetGameSt(setGameSt) {
  * to type, or clears "helpText" otherwise.
  *
  * @param {object} e event target object for input change
- * @param {object} gameSt "gameSt" state
  * @param {function} setGameSt "gameSt" state setter callback
  */
-export function changeHelpText(e, gameSt, setGameSt) {
-  const isCorrect = e.target.value === gameSt.words[gameSt.answers.length]
-  setGameSt((prevSt) => ({
-    ...prevSt,
-    helpText: isCorrect ? "Correct! Hit Enter!" : ""
-  }))
+export function setHelpTextInGameSt(e, setGameSt) {
+  setGameSt((prevSt) => {
+    const isCorrectAns = e.target.value === prevSt.words[prevSt.answers.length]
+    return {
+      ...prevSt,
+      helpText: isCorrectAns ? "Correct! Hit Enter!" : ""
+    }
+  })
 }
 
 /**

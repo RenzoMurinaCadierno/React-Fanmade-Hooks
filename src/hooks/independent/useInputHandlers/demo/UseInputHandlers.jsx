@@ -13,7 +13,7 @@ import {
   classes,
   descItemsObject,
   resetGameSt,
-  changeHelpText,
+  setHelpTextInGameSt,
   processAnswer,
   getTextsAndStyles,
   ResultsSummary
@@ -35,7 +35,7 @@ export default function UseInputHandlers() {
     inputRef,
     {
       autoComplete: "off",
-      onChange: (e) => changeHelpText(e, gameSt, setGameSt)
+      onChange: (e) => setHelpTextInGameSt(e, setGameSt)
     },
     {
       // each key press triggers validation process

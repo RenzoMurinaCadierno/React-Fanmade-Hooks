@@ -1,4 +1,6 @@
+/* all devices landscape */
 .Container {
+  /* wrapper container '*div*' */
   z-index: 0;
   position: relative;
   width: inherit;
@@ -6,6 +8,7 @@
 }
 
 .Aura {
+  /* "aura effect" '*div*' */
   position: absolute;
   top: 0;
   right: 0;
@@ -15,12 +18,13 @@
   width: 0;
   height: 0;
   border: inherit;
-  border-radius: inherit;
+  border-radius: 50%;
   background-color: inherit;
   pointer-events: none;
   z-index: -1;
 }
 
+/* classNames added by `type` */
 .Aura.primary,
 .Aura.primary-0 {
   background-color: var(--primary-0);
@@ -59,20 +63,21 @@
 .Aura.danger-2 {
   background-color: var(--danger-2);
 }
+/* end classNames added by `type` */
 
-.Circular {
-  border-radius: 50%;
+/* classNames added by `inheritBoxShape` */
+.InheritBoxShape {
+  border-radius: inherit;
 }
-
-.VerticalEllipse {
-  border-radius: 50%;
-}
+/* end classNames added by `inheritBoxShape` */
 
 .Aura.BaseAnimation {
+  /* className added to all animations */
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
+/* classNames added by `interval` */
 .Aura.ShortInterval {
   animation-delay: 1s;
   animation-duration: 1s;
@@ -87,7 +92,9 @@
   animation-delay: 5s;
   animation-duration: 5s;
 }
+/* end classNames added by `interval` */
 
+/* classNames added by `blink` and `size` */
 .Aura.ShortBlink.SmallSize {
   animation-name: short-blink-small-size;
 }
@@ -123,7 +130,10 @@
 .Aura.LongBlink.LargeSize {
   animation-name: long-blink-large-size;
 }
+/* classNames added by `blink` and `size` */
+/* end all devices landscape */
 
+/* animation keyframes */
 @keyframes short-blink-small-size {
   0% {
     width: 100%;
@@ -238,13 +248,13 @@
     height: 100%;
     opacity: 1;
   }
-  40% {
+  70% {
     width: 100%;
     height: 100%;
     transform: scale(1.5);
     opacity: 0;
   }
-  41%,
+  71%,
   100% {
     transform: scale(0);
   }
@@ -256,13 +266,13 @@
     height: 100%;
     opacity: 1;
   }
-  40% {
+  70% {
     width: 100%;
     height: 100%;
     transform: scale(2);
     opacity: 0;
   }
-  41%,
+  71%,
   100% {
     transform: scale(0);
   }
@@ -274,14 +284,15 @@
     height: 100%;
     opacity: 1;
   }
-  40% {
+  70% {
     width: 100%;
     height: 100%;
     transform: scale(2.5);
     opacity: 0;
   }
-  41%,
+  71%,
   100% {
     transform: scale(0);
   }
 }
+/* end animation keyframes */

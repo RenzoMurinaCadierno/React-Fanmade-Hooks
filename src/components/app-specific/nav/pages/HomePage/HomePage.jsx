@@ -1,6 +1,10 @@
-import { Text, ExpandableMenu, Aura } from "hub"
+import Icon from "components/UI/independent/Icon/Icon"
+import { Text, ExpandableMenu } from "hub"
 import { classes } from "./HomePage.utils"
 
+// declared outside to avoid constructing a new object on each render
+const menuIconProps = { aura: { size: "small", interval: "long" } }
+add onclick handler to each Icon. Use toast as confirmation
 export default function HomePage() {
   return (
     <div className={classes.container}>
@@ -13,23 +17,7 @@ export default function HomePage() {
       <Text htmlElem="h6" type="secondary-2">
         Hit the toggler at the top-left of the screen and start exploring!
       </Text>
-      {/* <Aura>
-        <div
-          style={{
-            // position: "absolute",
-            top: "30%",
-            width: "20%",
-            height: "20%",
-            // zIndex: 1,
-            // borderRadius: "20vw",
-            // clipPath: "circle(50px at 0 100px)",
-            borderTop: "10vw dashed red",
-            borderBottom: "10vw dotted blue",
-            background: "var(--primary-0)"
-          }}
-        />
-      </Aura> */}
-      <ExpandableMenu />
+      <ExpandableMenu menuIconProps={menuIconProps} />
     </div>
   )
 }

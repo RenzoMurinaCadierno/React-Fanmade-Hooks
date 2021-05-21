@@ -9,8 +9,7 @@ import {
 } from "./ExpandableMenu.utils"
 
 export default function ExpandableMenu({
-  // anchor = "bottom-right",
-  anchor = "center",
+  anchor = "bottom-right",
   spread = getIconSpreadDirection(anchor),
   type = "secondary",
   iconsProps = getDefaultIconProps(spread),
@@ -35,7 +34,8 @@ export default function ExpandableMenu({
           open={isMenuOpen}
           onIconClick={toggleMenuOpen}
           classNames={classes.mainIcon(classNames.mainIcon)}
-          {...menuIconProps}
+          auraProps={menuIconProps.aura}
+          {...menuIconProps.icon}
         />
         {iconsProps.list.map((currentIconProps, i) => (
           <ExpandableMenuListIcon
