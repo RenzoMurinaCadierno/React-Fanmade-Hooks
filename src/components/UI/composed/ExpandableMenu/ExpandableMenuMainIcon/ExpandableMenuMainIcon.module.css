@@ -1,51 +1,12 @@
+/* all devices landscape */
 .Icon {
+  /* '*ExpandableIcon*' container */
   transition: all 250ms ease-in;
   z-index: 1;
 }
 
 .Icon.Open {
+  /* '*ExpandableIcon*' container when `open` is true */
   transform: rotate(-180deg) scale(1.2);
 }
-
-.Aura {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  margin: auto;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.Aura.NotOpen {
-  animation: animate-aura 5s 5s linear infinite;
-}
-
-.Aura.NotOpen.primary {
-  background-color: var(--primary-2);
-}
-
-.Aura.NotOpen.secondary {
-  background-color: var(--secondary-2);
-}
-
-@keyframes animate-aura {
-  0% {
-    width: 75%;
-    height: 75%;
-    opacity: 1;
-  }
-  10% {
-    width: 75%;
-    height: 75%;
-    transform: scale(2.3);
-    opacity: 0;
-  }
-  11%,
-  100% {
-    transform: scale(0);
-  }
-}
+/* end animation keyframes */

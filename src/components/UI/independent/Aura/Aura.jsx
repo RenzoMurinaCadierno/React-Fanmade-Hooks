@@ -17,9 +17,8 @@ import { classes, auraPropTypes } from "./Aura.utils"
  * `isActive?` (boolean): False disables the effect. Defaults to true.
  *
  * `type?` (string): Controls background-color of the aura effect. Defaults to
- *   'primary'. Can be one of ['primary', 'primary-0', 'primary-1', 'primary-2',
- *   'secondary', 'secondary-0', 'secondary-1', 'secondary-2', 'danger',
- *   'danger-0', 'danger-1', 'danger-2'].
+ *   'primary'. Can be one of 'primary', 'primary-1', 'primary-2', 'secondary',
+ *   'secondary-1', 'secondary-2', 'danger', 'danger-1', 'danger-2'.
  *   * **Note:** `type` is bound to this app's theme, but can be changed
  *      declaring "background-color" rule in "style" object, inside
  *      `otherAuraProps`.

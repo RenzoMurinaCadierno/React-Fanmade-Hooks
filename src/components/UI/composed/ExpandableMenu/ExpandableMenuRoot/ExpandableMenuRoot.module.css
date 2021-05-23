@@ -1,0 +1,100 @@
+/* all devices landscape */
+.Container {
+  /* wrapper container '*div*' */
+  position: absolute;
+}
+
+/* classNames added by `anchor` */
+.center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.top {
+  top: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.top-right {
+  top: 4%;
+  right: 2%;
+}
+
+.top-left {
+  top: 4%;
+  left: 2%;
+}
+
+.right {
+  right: 2%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.bottom {
+  bottom: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bottom-right {
+  bottom: 4%;
+  right: 2%;
+}
+
+.bottom-left {
+  bottom: 4%;
+  left: 2%;
+}
+
+.left {
+  left: 2%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* end classNames added by `anchor` */
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  /* classNames added by `anchor` */
+  .top {
+    top: 2%;
+  }
+
+  .top-right {
+    top: 2%;
+    right: 4%;
+  }
+
+  .top-left {
+    top: 2%;
+    left: 4%;
+  }
+
+  .right {
+    right: 4%;
+  }
+
+  .bottom {
+    bottom: 2%;
+  }
+
+  .bottom-right {
+    bottom: 2%;
+    right: 4%;
+  }
+
+  .bottom-left {
+    bottom: 2%;
+    left: 4%;
+  }
+
+  .left {
+    left: 4%;
+  }
+  /* end classNames added by `anchor` */
+}
+/* end all devices portrait */

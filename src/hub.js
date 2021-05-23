@@ -2,6 +2,7 @@ import BadgeWithAnimatedNumber from "./components/UI/composed/BadgeWithAnimatedN
 import CountBar from "./components/UI/composed/CountBar/CountBar"
 import ExpandableIcon from "./components/UI/composed/ExpandableIcon/ExpandableIcon"
 import ExpandableMenu from "./components/UI/composed/ExpandableMenu/ExpandableMenu"
+import ExpandableMenuRoot from "./components/UI/composed/ExpandableMenu/ExpandableMenuRoot/ExpandableMenuRoot"
 import ExpandableMenuMainIcon from "./components/UI/composed/ExpandableMenu/ExpandableMenuMainIcon/ExpandableMenuMainIcon"
 import ExpandableMenuListIcon from "./components/UI/composed/ExpandableMenu/ExpandableMenuListIcon/ExpandableMenuListIcon"
 import InputField from "./components/UI/composed/InputField/InputField"
@@ -9,6 +10,7 @@ import InputWithState from "./components/UI/composed/InputWithState/InputWithSta
 import PhoneDial from "./components/UI/composed/PhoneDial/PhoneDial"
 import StyledInput from "./components/UI/composed/StyledInput/StyledInput"
 import StyledInputWithValidation from "./components/UI/composed/StyledInputWithValidation/StyledInputWithValidation"
+import ToastWithPortal from "./components/UI/composed/ToastWithPortal/ToastWithPortal"
 
 import Aura from "./components/UI/independent/Aura/Aura"
 import Backdrop from "./components/UI/independent/Backdrop/Backdrop"
@@ -105,6 +107,7 @@ export {
   CountBar,
   ExpandableIcon,
   ExpandableMenu,
+  ExpandableMenuRoot,
   ExpandableMenuMainIcon,
   ExpandableMenuListIcon,
   InputField,
@@ -112,6 +115,7 @@ export {
   PhoneDial,
   StyledInput,
   StyledInputWithValidation,
+  ToastWithPortal,
   Appbar,
   AppbarSection,
   AppbarLink,

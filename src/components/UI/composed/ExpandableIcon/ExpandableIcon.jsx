@@ -50,6 +50,14 @@ import {
  *
  * `classNames?` (object): className strings for everything rendered here.
  *   Check *utils.js* for its constitution.
+ *
+ * `iconProps` (object): Props to pass to '*Icon*'.
+ *
+ * `contentProps` (object): Props to pass to '*span*' ('*Icon*' content).
+ *
+ * `barrierProps` (object): Props to pass to 'barrier' '*div*'.
+ *
+ * `otherProps` (object): Props to pass to wrapper container '*div*'.
  */
 function ExpandableIcon({
   type = "primary",
@@ -64,6 +72,9 @@ function ExpandableIcon({
   onContentClick,
   disabled,
   classNames = {},
+  iconProps = {},
+  contentProps = {},
+  barrierProps = {},
   ...otherProps
 }) {
   const [st, setSt] = useState({ isFocused: false, isExpanded: false })
@@ -136,6 +147,7 @@ function ExpandableIcon({
         type={type}
         disabled={disabled} // to add disabled styles
         className={classes.icon(classNames?.icon)}
+        {...iconProps}
       >
         {/* if `icon` is a string, use up to 2 chars from it */}
         {typeOf(icon).is("string") && icon.length > 2 ? icon.slice(0, 2) : icon}
@@ -148,13 +160,17 @@ function ExpandableIcon({
             expandDirection,
             classNames?.content
           )}
+          {...contentProps}
         >
           {content}
         </span>
         {/* invisible '*div*' to capture clicks on the border of the icon to 
          prevent propagation to content's "onClick" handler if content is not
          expanded */}
-        <div className={classes.barrier(classNames?.barrier)} />
+        <div
+          className={classes.barrier(classNames?.barrier)}
+          {...barrierProps}
+        />
       </Icon>
     </div>
   )

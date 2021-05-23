@@ -1,19 +1,98 @@
 /* all devices landscape */
 .Container {
-  width: 70%;
+  /* wrapper container */
+  width: 85%;
   height: 70%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
+  overflow: hidden;
 }
+
+.Title {
+  transform: scale(0);
+  animation: display-title 900ms ease-out forwards;
+}
+
+.Subtitle {
+  opacity: 0;
+  animation: display-subtitle 900ms 700ms ease-out forwards;
+}
+
+.Instructions {
+  opacity: 0;
+  animation: display-instructions 1300ms 1600ms ease-out forwards;
+}
+
 /* end all devices landscape */
 
 /* all devices portrait */
 @media screen and (orientation: portrait) {
   .Container {
+    /* wrapper container */
     height: 65%;
+    width: 90%;
+  }
+
+  .Subtitle,
+  .Instructions {
     width: 85%;
   }
 }
 /* end all devices portrait */
+
+/* animation keyframes */
+@keyframes display-title {
+  0% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1.3);
+  }
+  60% {
+    transform: scale(0.75);
+  }
+  80% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes display-subtitle {
+  0% {
+    opacity: 1;
+    transform: translateX(-150%);
+  }
+  75% {
+    transform: translateX(10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes display-instructions {
+  0% {
+    opacity: 1;
+    transform: translateX(150%) scale(1);
+  }
+  50% {
+    transform: translateX(-10%);
+  }
+  60%,
+  70% {
+    transform: translateX(0) scale(1);
+  }
+  85% {
+    transform: translateX(0) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+/* end animation keyframes */

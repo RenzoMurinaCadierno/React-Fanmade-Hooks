@@ -16,4 +16,4 @@ fiddle SlotsSpinningSlots timeouts
 jsconfig.json!!!!:  quitar "React" y ../../../hub
 
 // commit msg
-Fixed "helpText" bug in '*UseInputHandlers*'. Finished '*Aura*'.
+Finished '*ExpandableMenu*'. Created '*ToastWithPortal*'. Reworked '*HomePage*'.
