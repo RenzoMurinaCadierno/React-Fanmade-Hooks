@@ -1,5 +1,4 @@
 import PropTypes from "prop-types"
-import React from "react"
 import styles from "./PlayingCard.module.css"
 
 export const classes = {

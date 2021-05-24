@@ -20,7 +20,7 @@ import { classes, appbarSectionPropTypes, index } from "./AppbarSection.utils"
  *
  * `title?` (string): the section's title. Defaults to "Title".
  *
- * `classNames` (object): className strings for each JSX rendered here.
+ * `classNames?` (object): className strings for each JSX rendered here.
  *   Check *utils.js* for its constitution.
  */
 export default function AppbarSection({

@@ -34,11 +34,11 @@ import {
  *
  * `type?` (string): This app's theme stylings to apply to everything rendered
  *   here. Defaults to 'primary' and can be one of 'primary', 'primary-1',
- *   'primary-2', 'secondary', 'secondary-1', 'secondary-2', 'danger',
- *   'danger-1', 'danger-2'.
+ *   'secondary', 'secondary-1', 'danger', 'danger-1'.
  *
- * > **Note**: it is advised to use the base 'primary' and 'secondary' values if
- *   possible. Theme color's auto-toggling is only available on those two.
+ * > **Note**: it is advised to use the 'primary' and 'secondary' values and
+ *   their variations if possible. Theme color's auto-toggling is only
+ *   available on those two.
  *
  * `iconsProps` (object): Object with two keys, 'main' and 'list', and their
  *   values being:

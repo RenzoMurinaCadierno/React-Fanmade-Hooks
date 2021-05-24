@@ -1,5 +1,5 @@
 import { useState, useCallback, memo, useEffect } from "react"
-import { Carousel, CarouselSlide } from "hub"
+import { Carousel } from "hub"
 import { classes } from "./SlotsSpinningSlot.utils"
 
 // stable timeouts: 500 300 200css
@@ -72,7 +72,7 @@ export default memo(function SlotsSpinningSlot({
 
   return (
     // spinning slot, wrapper for all slot items it contains
-    <Carousel
+    <Carousel.Root
       // allow scroll (spin) if parent's and inner state are both true
       autoScroll={areSlotsActive && isActive}
       // autoScrollInterval={310}
@@ -89,7 +89,7 @@ export default memo(function SlotsSpinningSlot({
     >
       {/* slot items inside spinning slot */}
       {slotsArray.map((itemArr) => (
-        <CarouselSlide
+        <Carousel.Slide
           key={itemArr[0]} // slot item's unique name (different for all slots)
           name={itemArr[0]}
           timeout={230}
@@ -107,8 +107,8 @@ export default memo(function SlotsSpinningSlot({
               className={classes.slotImage(classNames.slotImage)}
             />
           )}
-        </CarouselSlide>
+        </Carousel.Slide>
       ))}
-    </Carousel>
+    </Carousel.Root>
   )
 })

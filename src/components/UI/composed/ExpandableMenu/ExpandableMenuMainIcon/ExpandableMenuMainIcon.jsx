@@ -15,8 +15,7 @@ import {
  *
  * `type?` (string): This app's theme stylings to apply to both '*Aura*' and
  *   '*ExpandableIcon*'. Defaults to 'primary' and can be one of 'primary',
- *   'primary-1', 'primary-2', 'secondary', 'secondary-1', 'secondary-2',
- *   'danger', 'danger-1', 'danger-2'.
+ *   'primary-1', 'secondary', 'secondary-1', 'danger', 'danger-1'.
  *
  * `open` (boolean): true shows all hidden '*ExpandableMenuListIcon*'(s)
  *   declared in parent component ('*ExpandableMenuRoot*'), false hides them

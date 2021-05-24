@@ -19,15 +19,12 @@ export const expandableMenuMainIconPropTypes = {
     "primary",
     "primary-0",
     "primary-1",
-    "primary-2",
     "secondary",
     "secondary-0",
     "secondary-1",
-    "secondary-2",
     "danger",
     "danger-0",
-    "danger-1",
-    "danger-2"
+    "danger-1"
   ]),
   open: PropTypes.bool.isRequired,
   classNames: PropTypes.shape({

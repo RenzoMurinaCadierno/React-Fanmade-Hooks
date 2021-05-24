@@ -1,0 +1,51 @@
+/* all devices landscape */
+.Container {
+  /* wrapper container */
+  position: sticky;
+  top: 0;
+  right: 1vw;
+  width: 40%;
+  margin-left: auto;
+  border-radius: var(--border-radius-large-vw);
+  background: var(--translucent-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--small-padding-vw);
+  z-index: 20;
+}
+
+.InputField {
+  /* '*InputField*', the search bar */
+  width: 70%;
+  margin: var(--generic-margin-vw);
+}
+
+.SearchIcon {
+  /* magnifier glass icon '*img*' */
+  width: 8%;
+  padding-top: var(--small-margin-vw);
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    /* wrapper container */
+    width: 70%;
+    border-radius: var(--border-radius-large-vh);
+    padding: var(--small-padding-vh);
+  }
+
+  .InputField {
+    /* '*InputField*', the search bar */
+    margin: var(--generic-margin-vh);
+  }
+
+  .SearchIcon {
+    /* magnifier glass icon '*img*' */
+    width: 9%;
+    padding-top: var(--small-margin-vh);
+  }
+}
+/* end all devices portrait */

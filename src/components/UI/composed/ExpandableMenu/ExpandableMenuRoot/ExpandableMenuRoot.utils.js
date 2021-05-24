@@ -43,15 +43,12 @@ export const expandableMenuRootPropTypes = {
     "primary",
     "primary-0",
     "primary-1",
-    "primary-2",
     "secondary",
     "secondary-0",
     "secondary-1",
-    "secondary-2",
     "danger",
     "danger-0",
-    "danger-1",
-    "danger-2"
+    "danger-1"
   ]),
   iconsProps: PropTypes.objectOf(
     PropTypes.shape({
@@ -166,20 +163,41 @@ export function getIconExpandDirection(anchor) {
  * > * **>>** `typeProp` === 'primary'; `isOpen` === false
  * > * **<<** 'primary'
  *
+ * > * **>>** `typeProp` === 'secondary-1'; `isOpen` === true
+ * > * **<<** 'primary-1'
+ *
  * @param {string} typeProp Current type, related to app's theme. Can be one of
- *   'primary' or 'secondary'.
+ *   'primary', 'primary-1', 'secondary', 'secondary-1',.
  * @param {boolean} isOpen Menu toggler's boolean state ("isMenuOpen").
  *
  * @returns The current type if `isOpen` is false, or the opposite type if it
  *   is true.
  */
 export function getType(typeProp, isOpen) {
-  switch (typeProp) {
+  const [typeName, variation] = typeProp?.split("-")
+
+  switch (typeName) {
     case "primary":
-      return isOpen ? "secondary" : "primary"
+      return concatType(isOpen ? "secondary" : "primary", variation)
     case "secondary":
-      return isOpen ? "primary" : "secondary"
+      return concatType(isOpen ? "primary" : "secondary", variation)
     default:
-      return typeProp
+      return typeName ?? typeProp
   }
+}
+
+/**
+ * Returns a valid `type`, resulting of the concatenation of `typeName` and
+ * `variation` ('primary', 'secondary-1', ...).
+ *
+ * If `variation` is falsy, it returns `typeName` as is.
+ *
+ * @param {string} typeName App's main theme. Can be one of 'primary' or
+ *   'secondary'.
+ * @param {string?} variation Theme variation. Can be one of '0', '1', '2' or
+ *   a falsy value.
+ */
+function concatType(typeName, variation) {
+  if (variation) return typeName + "-" + variation
+  return typeName
 }

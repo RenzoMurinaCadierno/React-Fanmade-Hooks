@@ -108,8 +108,9 @@ function Modal({
     <>
       {st.isOpen && (
         <div
-          className={classes.backdrop(classNames.backdrop)}
           onClick={onBackdropClick}
+          role="none"
+          className={classes.backdrop(classNames.backdrop)}
         >
           <section
             onClick={stopPropagation} // do not bubble to backdrop

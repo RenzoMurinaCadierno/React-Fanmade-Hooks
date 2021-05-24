@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import styles from "./Carousel.module.css"
+import styles from "./CarouselRoot.module.css"
 
 export const classes = {
   container: (className) => (className ?? "") + " " + styles.Container,
@@ -18,14 +18,6 @@ export const classes = {
 }
 
 export const arrowDirections = ["left", "right"]
-
-export const defaultCtx = {
-  transitionDirection: "left",
-  activeName: "",
-  names: [],
-  jumpToSlide: () => {},
-  scrollSlide: () => {}
-}
 
 export const carouselPropTypes = {
   children: validateChildren,

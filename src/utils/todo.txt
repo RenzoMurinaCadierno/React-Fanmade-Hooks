@@ -16,4 +16,4 @@ fiddle SlotsSpinningSlots timeouts
 jsconfig.json!!!!:  quitar "React" y ../../../hub
 
 // commit msg
-Finished '*ExpandableMenu*'. Created '*ToastWithPortal*'. Reworked '*HomePage*'.
+Extended '*ExpandableMenu*'(s) "type" functionality. Standarized module files.

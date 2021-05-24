@@ -1,0 +1,68 @@
+/* all devices landscape */
+.Container {
+  /* wrapper for 'toggler' UI */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5%;
+  cursor: pointer;
+  z-index: 20;
+  pointer-events: all;
+}
+
+.Toggler {
+  /* main 'toggler' '*div*', the center dot */
+  position: relative;
+  width: 0.7vw;
+  height: 0.7vw;
+  margin: 50% auto;
+  background-color: var(--secondary-3);
+  border-radius: var(--border-radius-vw);
+  transition: var(--generic-transition);
+}
+
+.Toggler::before {
+  /* toggler '*div*' upper dot */
+  top: 170%;
+  left: 0;
+  right: 0;
+}
+
+.Toggler::after {
+  /* toggler '*div*' lower dot */
+  bottom: 170%;
+}
+
+.Toggler::after,
+.Toggler::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  border-radius: inherit;
+  background-color: inherit;
+}
+
+.Toggler.Active {
+  /* 'toggler' '*div*' (all 3 dots) when `isActive` is true */
+  background-color: var(--primary-0);
+  transform: scale(1.1);
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    /* wrapper for 'toggler' UI */
+    width: 10%;
+  }
+
+  .Toggler {
+    /* main toggler '*div*', the center dot */
+    width: 0.7vh;
+    height: 0.7vh;
+    border-radius: var(--border-radius-vh);
+  }
+}
+/* end all devices portrait */

@@ -1,28 +1,13 @@
 import React, { useCallback, useState, useEffect, useRef } from "react"
-import { Container } from "hub"
+import { Carousel, Container } from "hub"
 import {
   classes,
   carouselPropTypes,
-  arrowDirections,
-  defaultCtx
-} from "./Carousel.utils"
-import CarouselSlide from "../CarouselSlide/CarouselSlide"
-import CarouselArrow from "../CarouselArrow/CarouselArrow"
-import CarouselIndicators from "../CarouselIndicators/CarouselIndicators"
-import CarouselIndicator from "../../independent/CarouselIndicator/CarouselIndicator"
+  arrowDirections
+} from "./CarouselRoot.utils"
 
 // "left" and "right" strings defined as variables to avoid typing errors
 const [left, right] = arrowDirections
-
-// context to pass to '*CarouselSlide*'(s) rendered as `children`
-export const carouselContext = React.createContext(defaultCtx)
-
-// Namespace all related components
-Carousel.context = carouselContext
-Carousel.Slide = CarouselSlide
-Carousel.Indicator = CarouselIndicator
-Carousel.Indicators = CarouselIndicators
-Carousel.Arrow = CarouselArrow
 
 /**
  * Root component for '*Carousel*' UI. It handles scrolling logic and keeps the
@@ -82,7 +67,7 @@ Carousel.Arrow = CarouselArrow
  * `classNames?` (object): className strings for each JSX rendered here.
  *   Check *utils.js* for its constitution.
  */
-export default function Carousel({
+export default function CarouselRoot({
   children,
   autoScroll = true,
   autoScrollInterval = 3000,
@@ -120,7 +105,7 @@ export default function Carousel({
   }, [])
 
   /**
-   * if both `autoScroll` and "isAutoScrolling" state are true, this useEffect
+   * If both `autoScroll` and "isAutoScrolling" state are true, this useEffect
    *  sets an interval to scroll the current slide automatically.
    * Will run each time "isAutoScrolling" state `autoScrollInterval`, or
    *  `autoScrollDirection` change. If `resumeAutoScrollOn` is truthy, this will
@@ -244,7 +229,7 @@ export default function Carousel({
   // here before component's return, or else `jumpToSlide` and `scrollSlide`
   // functions will have been initialized, thus resulting in a null reference.
   const [ctx, setCtx] = useState({
-    ...defaultCtx,
+    ...Carousel.defaultCtx,
     jumpToSlide,
     scrollSlide
   })
@@ -317,4 +302,4 @@ export default function Carousel({
   )
 }
 
-Carousel.propTypes = carouselPropTypes
+CarouselRoot.propTypes = carouselPropTypes

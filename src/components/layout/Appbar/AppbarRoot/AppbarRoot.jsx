@@ -1,21 +1,13 @@
 import { useCallback, createContext } from "react"
-import { Modal, InputField, ExpandableIcon, useToggle } from "hub"
+import { Appbar, Modal, ExpandableIcon, useToggle } from "hub"
 import home from "assets/icons/home.svg"
-import search from "assets/icons/search.svg"
-import { classes, appbarPropTypes } from "./Appbar.utils"
-import AppbarLink from "components/layout/independent/AppbarLink/AppbarLink"
-import AppbarSection from "components/layout/independent/AppbarSection/AppbarSection"
+import { classes, appbarPropTypes } from "./AppbarRoot.utils"
 
 // we will need to close the appbar once a link is clicked, but we cannot add
 // link components here as they we intend to keep them independent of this
 // component. So we will pass the toggler function as context for them to be
 // used as a prop
 export const appbarContext = createContext(() => {})
-
-// Namespace for all related components
-Appbar.Section = AppbarSection
-Appbar.Link = AppbarLink
-Appbar.context = appbarContext
 
 /**
  * Renders an "appbar toggler" icon at the top-left side of the screen. When
@@ -32,7 +24,8 @@ Appbar.context = appbarContext
  * `manualToggle?` (boolean): this component handles its own open/close appbar's
  *   *'Modal'* state when tapping on toggler, home icon and backdrop. If you
  *   wish to manually control that behavior, set this prop to true and use
- *   "toggleOpen" function from the exported context (which toggles *'Modal'* state when invoked).
+ *   "toggleOpen" function from the exported context (which toggles *'Modal'*
+ *   state when invoked).
  *
  * `onTogglerClick?` (function): callback triggered when clicking on navigation
  *   toggler.
@@ -47,7 +40,7 @@ Appbar.context = appbarContext
  * `classNames?` (object): className strings for each JSX rendered here.
  *   Check utils.js for its constitution
  */
-function Appbar({
+export default function AppbarRoot({
   children,
   manualToggle,
   onTogglerClick,
@@ -80,38 +73,33 @@ function Appbar({
 
   return (
     <header className={classes.container(isOpen, classNames.container)}>
-      {/* Wrapper for toggler, keeps styles consistent */}
-      <div onClick={handleTogglerClick} className={classes.togglerWrapper}>
-        {/* The 3 dots as a '*div*', ::before and ::after */}
-        <div className={classes.toggler(isOpen, classNames.toggler)} />
-      </div>
+      {/* '3-dotted' toggler rendered top-left of the screen */}
+      <Appbar.Toggler
+        isActive={isOpen}
+        onClick={handleTogglerClick}
+        classNames={classes.toggler(classNames.toggler)}
+      />
+      {/* modal triggered by toggler. Renders all nav-related content */}
       <Modal
         open={isOpen}
         onBackdropClick={handleBackdropClick}
-        scrollable={false} // modalContent should scroll, not '*Modal*' itself
-        classNames={classes.navModal(classNames.navModal)}
+        scrollable={false} // content should scroll, not '*Modal*' itself
+        classNames={classes.modal(classNames.modal)}
       >
-        <div className={classes.modalContent(classNames.modalContent)}>
-          <ExpandableIcon // Home ("/") icon
+        <div className={classes.content(classNames.content)}>
+          {/* Home ('/') icon, links back to '*HomePage*' */}
+          <ExpandableIcon
             type="secondary"
             icon={<img src={home} alt="home" />}
             expand={false}
             onClick={handleHomeIconClick}
             classNames={classes.homeIcon(classNames.homeIcon)}
           />
-          {/* search bar */}
-          <div className={classes.searchContainer(classNames.searchContainer)}>
-            <img
-              src={search} // magnifying glass icon
-              alt="search"
-              className={classes.searchIcon(classNames.searchIcon)}
-            />
-            <InputField // search input field
-              label="Search"
-              onChange={onSearchChange}
-              classNames={classes.inputField(classNames.inputField)}
-            />
-          </div>
+          {/* searchbar. Filters hook names */}
+          <Appbar.Searchbar
+            onChange={onSearchChange}
+            classNames={classes.searchbar(classNames.searchbar)}
+          />
           {/* children: links to hooks inside their proper categories */}
           <Appbar.context.Provider value={toggleOpen}>
             {children}
@@ -122,6 +110,4 @@ function Appbar({
   )
 }
 
-Appbar.propTypes = appbarPropTypes
-
-export default Appbar
+AppbarRoot.propTypes = appbarPropTypes

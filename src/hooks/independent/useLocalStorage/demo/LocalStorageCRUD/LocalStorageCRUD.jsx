@@ -12,9 +12,11 @@ const slideNames = {
 }
 
 // namespace everything related to '*LocalStorageCRUD*'
-export default {
+const LocalStorageCRUD = {
   Root: LocalStorageCRUDRoot,
   Auth: LocalStorageCRUDAuth,
   Settings: LocalStorageCRUDSettings,
   slideNames
 }
+
+export default LocalStorageCRUD

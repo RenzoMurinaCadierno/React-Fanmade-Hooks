@@ -1,7 +1,7 @@
 import { useState, useCallback, useRef } from "react"
 import { Text, ExpandableMenu, ToastWithPortal } from "hub"
 import { classes, toastData } from "./HomePage.utils"
-animate toggler with three colors and keep on ../././
+
 // declared outside to avoid constructing a new object on each render
 const menuIconProps = { aura: { size: "small", interval: "long" } }
 const toastDefaultState = { id: "", show: false }
