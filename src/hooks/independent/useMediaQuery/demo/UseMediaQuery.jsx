@@ -24,7 +24,7 @@ export default function UseMediaQuery() {
     >
       {/* wrapper for example social media icons. Dynamic classNames */}
       <section className={classes.header(deviceOrientation)}>
-        {socialMediaNamesAndJSXs.map(([name, imgJSX]) => (
+        {socialMediaNamesAndJSXs.map(([name, imgJSX], i) => (
           <ExpandableIcon
             key={name}
             icon={imgJSX}
@@ -33,7 +33,10 @@ export default function UseMediaQuery() {
             // type "secondary" on width >1234px, primary on >600px
             type={mq.width1234 ? "secondary" : mq.sm ? "primary" : "primary-1"}
             // disable icon on portrait view
-            disabled={deviceOrientation === "portrait"}
+            disabled={mq.pt}
+            // translate icons a little for them not to overlay with toggler on
+            // smaller devices
+            style={{ transform: mq.pt ? "translateY(30%)" : "translateX(40%)" }}
           />
         ))}
       </section>

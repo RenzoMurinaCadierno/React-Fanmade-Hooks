@@ -5,6 +5,7 @@
   height: 7vw;
   color: var(--primary-1);
   border: var(--border-primary-2-vw);
+  background-color: var(--translucent-background);
   border-radius: 50%;
   box-shadow: var(--box-shadow-primary-1-vw);
   cursor: pointer;

@@ -16,4 +16,4 @@ fiddle SlotsSpinningSlots timeouts
 jsconfig.json!!!!:  quitar "React" y ../../../hub
 
 // commit msg
-Extended '*ExpandableMenu*'(s) "type" functionality. Standarized module files.
+Reworked '*Appbar*' components and '*Navigation*'. Made other minor fixes.

@@ -20,7 +20,7 @@
 
 @media screen and (orientation: portrait) {
   .Grid {
-    height: 65%;
+    height: 45%;
     width: 80%;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr;

@@ -1,13 +1,6 @@
-import { useCallback, createContext } from "react"
-import { Appbar, Modal, ExpandableIcon, useToggle } from "hub"
-import home from "assets/icons/home.svg"
+import { useCallback } from "react"
+import { Appbar, Modal, useToggle } from "hub"
 import { classes, appbarPropTypes } from "./AppbarRoot.utils"
-
-// we will need to close the appbar once a link is clicked, but we cannot add
-// link components here as they we intend to keep them independent of this
-// component. So we will pass the toggler function as context for them to be
-// used as a prop
-export const appbarContext = createContext(() => {})
 
 /**
  * Renders an "appbar toggler" icon at the top-left side of the screen. When
@@ -27,6 +20,10 @@ export const appbarContext = createContext(() => {})
  *   "toggleOpen" function from the exported context (which toggles *'Modal'*
  *   state when invoked).
  *
+ * `animateToggler?` (boolean): '*AppbarToggler*' `animate`. True will animate
+ *   the toggler each five seconds. Used to remind the user where to tap to
+ *   start navigation from home screen.
+ *
  * `onTogglerClick?` (function): callback triggered when clicking on navigation
  *   toggler.
  *
@@ -43,6 +40,7 @@ export const appbarContext = createContext(() => {})
 export default function AppbarRoot({
   children,
   manualToggle,
+  animateToggler,
   onTogglerClick,
   onBackdropClick,
   onSearchChange,
@@ -59,23 +57,27 @@ export default function AppbarRoot({
     [manualToggle, toggleOpen]
   )
 
-  const handleHomeIconClick = useCallback(() => {
-    toggleModalAndTriggerCb(onHomeIconClick)
-  }, [onHomeIconClick, toggleModalAndTriggerCb])
+  const handleHomeIconClick = useCallback(
+    () => toggleModalAndTriggerCb(onHomeIconClick),
+    [onHomeIconClick, toggleModalAndTriggerCb]
+  )
 
-  const handleBackdropClick = useCallback(() => {
-    toggleModalAndTriggerCb(onBackdropClick)
-  }, [onBackdropClick, toggleModalAndTriggerCb])
+  const handleBackdropClick = useCallback(
+    () => toggleModalAndTriggerCb(onBackdropClick),
+    [onBackdropClick, toggleModalAndTriggerCb]
+  )
 
-  const handleTogglerClick = useCallback(() => {
-    toggleModalAndTriggerCb(onTogglerClick)
-  }, [onTogglerClick, toggleModalAndTriggerCb])
+  const handleTogglerClick = useCallback(
+    () => toggleModalAndTriggerCb(onTogglerClick),
+    [onTogglerClick, toggleModalAndTriggerCb]
+  )
 
   return (
     <header className={classes.container(isOpen, classNames.container)}>
       {/* '3-dotted' toggler rendered top-left of the screen */}
       <Appbar.Toggler
         isActive={isOpen}
+        animate={animateToggler}
         onClick={handleTogglerClick}
         classNames={classes.toggler(classNames.toggler)}
       />
@@ -88,11 +90,9 @@ export default function AppbarRoot({
       >
         <div className={classes.content(classNames.content)}>
           {/* Home ('/') icon, links back to '*HomePage*' */}
-          <ExpandableIcon
+          <Appbar.HomeIcon
             type="secondary"
-            icon={<img src={home} alt="home" />}
-            expand={false}
-            onClick={handleHomeIconClick}
+            onContentClick={handleHomeIconClick}
             classNames={classes.homeIcon(classNames.homeIcon)}
           />
           {/* searchbar. Filters hook names */}

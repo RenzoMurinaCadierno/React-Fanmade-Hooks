@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react"
-import { useHistory } from "react-router-dom"
+import { useHistory, useLocation } from "react-router-dom"
 import { Appbar } from "hub"
 import { slugify } from "utils/utilityFunctions"
 import {
@@ -17,8 +17,12 @@ import {
 export default function Navigation() {
   // state object for categories and its hooks, and their "isActive" booleans
   const [categories, setCategories] = useState(defaultCategories)
-  // react-router-dom "history" object
+  // react-router-dom "history" and "location" objects. Even though "history"
+  // has a nested "location" object, it will not cause a re-render when route
+  // changes, and thus will not update '*AppbarRoot*' `disableTogglerAnimation`.
+  // "location" updates any time path changes, so we need it here just for that.
   const history = useHistory()
+  const location = useLocation()
 
   const handleSearch = useCallback(
     (e) => {
@@ -46,6 +50,8 @@ export default function Navigation() {
       onTogglerClick={handleSearch}
       onHomeIconClick={goToHomeUrl}
       onSearchChange={handleSearch}
+      // enable toggler animation when in home path
+      animateToggler={location.pathname === "/"}
     >
       {/* links will need to close '*AppBar*'. Grab handler from context */}
       <Appbar.context.Consumer>

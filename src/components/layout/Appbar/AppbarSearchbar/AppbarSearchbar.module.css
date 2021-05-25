@@ -21,10 +21,17 @@
   margin: var(--generic-margin-vw);
 }
 
-.SearchIcon {
-  /* magnifier glass icon '*img*' */
+.Icon {
+  /* 'search' icon '*img*' */
   width: 8%;
   padding-top: var(--small-margin-vw);
+  transition: var(--generic-transition);
+}
+
+.Icon.Animate {
+  /* 'clear' icon (that is, when "isInputEmpty" is false") */
+  cursor: pointer;
+  animation: animate-close-icon 5s 5s linear infinite;
 }
 /* end all devices landscape */
 
@@ -42,10 +49,26 @@
     margin: var(--generic-margin-vh);
   }
 
-  .SearchIcon {
-    /* magnifier glass icon '*img*' */
+  .Icon {
+    /* 'search' icon '*img*' */
     width: 9%;
     padding-top: var(--small-margin-vh);
   }
 }
 /* end all devices portrait */
+
+/* animation keyframes */
+@keyframes animate-close-icon {
+  0%,
+  10%,
+  100% {
+    transform: scale(1);
+    filter: brightness(100%);
+  }
+  5%,
+  15% {
+    transform: scale(1.15);
+    filter: brightness(120%);
+  }
+}
+/* end animation keyframes */

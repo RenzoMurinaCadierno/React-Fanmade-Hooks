@@ -1,6 +1,10 @@
+import { useCallback, useState, useRef } from "react"
 import { InputField } from "hub"
 import defaultSearchSVG from "assets/icons/search.svg"
+import defaultCrossSVG from "assets/icons/cross.svg"
 import { classes, appbarSearchbarPropTypes } from "./AppbarSearchbar.utils"
+
+const fakeEmptySyntheticEventObject = { target: { value: "" } }
 
 /**
  * Renders an '*Inputfield*' that functions as a search bar for hook names in
@@ -10,13 +14,16 @@ import { classes, appbarSearchbarPropTypes } from "./AppbarSearchbar.utils"
  *
  * `onChange` (function): '*InputField*' "onChange" handler.
  *
- * `searchIcon?` (string): Path to an svg image to use as search icon's '*img*'
+ * `searchIcon?` (string): Path to an svg image to use as 'search' icon's '*img*'
+ *   "src".
+ *
+ * `clearIcon?` (string): Path to an svg image to use as 'clear' icon's '*img*'
  *   "src".
  *
  * `classNames?` (object): className strings for each JSX rendered here.
  *   Check *utils.js* for its constitution.
  *
- * `searchIconProps?` (object): Props to spread in search icon's '*img*'.
+ * `iconProps?` (object): Props to spread in search icon's '*img*'.
  *
  * `inputFieldProps?` (object): Props to spread in '*InputField*'.
  *
@@ -24,24 +31,59 @@ import { classes, appbarSearchbarPropTypes } from "./AppbarSearchbar.utils"
  */
 export default function AppbarSearchbar({
   onChange,
-  searchIcon,
+  searchIcon = defaultSearchSVG,
+  clearIcon = defaultCrossSVG,
   classNames = {},
-  searchIconProps = {},
+  iconProps = {},
   inputFieldProps = {},
   ...otherProps
 }) {
+  // '*InputField*' `ref`. Needed to clear it imperatively since it is
+  // uncontrolled
+  const inputRef = useRef()
+  // state to control rendered '*img*' and its `onClick` handler
+  const [isInputEmpty, setIsInputEmpty] = useState(true)
+
+  /**
+   * Toggles "isInputEmpty" depending on '*InputField*' `value`. It also
+   * triggers `onChange`.
+   */
+  const handleChange = useCallback(
+    (e) => {
+      if (!e.target.value || (e.target.value && isInputEmpty)) {
+        setIsInputEmpty((prevSt) => !prevSt)
+      }
+      onChange?.(e)
+    },
+    [isInputEmpty, onChange]
+  )
+
+  /**
+   * Clears '*InputField*' and sets "isInputEmpty" to false. It also triggers
+   * `handleChange` passing a fake empty synthetic event object an argument.
+   */
+  const clearInput = useCallback(() => {
+    inputRef.current.value = ""
+    handleChange(fakeEmptySyntheticEventObject)
+  }, [handleChange])
+
   return (
+    // wrapper container
     <div className={classes.container(classNames.container)} {...otherProps}>
+      {/* magnifying glass or clear icon */}
       <img
-        src={searchIcon ?? defaultSearchSVG} // magnifying glass icon
+        src={isInputEmpty ? searchIcon : clearIcon}
         alt="search"
-        className={classes.searchIcon(classNames.searchIcon)}
-        {...searchIconProps}
+        onClick={isInputEmpty ? null : clearInput}
+        className={classes.icon(isInputEmpty, classNames.icon)}
+        {...iconProps}
       />
-      <InputField // search input field
+      {/* search input field */}
+      <InputField
+        ref={inputRef}
         label="Search"
         role="search"
-        onChange={onChange}
+        onChange={handleChange}
         classNames={classes.inputField(classNames.inputField)}
         {...inputFieldProps}
       />

@@ -113,19 +113,19 @@
   --text-shadow-background-vh: 0 0 1.1vh var(--translucent-background),
     0 0 1.3vh var(--generic-background);
 
-  --drop-shadow-secondary-sm-vw: 0 0 0.4vw var(--secondary-1);
-  --drop-shadow-secondary-sm-vh: 0 0 0.4vh var(--secondary-1);
-  --drop-shadow-secondary-md-vw: 0 0 0.6vw var(--secondary-2);
-  --drop-shadow-secondary-md-vh: 0 0 0.6vh var(--secondary-2);
-  --drop-shadow-secondary-lg-vw: 0 0 0.8vw var(--secondary-3);
-  --drop-shadow-secondary-lg-vh: 0 0 0.8vh var(--secondary-3);
-
   --drop-shadow-primary-sm-vw: 0 0 0.4vw var(--primary-1);
   --drop-shadow-primary-sm-vh: 0 0 0.4vh var(--primary-1);
   --drop-shadow-primary-md-vw: 0 0 0.6vw var(--primary-2);
   --drop-shadow-primary-md-vh: 0 0 0.6vh var(--primary-2);
   --drop-shadow-primary-lg-vw: 0 0 0.8vw var(--primary-3);
   --drop-shadow-primary-lg-vh: 0 0 0.8vh var(--primary-3);
+
+  --drop-shadow-secondary-sm-vw: 0 0 0.4vw var(--secondary-1);
+  --drop-shadow-secondary-sm-vh: 0 0 0.4vh var(--secondary-1);
+  --drop-shadow-secondary-md-vw: 0 0 0.6vw var(--secondary-2);
+  --drop-shadow-secondary-md-vh: 0 0 0.6vh var(--secondary-2);
+  --drop-shadow-secondary-lg-vw: 0 0 0.8vw var(--secondary-3);
+  --drop-shadow-secondary-lg-vh: 0 0 0.8vh var(--secondary-3);
 
   --drop-shadow-danger-sm-vw: 0 0 0.4vw var(--danger-1);
   --drop-shadow-danger-sm-vh: 0 0 0.4vh var(--danger-1);

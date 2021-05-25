@@ -1,0 +1,8 @@
+/* all devices landscape */
+.Container {
+  /* '*ExpandableIcon*' wrapper container */
+  position: absolute;
+  margin: 1% 0 0 1%;
+  z-index: 21;
+}
+/* end all devices landscape */

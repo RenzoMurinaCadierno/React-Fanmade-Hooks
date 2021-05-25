@@ -8,6 +8,9 @@ import { classes, appbarTogglerPropTypes } from "./AppbarToggler.utils"
  * `isActive?` (boolean): true will apply 'primary' theme stylings, false adds
  *   'secondary' ones.
  *
+ * `animate?` (boolean): true will animate the toggler each five seconds. Used
+ *   to remind the user where to tap to start navigation from home screen.
+ *
  * `classNames?` (object): className strings for each JSX rendered here.
  *   Check *utils.js* for its constitution.
  *
@@ -18,6 +21,7 @@ import { classes, appbarTogglerPropTypes } from "./AppbarToggler.utils"
  */
 export default function AppbarToggler({
   isActive,
+  animate,
   classNames = {},
   togglerDisplayProps = {},
   ...otherProps
@@ -27,7 +31,7 @@ export default function AppbarToggler({
     <div className={classes.container(classNames.container)} {...otherProps}>
       {/* The 3 dots as a '*div*', ::before and ::after */}
       <div
-        className={classes.toggler(isActive, classNames.toggler)}
+        className={classes.toggler(isActive, animate, classNames.toggler)}
         {...togglerDisplayProps}
       />
     </div>

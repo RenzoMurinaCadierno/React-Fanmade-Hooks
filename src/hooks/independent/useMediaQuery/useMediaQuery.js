@@ -36,9 +36,9 @@ const defaultQueries = {
  *   the global object. False will only use `customQueries`.
  *
  * @param {number?} delay The delay for query match state to update when
- *   media query listener triggers, in ms.
- * * Defaults to 0. You might want to set a minimum one of at least 100ms to
- *   avoid excessive re-rendering.
+ *   media query listener triggers, in milliseconds. Defaults to 100.
+ * > **Warning:** Low values cause more re-renders. Keep this in mind when
+ *   considering performance.
  *
  * @returns {Array} An array with:
  * * `elem 0` (object): all stated media query keys, each with a boolean value
@@ -49,7 +49,7 @@ const defaultQueries = {
 export default function useMediaQuery(
   customQueries,
   combineWithDefault,
-  delay
+  delay = 100
 ) {
   // generate the queries object. It will either be: (1) the defaults if
   // `customQueries` is undefined, (2) only `customQueries` if they are not

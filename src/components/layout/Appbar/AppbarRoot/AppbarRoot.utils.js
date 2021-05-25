@@ -12,15 +12,13 @@ export const classes = {
   modal: (classNames) => classNames,
   searchbar: (className) => className,
   content: (className) => (className ?? "") + " " + styles.Content,
-  homeIcon: (classNames = {}) => ({
-    ...classNames,
-    container: styles.HomeIconContainer
-  })
+  homeIcon: (classNames) => classNames
 }
 
 export const appbarPropTypes = {
   children: PropTypes.node.isRequired,
   manualToggle: PropTypes.bool,
+  animateToggler: PropTypes.bool,
   onTogglerClick: PropTypes.func,
   onBackdropClick: PropTypes.func,
   onSearchChange: PropTypes.func,

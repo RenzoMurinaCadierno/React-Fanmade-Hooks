@@ -7,12 +7,18 @@ export const classes = {
     ...classNames,
     container: (classNames.container ?? "") + " " + styles.InputField
   }),
-  searchIcon: (className) => (className ?? "") + " " + styles.SearchIcon
+  icon: (isInputEmpty, className) =>
+    (className ?? "") +
+    " " +
+    (isInputEmpty ? "" : styles.Animate) +
+    " " +
+    styles.Icon
 }
 
 export const appbarSearchbarPropTypes = {
   onClick: PropTypes.func,
   searchIcon: PropTypes.string,
+  clearIcon: PropTypes.string,
   classNames: PropTypes.shape({
     container: PropTypes.string,
     inputField: PropTypes.shape({
@@ -20,9 +26,9 @@ export const appbarSearchbarPropTypes = {
       input: PropTypes.string,
       label: PropTypes.string
     }),
-    searchIcon: PropTypes.string
+    icon: PropTypes.string
   }),
-  searchIconProps: PropTypes.object,
+  iconProps: PropTypes.object,
   inputFieldProps: PropTypes.object,
   otherProps: PropTypes.object
 }

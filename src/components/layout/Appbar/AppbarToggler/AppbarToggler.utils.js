@@ -3,16 +3,19 @@ import styles from "./AppbarToggler.module.css"
 
 export const classes = {
   container: (classNames) => (classNames ?? "") + " " + styles.Container,
-  toggler: (isActive, className) =>
+  toggler: (isActive, animate, className) =>
     (className ?? "") +
     " " +
     (isActive ? styles.Active : "") +
+    " " +
+    (animate ? styles.Animate : "") +
     " " +
     styles.Toggler
 }
 
 export const appbarTogglerPropTypes = {
   isActive: PropTypes.bool,
+  animate: PropTypes.bool,
   onClick: PropTypes.func,
   classNames: PropTypes.shape({
     container: PropTypes.string,
