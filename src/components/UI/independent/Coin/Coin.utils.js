@@ -31,14 +31,15 @@ export const coinPropTypes = {
 }
 
 function validateStringOrImgElem(props, propName, cmpName) {
+  const targetProp = props[propName]
   // undefined fails silently (otherwise, first render will always throw error)
-  if (!props[propName] || props[propName]?.type === "undefined") return
+  if (!targetProp || targetProp?.type === "undefined") return
   // if the prop is not a React element, it must be a plain string
-  if (typeof props[propName] !== "string" && !props[propName].type) {
-    return throwTypeError(propName, props[propName], cmpName)
-    // otherwise, it must be an <img /> JSX
-  } else if (props[propName].type && props[propName].type !== "img") {
-    return throwTypeError(propName, props[propName].type, cmpName, true)
+  if (typeof targetProp !== "string" && !targetProp.type) {
+    return throwTypeError(propName, targetProp, cmpName)
+    // otherwise, it must be an '*img*'
+  } else if (targetProp.type && targetProp.type !== "img") {
+    return throwTypeError(propName, targetProp.type, cmpName, true)
   }
 }
 
@@ -53,14 +54,11 @@ function throwTypeError(propName, targetPropType, cmpName, isJSX) {
 }
 
 function validateSuccessRange(props, propName, componentName) {
-  if (!props[propName]) return
-  if (
-    typeof props[propName] !== "number" ||
-    props[propName] < 0 ||
-    props[propName] > 1
-  ) {
+  const targetProp = props[propName]
+  if (!targetProp) return
+  if (typeof targetProp !== "number" || targetProp < 0 || targetProp > 1) {
     return new TypeError(
-      `Invalid prop "${propName}" with value ${props[propName]} supplied to "${componentName}". You must pass a number higher or equal to 0 and lower or equal to 1.`
+      `Invalid prop "${propName}" with value ${targetProp} supplied to "${componentName}". You must pass a number higher or equal to 0 and lower or equal to 1.`
     )
   }
 }

@@ -1,13 +1,21 @@
 import styles from "./UseCallbackXTimes.module.css"
 
-// This const controls the times the callback passed to the hook will trigger.
-// Use any positive integer you wish. Negative values will fall back to 1 in
-// the hook, but will break the UI.
+/**
+ * Controls the times the callback passed to the hook will trigger. It is
+ * hard-coded to 3 as an example, but use any positive integer you like.
+ *
+ * The hook will automatically fall back to 1 if anything that's not a positive
+ * is used.
+ */
 export const tosses = 3
 
 export const classes = {
-  cmpTitle: { container: styles.CmpTitleContainer },
-  cmpDesc: styles.Grid,
+  cmpDesc: {
+    container: styles.CmpDescContainer,
+    description: styles.CmpDescDescription
+  },
+  cmpTest: styles.CmpTest,
+  animatedText: styles.AnimatedText,
   coin: { container: styles.CoinContainer }
 }
 
@@ -15,9 +23,9 @@ export const descItemsObject = {
   title: "useCallbackXTimes",
   paragraphs: [
     "Triggers an assigned callback the specified amount of times.",
-    `Try tapping coins below. Each toss is registered ${tosses} time${
+    `Try tapping coins below. "Updated!" text's mount state is triggered by the hook, which fires up to ${tosses} time${
       tosses === 1 ? "" : "s"
     }.`,
-    "At the last time, tap its text to reset callback's count."
+    `Once any coin reaches ${tosses} tosses, tap its "Coin toss" text to reset its callback's count.`
   ]
 }

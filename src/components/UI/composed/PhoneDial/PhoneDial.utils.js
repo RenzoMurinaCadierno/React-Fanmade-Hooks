@@ -3,9 +3,14 @@ import styles from "./PhoneDial.module.css"
 
 export const classes = {
   container: (className) => (className ?? "") + " " + styles.Container,
-  buttons: (className) => (className ?? "") + " " + styles.Buttons
+  button: (className) => (className ?? "") + " " + styles.Button
 }
 
+/**
+ * Array of a sub-arrays, each with a button name as first element ('one',
+ * 'two', ..., 'hash') and its representation as second one ('1', '2', ...,
+ * '#').
+ */
 export const buttons = [
   ["one", "1"],
   ["two", "2"],

@@ -9,7 +9,7 @@ export const descItemsObject = {
 }
 
 export const classes = {
-  cmpTest: styles.Grid,
+  cmpTest: styles.CmpTest,
   countBar: {
     container: styles.CountContainer
   },

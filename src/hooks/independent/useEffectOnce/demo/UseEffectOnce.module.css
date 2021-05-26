@@ -1,5 +1,6 @@
 /* all devices landscape */
 .Container {
+  /* wrapper container */
   width: 100%;
   height: 100%;
 }
@@ -18,6 +19,7 @@
 }
 
 .CmpTestContainer {
+  /* *'CmpTest*' wrapper */
   width: 50%;
   display: flex;
   align-items: center;
@@ -26,12 +28,12 @@
 }
 
 .CmpTestContainer > * {
-  /* larger margins for everything inside Component Test section */
+  /* everything inside *'CmpTest*' wrapper */
   margin: var(--large-margin-vh) var(--small-margin-vw);
 }
 
 .CmpTestContainer button {
-  /* phone dial + retry buttons */
+  /* '*PhoneDial*' buttons and 'retry' '*Button*' */
   font-size: var(--font-size-vw);
   font-style: italic;
 }
@@ -40,6 +42,7 @@
 /* all devices portrait */
 @media screen and (orientation: portrait) {
   .Container {
+    /* wrapper container */
     margin: 0 var(--generic-margin-vh);
     flex-direction: column;
   }
@@ -54,15 +57,18 @@
   }
 
   .CmpTestContainer {
+    /* *'CmpTest*' wrapper */
     width: 95%;
     height: 40%;
   }
 
   .CmpTestContainer > * {
+    /* everything inside *'CmpTest*' wrapper */
     margin: 0;
   }
 
   .CmpTestContainer button {
+    /* '*PhoneDial*' buttons and 'retry' '*Button*' */
     font-size: var(--font-size-vh);
   }
 }

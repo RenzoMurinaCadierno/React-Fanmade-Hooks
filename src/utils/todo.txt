@@ -16,4 +16,4 @@ fiddle SlotsSpinningSlots timeouts
 jsconfig.json!!!!:  quitar "React" y ../../../hub
 
 // commit msg
-Reworked '*Appbar*' components and '*Navigation*'. Made other minor fixes.
+Reworked '*UseCallbackXTimes*' and '*UseEffectOnce*'. Commented other components.

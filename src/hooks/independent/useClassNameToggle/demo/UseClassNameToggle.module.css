@@ -1,4 +1,6 @@
-.Grid {
+/* all devices landscape */
+.CmpTest {
+  /* wrapper for component test area */
   width: 80%;
   height: 40%;
   display: grid;
@@ -8,32 +10,41 @@
 }
 
 .Heart {
+  /* static className for heart image */
   width: 45%;
   cursor: pointer;
   opacity: 0.5;
 }
 
 .Heartbeat {
+  /* dynamic className, toggled by "renderHeartCN" */
   animation: heartbeat 1.25s 2 linear forwards;
 }
 
 .GrowText {
+  /* dynamic className, toggled by "renderTextCN" */
   animation: growText 200ms linear forwards;
 }
+/* end all devices landscape */
 
+/* all devices portrait */
 @media screen and (orientation: portrait) {
-  .Grid {
+  .CmpTest {
+    /* wrapper for component test area */
     height: 50%;
     grid-template-rows: 1fr, 4fr;
     grid-template-columns: 1fr;
   }
 
   .Heart {
+    /* static className for heart image */
     width: 25%;
     align-self: flex-start;
   }
 }
+/* end all devices portrait */
 
+/* animation keyframes  */
 @keyframes growText {
   0% {
     transform: scale(1);
@@ -68,3 +79,4 @@
     transform: scale(1);
   }
 }
+/* end animation keyframes  */

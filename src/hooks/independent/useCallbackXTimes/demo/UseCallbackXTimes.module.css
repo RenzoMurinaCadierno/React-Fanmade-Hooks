@@ -1,39 +1,92 @@
-.CmpTitleContainer {
+/* all devices landscape */
+.CmpDescContainer {
   width: 90%;
 }
 
-.Grid {
+.CmpDescDescription {
+  font-weight: normal;
+}
+
+.CmpTest {
+  /* wrapper for component test's section */
   width: 90%;
-  height: 45%;
+  margin: var(--large-margin-vw) auto;
+  padding-left: var(--generic-padding-vw);
   display: grid;
   align-items: center;
   justify-items: center;
   grid-template-rows: 1fr;
   grid-template-columns: repeat(3, 3fr 2fr);
-  margin-top: 5%;
+}
+
+.CmpTest h6 {
+  /* 'Coin Toss' '*Text*' */
+  position: relative;
+}
+
+.AnimatedText {
+  /* animated '*span*' controlled by "useCallbackXTimes" */
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  color: var(--secondary-1);
+  animation: animate-text 700ms linear forwards;
 }
 
 .CoinContainer {
+  /* '*Coin*' container '*div*' */
   justify-self: flex-start;
   margin-left: 8%;
 }
+/* end all devices landscape */
 
+/* all devices portrait */
 @media screen and (orientation: portrait) {
-  .Grid {
+  .CmpDescContainer {
+    margin-top: var(--large-margin-vh);
+  }
+
+  .CmpTest {
+    /* wrapper for component test's section */
     height: 45%;
     width: 80%;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr;
-    margin-top: var(--generic-margin-vh);
+    margin: var(--generic-margin-vh) auto none auto;
+    padding-left: var(--large-padding-vh);
   }
 
-  .Grid h6 {
+  .CmpTest h6 {
+    /* 'Coin Toss' '*Text*' */
     justify-self: flex-end;
     margin-right: 0;
   }
 
   .CoinContainer {
+    /* '*Coin*' container '*div*' */
     justify-self: center;
     margin-left: 0;
   }
 }
+/* end all devices portrait */
+
+/* animation keyframes */
+@keyframes animate-text {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+    top: 0;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+    top: -150%;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+    top: -200%;
+  }
+}
+/* end animation keyframes */

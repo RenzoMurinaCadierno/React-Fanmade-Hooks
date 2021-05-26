@@ -8,30 +8,32 @@ import { classes, phoneDialPropTypes, buttons } from "./PhoneDial.utils"
  *
  * @param {object} props
  *
- * `classNames?` (object): className strings for each JSX rendered here.
- *   Check *utils.js* for its constitution.
- *
  * `onButtonClick?` (function): callback triggered on any rendered button
  *   click, provided that `buttonProps.onClick` for that button is not defined
  *   (see `buttonProps` below).
  *
+ * `classNames?` (object): className strings for each JSX rendered here.
+ *   Check *utils.js* for its constitution.
+ *
  * `buttonProps?` (object): an object with keys representing each phone
  *   button's character ('one' to 'nine', 'hash' and 'star'), and values as
  *   props to spread on the respective buttons they represent.
+ *
  * > E.g.: { six: { onClick: (e) => console.log(e) }, star: { disabled: true } }
- * * **Note**: defining "onClick" prop for a button here will override
- *     `onButtonClick.onClick` for that button instance.
+ *
+ * * **Note**: defining "onClick" for a specific button in `buttonProps` will
+ *     override `onButtonClick.onClick` for that button instance.
  */
 export default function PhoneDial({
-  classNames,
   onButtonClick,
+  classNames,
   buttonProps = {},
   ...otherProps
 }) {
   const handleButtonClick = useCallback(
     (e) => {
-      // "name" is the word ('one', 'star'), "value" is the
-      // representation ('1', '*')
+      // "name" is the word ('one', 'star'), "value" is the representation ('1',
+      // '*')
       const { name, value } = e.target.dataset
       // if we assigned `buttonProps.onClick` to that specific button instance,
       // use it. Pass event object, "name" and "value" in case they are needed
@@ -54,10 +56,10 @@ export default function PhoneDial({
         <Button
           key={btnName}
           type="primary"
-          className={classes.buttons(classNames?.buttons)}
+          className={classes.button(classNames?.button)}
           {...buttonProps[btnName]}
           data-value={btnRepr} // placing these last three props below...
-          data-name={btnName} // ...buttonProps will ensure they will NOT...
+          data-name={btnName} // ...`buttonProps` will ensure they will NOT...
           onClick={handleButtonClick} // ...be overriden by them.
         >
           {btnRepr}

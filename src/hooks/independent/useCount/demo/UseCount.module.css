@@ -1,4 +1,5 @@
-.Grid {
+/* all devices landscape */
+.CmpTest {
   width: 80%;
   height: 40%;
   display: grid;
@@ -9,19 +10,24 @@
 }
 
 .CountContainer {
+  /* main count '*Countbar*' */
   width: 90%;
 }
 
 .StepCountContainer {
+  /* step '*Countbar*' */
   width: 55%;
 }
 
 .StepCountBarButton {
+  /* step '*Countbar*' lateral button-styled '*div*'s */
   width: 45% !important;
 }
+/* end all devices landscape */
 
+/* all devices portrait */
 @media screen and (orientation: portrait) {
-  .Grid {
+  .CmpTest {
     height: 50%;
     grid-template-rows: repeat(2, 1fr 4fr);
     grid-template-columns: 1fr;
@@ -34,10 +40,13 @@
   }
 
   .CountContainer {
+    /* main count '*Countbar*' */
     width: 100%;
   }
 
   .StepCountContainer {
-    width: 65% !important;
+    /* step '*Countbar*' */
+    width: 65%;
   }
 }
+/* end all devices portrait */

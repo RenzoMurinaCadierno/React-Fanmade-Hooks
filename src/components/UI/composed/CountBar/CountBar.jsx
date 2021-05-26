@@ -64,9 +64,10 @@ export default function CountBar({
     <Container className={classes.container(classNames.container)}>
       {/* "substract" button-like '*div*' */}
       <div
-        className={classes.minusButton(classNames.minusButton)}
+        role="button"
         disabled={disableButtons || !canSub}
         onClick={canSub ? onSub : null}
+        className={classes.minusButton(classNames.minusButton)}
       >
         {subText}
       </div>
@@ -83,9 +84,10 @@ export default function CountBar({
       />
       {/* "add" button-like '*div*' */}
       <div
-        className={classes.plusButton(classNames.plusButton)}
+        role="button"
         disabled={disableButtons || !canAdd}
         onClick={canAdd ? onAdd : null}
+        className={classes.plusButton(classNames.plusButton)}
       >
         {addText}
       </div>

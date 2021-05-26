@@ -1,67 +1,59 @@
-import React, { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import useCallbackXTimes from "../useCallbackXTimes"
-import { CmpDescription, Text, Coin } from "../../../../hub"
+import { CmpDescription, Text, Coin } from "hub"
 import { tosses, classes, descItemsObject } from "./UseCallbackXTimes.utils"
 
 export default function UseCallbackXTimes() {
-  const [, setTossSt] = useState({
-    coin1: tosses, // tosses = times the cb will fire before blocking itself.
-    coin2: tosses, // Customizable from utils.js
-    coin3: tosses
-  })
-
-  const [triggerCb1, cb1CallsLeft, resetCb1] = useCallbackXTimes(
-    () => setTossSt((prevSt) => ({ ...prevSt, coin1: prevSt.coin1 - 1 })),
-    tosses
-  )
-  const [triggerCb2, cb2CallsLeft, resetCb2] = useCallbackXTimes(
-    () => setTossSt((prevSt) => ({ ...prevSt, coin2: prevSt.coin2 - 1 })),
-    tosses
-  )
-  const [triggerCb3, cb3CallsLeft, resetCb3] = useCallbackXTimes(
-    () => setTossSt((prevSt) => ({ ...prevSt, coin3: prevSt.coin3 - 1 })),
-    tosses
-  )
-
   return (
     <>
       <CmpDescription
-        classNames={classes.cmpTitle}
+        classNames={classes.cmpDesc}
         descItems={descItemsObject}
       />
-      <section className={classes.cmpDesc} aria-label="component testing area">
-        <TextAndCoin
-          tossesLeft={cb1CallsLeft}
-          onTextClick={resetCb1}
-          onAfterToss={triggerCb1}
-        />
-        <TextAndCoin
-          tossesLeft={cb2CallsLeft}
-          onTextClick={resetCb2}
-          onAfterToss={triggerCb2}
-        />
-        <TextAndCoin
-          tossesLeft={cb3CallsLeft}
-          onTextClick={resetCb3}
-          onAfterToss={triggerCb3}
-        />
+      <section className={classes.cmpTest} aria-label="component testing area">
+        <TextAndCoin />
+        <TextAndCoin />
+        <TextAndCoin />
       </section>
     </>
   )
 }
 
-function TextAndCoin({ tossesLeft, onTextClick, onAfterToss }) {
+function TextAndCoin() {
+  const [isAnimatingText, setIsAnimatingText] = useState(true)
+  const isMounted = useRef(false) // blocks "Update!" text rendering at mount
+
+  const [triggerCb, callsLeft, reserCbCount] = useCallbackXTimes(
+    () => setIsAnimatingText(true), // each call mounts "Update!" text
+    tosses // times the cb will fire before blocking itself. Example uses 3.
+  )
+
+  // triggered by "useCallbackXTimes". Unmounts "Updated!" text after 700ms.
+  useEffect(() => {
+    let hideAnimatedTextTimeout
+    if (isAnimatingText) {
+      hideAnimatedTextTimeout = setTimeout(() => setIsAnimatingText(false), 700)
+    } else {
+      isMounted.current = true
+    }
+    return () => clearTimeout(hideAnimatedTextTimeout)
+  }, [isAnimatingText])
+
   return (
     <>
       <Text
         htmlElem="h6"
         italic
-        type={tossesLeft ? "primary-3" : "primary-0"}
-        onClick={tossesLeft ? null : onTextClick}
+        type={callsLeft ? "primary-3" : "primary-0"}
+        onClick={callsLeft ? null : reserCbCount}
       >
-        Coin toss #{tosses - tossesLeft}
+        {isAnimatingText && isMounted.current && (
+          // animated text with rendered managed by "useCallbackXTimes"
+          <span className={classes.animatedText}>Updated!</span>
+        )}
+        Coin toss #{tosses - callsLeft}
       </Text>
-      <Coin changeColor onAfterToss={onAfterToss} classNames={classes.coin} />
+      <Coin changeColor onBeforeToss={triggerCb} classNames={classes.coin} />
     </>
   )
 }

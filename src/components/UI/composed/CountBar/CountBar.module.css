@@ -6,9 +6,11 @@
 
 .MinusButton,
 .PlusButton {
+  /* both button-like '*div*' to the sides of '*Progressbar*' */
   width: 25%;
   border: var(--border-secondary-1-vw);
   box-shadow: var(--box-shadow-secondary-1-vw);
+  background-color: var(--translucent-background);
   font-size: var(--font-size-h6-vw);
   color: var(--secondary-0);
   cursor: pointer;
@@ -55,6 +57,7 @@
 
   .MinusButton,
   .PlusButton {
+    /* both button-like '*div*' to the sides of '*Progressbar*' */
     width: 30%;
     border: var(--border-secondary-1-vh);
     box-shadow: var(--box-shadow-secondary-1-vh);

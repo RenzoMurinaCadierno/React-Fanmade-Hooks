@@ -1,29 +1,31 @@
 import { useCallback, useState, useEffect } from "react"
 
 /**
- * Toggles a className on when invoked by the returned handler, which
- *   automatically toggles it back off after the specified timeout.
+ * Toggles `className` 'on' when invoked by the returned handler, which
+ *   automatically turns back 'off' after `timeout`.
  *
- * @param {object} configs An object with:
- * * `className` (string): the className to be controlled by the
- *     "trigger" handler.
+ * @param {object} configs An object shaped:
  *
- * * `timeout` (number): the delay to turn the className back off once
- *     it was toggled on, measured in milliseconds.
+ * `className` (string): the className to be controlled by the returned
+ *   handler.
  *
- * * `onStart?` (function) cb to trigger when className is toggled on.
+ * `timeout` (number): the delay to turn `className` back 'off' once it was
+ *   toggled 'on', measured in milliseconds.
  *
- * * `onFinish?` (function) cb to trigger when className is toggled off.
+ * `onStart?` (function) callback triggered when className is toggled 'on'.
  *
- * @returns {Array} An array with these elements:
- * * `0: className string` (string): The className to add to target
- *     component's className prop.
- * * `1: "trigger" handler` (function): The handler that, when triggered,
- *     it toggles the className on (renders its string to target
- *     component's className prop).
- * * `2: className state` (boolean): The className state. True means it
- *     is being rendered in the className string, false indicates it is
- *     not present.
+ * `onFinish?` (function) callback triggered when className is toggled 'off'.
+ *
+ * @returns {Array} An array with:
+ *
+ * `elem 0` (string): The className to add to target component's `className`.
+ *
+ * `elem 1` (function): The handler that, when triggered, toggles the
+ *   className 'on' (adds `elem 0` to target component's `className`).
+ *
+ * `elem 2` (boolean): The className's 'on'/'off' state. True means it is
+ *   currently being rendered in target component's `className`, false indicates
+ *   it is not present there.
  */
 export default function useClassNameToggle({
   className,
@@ -32,16 +34,29 @@ export default function useClassNameToggle({
   onFinish
 }) {
   const [classNameSt, setClassNameSt] = useState({
-    cn: "",
-    isActive: false
+    cn: "", // className string. Empty when "isActive" is true
+    isActive: false // true means the className is currently being rendered
   })
 
+  /**
+   * Renders `className` if it is not already toggled 'on' and fires `onStart`.
+   */
+  /* eslint-disable react-hooks/exhaustive-deps */
   const trigger = useCallback(() => {
     if (classNameSt.isActive) return
-    setClassNameSt({ cn: className, isActive: true })
+    setClassNameSt(() => ({ cn: className, isActive: true }))
     onStart?.()
-  }, [setClassNameSt, onStart, classNameSt.isActive, className])
+  }, [onStart])
 
+  /**
+   * If "classNameSt.isActive" is true, it sets it back to false alongside
+   * resetting "classNameSt.cn" to an empty string, both after `timeout`.
+   * Afterwards, it triggers `onFinish`.
+   *
+   * Only "classNameSt.isActive" should trigger this useEffect, so, disable
+   * eslint warnings.
+   */
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     let animationTimeout
     if (classNameSt.isActive) {
@@ -51,7 +66,7 @@ export default function useClassNameToggle({
       }, timeout)
     }
     return () => clearTimeout(animationTimeout)
-  }, [classNameSt, setClassNameSt, timeout, onFinish])
+  }, [classNameSt.isActive])
 
   return [classNameSt.cn, trigger, classNameSt.isActive]
 }
