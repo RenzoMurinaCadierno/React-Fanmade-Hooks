@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react"
+import { useState, useCallback, memo } from "react"
 import { classes, switchPropTypes } from "./Switch.utils"
 
 /**
@@ -22,7 +22,7 @@ import { classes, switchPropTypes } from "./Switch.utils"
  * `classNames?` (object): className string for each JSX rendered here.
  *   Check *utils.js* for its constitution.
  */
-export default function Switch({
+function Switch({
   initialState = false,
   isFrozen,
   onSwitch,
@@ -57,3 +57,5 @@ export default function Switch({
 }
 
 Switch.propTypes = switchPropTypes
+
+export default memo(Switch)

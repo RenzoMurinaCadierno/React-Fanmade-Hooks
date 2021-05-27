@@ -1,30 +1,29 @@
 import { useCallback, useState } from "react"
 
 /**
- * Takes a function and returns a handler that will invoke it only once.
- * After that, the invoker will deactivate, no longer calling for the
- * function.
+ * Takes a callback and returns a handler that will invoke it, but that handler
+ * will stop working after it triggers. It deactivates on further invocations.
  *
- * @param {function} callback The function to be assigned to the invoker.
+ * @param {function} callback The function to be triggered by the invoker.
  *
- * @returns {Array} An array with these elements:
- * * `0: trigger` (function): The invoker which will call for the
- *   function passed as callback.
+ * @returns {Array} An array with:
  *
- * * `1: usage state` (boolean): True indicates if the invoker can be
- *   called. False means it is deactivated.
+ * `elem 0` (function): The invoker which will trigger `callback`.
  *
- * * `2: reset` (function): Sets usage state back to true, allowing the
- *   invoker to call the function again.
+ * `elem 1` (boolean): True means the invoker was not deactivated (`callback`
+ *   can be invoked by it).
+ *
+ * `elem 2` (function): Resets the invoker, allowing it to trigger `callback`
+ *   again.
  */
 export default function useCallbackOnce(callback) {
   const [isCallbackUsed, setIsCallbackUsed] = useState(false)
 
   const trigger = useCallback(
-    (params) => {
+    (...args) => {
       if (!isCallbackUsed) {
         setIsCallbackUsed(true)
-        callback(params)
+        return callback(...args)
       }
     },
     [isCallbackUsed, setIsCallbackUsed, callback]

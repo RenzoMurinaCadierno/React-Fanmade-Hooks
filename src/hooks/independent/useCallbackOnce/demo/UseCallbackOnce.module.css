@@ -1,9 +1,12 @@
-.CmpTitle {
+/* all devices landscape */
+.cmpDesc {
+  /* component description section */
   width: 90%;
   margin-bottom: 3%;
 }
 
-.Grid {
+.CmpTest {
+  /* component testing section */
   width: 80%;
   display: grid;
   align-items: center;
@@ -14,18 +17,29 @@
 }
 
 .Button {
+  /* '*Button*' that triggers "count" handler */
   width: 70%;
 }
+/* end all devices landscape */
 
+/* all devices portrait */
 @media screen and (orientation: portrait) {
-  .CmpTitle {
+  .cmpDesc {
+    /* component description section */
     height: 45%;
     margin-bottom: 0;
   }
 
-  .Grid {
+  .Button {
+    /* '*Button*' that triggers "count" handler */
+    padding: var(--large-padding-vh) var(--small-padding-vh);
+  }
+
+  .CmpTest {
+    /* component testing section */
     height: 40%;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr;
   }
 }
+/* end all devices portrait */

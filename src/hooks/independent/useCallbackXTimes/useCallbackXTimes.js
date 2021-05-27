@@ -31,7 +31,7 @@ export default function useCallbackXTimes(callback, times = 1) {
     (...args) => {
       if (callsLeft > 0) {
         setCallsLeft((callsLeft) => callsLeft - 1)
-        callback(...args)
+        return callback(...args)
       }
     },
     [callsLeft, setCallsLeft, callback]

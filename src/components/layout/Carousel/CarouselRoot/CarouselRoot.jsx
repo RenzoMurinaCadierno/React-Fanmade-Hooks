@@ -174,6 +174,7 @@ export default function CarouselRoot({
       }
       return {
         ...ctx,
+        ptd: ctx.transitionDirection,
         activeName: ctx.names[nextIdx],
         transitionDirection: direction
       }

@@ -23,7 +23,7 @@ function TextAndCoin() {
   const [isAnimatingText, setIsAnimatingText] = useState(true)
   const isMounted = useRef(false) // blocks "Update!" text rendering at mount
 
-  const [triggerCb, callsLeft, reserCbCount] = useCallbackXTimes(
+  const [triggerCb, callsLeft, resetCbCount] = useCallbackXTimes(
     () => setIsAnimatingText(true), // each call mounts "Update!" text
     tosses // times the cb will fire before blocking itself. Example uses 3.
   )
@@ -45,7 +45,7 @@ function TextAndCoin() {
         htmlElem="h6"
         italic
         type={callsLeft ? "primary-3" : "primary-0"}
-        onClick={callsLeft ? null : reserCbCount}
+        onClick={callsLeft ? null : resetCbCount}
       >
         {isAnimatingText && isMounted.current && (
           // animated text with rendered managed by "useCallbackXTimes"
