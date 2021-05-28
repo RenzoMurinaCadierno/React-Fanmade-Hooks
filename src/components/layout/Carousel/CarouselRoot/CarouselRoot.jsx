@@ -3,11 +3,12 @@ import { Carousel, Container } from "hub"
 import {
   classes,
   carouselPropTypes,
-  arrowDirections
+  setNameAndTransitionRelatedContext
 } from "./CarouselRoot.utils"
 
 // "left" and "right" strings defined as variables to avoid typing errors
-const [left, right] = arrowDirections
+// const arrowDirections = Carousel.defaultCtx.directions.values()
+// const [left, right] = arrowDirections
 
 /**
  * Root component for '*Carousel*' UI. It handles scrolling logic and keeps the
@@ -88,19 +89,13 @@ export default function CarouselRoot({
    * Sets ctx's "activeName" string and "names" array which will be passed as
    *   context to `children`. "activeName" will match the one of the first
    *   '*CarouselSlide*'s `name`, and ctx "names" will equal the array of all
-   *    names of all '*CarouselSlide*' rendered as `children`.
+   *   names of all '*CarouselSlide*' rendered as `children`.
    * And just because we are at it, since this useEffect will run cleanup at
    *   unmount, clear "resumeAutoScrollTimeoutRef", if any.
    */
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
-    const getName = (children) => children?.props?.name || ""
-    const childrenIsArray = Array.isArray(children)
-    setCtx({
-      ...ctx,
-      activeName: childrenIsArray ? getName(children[0]) : getName(children),
-      names: childrenIsArray ? children.map(getName) : [getName(children)]
-    })
+    setNameAndTransitionRelatedContext.fromMount(children, setCtx)
     return () => clearTimeout(resumeAutoScrollTimeoutRef.current)
   }, [])
 
@@ -115,6 +110,7 @@ export default function CarouselRoot({
   useEffect(() => {
     let autoScrollIntervalTimeout
     if (autoScroll && (isAutoScrolling || resumeAutoScrollOn)) {
+      const [left, right] = Carousel.defaultCtx.directions
       autoScrollIntervalTimeout = setInterval(
         () => scrollSlide(autoScrollDirection === left ? left : right),
         autoScrollInterval
@@ -139,15 +135,7 @@ export default function CarouselRoot({
   /* eslint-disable react-hooks/exhaustive-deps */
   const jumpToSlide = useCallback((nextActiveName) => {
     stunAutoScroll()
-    setCtx((ctx) => {
-      const currIdx = ctx.names.findIndex((n) => n === ctx.activeName)
-      const nextIdx = ctx.names.findIndex((n) => n === nextActiveName)
-      return {
-        ...ctx,
-        activeName: nextActiveName,
-        transitionDirection: nextIdx > currIdx ? right : left
-      }
-    })
+    setNameAndTransitionRelatedContext.fromJump(nextActiveName, setCtx)
   }, [])
 
   /**
@@ -162,29 +150,13 @@ export default function CarouselRoot({
   /* eslint-disable react-hooks/exhaustive-deps */
   const scrollSlide = useCallback((direction, stunScroll) => {
     stunScroll && stunAutoScroll()
-    // we need to take the previous state of context, since Provider will
-    // not update on a normal setState. We have to force an object rebuild
-    setCtx((ctx) => {
-      const currIdx = ctx.names.findIndex((name) => name === ctx.activeName)
-      let nextIdx = currIdx
-      if (direction === left) {
-        nextIdx = !currIdx ? ctx.names.length - 1 : currIdx - 1
-      } else if (direction === right) {
-        nextIdx = currIdx === ctx.names.length - 1 ? 0 : currIdx + 1
-      }
-      return {
-        ...ctx,
-        ptd: ctx.transitionDirection,
-        activeName: ctx.names[nextIdx],
-        transitionDirection: direction
-      }
-    })
+    setNameAndTransitionRelatedContext.fromScroll(direction, setCtx)
   }, [])
 
   /**
    * * Dead stops slides' auto-scrolling.
-   * * Clears global timeout in charge of auto-scrolling slides and
-   *     sets "isAutoScrolling" state to false.
+   * * Clears global timeout in charge of auto-scrolling slides and sets
+   *     "isAutoScrolling" state to false.
    */
   /* eslint-disable react-hooks/exhaustive-deps */
   const stopAutoScroll = useCallback(() => {
@@ -266,39 +238,33 @@ export default function CarouselRoot({
           </Carousel.context.Provider>
         </div>
         {/* left and right arrow components to scroll slides */}
-        {showArrows &&
-          arrowDirections.map((direction, i) => (
-            <Carousel.Arrow
-              key={direction}
-              direction={direction}
-              circle
-              disabled={!Array.isArray(children) || !children.length}
-              tabIndex={i + 1}
-              onFocus={stunAutoScroll}
-              onBlur={resumeAutoScroll}
-              onClick={scrollSlide}
-              classNames={classes.arrowComponent(
-                classNames.arrowContainer,
-                classNames.arrow
-              )}
-            />
-          ))}
-      </Container>
-      {/* indicators for currently active and inactive slides */}
-      {showIndicators && (
-        <Carousel.Indicators
-          indicatorNames={ctx.names}
-          activeName={ctx.activeName}
-          onIndicatorClick={jumpToSlide}
-          tabIndex={3}
+        <Carousel.Arrows
+          show={showArrows}
+          directions={Carousel.defaultCtx.directions}
+          disabled={!Array.isArray(children) || !children.length}
           onFocus={stunAutoScroll}
           onBlur={resumeAutoScroll}
-          classNames={classes.carouselIndicators(
-            classNames.indicatorsContainer,
-            classNames.indicator
+          onClick={scrollSlide}
+          classNames={classes.arrowComponent(
+            classNames.arrowContainer,
+            classNames.arrow
           )}
         />
-      )}
+      </Container>
+      {/* indicators for currently active and inactive slides */}
+      <Carousel.Indicators
+        show={showIndicators}
+        indicatorNames={ctx.names}
+        activeName={ctx.activeName}
+        onIndicatorClick={jumpToSlide}
+        tabIndex={3}
+        onFocus={stunAutoScroll}
+        onBlur={resumeAutoScroll}
+        classNames={classes.carouselIndicators(
+          classNames.indicatorsContainer,
+          classNames.indicator
+        )}
+      />
     </div>
   )
 }

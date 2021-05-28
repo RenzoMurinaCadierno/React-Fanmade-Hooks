@@ -16,4 +16,4 @@ fiddle SlotsSpinningSlots timeouts
 jsconfig.json!!!!:  quitar "React" y ../../../hub
 
 // commit msg
-Reworked '*UseCallbackOnce*'. Found bug in '*Carousel*' 'transitionDirection'.
+Fixed bug at '*Carousel*'. Started reworking component.

@@ -156,6 +156,7 @@ export const reducerItems = {
  * Returns true if there are no hearts (lives) left, or if the current
  * stars (score) equals the maximum amount of possible stars (all slots
  * scores were archieved).
+ *
  * @param {object} reducerFullState slotsGame.reducer's state
  */
 export function isGameOver(reducerFullState) {

@@ -1,16 +1,22 @@
 import { useEffect, useState, useContext } from "react"
 import { useClassNameToggle, useMountFlag, Carousel } from "hub"
-import { classes, carouselSlidePropTypes } from "./CarouselSlide.utils"
-
-// const [leftDirection, rightDirection] = Carousel.defaultCtx.directions
-// const _directions = new Map([
-//   [false, leftDirection],
-//   [true, rightDirection]
-// ])
+import {
+  classes,
+  carouselSlideUnidirectionalPropTypes
+} from "./CarouselSlideUnidirectional.utils"
 
 /**
- * Use this component to render '*CarouselSlide*'(s) for '*Carousel*', as its
- * children.
+ * Use this component to render uni-directional '*CarouselSlide*'s for
+ * '*Carousel*', as its children.
+ *
+ * This component differs from '*CarouselSlide*' in a way it will only handles
+ * uni-directional scrolling animations. This means that if scrolling is set
+ * 'left-to-right' and you attempt to jump to a previous slide, the animation
+ * will not be 'right-to-left', but still 'left-to-right'.
+ *
+ * This component was created for performance issues, to use in slides that
+ * scroll too frequently, as their renders need to be as fast as possible. If
+ * you need the full animation functionality, use regular '*CarouselSlide*'s.
  *
  * @param {object} props
  *
@@ -32,7 +38,7 @@ import { classes, carouselSlidePropTypes } from "./CarouselSlide.utils"
  *   constitution, and *module.css* for animation className and keyframes
  *   models.
  */
-export default function CarouselSlide({
+export default function CarouselSlideUnidirectional({
   name,
   children,
   timeout = 400,
@@ -40,7 +46,7 @@ export default function CarouselSlide({
   ...otherProps
 }) {
   // grab the slide name and direction to transition from parent's context
-  const { direction, activeName, directionBool } = useContext(Carousel.context)
+  const { direction, activeName } = useContext(Carousel.context)
   // slide "on screen" state, which triggers when parent's context
   // active name matches this slide's name
   const [activeSt, setActiveSt] = useState(activeName === name)
@@ -58,20 +64,6 @@ export default function CarouselSlide({
     timeout
   })
 
-  const [mountRevCN, triggerMountReverseCN] = useClassNameToggle({
-    className:
-      classNames.animateMountRev ??
-      classes["animate-mount-" + (direction === "left" ? "right" : "left")],
-    timeout
-  })
-
-  const [unmountRevCN, triggerUnmountReverseCN] = useClassNameToggle({
-    className:
-      classNames.animateUnmountRev ??
-      classes["animate-unmount-" + (direction === "left" ? "right" : "left")],
-    timeout
-  })
-
   /**
    * Triggers each time parent's context "activeName" changes, and if the new
    * name matches this component's `name`, it mounts it on screen.
@@ -85,25 +77,15 @@ export default function CarouselSlide({
     // if slide is no longer active and it was already mounted (note we use
     // "isMounted" flag to prevent instant unmount when becoming active)
     if (!isActive && isMounted) {
-      // trigger unmounting animation depending on boolean state (read 'else if'
-      // clause first). If "directionBool" here is the same as when this
-      // component mounted, then the same animation direction is used for its
-      // unmounting (as the next slide is visually on the same direction as this
-      // one at render). However, if "directionBool" changed, it means the slide
-      // to render is visually to the other side the initial animation flow
-      // (e.g.: mount was from left to right, and the next slide to render is
-      // one that came before, thus needing a 'reverse' animation - from right
-      // to left).
-      directionBool ? triggerUnmountCN() : triggerUnmountReverseCN()
+      // trigger unmounting animation
+      triggerUnmountCN()
       // schedule unmount for when animation ends
       unmountingTimeout = setTimeout(() => setActiveSt(false), timeout)
+      // otherwise, if it just became active, trigger its mounting animation
+      // and its active state
     } else if (isActive) {
-      // if it just became active, trigger its mounting animation and its active
-      // state. One "directionBool" state is assigned to entering animation from
-      // one side, and the other, from the other side (e.g.: true = 'left',
-      // false = 'right')
-      directionBool ? triggerMountCN() : triggerMountReverseCN()
       setActiveSt(true)
+      triggerMountCN()
     }
     return () => clearTimeout(unmountingTimeout)
   }, [activeName])
@@ -116,11 +98,7 @@ export default function CarouselSlide({
           " " +
           mountCN +
           " " +
-          unmountCN +
-          " " +
-          mountRevCN +
-          " " +
-          unmountRevCN
+          unmountCN
         }
         {...otherProps}
       >
@@ -130,4 +108,4 @@ export default function CarouselSlide({
   )
 }
 
-CarouselSlide.propTypes = carouselSlidePropTypes
+CarouselSlideUnidirectional.propTypes = carouselSlideUnidirectionalPropTypes

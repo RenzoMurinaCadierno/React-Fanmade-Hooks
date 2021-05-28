@@ -1,0 +1,49 @@
+/* all devices landscape */
+.Container {
+  min-width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-flow: column wrap;
+}
+/* end all devices landscape */
+
+/* classNames added by "useClassNameToggle" */
+.AnimateMountLeft {
+  animation: animate-mount-left 430ms linear forwards;
+}
+
+.AnimateUnmountLeft {
+  animation: animate-unmount-left 430ms linear forwards;
+}
+
+.AnimateMountRight {
+  animation: animate-unmount-left 430ms linear reverse;
+}
+
+.AnimateUnmountRight {
+  animation: animate-mount-left 430ms linear reverse;
+}
+/* end classNames added by "useClassNameToggle" */
+
+/* animation keyframes */
+@keyframes animate-mount-left {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes animate-unmount-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+/* end animation keyframes */

@@ -14,6 +14,8 @@ import {
  *
  * @param {object} props
  *
+ * `show` (boolean): true will mount the component, displaying the indicators.
+ *
  * `indicatorNames` (String[]): the names of all '*CarouselSlides*'(s)
  *   rendered as children of '*Carousel*'.
  *
@@ -25,6 +27,7 @@ import {
  *   Check *utils.js* for its constitution.
  */
 export default function CarouselIndicators({
+  show = true,
   indicatorNames = [],
   activeName,
   onIndicatorClick,
@@ -37,23 +40,25 @@ export default function CarouselIndicators({
   )
 
   return (
-    <div
-      className={classes.container(classNames.container)}
-      // calculate width depending on how many '*CarouselSlides*' are
-      // rendered as '*Carousel*' children
-      style={{ width: `${indicatorNames.length * 9}%` }}
-      {...otherProps}
-    >
-      {indicatorNames.map((name) => (
-        <Carousel.Indicator
-          key={name}
-          name={name}
-          isActive={name === activeName}
-          onClick={handleIndicatorClick}
-          className={classNames.indicator}
-        />
-      ))}
-    </div>
+    show && (
+      <div
+        className={classes.container(classNames.container)}
+        // calculate width depending on how many '*CarouselSlides*' are
+        // rendered as '*Carousel*' children
+        style={{ width: `${indicatorNames.length * 9}%` }}
+        {...otherProps}
+      >
+        {indicatorNames.map((name) => (
+          <Carousel.Indicator
+            key={name}
+            name={name}
+            isActive={name === activeName}
+            onClick={handleIndicatorClick}
+            className={classNames.indicator}
+          />
+        ))}
+      </div>
+    )
   )
 }
 

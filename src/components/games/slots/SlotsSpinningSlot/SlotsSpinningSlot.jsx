@@ -89,7 +89,7 @@ export default memo(function SlotsSpinningSlot({
     >
       {/* slot items inside spinning slot */}
       {slotsArray.map((itemArr) => (
-        <Carousel.Slide
+        <Carousel.Slide.Unidirectional
           key={itemArr[0]} // slot item's unique name (different for all slots)
           name={itemArr[0]}
           timeout={230}
@@ -107,7 +107,7 @@ export default memo(function SlotsSpinningSlot({
               className={classes.slotImage(classNames.slotImage)}
             />
           )}
-        </Carousel.Slide>
+        </Carousel.Slide.Unidirectional>
       ))}
     </Carousel.Root>
   )

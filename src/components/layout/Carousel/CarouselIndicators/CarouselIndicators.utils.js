@@ -6,6 +6,7 @@ export const classes = {
 }
 
 export const carouselIndicatorsPropTypes = {
+  show: PropTypes.bool,
   indicatorNames: PropTypes.arrayOf(PropTypes.string).isRequired,
   activeName: PropTypes.string.isRequired,
   onIndicatorClick: PropTypes.func,
