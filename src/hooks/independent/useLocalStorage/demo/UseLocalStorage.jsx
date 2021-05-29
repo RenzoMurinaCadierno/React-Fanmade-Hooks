@@ -1,11 +1,28 @@
 import { useCallback, useState } from "react"
-import { Container, CmpDescription, LocalStorageCRUD, Toast } from "hub"
+import {
+  Container,
+  CmpDescription,
+  LocalStorageCRUD,
+  ToastWithPortal
+} from "hub"
 import useLocalStorage from "../useLocalStorage"
 import { classes, descItemsObject, intl, hash } from "./UseLocalStorage.utils"
 
 const hashEx = hash.get(5) // load a hash to create the default user
 
 export default function UseLocalStorage() {
+  return (
+    <Container htmlElem="main" className={classes.container}>
+      <CmpDescription
+        descItems={descItemsObject}
+        classNames={classes.cmpDesc}
+      />
+      <CmpTest />
+    </Container>
+  )
+}
+
+function CmpTest() {
   /*****************************************************************************
    *     USAGE EXAMPLE (part 1) - Open local storage tab to track changes!
    * ***************************************************************************
@@ -179,26 +196,24 @@ export default function UseLocalStorage() {
 
   return (
     <>
-      <Toast show={toastSt.show} timeout={3000} onClose={handleCloseToast}>
+      <ToastWithPortal
+        show={toastSt.show}
+        timeout={3000}
+        onClose={handleCloseToast}
+      >
         {toastSt.msg}
-      </Toast>
-      <Container htmlElem="main" className={classes.container}>
-        <CmpDescription
-          descItems={descItemsObject}
-          classNames={classes.cmpDesc}
+      </ToastWithPortal>
+      <section className={classes.cmpTest}>
+        {/* CRUD example tree. UI, Auth and Settings are handled here */}
+        <LocalStorageCRUD.Root
+          userSt={userSt}
+          setUserSt={setUserSt}
+          onSignUp={handleSignUp}
+          onSignIn={handleSignIn}
+          onSignOut={handleSignOut}
+          onDeleteUser={handleDeleteUser}
         />
-        <section className={classes.cmpTest}>
-          {/* CRUD example tree. UI, Auth and Settings are handled here */}
-          <LocalStorageCRUD.Root
-            userSt={userSt}
-            setUserSt={setUserSt}
-            onSignUp={handleSignUp}
-            onSignIn={handleSignIn}
-            onSignOut={handleSignOut}
-            onDeleteUser={handleDeleteUser}
-          />
-        </section>
-      </Container>
+      </section>
     </>
   )
 }

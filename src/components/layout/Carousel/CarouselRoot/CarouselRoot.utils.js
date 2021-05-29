@@ -8,14 +8,8 @@ export const classes = {
   screen: (className) => (className ?? "") + " " + styles.Screen,
   slidesContainer: (className) =>
     (className ?? "") + " " + styles.SlidesContainer,
-  arrowComponent: (containerClassName, arrowClassName) => ({
-    container: containerClassName ?? "",
-    arrow: arrowClassName ?? ""
-  }),
-  carouselIndicators: (containerClassName, indicatorClassName) => ({
-    container: containerClassName ?? "",
-    indicator: indicatorClassName ?? ""
-  })
+  arrowComponent: (classNames) => classNames,
+  indicatorsComponent: (classNames) => classNames
 }
 
 export const carouselPropTypes = {
@@ -30,13 +24,18 @@ export const carouselPropTypes = {
   showArrow: PropTypes.bool,
   showIndicators: PropTypes.bool,
   onSlideClick: PropTypes.func,
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     screen: PropTypes.string,
     slidesContainer: PropTypes.string,
-    arrowContainer: PropTypes.string,
-    arrow: PropTypes.string,
-    indicatorsContainer: PropTypes.string
+    arrowComponent: PropTypes.exact({
+      container: PropTypes.string,
+      arrow: PropTypes.string
+    }),
+    indicatorsComponent: PropTypes.exact({
+      container: PropTypes.string,
+      indicator: PropTypes.string
+    })
   })
 }
 
@@ -160,8 +159,8 @@ export const setNameAndTransitionRelatedContext = {
    * '*CarouselSlide*'s `name`, and ctx "names" will equal the array of all
    * names of all '*CarouselSlide*' rendered as `children`.
    *
-   * @param {String[]|String} children '*CarouselRoot*' `children`
-   * @param {function} setCtx '*CarouselRoot*' "setCtx" (context setter function)
+   * @param {React.Element[]|React.Element} children '*CarouselRoot*' `children`
+   * @param {function} setCtx '*CarouselRoot*' "setCtx" (context setter)
    */
   fromMount: function (children, setCtx) {
     const getName = (children) => children?.props?.name || ""
@@ -179,9 +178,6 @@ export const setNameAndTransitionRelatedContext = {
    *
    * The '*CarouselSlide*' with `name` equal to that gotten name will be set as
    * the newly active one.
-   *
-   * `stunScroll` === true will call for "stunAutoScroll", freezing
-   * auto-scrolling animation if it is active.
    */
   fromScroll: function (direction, setCtx) {
     setCtx((ctx) => {
@@ -206,11 +202,11 @@ export const setNameAndTransitionRelatedContext = {
    * Given `name` of the target '*CarouselSlide*' to scroll to, it sets ctx
    * object's "activeName" to that `name`.
    *
-   * If that `name` belongs to a slide whose index is lower than the index of the
-   * active slide, the scroll will be to the left. Right otherwise.
+   * If that `name` belongs to a slide whose index is lower than the index of
+   * the active slide, the scroll will be to the left. Right otherwise.
    *
    * @param {string} nextActiveName next '*CarouselSlide*' `name`
-   * @param {function} setCtx '*CarouselRoot*' "setCtx" (context setter function)
+   * @param {function} setCtx '*CarouselRoot*' "setCtx" (context setter)
    */
   fromJump: function (nextActiveName, setCtx) {
     const [left, right] = Carousel.defaultCtx.directions

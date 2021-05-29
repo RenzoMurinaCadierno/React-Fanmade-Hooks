@@ -1,12 +1,10 @@
 import { useEffect, useState, useContext } from "react"
 import { useClassNameToggle, useMountFlag, Carousel } from "hub"
-import { classes, carouselSlidePropTypes } from "./CarouselSlide.utils"
-
-// const [leftDirection, rightDirection] = Carousel.defaultCtx.directions
-// const _directions = new Map([
-//   [false, leftDirection],
-//   [true, rightDirection]
-// ])
+import {
+  classes,
+  carouselSlidePropTypes,
+  getReverseDirection
+} from "./CarouselSlide.utils"
 
 /**
  * Use this component to render '*CarouselSlide*'(s) for '*Carousel*', as its
@@ -60,15 +58,15 @@ export default function CarouselSlide({
 
   const [mountRevCN, triggerMountReverseCN] = useClassNameToggle({
     className:
-      classNames.animateMountRev ??
-      classes["animate-mount-" + (direction === "left" ? "right" : "left")],
+      classNames.animateMountReverse ??
+      classes["animate-mount-" + getReverseDirection(direction)],
     timeout
   })
 
   const [unmountRevCN, triggerUnmountReverseCN] = useClassNameToggle({
     className:
-      classNames.animateUnmountRev ??
-      classes["animate-unmount-" + (direction === "left" ? "right" : "left")],
+      classNames.animateUnmountReverse ??
+      classes["animate-unmount-" + getReverseDirection(direction)],
     timeout
   })
 

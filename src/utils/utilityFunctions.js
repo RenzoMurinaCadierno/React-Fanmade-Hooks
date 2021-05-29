@@ -127,57 +127,55 @@ export function getHookNameFromPathName(pathName) {
 }
 
 /**
- * Creates a closure that stores an array of used hashes. It returns a
- * function to create, store in the array, and return a hash of any
- * given length. It also returns a function to remove that hash from
- * the array.
+ * Creates a closure that stores an array of hashes and returns handlers
+ * to add new hashes and remove used ones.
+ *
+ * @returns {object} An object with two entries:
+ *
+ * `get` (function): creates, stores in the array and returns a hash of any
+ *   given length (passed as a number argument).
+ *
+ * `remove` (function): removes the hash passed as argument from the array.
  */
 export const hash = (function () {
   // characters used to create the hash
   const chars = "abcdefghijklmnopqrstuvw0123456789"
-  // array to store created hashes
-  let usedHashes = []
+  // Set to store created hashes
+  let usedHashes = new Set()
   /**
    * Hash generator function
-   * @param {number} qtyOfChars the amount of random characters the hash includes
+   * @param {number} qtyOfChars the amount of random characters in the hash
    */
   function get(qtyOfChars = 5) {
     // base string for all hashes
-    let hash = "rfh:"
+    let hash = ""
     while (true) {
       // loop a number of times equal to qtyOfChars
       for (let i = 0; i < qtyOfChars; i++) {
-        // get a random char from chars array
+        // get a random char from chars Set
         let nextChar = chars[Math.floor(Math.random() * chars.length)]
         // 50-50 chance to make it uppercase
         if (Math.random() < 0.5) nextChar = nextChar.toUpperCase()
         // append it to the hash string beinf formed
         hash += nextChar
       }
-      // if the closure's array of hashes does not include this one
+      // if the closure's Set of hashes does not include this one
       // we just created, push it and return it
-      if (!usedHashes.includes(hash)) {
-        usedHashes.push(hash)
+      if (!usedHashes.has(hash)) {
+        usedHashes.add(hash)
         return hash
       }
       // otherwise, restore to initial value and start again
-      hash = "rfh:"
+      hash = ""
     }
   }
   /**
-   * Removes the specified hash from the hash array
+   * Removes the specified hash from the hash Set
    * @param {string} hash the hash string to remove
    */
   function remove(hash) {
-    // get the hash's index inside the array
-    const idxInArray = usedHashes.indexOf(hash)
-    // if it exists, slice it out
-    if (idxInArray !== -1) {
-      usedHashes = [
-        ...usedHashes.slice(0, idxInArray),
-        ...usedHashes.slice(idxInArray + 1)
-      ]
-    }
+    usedHashes.delete(hash)
+    return hash
   }
   // the IIFE will create the array as closure, and return the hash
   // getter and remover functions

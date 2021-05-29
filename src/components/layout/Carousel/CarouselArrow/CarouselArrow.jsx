@@ -1,22 +1,36 @@
 import { useCallback, memo } from "react"
-import { Container, useClassNameToggle } from "hub"
+import { Container, useClassNameToggle, Carousel } from "hub"
+import pointer from "assets/icons/pointer.svg"
 import { classes, carouselArrowPropTypes } from "./CarouselArrow.utils"
 
 /**
  * Renders the circle container with the arrow that controls sliding
- * '*CarouselSlides*' left or right. It also handles the arrow
- * animation logic.
+ * '*CarouselSlides*' left or right. It also handles the arrow animation logic.
  *
  * @param {object} props
  *
  * `direction` (string): "left" or "right". Where arrows point to.
  *
+ * `imgSrc?` (string): Path to svg image to use as arrow '*img*' "src". Defaults
+ *   to a pointer one.
+ *
  * `onClick?` (function): "scrollSlide" handler coming from '*Carousel*'.
  *
  * `classNames?` (object): className strings for each JSX rendered here.
  *   Check *utils.js* for its consitution.
+ *
+ * `arrowImgProps?` (object): Props to spread in arrow '*img*'.
+ *
+ * `...otherProps?` (object): Props to spread in wrapper '*Container*'.
  */
-function CarouselArrow({ direction, onClick, classNames = {}, ...otherProps }) {
+function CarouselArrow({
+  direction,
+  imgSrc,
+  onClick,
+  classNames = {},
+  arrowImgProps = {},
+  ...otherProps
+}) {
   // className toggling class, triggerer and animation state boolean
   const [swingCN, triggerSwingCN, isSwinging] = useClassNameToggle({
     className: classes["animate-arrow-" + direction],
@@ -37,13 +51,20 @@ function CarouselArrow({ direction, onClick, classNames = {}, ...otherProps }) {
     // wrapper container (the circle wrapping the arrow)
     <Container
       type="primary"
+      role="button"
       onClick={isSwinging ? null : handleClick}
       className={classes.container(direction, classNames.container)}
       {...otherProps}
     >
-      {/* '*div*' and its ::after to create an 'arrow' shape */}
-      <div
+      {/* pointer arrow '*img*' */}
+      <img
+        src={imgSrc ?? pointer}
+        // Carousel.defaultCtx.directions[0] === 'left'
+        alt={`${
+          direction === Carousel.defaultCtx.directions[0] ? "previous" : "next"
+        } slide`}
         className={classes.arrow(direction, classNames.arrow) + " " + swingCN}
+        {...arrowImgProps}
       />
     </Container>
   )

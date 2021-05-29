@@ -15,5 +15,7 @@ fiddle SlotsSpinningSlots timeouts
 
 jsconfig.json!!!!:  quitar "React" y ../../../hub
 
+classNames: PropTypes.exact << 
+
 // commit msg
-Fixed bug at '*Carousel*'. Started reworking component.
+Tested props in '*Carousel*'. Changed '*CarouselArrows*' to render '*img*'.

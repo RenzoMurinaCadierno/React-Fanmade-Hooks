@@ -29,10 +29,7 @@ export default function CarouselArrows({
         direction={direction}
         circle
         tabIndex={i + 1}
-        classNames={classes.arrowComponent(
-          classNames.arrowContainer,
-          classNames.arrow
-        )}
+        classNames={classes.arrowComponent(classNames)}
         {...otherProps}
       />
     ))

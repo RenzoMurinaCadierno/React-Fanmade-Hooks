@@ -6,10 +6,6 @@ import {
   setNameAndTransitionRelatedContext
 } from "./CarouselRoot.utils"
 
-// "left" and "right" strings defined as variables to avoid typing errors
-// const arrowDirections = Carousel.defaultCtx.directions.values()
-// const [left, right] = arrowDirections
-
 /**
  * Root component for '*Carousel*' UI. It handles scrolling logic and keeps the
  * global state for all of its inner components.
@@ -84,7 +80,6 @@ export default function CarouselRoot({
 }) {
   const [isAutoScrolling, setIsAutoScrolling] = useState(true)
   const resumeAutoScrollTimeoutRef = useRef(null)
-
   /**
    * Sets ctx's "activeName" string and "names" array which will be passed as
    *   context to `children`. "activeName" will match the one of the first
@@ -245,10 +240,7 @@ export default function CarouselRoot({
           onFocus={stunAutoScroll}
           onBlur={resumeAutoScroll}
           onClick={scrollSlide}
-          classNames={classes.arrowComponent(
-            classNames.arrowContainer,
-            classNames.arrow
-          )}
+          classNames={classes.arrowComponent(classNames.arrowComponent)}
         />
       </Container>
       {/* indicators for currently active and inactive slides */}
@@ -260,10 +252,7 @@ export default function CarouselRoot({
         tabIndex={3}
         onFocus={stunAutoScroll}
         onBlur={resumeAutoScroll}
-        classNames={classes.carouselIndicators(
-          classNames.indicatorsContainer,
-          classNames.indicator
-        )}
+        classNames={classes.indicatorsComponent(classNames.indicatorsComponent)}
       />
     </div>
   )

@@ -49,11 +49,11 @@ export const intl = {
 export const hash = (function () {
   // characters used to create the hash
   const chars = "abcdefghijklmnopqrstuvw0123456789"
-  // array to store created hashes
-  let usedHashes = []
+  // Set to store created hashes
+  let usedHashes = new Set()
   /**
    * Hash generator function
-   * @param {number} qtyOfChars the amount of random characters the hash includes
+   * @param {number} qtyOfChars the amount of random characters in the hash
    */
   function get(qtyOfChars = 5) {
     // base string for all hashes
@@ -61,17 +61,17 @@ export const hash = (function () {
     while (true) {
       // loop a number of times equal to qtyOfChars
       for (let i = 0; i < qtyOfChars; i++) {
-        // get a random char from chars array
+        // get a random char from chars Set
         let nextChar = chars[Math.floor(Math.random() * chars.length)]
         // 50-50 chance to make it uppercase
         if (Math.random() < 0.5) nextChar = nextChar.toUpperCase()
         // append it to the hash string beinf formed
         hash += nextChar
       }
-      // if the closure's array of hashes does not include this one
+      // if the closure's Set of hashes does not include this one
       // we just created, push it and return it
-      if (!usedHashes.includes(hash)) {
-        usedHashes.push(hash)
+      if (!usedHashes.has(hash)) {
+        usedHashes.add(hash)
         return hash
       }
       // otherwise, restore to initial value and start again
@@ -79,19 +79,12 @@ export const hash = (function () {
     }
   }
   /**
-   * Removes the specified hash from the hash array
+   * Removes the specified hash from the hash Set
    * @param {string} hash the hash string to remove
    */
   function remove(hash) {
-    // get the hash's index inside the array
-    const idxInArray = usedHashes.indexOf(hash)
-    // if it exists, slice it out
-    if (idxInArray !== -1) {
-      usedHashes = [
-        ...usedHashes.slice(0, idxInArray),
-        ...usedHashes.slice(idxInArray + 1)
-      ]
-    }
+    usedHashes.delete(hash)
+    return hash
   }
   // the IIFE will create the array as closure, and return the hash
   // getter and remover functions

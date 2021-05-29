@@ -5,13 +5,14 @@ export const classes = {
   container: (direction, className) =>
     (className ?? "") +
     " " +
-    (direction ? styles["Container" + capitalize(direction)] : "") +
+    (direction ? styles[capitalize(direction)] : "") +
     " " +
     styles.Container,
+  relativeWrapper: styles.RelativeWrapper,
   arrow: (direction, className) =>
     (className ?? "") +
     " " +
-    (direction ? styles["Arrow" + capitalize(direction)] : "") +
+    (direction ? styles[capitalize(direction)] : "") +
     " " +
     styles.Arrow,
   "animate-arrow-left": styles.AnimateArrowLeft,
@@ -24,9 +25,12 @@ function capitalize(word) {
 
 export const carouselArrowPropTypes = {
   direction: PropTypes.oneOf(["left", "right"]).isRequired,
+  imgSrc: PropTypes.string,
   onClick: PropTypes.func,
   classNames: PropTypes.shape({
     container: PropTypes.string,
     arrow: PropTypes.string
-  })
+  }),
+  arrowImgProps: PropTypes.object,
+  otherProps: PropTypes.object
 }

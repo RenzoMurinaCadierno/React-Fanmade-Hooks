@@ -10,7 +10,7 @@ export const carouselIndicatorsPropTypes = {
   indicatorNames: PropTypes.arrayOf(PropTypes.string).isRequired,
   activeName: PropTypes.string.isRequired,
   onIndicatorClick: PropTypes.func,
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     indicator: PropTypes.string
   })
