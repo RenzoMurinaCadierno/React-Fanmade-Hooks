@@ -35,8 +35,10 @@ const defaultCtx = {
   scrollSlide: () => {}
 }
 
-// context to pass to '*CarouselSlide*'(s) or '*CarouselSlideUnidirectional*'
-// rendered as `children` of '*CarouselRoot*'
+/**
+ * Context to pass to '*CarouselSlide*'(s) or '*CarouselSlideUnidirectional*'
+ * rendered as `children` of '*CarouselRoot*'
+ */
 const context = createContext(defaultCtx)
 
 const Carousel = {

@@ -1,4 +1,4 @@
-import { useState, useCallback, memo } from "react"
+import { useState, memo } from "react"
 import { classes, switchPropTypes } from "./Switch.utils"
 
 /**
@@ -33,15 +33,12 @@ function Switch({
 }) {
   const [isOn, setIsOn] = useState(initialState)
 
-  const handleClick = useCallback(
-    (e) => {
-      setIsOn((prevSt) => !prevSt)
-      onSwitch?.(e)
-      if (isOn) onSwitchOff?.(e)
-      else onSwitchOn?.(e)
-    },
-    [isOn, setIsOn, onSwitch, onSwitchOn, onSwitchOff]
-  )
+  function handleClick(e) {
+    setIsOn((prevSt) => !prevSt)
+    onSwitch?.(e)
+    if (isOn) onSwitchOff?.(e)
+    else onSwitchOn?.(e)
+  }
 
   return (
     <div

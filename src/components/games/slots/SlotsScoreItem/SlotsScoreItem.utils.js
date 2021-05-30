@@ -53,9 +53,9 @@ export const slotsScoreItemPropTypes = {
  * @param {string} cmpName "SlotsScoreItem"
  */
 function validatePropThatTriggersScoreEffect(props, propName, cmpName) {
-  const targetProp = props[propName]
+  const propThatTriggersScoreEffect = props[propName]
 
-  if (typeof targetProp === "undefined") return
+  if (typeof propThatTriggersScoreEffect === "undefined") return
 
   if (!Array.isArray(props.badgesProps)) {
     return new Error(
@@ -66,21 +66,21 @@ function validatePropThatTriggersScoreEffect(props, propName, cmpName) {
   for (let i = 0; i < props.badgesProps.length; i++) {
     if (!isPlainObject(props.badgesProps[i])) {
       return new Error(
-        getSharedErrorText(propName, targetProp, cmpName) +
+        getSharedErrorText(propName, propThatTriggersScoreEffect, cmpName) +
           `badgesProps\` prop in "${cmpName}" must an array of a plain objects.\n\n\t> Error type: NOT_PLAIN_OBJECT\n\t> Component name: ${
             props.name
           }\n\t>Prop name: \`badgesProps\`\n\t> Index in prop: ${i}\n\t> Prop Type: ${typeof props
             .badgesProps[i]}.\n`
       )
     }
-    if (!props.badgesProps[i].hasOwnProperty(targetProp)) {
+    if (!props.badgesProps[i].hasOwnProperty(propThatTriggersScoreEffect)) {
       const keysInErrorObject = Object.keys(props.badgesProps[i]).join(", ")
       return new Error(
-        getSharedErrorText(propName, targetProp, cmpName) +
+        getSharedErrorText(propName, propThatTriggersScoreEffect, cmpName) +
           `\`${propName}\` must match one key name on each plain object in \`badgesProps\`.\n\n\t> Error type: PROP_DOES_NOT_MATCH_KEY\n\t> Component name: ${
             props.name
           }\n\t> Key to match: ${stringify(
-            targetProp
+            propThatTriggersScoreEffect
           )} \n\t> Prop name: \`badgesProps\`\n\t> Index in prop: ${i}.\n\t> Key names in prop: ${keysInErrorObject}\n`
       )
     }

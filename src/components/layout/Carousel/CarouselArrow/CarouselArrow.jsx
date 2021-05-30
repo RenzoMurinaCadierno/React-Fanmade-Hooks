@@ -37,15 +37,14 @@ function CarouselArrow({
     timeout: 400
   })
 
-  /* eslint-disable react-hooks/exhaustive-deps */
-  const handleClick = useCallback(() => {
+  function handleClick() {
     // add animation className (triggers animation)
     triggerSwingCN()
     // trigger parent's "scrollSlide". Pass direction to target next active
     // slide name (the one on the left or right of slide names array), and a
     // boolean true to stun (freeze) scrolling.
     onClick?.(direction, true)
-  }, [])
+  }
 
   return (
     // wrapper container (the circle wrapping the arrow)

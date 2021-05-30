@@ -15,7 +15,9 @@ export const classes = {
   })
 }
 
-// timeout param for 'useAnimatedNumber' in '*BadgeWithAnimatedNumber*'
+/**
+ * Timeout param for 'useAnimatedNumber' in '*BadgeWithAnimatedNumber*'
+ */
 export const hookConfigs = { timeout: 300 }
 
 export const slotsBadgeWithScoreAnimationPropTypes = {

@@ -1,6 +1,6 @@
 /* all devices landscape */
 .Container {
-  /* '*input*' JSX */
+  /* '*input*' */
   color: var(--primary-0);
   background: transparent;
   border: none;
@@ -25,7 +25,7 @@
 /* all devices portrait */
 @media screen and (orientation: portrait) {
   .Container {
-    /* '*input*' JSX */
+    /* '*input*' */
     letter-spacing: var(--letter-spacing-vh);
     font-size: var(--font-size-vh);
   }

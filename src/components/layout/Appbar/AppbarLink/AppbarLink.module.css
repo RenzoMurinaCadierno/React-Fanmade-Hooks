@@ -55,5 +55,10 @@
     border: var(--border-primary-1-vh);
     box-shadow: var(--box-shadow-primary-0-vh-hover);
   }
+
+  .LongString {
+    /* reduce padding on sides, since string will overflow otherwise */
+    padding: var(--generic-padding-vh) var(--generic-padding-vh);
+  }
 }
 /* end all devices portrait */

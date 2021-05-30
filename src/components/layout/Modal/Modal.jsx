@@ -19,18 +19,18 @@ import { classes, modalPropTypes, timeouts, closeIconSVG } from "./Modal.utils"
  *   to switch to false to close the modal before toggling back to true to
  *   re-open it.
  *
- * `type?` (string): This app's theme types. Can be one of "primary",
- *   "primary-1", "secondary" or "secondary-1". Defaults to "primary".
+ * `type?` (string): This app's theme types. Can be one of 'primary',
+ *   'primary-1', 'secondary' or 'secondary-1'. Defaults to 'primary'.
  *
  * `size?` (boolean): Standard width and height dimensions. Can be one of
- *   "small", "medium" or "large". Defaults to "large".
+ *   'small', 'medium' or 'large'. Defaults to 'large'.
  *
- * `scrollable?` (boolean): true will add "overflow: hidden" to the outer
+ * `scrollable?` (boolean): true will add 'overflow: hidden' to the outer
  *   '*div*'s styles, thus locking content on screen. Defaults to true.
  *
  * `closeIcon?` (boolean | string): defining this prop will render an icon to
  *   close the modal at its top-right corner. To define it, either use a:
- * * (boolean) true renders a default cross icon ("X").
+ * * (boolean) true renders a default cross icon ('X').
  * * (string) the path to an SVG image to render instead of the default icon.
  *
  * `onOpen?` (function): callback to trigger when modal opens.

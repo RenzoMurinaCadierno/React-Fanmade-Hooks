@@ -7,12 +7,12 @@ import { classes, backdropPropTypes } from "./Backdrop.utils"
  *
  * @param {object} props
  *
- * `show` (boolean!): True will display the backdrop.
+ * `show` (boolean): True will display the backdrop.
  *
- * `htmlElem` (string): Element type for the backdrop React component. Defaults
+ * `htmlElem?` (string): Element type for the backdrop React component. Defaults
  *   to "div".
  *
- * `portalNode` (function | React.Element | React.ref): The node to render the
+ * `portalNode?` (function | React.Element | React.ref): The node to render the
  *   backdrop component at.
  *
  * By default, it targets the '*div*' with className 'App', below "root" node
@@ -24,7 +24,7 @@ import { classes, backdropPropTypes } from "./Backdrop.utils"
  *     by "getElementById", "querySelector"), and such.
  * * function, only if it returns one of the previous two.
  *
- * `className` (string): className string to attach to rendered component.
+ * `className?` (string): className string to attach to rendered component.
  *
  * @returns {React.Element} The backdrop component to be mounted by a portal to
  *   any node stated in `portalNode`.
@@ -44,8 +44,8 @@ export default function Backdrop({
   // "createPortal" at mount
   useEffect(() => (isMounted.current = true), [])
 
-  // if DOM is mounted and `show` === true, render on React Node reference, or
-  // on a valid real DOM node
+  // if DOM is mounted and `show` is true, render on React Node reference or on
+  // a valid real DOM node
   return isMounted.current && show
     ? createPortal(
         <Component className={classes.container(className)} {...otherProps}>

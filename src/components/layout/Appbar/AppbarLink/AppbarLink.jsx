@@ -26,7 +26,15 @@ export default function AppbarLink({
   ...otherProps
 }) {
   return (
-    <nav className={classes.container(isActive, className)} {...otherProps}>
+    <nav
+      className={classes.container(
+        isActive,
+        typeof children === "string" && children.length > 16,
+        // false,
+        className
+      )}
+      {...otherProps}
+    >
       {children}
     </nav>
   )

@@ -6,6 +6,13 @@ import { classes, toastData } from "./HomePage.utils"
 const menuIconProps = { aura: { size: "small", interval: "long" } }
 const toastDefaultState = { id: "", show: false }
 
+/**
+ * Renders the Home Page, with app's title and instructions.
+ *
+ * It also shows an '*ExpandableMenu*' that responsible for presenting contact
+ * information, and that mounts on app's root node a confirmation '*Toast*'
+ * before opening any external page.
+ */
 export default function HomePage() {
   // state to control '*Toast*' `show`, and `content` and `onClick` (via "id")
   const [toastSt, setToastSt] = useState(toastDefaultState)

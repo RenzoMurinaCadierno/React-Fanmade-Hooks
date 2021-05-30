@@ -98,9 +98,7 @@ export const badgePropTypes = {
  * @returns {String[]} Resulting array of combined elements
  */
 function getDistribution(arrFactor1, arrFactor2, jointString = "-") {
-  return arrFactor1
-    .map((term1) =>
-      arrFactor2.map((term2) => (term2 ? term1 + jointString + term2 : term1))
-    )
-    .flat()
+  return arrFactor1.flatMap((term1) =>
+    arrFactor2.map((term2) => (term2 ? term1 + jointString + term2 : term1))
+  )
 }

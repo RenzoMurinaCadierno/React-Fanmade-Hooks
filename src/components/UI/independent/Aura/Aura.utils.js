@@ -69,13 +69,13 @@ export const auraPropTypes = {
  * @param {string} componentName 'Aura'
  */
 function validateChildren(props, propName, componentName) {
-  const targetProp = props[propName]
-  if (typeof targetProp === "undefined") return
+  const children = props[propName]
+  if (typeof children === "undefined") return
   if (
-    !targetProp ||
-    (!isValidElement(targetProp) &&
-      typeof targetProp !== "string" &&
-      typeof targetProp !== "number")
+    !children ||
+    (!isValidElement(children) &&
+      typeof children !== "string" &&
+      typeof children !== "number")
   ) {
     return new Error(
       `Invalid prop \`${propName}\` supplied to '*${componentName}*'.\n\nExpected only one React Element, string or number.\n`
@@ -106,17 +106,15 @@ function validateChildren(props, propName, componentName) {
  *   and `arr_2`.
  */
 function getCartesianProduct(arr_1, arr_2, separator = "") {
-  return arr_1
-    .map((it_1) =>
-      arr_2
-        .reduce(
-          (acc, it_2) => [
-            ...acc,
-            !it_2 && typeof it_2 === "string" ? it_1 : it_1 + separator + it_2
-          ],
-          []
-        )
-        .flat()
-    )
-    .flat()
+  return arr_1.flatMap((it_1) =>
+    arr_2
+      .reduce(
+        (acc, it_2) => [
+          ...acc,
+          !it_2 && typeof it_2 === "string" ? it_1 : it_1 + separator + it_2
+        ],
+        []
+      )
+      .flat()
+  )
 }

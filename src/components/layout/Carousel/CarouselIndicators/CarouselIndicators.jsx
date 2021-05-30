@@ -34,10 +34,9 @@ export default function CarouselIndicators({
   classNames = {},
   ...otherProps
 }) {
-  const handleIndicatorClick = useCallback(
-    (e) => onIndicatorClick(e.target.dataset.name),
-    [onIndicatorClick]
-  )
+  function handleIndicatorClick(e) {
+    onIndicatorClick(e.target.dataset.name)
+  }
 
   return (
     show && (

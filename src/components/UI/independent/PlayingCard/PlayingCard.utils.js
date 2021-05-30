@@ -30,14 +30,15 @@ export const playingCardPropTypes = {
 }
 
 function validateStringOrImgElem(props, propName, cmpName) {
+  const suit = props[propName]
   // undefined fails silently (otherwise, first render will always throw error)
-  if (!props[propName] || props[propName]?.type === "undefined") return
+  if (!suit || suit?.type === "undefined") return
   // if the prop is not a React element, it must be a plain string
-  if (typeof props[propName] !== "string" && !props[propName].type) {
-    return throwTypeError(propName, props[propName], cmpName)
+  if (typeof suit !== "string" && !suit.type) {
+    return throwTypeError(propName, suit, cmpName)
     // otherwise, it must be an <img /> JSX
-  } else if (props[propName].type && props[propName].type !== "img") {
-    return throwTypeError(propName, props[propName].type, cmpName, true)
+  } else if (suit.type && suit.type !== "img") {
+    return throwTypeError(propName, suit.type, cmpName, true)
   }
 }
 
@@ -89,31 +90,30 @@ export function getFormattedValue(value, isPokerCard) {
  * Given a string value or '*img*' JSX, it returns an array where the first
  * element is the 'suit' className to append to top-left and bottom-right
  * 'suit' '*div*'s, and the second element, the JSX to render.
+ *
  * @param {string | React.Element} suitStringOrImgJsx String or '*img*' to
  *   render as 'suit' value.
- * > * If "s", "spades", "d", "diamonds", "h", "hearts", "c", "clubs", "j" or
- *      "joker" are passed as string values while `isPokerCard` is true, the
- *      resulting className will be "s", "d", "h", "c" or "j", and string JSX
- *      to render "♠️", "♦️", "♥️", "♣️", "J", respectively.
- * > * If `isPokerCard` is true but passed string values do not match the ones
- *      stated before, className will be 'string-suit' and JSX to render will
- *      be the first character of the string JSX.
- * > * If `isPokerCard` is true but passed JSX to render is an image, className
- *      will be 'string-suit' and JSX to render will be used as is.
- * > * If `isPokerCard` is false and passed JSX is a string, className will be
- *      'string-suit' and JSX to render will be the first character of the
- *      string JSX.
- * > * If `isPokerCard` is false and passed JSX is an '*img*', className will
- *      be "" (empty string), and that same '*img*' as JSX to render.
+ * * If "s", "spades", "d", "diamonds", "h", "hearts", "c", "clubs", "j" or
+ *    "joker" are passed as string values while `isPokerCard` is true, the
+ *    resulting className will be "s", "d", "h", "c" or "j", and string JSX to
+ *    render "♠️", "♦️", "♥️", "♣️", "J", respectively.
+ * * If `isPokerCard` is true but passed string values do not match the ones
+ *    stated before, className will be 'string-suit' and JSX to render will be
+ *    the first character of the string JSX.
+ * * If `isPokerCard` is true but passed JSX to render is an image, className
+ *    will be 'string-suit' and JSX to render will be used as is.
+ * * If `isPokerCard` is false and passed JSX is a string, className will be
+ *    'string-suit' and JSX to render will be the first character of the string
+ *    JSX.
+ * * If `isPokerCard` is false and passed JSX is an '*img*', className will be
+ *    "" (empty string), and that same '*img*' as JSX to render.
  *
  * @param {boolean} isPokerCard Manipulates outcome cases stated in
  *   `suitStringOrImgJsx`.
  *
- * @returns {Array} Shape:
- * > * [
- * > * * (string) classNameToAppend to 'suit' '*div*'s
- * > * * (string | React.Element) suit string or '*img*' to render as JSX
- * > * ]
+ * @returns {Array} An array shaped:
+ * * `elem 1` (string) className to append to 'suit' '*div*'s
+ * * `elem 2` (string | React.Element) suit string or '*img*' to render as JSX
  */
 export function getSuitCNandCharOrJSX(suitStringOrImgJsx, isPokerCard) {
   // if we passed a string as a suit

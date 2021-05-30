@@ -46,15 +46,19 @@ export default function PlayingCard({
   const [defaultSuitCN, suitStrOrJSX] = getSuitCNandCharOrJSX(suit, isPokerCard)
 
   return (
+    // wrapper container
     <div
       onClick={onClick}
       className={classes.container(onClick, classNames?.container)}
       {...otherProps}
     >
+      {/* top-left 'suit' value (upside down and reversed) */}
       <div className={classes.suit(defaultSuitCN, false, classNames?.suit)}>
         {suitStrOrJSX}
       </div>
+      {/* card value (center) */}
       {getFormattedValue(value, isPokerCard)}
+      {/* bottom-right 'suit' value */}
       <div className={classes.suit(defaultSuitCN, true, classNames?.suit)}>
         {suitStrOrJSX}
       </div>

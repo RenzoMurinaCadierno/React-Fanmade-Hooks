@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback, useRef, memo } from "react"
+import { useEffect, useState, memo } from "react"
 import { classes } from "./Button.utils"
 
 /**
@@ -33,19 +33,12 @@ function Button({
 }) {
   // state to add/remove classNames that animate the button
   const [growState, setGrowState] = useState(false)
-  // we handle `onClick` in useEffect, which cannot recieve the event object
-  // from click handler. As a workaround, we partially save it in a ref
-  const eventTarget = useRef(null)
 
-  const handleClick = useCallback(
-    (e) => {
-      // save the event object in ref to pass it to `onClick` in useEffect
-      eventTarget.current = e
-      // set state to true, which triggers useEffect
-      setGrowState(true)
-    },
-    [setGrowState]
-  )
+  function handleClick(e) {
+    // set state to true, which triggers useEffect
+    setGrowState(true)
+    onClick?.(e)
+  }
 
   // eslint will warn us to add `onClick` to dependencies, but we cannot do it.
   // If we did and `onClick` changes, it will re-trigger this useEffect
@@ -53,16 +46,8 @@ function Button({
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     let growTimeout
-    if (growState) {
-      growTimeout = setTimeout(() => {
-        // set state back to false, which removes grow animation className
-        setGrowState(false)
-      }, 100)
-      // fire `onClick`. Event target was saved previously by "handleClick"
-      onClick?.(eventTarget.current)
-      // reset "eventTarget" it so no residual data is kept between renders
-      eventTarget.current = null
-    }
+    // set state back to false, which removes grow animation className
+    if (growState) growTimeout = setTimeout(() => setGrowState(false), 100)
     return () => clearTimeout(growTimeout)
   }, [growState])
 

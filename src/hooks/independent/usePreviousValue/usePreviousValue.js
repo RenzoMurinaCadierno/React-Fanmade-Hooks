@@ -7,7 +7,7 @@ import { useRef, useEffect } from "react"
  * @param {any} value The value to keep track of.
  *
  * @returns {any} the previous value for the current state of the one this
- *   component is keeping track of.
+ *   hook is keeping track of.
  */
 export default function usePreviousValue(value) {
   const prevValue = useRef()

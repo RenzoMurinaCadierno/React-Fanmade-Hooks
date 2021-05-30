@@ -1,4 +1,4 @@
-import React, { useRef, memo } from "react"
+import React, { memo } from "react"
 import { classes, containerPropTypes } from "./Container.utils"
 
 /**
@@ -6,10 +6,10 @@ import { classes, containerPropTypes } from "./Container.utils"
  *
  * @param {object} props
  *
- * `htmlElem?` (string): html element to render as wrapper. Defaults to "div".
+ * `htmlElem?` (string): html element to render as wrapper. Defaults to 'div'.
  *
- * `type?` (string): This app's theme types. Can be one of "primary",
- *   "secondary" or "danger". Defaults to "primary".
+ * `type?` (string): This app's theme types. Can be one of 'primary',
+ *   'secondary' or 'danger'. Defaults to 'primary'.
  *
  * `flexDirection?` (string): A valid value for "flex-direction" CSS property.
  *   If defined, it will add that styling.
@@ -42,10 +42,10 @@ function Container({
   children,
   ...otherProps
 }) {
-  const Component = useRef(htmlElem)
+  const Component = htmlElem
 
   return (
-    <Component.current
+    <Component
       className={classes.container(
         type,
         flexDirection,
@@ -58,7 +58,7 @@ function Container({
       {...otherProps}
     >
       {children}
-    </Component.current>
+    </Component>
   )
 }
 

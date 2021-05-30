@@ -60,6 +60,7 @@ export default function SlotsScoreSide({
   classNames = {}
 }) {
   const [heartImgArr, starImgArr] = badgeEffectImgSrcArray
+
   return (
     <div className={classes.container(classNames.container)}>
       {/* each slot/stat static badges and their effect badges */}

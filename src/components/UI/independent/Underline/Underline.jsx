@@ -1,7 +1,7 @@
 import { classes, underlinePropTypes } from "./Underline.utils"
 
 /**
- * Renders a '*span*' that serves as an underline effect. Normally used to matk
+ * Renders a '*span*' that serves as an underline effect. Normally used to mark
  * a base bottom line for invisible inputs.
  *
  * @param {object} props

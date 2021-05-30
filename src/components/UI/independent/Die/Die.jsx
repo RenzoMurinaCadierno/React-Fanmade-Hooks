@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { classes, diePropTypes } from "./Die.utils"
 
 /**
@@ -11,12 +11,14 @@ import { classes, diePropTypes } from "./Die.utils"
  *
  * `max?` (number): the maximum possible value to roll. Defaults to 6.
  *
- * `isFrozen?` (boolean): prevents onClick callbacks from working and applies
- *   disabled stylings to the component.
+ * `isFrozen?` (boolean): true prevents "onClick" callbacks and applies
+ *   disabled stylings.
  *
  * `onBeforeRoll?` (function): callback triggered when die starts rolling.
+ *   Gets the previous roll result as argument.
  *
  * `onAfterRoll?` (function): callback triggered when die stops rolling.
+ *   Gets the rolled result as callback.
  *
  * `classNames?` (object): className strings for each JSX rendered here.
  *     Check *utils.js* for its constitution.
@@ -32,7 +34,7 @@ export default function Die({
   // "res" is the number that appears on die, "isRolling" is the rolling state
   const [dieSt, setDieSt] = useState({ res: min, isRolling: false })
 
-  const performRoll = useCallback(() => {
+  function performRoll() {
     // `isFrozen` prevents coin state from changing. Alas, die will not roll
     if (!isFrozen) {
       // set `isTossing` to true to add tossing animation className and to
@@ -40,7 +42,7 @@ export default function Die({
       setDieSt((prevSt) => ({ ...prevSt, isRolling: true }))
       onBeforeRoll?.(dieSt.res)
     }
-  }, [setDieSt, onBeforeRoll, dieSt.res, isFrozen])
+  }
 
   // eslint will warn us to add `min` and `max` as dependencies, but if we do
   // so and those props change while rolling animation is playing, then the
@@ -73,6 +75,7 @@ export default function Die({
   }, [dieSt.isRolling])
 
   return (
+    // wrapper container
     <div
       className={classes.container(
         dieSt.isRolling,
@@ -82,6 +85,7 @@ export default function Die({
       // prevent click events if die is rolling or is frozen by props
       onClick={dieSt.isRolling || isFrozen ? null : performRoll}
     >
+      {/* result */}
       <span className={classes.digit(classNames.digit)}> {dieSt.res} </span>
     </div>
   )

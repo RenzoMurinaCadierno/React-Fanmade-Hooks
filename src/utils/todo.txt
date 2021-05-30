@@ -17,5 +17,7 @@ jsconfig.json!!!!:  quitar "React" y ../../../hub
 
 classNames: PropTypes.exact << 
 
+defaultProps
+
 // commit msg
-Tested props in '*Carousel*'. Changed '*CarouselArrows*' to render '*img*'.
+Commented and softly reworked some components. Started with markdowns.

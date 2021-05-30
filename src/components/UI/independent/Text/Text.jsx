@@ -8,11 +8,12 @@ import { classes, textPropTypes } from "./Text.utils"
  * @param {object} props
  *
  * `htmlElem?` (string): 'span', 'p', or one between 'h1' and 'h6'.
- *   Defaults to 'p'.
+ * * Defaults to 'p'.
  *
- * `type?` (string): applies primary or secondary stylings (and their
- *   variants) to the component. Can be "primary", "primary-1", "primary-2",
- *   "secondary", "secondary-1", "secondary-2". Defaults to "primary".
+ * `type?` (string): applies primary or secondary theme stylings (and their
+ *   variants) to the component. Can be one of "primary", "primary-1",
+ *   "primary-2", "secondary", "secondary-1", "secondary-2".
+ * * Defaults to "primary".
  *
  * `small?` (boolean): renders the text in small font size (less than 'p').
  *

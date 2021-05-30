@@ -205,10 +205,9 @@ export default function CarouselRoot({
   /**
    * Handles '*CarouselSlide*' container click. Passes ctx as second arg
    */
-  const handleSlideClick = useCallback(
-    (e) => onSlideClick?.(e, ctx),
-    [onSlideClick, ctx]
-  )
+  function handleSlideClick(e) {
+    onSlideClick?.(e, ctx)
+  }
 
   return (
     <div className={classes.container(classNames.container)}>

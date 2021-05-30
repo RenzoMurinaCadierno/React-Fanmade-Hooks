@@ -1,13 +1,17 @@
-import { useCallback } from "react"
 import { useHistory } from "react-router-dom"
 import { Container, Text, Button } from "hub"
 import errorSVG from "assets/icons/error.svg"
 import { classes } from "./_404Page.utils"
 
+/**
+ * Renders an Error page on any failed route.
+ */
 export default function _404Page() {
   const history = useHistory()
 
-  const goHome = useCallback(() => history.push("/"), [history])
+  function goToHomeUrl() {
+    history.push("/")
+  }
 
   return (
     <div className={classes.container}>
@@ -23,7 +27,7 @@ export default function _404Page() {
       <Text htmlElem="h6" type="secondary-1" italic>
         But, hey! We can still redirect you the old fashioned way.
       </Text>
-      <Button onClick={goHome}> Take me home :D </Button>
+      <Button onClick={goToHomeUrl}> Take me home :D </Button>
     </div>
   )
 }

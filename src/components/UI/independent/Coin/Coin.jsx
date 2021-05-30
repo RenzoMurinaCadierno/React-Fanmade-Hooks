@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react"
+import React, { useState, useEffect } from "react"
 import { classes, coinPropTypes } from "./Coin.utils"
 
 /**
@@ -7,8 +7,8 @@ import { classes, coinPropTypes } from "./Coin.utils"
  *
  * @param {object} props
  *
- * `isFrozen?` (boolean): prevents "onClick" callbacks from working and applies
- *   disabled stylings to the component.
+ * `isFrozen?` (boolean): true prevents "onClick" callbacks and applies
+ *   disabled stylings.
  *
  * `head?` (string | React.Element): a 1-character-long string (advisable) or
  *   a React.Element type '*img*', to be rendered on "success" (head). Defaults
@@ -25,13 +25,15 @@ import { classes, coinPropTypes } from "./Coin.utils"
  * `successChance?` (number): a number between 0 and 1, representing the chance
  *   of a toss resulting in "head". Defaults to 0.5 (50%).
  *
- * `changeColor?` (boolean): true will apply "primary" styles to coins landing
- *   on "head" and "secondary" to the ones landing on "tails". False will keep
- *   "primary" stylings regardless toss results.
+ * `changeColor?` (boolean): true will apply 'primary' theme styles to coins
+ *   landing on 'head' and 'secondary' to the ones landing on 'tails'. False
+ *   will keep 'primary' stylings regardless toss results.
  *
- * `onBeforeToss?` (function): callback triggered when coin is tossed.
+ * `onBeforeToss?` (function): callback triggered when coin is tossed. Gets the
+ *   previous toss boolean as argument.
  *
- * `onAfterToss?` (function): callback triggered when coin lands.
+ * `onAfterToss?` (function): callback triggered when coin lands. Gets the new
+ *   toss boolean as argument.
  *
  * `classNames?` (object): className strings for each JSX rendered here.
  *     Check *utils.js* for its constitution.
@@ -51,7 +53,7 @@ export default function Coin({
   // "res" true is heads, false is tails. "isTossing" is the tossing state
   const [coinSt, setCoinSt] = useState({ res: false, isTossing: false })
 
-  const performFlip = useCallback(() => {
+  function performFlip() {
     // `isFrozen` prevents coin state from changing. Alas, coin will not toss
     if (!isFrozen) {
       // set "isTossing" to true to add tossing animation className and to
@@ -60,7 +62,7 @@ export default function Coin({
       // call for `onBeforeToss` with previous result
       onBeforeToss?.(coinSt.res)
     }
-  }, [setCoinSt, onBeforeToss, isFrozen, coinSt.res])
+  }
 
   // eslint will warn us to add `successChance` as a dependency, but if we do
   // so and it change while tossing animation is playing, then the result would
