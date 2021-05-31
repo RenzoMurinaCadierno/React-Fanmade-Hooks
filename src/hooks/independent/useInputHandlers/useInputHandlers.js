@@ -21,7 +21,7 @@ import { useState, useCallback, useEffect, useRef } from "react"
  *   function's return value is true, input will not change.
  *
  * `validators?` (object): an object whose keys are the validation rules, and
- *   valuesbeing  functions that must return an array shape:
+ *   values being functions that must return an array shape:
  *
  *   > [ statementThatEvalsToBool, failedValidationMessageString ]
  *

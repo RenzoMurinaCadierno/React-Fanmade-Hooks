@@ -16,7 +16,7 @@ const defaultQueries = {
  * Tracks stated media queries, re-rendering each time one of them changes.
  *
  * By default it applies regular bootstrap rules, but also accepts any custom
- * media query you specify.
+ * media queries you specify.
  *
  * Default rules are:
  * > * xs: "(max-width: 600px)",

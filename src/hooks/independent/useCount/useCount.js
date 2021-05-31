@@ -4,9 +4,10 @@ import { useState, useCallback } from "react"
  * Creates an integer counter state and returns it, along its handlers to
  * increase, decrease, reset and set its count step.
  *
- * @param {number?} initialNum The counter's starting integer
+ * @param {number?} initialNum The counter's starting integer. Defaults to 0.
  *
- * @param {number?} step The amount to increase/decrease the state.
+ * @param {number?} step The amount to increase/decrease the state. Defaults to
+ *   1.
  *
  * @returns {object} An object shape:
  *

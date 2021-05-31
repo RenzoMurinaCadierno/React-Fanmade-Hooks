@@ -10,7 +10,7 @@ import { useCallback, useState, useEffect } from "react"
  *   handler.
  *
  * `timeout` (number): the delay to turn `className` back 'off' once it was
- *   toggled 'on', measured in milliseconds.
+ *   toggled 'on', measured in milliseconds. Defaults to 0.
  *
  * `onStart?` (function) callback triggered when className is toggled 'on'.
  *

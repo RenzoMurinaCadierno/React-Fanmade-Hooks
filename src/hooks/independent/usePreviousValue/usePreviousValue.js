@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react"
 
 /**
- * Listens to the value passed as paramenter and returns its previous version
+ * Listens to the value passed as parameter and returns its previous version
  * each time it changes.
  *
  * @param {any} value The value to keep track of.

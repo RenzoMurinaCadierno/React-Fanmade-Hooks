@@ -1,5 +1,3 @@
-change utils.js classes on all components to be cmpDesc and cmpTest
-
 useTextProcessor (read write) https://codepen.io/rkotze/pen/zjRXYr
 useMouseCoords -> example button that moves when hovered closeby
 useLatency -> simulate a promise.resolve after timeout
@@ -19,5 +17,7 @@ classNames: PropTypes.exact <<
 
 defaultProps
 
+add toastwithportal to </>
+
 // commit msg
-Commented and softly reworked some components. Started with markdowns.
+Kept on writing markdowns.
