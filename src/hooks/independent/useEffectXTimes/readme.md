@@ -2,9 +2,7 @@
 
 ## Description
 
----
-
-Triggers a callback each time passed dependencies change (or on each render if no dependencies), but only up to the specified number in `times`.
+Triggers a callback each time passed `dependencies` change (or on each render if no dependencies), but only up to the specified number in `times`.
 
 Once the callback was triggered that many times, _useEffect_ stops working.
 
@@ -12,11 +10,9 @@ Once the callback was triggered that many times, _useEffect_ stops working.
 
 ## Parameters
 
----
-
 - `cb` (function)
 
-  The callback to trigger when dependencies change.
+  The callback to trigger when `dependencies` change.
   <br />
   <br />
 
@@ -40,8 +36,6 @@ Once the callback was triggered that many times, _useEffect_ stops working.
 
 ## Return
 
----
-
 An **array** with:
 
 - `elem 0` (function)
@@ -50,4 +44,4 @@ An **array** with:
 
 - `elem 1` (function)
 
-  `setTimes` setter. Takes a number as argument and sets it as `times` new value. _useEffect_ will now be able to trigger that amount of times.
+  `setTimes` setter. Takes a `number` as argument and sets it as `times` new value. _useEffect_ will now be able to trigger that amount of times.

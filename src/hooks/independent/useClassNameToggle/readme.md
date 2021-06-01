@@ -2,17 +2,13 @@
 
 ## Description
 
----
-
 Toggles `className` _on_ when invoked by the returned handler, which automatically turns back _off_ after `timeout`.
 <br />
 <br />
 
 ## Parameters
 
----
-
-A configuration **object** shaped:
+A configuration `object` shaped:
 <br /> <br />
 
 - `className` (string)
@@ -41,9 +37,7 @@ A configuration **object** shaped:
 
 ## Return
 
----
-
-An **array** with:
+An `array` with:
 <br />
 <br />
 

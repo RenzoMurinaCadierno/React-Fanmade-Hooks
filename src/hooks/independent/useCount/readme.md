@@ -2,15 +2,11 @@
 
 ## Description
 
----
-
 Creates an integer counter state and returns it, along its handlers to increase, decrease, reset and set its count step.
 <br />
 <br />
 
 ## Parameters
-
----
 
 - `initialNum` (number)
 
@@ -26,9 +22,7 @@ Creates an integer counter state and returns it, along its handlers to increase,
 
 ## Return
 
----
-
-An **object** shape:
+An `object` shaped:
 <br />
 <br />
 
@@ -46,7 +40,7 @@ An **object** shape:
 
 - `inc` (function)
 
-  Handler to increase the counter. Accepts a **number** as argument, in which case the counter will be increased by that argument's value. Any other case will increase it by the current `step` state.
+  Handler to increase the counter. Accepts a `number` as argument, in which case the counter will be increased by that argument's value. Any other case will increase it by the current `step` state.
   <br />
   <br />
 
@@ -58,7 +52,7 @@ An **object** shape:
 
 - `reset` (function)
 
-  Handler to reset the counter back to its initial state. Accepts a **number** as argument, in which case the counter will be set to it.
+  Handler to reset the counter back to its initial state. Accepts a `number` as argument, in which case the counter will be set to it.
   <br />
   <br />
 

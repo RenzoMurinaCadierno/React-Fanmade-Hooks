@@ -29,7 +29,8 @@ export default function useCallbackOnce(callback) {
     [isCallbackUsed, setIsCallbackUsed, callback]
   )
 
-  const reset = useCallback(() => setIsCallbackUsed(false), [setIsCallbackUsed])
+  /* eslint-disable react-hooks/exhaustive-deps */
+  const reset = useCallback(() => setIsCallbackUsed(false), [])
 
   return [trigger, isCallbackUsed, reset]
 }

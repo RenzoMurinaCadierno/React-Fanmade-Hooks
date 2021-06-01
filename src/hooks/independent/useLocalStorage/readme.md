@@ -2,11 +2,9 @@
 
 ## Description
 
----
+Targets a key in local storage and offers handlers to **set**, **get**, **delete** and **reset** it as a whole, or to target single or multiple nested keys instead to perform those operations on, given local storage item is a plain `object`.
 
-Targets a key in local storage and offers handlers to **set**, **get**, **delete** and **reset** it as a whole, or to target single or multiple nested keys instead to perform those operations on, given local storage item is a plain object.
-
-It also offers reactive functionality. In such case, this hook will listen to the specified `configs.value`. When it changes, it can either override the whole local storage item with it, or one/many of its keys or nested keys instead if it is a plain object and we wish to do so.
+It also offers reactive functionality. In such case, this hook will listen to the specified `configs.value`. When it changes, it can either override the whole local storage item with it, or one/many of its keys or nested keys instead if it is a plain `object` and we wish to do so.
 
 Manual or reactive **set** and **del** functions are also flexible if you wish to use current values to determine what to set local storage or any of its nested keys with, or if you with to abort their deletion.
 
@@ -14,9 +12,7 @@ Manual or reactive **set** and **del** functions are also flexible if you wish t
 
 ## Parameters
 
----
-
-A single **configs** object shaped:
+A single configuration object (hereby named **configs**) shaped:
 
 <br />
 
@@ -42,7 +38,7 @@ A single **configs** object shaped:
 
   - A **function** that takes current local storage item as parameter. It will be executed each time `configs.value` changes and if it returns a truthy value, then local storage will be overriden with the new `configs.value`.
 
-  - An **array of strings**, each representing a key or nested key in dot notation inside local storage item (if we are working with a plain object). This tells the hook to update only those inner keys with the new `configs.value`.
+  - An **array of strings**, each representing a key or nested key in dot notation inside local storage item (if we are working with a plain `object`). This tells the hook to update only those inner keys with the new `configs.value`.
 
     > _That array also accepts sub-arrays with the aforementioned keys or nested keys as first element, and a function as the second one_.\
     > The function will get the current value in local storage item for the key specified in the first element as the first argument, and the whole local storage item as the second one. It will be invoked each time `configs.value` changes, and if it resolves to truthy, then that key will be updated with the new `configs.value`. Falsy will abort the updating process for that key.
@@ -77,8 +73,6 @@ A single **configs** object shaped:
 
 ## Return
 
----
-
 An **object** with **get**, **set**, **del** and **reset** handlers.
 
 <br />
@@ -86,13 +80,13 @@ An **object** with **get**, **set**, **del** and **reset** handlers.
 - `get` (function)
 
   Handles the logic to get the value of local storage item, or of any of its
-  nested keys if local storage is a plain object.
+  nested keys if local storage is a plain `object`.
 
   Parameters can be:
 
   - **Falsy value** or an **invalid object** (like an event object or an object with a circular reference). Such case will return the whole local storage value.
 
-  - **Any number of non-empty strings** representing nested keys inside local storage plain object (in dot notation). Their values in local storage will be returned.
+  - **Any number of non-empty strings** representing nested keys inside local storage plain `object` (in dot notation). Their values in local storage will be returned.
 
 <br />
 

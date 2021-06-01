@@ -40,7 +40,7 @@ import { useState, useEffect } from "react"
  *     intervals, `iterations` must be defined and be a non-zero integer.
  *
  * `toFixed?` (number): Desired amount of decimals. Defaults to 0.
- *   * **Note**: if `returnType` is "number", trailing zeroes on decimals0 will
+ *   * **Note**: if `returnType` is "number", trailing zeroes on decimals will
  *     always be removed.
  *
  * `initialValue?` (number): If defined, at mount phase a startup count
@@ -73,7 +73,7 @@ import { useState, useEffect } from "react"
  *   differences between decimals carried over on each step prevent the final
  *   state to match the desired `value`, resulting in one extra iteration for
  *   that tiny amount only. To avoid this, `lastIterationPrecision` is added to
- *   provoke an overflow that skip over the extra iteration at the end of the
+ *   provoke an overflow that skips over the extra iteration at the end of the
  *   process.
  *   * Defaults to 0.00000001
  * * **Note:** Do not change unless you are working with really small decimal
@@ -86,29 +86,33 @@ import { useState, useEffect } from "react"
  *
  * `onStart?` (function): Callback triggered after setup and before entering
  *   the "setInterval" that controls iterations.
- *   * Gets an object as its args, with the current number in inner state,
- *     current progress, iteration number, starting value and target value.
+ *   * When triggered, it passes an `object` as arguments, containing the
+ *     current number in inner state, current progress, iteration number,
+ *     starting value and target value.
  *   * If it returns a truthy value, the process is aborted (number state
  *     stops changing and interval is cleared). Also, `onAbort` is called.
  *
  * `onIteration?` (function): Callback triggered at the end of each
  *   "setInterval" iteration (meaning, between each number animation, also
  *   counting the last one correlated to `onFinish`).
- *   * Gets an object as its args, with the current number in inner state,
- *     current progress, iteration number, starting value and target value.
+ *   * When triggered, it passes an `object` as arguments, containing the
+ *     current number in inner state, current progress, iteration number,
+ *     starting value and target value.
  *   * If it returns a truthy value, the process is aborted (number state stops
  *     changing and interval is cleared). Also, `onAbort` is called.
  *
  * `onFinish?` (function): Callback triggered at the end of the animation
  *   process (once last iteration finishes).
- *   * Gets an object as its args, with the current number in inner state,
- *     current progress, iteration number, starting value and target value.
+ *   * When triggered, it passes an `object` as arguments, containing the
+ *     current number in inner state, current progress, iteration number,
+ *     starting value and target value.
  *
  * `onAbort?` (function): Callback triggered when the process is aborted by
  *   returning true at `onStart` or `onIteration`. It clears the interval
  *   that controls iterations, effectively terminating the animation.
- *   * Gets an object as its args, with the current number in inner state,
- *     current progress, iteration number, starting value and target value.
+ *   * When triggered, it passes an `object` as arguments, containing the
+ *     current number in inner state, current progress, iteration number,
+ *     starting value and target value.
  *
  * @returns {number} The number being animated (hook's inner state).
  */

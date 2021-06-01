@@ -5,7 +5,7 @@ import { useCallback, useState } from "react"
  * will stop working after the number of calls specified in `times`.
  *
  * This means that, for instance, if `times` is set to 3, the handler will
- * invoke the callback only 3 times. It deactivates on further invocations.
+ * invoke the callback only up to 3 times. It deactivates on further invocations.
  *
  * @param {function} callback The function to be assigned to the invoker.
  *

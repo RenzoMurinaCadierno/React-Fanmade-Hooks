@@ -1,21 +1,25 @@
 {
   "appbarItems": {
-    "UI & UX": ["useMediaQuery", "useTimer"],
+    "Animations, UI/UX": [
+      "useAnimatedNumber",
+      "useClassNameToggle",
+      "useMediaQuery",
+      "useTimer"
+    ],
     "Form handlers": ["useInputHandlers"],
     "State managers": [
       "useCount",
-      "useClassNameToggle",
       "useLocalStorage",
       "usePreviousValue",
       "useReRender",
       "useToggle"
     ],
     "Effect controllers": [
-      "useAnimatedNumber",
+      "useCallbackOnce",
+      "useCallbackXTimes",
       "useEffectOnce",
       "useEffectXTimes"
-    ],
-    "Callbacks": ["useCallbackOnce", "useCallbackXTimes"]
+    ]
   },
   "urls": {
     "github": {

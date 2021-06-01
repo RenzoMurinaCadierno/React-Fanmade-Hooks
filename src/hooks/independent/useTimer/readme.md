@@ -2,15 +2,11 @@
 
 ## Description
 
----
-
 Generates a timer with the stated initial time, capable of ticking up/down.
 
 <br />
 
 ## Parameters
-
----
 
 A single configuration **object** shaped:
 
@@ -62,8 +58,6 @@ A single configuration **object** shaped:
 <br />
 
 ## Returns
-
----
 
 An **object** shaped:
 

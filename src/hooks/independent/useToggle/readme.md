@@ -2,28 +2,22 @@
 
 ## Description
 
----
-
-Returns a boolean state and its handler to toggle it.
+Returns a `boolean` state and its handler to toggle it.
 
 <br />
 
 ## Parameters
 
----
-
-An optional boolean value which will be used as initial state. Defaults to `false`.
+An optional `boolean` value which will be used as initial state. Defaults to `false`.
 
 <br />
 
 ## Return
 
----
-
 An **array** with:
 
 <br />
 
-- **elem 1** (boolean): The toggler state.
+- **elem 1** (boolean): The boolean state.
 
-- **elem 2** (function): Toggler switch handler.
+- **elem 2** (function): Handler to toggle the boolean state.

@@ -2,8 +2,6 @@
 
 ## Description
 
----
-
 Tracks stated media queries, re-rendering each time one of them changes.
 
 By default it applies regular bootstrap rules, but also accepts any custom media queries you specify.
@@ -24,8 +22,6 @@ Default rules are:
 <br />
 
 ## Parameters
-
----
 
 - `customQueries?` (object)
 
@@ -51,12 +47,10 @@ Default rules are:
 
 ## Return
 
----
-
 An **array** with:
 
 <br />
 
 - **elem 0** (object): All stated media query keys, each with a boolean value indicating if they currently match.
 
-- **elem 1** (object): All stated media query keys, each with the media query match rule as a string.
+- **elem 1** (object): All stated media query keys, each with the media query match rule as a `string`.

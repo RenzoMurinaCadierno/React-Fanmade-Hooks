@@ -2,14 +2,12 @@
 
 ## Description
 
----
+Triggers a callback when elements in `dependencies` change (or on each render if no `dependencies` were provided), but only once.
 
-Triggers a callback when elements in `dependencies` change (or on each render if no `dependencies` were provided), but only once. Once the callback was fired, _useEffect_ stops working.
+Once the callback was fired, _useEffect_ stops working.
 <br />
 
 ## Parameters
-
----
 
 - `cb` (function)
 
@@ -30,7 +28,5 @@ Triggers a callback when elements in `dependencies` change (or on each render if
   <br />
 
 ## Return
-
----
 
 A **function** that, when invoked, restores _useEffect_ functionality.

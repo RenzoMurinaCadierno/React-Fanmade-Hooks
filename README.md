@@ -1,70 +1,124 @@
-# Getting Started with Create React App
+# React Fanmade Hooks
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Hooks for all needs made by React enthusiasts.
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+A compilation of React custom hooks for multiple purposes, each with an example of their functionality.
 
-### `yarn start`
+## Hooks
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Here's the list of all hooks this library currently holds.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Descriptions here are basic, so do not hesitate to check the complete ones at each hook's individual READMEs ;)
 
-### `yarn test`
+### Animations, UI & UX
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- useAnimatedNumber
 
-### `yarn build`
+  Given a `number` state passed as first argument, when it updates (by `setState`), this hook animates the increase/decrease until the previous state matches the new one.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  It has configurable
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  - animation time
+  - amount of iterations
+  - step's length
+  - amount of decimals
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  It also accepts callbacks to be triggered on different animation stages.
 
-### `yarn eject`
+  <br />
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- useClassNameToggle
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  Toggles a className _on_ when invoked by the returned handler, which automatically turns back _off_ after a specified timeout.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+  <br />
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- useMediaQuery
 
-## Learn More
+  Tracks stated media queries, re-rendering each time one of them changes.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  By default it applies regular bootstrap rules, but also accepts any custom media queries you specify.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- useTimer
 
-### Code Splitting
+  Generates a customizable timer with the stated initial time, capable of ticking up/down.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  <br />
 
-### Analyzing the Bundle Size
+### Form handlers
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- useInputHandlers
 
-### Making a Progressive Web App
+  Recieves an input reference alongside its props and an optional configuration object, and takes control of that input.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+  It returns its value and setValue functions, as well as React and DOM handlers, validation on its value and "form submission"-like functionality.
 
-### Advanced Configuration
+  <br />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### State managers
 
-### Deployment
+- useCount
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+  Creates an integer counter state and returns it, along its handlers to increase, decrease, reset and set its count step.
 
-### `yarn build` fails to minify
+  <br />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- useLocalStorage
+
+  Targets a key in local storage and offers handlers to **set**, **get**, **delete** and **reset** it as a whole, or to target single or multiple nested keys instead to perform those operations on, given local storage item is a plain object.
+
+  It also offers reactive functionality. In such case, this hook will listen to the specified value in the configuration object. When it changes, it can either override the whole local storage item with it, or one/many of its keys or nested keys instead if it is a plain object and we wish to do so.
+
+  Manual or reactive **set** and **del** functions are also flexible if you wish to use current values to determine what to set local storage or any of its nested keys with, or if you with to abort their deletion.
+
+  <br />
+
+- usePreviousValue
+
+  Listens to the value passed as parameter and returns its previous version each time it changes.
+
+  <br />
+
+- useReRender
+
+  Returns a function that upon calling it, the component will re-render.
+
+  <br />
+
+- useToggle
+
+  Returns a boolean state and its handler to toggle it.
+
+  <br />
+
+### Effect controllers
+
+- useCallbackOnce
+
+  Takes a callback and returns a handler that invokes it, but that handler will stop working after it triggers. It deactivates on further invocations.
+
+  <br />
+
+- useCallbackXTimes
+
+  Takes a callback and returns a handler that invokes it, but that handler will stop working after the number of calls specified in `times` argument.
+
+  This means that, for instance, if `times` is set to 3, the handler will invoke the callback only up to 3 times. It deactivates on further invocations.
+
+  <br />
+
+- useEffectOnce
+
+  Triggers a callback when elements in dependencies array change (or on each render if no dependencies were provided), but only once.
+
+  Once the callback was fired, _useEffect_ stops working.
+
+  <br />
+
+- useEffectXTimes
+
+  Triggers a callback each time passed dependencies array change (or on each render if no dependencies), but only up to the specified number in `times` argument.
+
+  Once the callback was triggered that many times, _useEffect_ stops working.

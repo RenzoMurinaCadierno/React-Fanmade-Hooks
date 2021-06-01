@@ -2,15 +2,11 @@
 
 ## Description
 
----
-
-Returns a **function** that upon calling it, the component will re-render.
+Returns a `function` that upon calling it, the component will re-render.
 
 <br />
 
 ## Parameters
-
----
 
 None.
 
@@ -18,6 +14,4 @@ None.
 
 ## Return
 
----
-
-A **function** that pings hook's state, causing a re-render.
+A `function` that pings hook's state, causing a re-render.
