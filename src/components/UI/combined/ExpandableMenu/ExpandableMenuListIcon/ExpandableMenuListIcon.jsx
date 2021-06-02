@@ -1,4 +1,4 @@
-import { ExpandableIcon } from "hub"
+import { Icon } from "hub"
 import {
   classes,
   expandableMenuListIconPropTypes,
@@ -39,13 +39,13 @@ import {
  *   being rendered visible on screen (that is, when `show` becomes true).
  *   Can be one of 'top', 'right', 'bottom', 'left'. Defaults to 'top'
  *
- * `iconExpandDirection?` (string): '*ExpandableIcon*' `expandDirection`. Can
+ * `iconExpandDirection?` (string): '*Icon.Expandable*' `expandDirection`. Can
  *   be one of 'left' or 'right'.
  *
  * `classNames?` (object): className strings for each JSX rendered here.
  *   Check *utils.js* for its constitution.
  *
- * `...otherProps?` (object): Props to spread in '*ExpandableIcon*'.
+ * `...otherProps?` (object): Props to spread in '*Icon.Expandable*'.
  */
 export default function ExpandableMenuListIcon({
   show,
@@ -57,7 +57,7 @@ export default function ExpandableMenuListIcon({
   ...otherProps
 }) {
   return (
-    <ExpandableIcon
+    <Icon.Expandable
       expandDirection={iconExpandDirection}
       classNames={classes.icon(classNames)}
       style={getStyle(order, spread, show, amountOfIcons)}

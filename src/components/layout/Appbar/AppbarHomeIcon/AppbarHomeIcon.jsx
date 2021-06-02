@@ -1,5 +1,5 @@
 import { memo } from "react"
-import { ExpandableIcon } from "hub"
+import { Icon } from "hub"
 import defaultHomeIconSVG from "assets/icons/home.svg"
 import { classes, appbarHomeIconPropTypes } from "./AppbarHomeIcon.utils"
 
@@ -31,7 +31,7 @@ function AppbarHomeIcon({
   ...otherExpandableIconProps
 }) {
   return (
-    <ExpandableIcon
+    <Icon.Expandable
       icon={
         <img
           src={homeIconSVG}

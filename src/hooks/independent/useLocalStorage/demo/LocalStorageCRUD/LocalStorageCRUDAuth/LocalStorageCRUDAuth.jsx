@@ -1,7 +1,7 @@
 import { useCallback, useState, useEffect, useContext } from "react"
 import {
   Text,
-  StyledInputWithValidation,
+  Input,
   Button,
   useMountFlag,
   Carousel,
@@ -74,7 +74,7 @@ export default function LocalStorageCRUDAuth({
             {/* "user" and "pass" inputs */}
             <div className={classes.inputsContainer}>
               {inputNamesAndValAnchor.map(([inputName, anchor]) => (
-                <StyledInputWithValidation
+                <Input.Styled.WithValidation
                   key={inputName}
                   useInputHandlersProps={inputProps[inputName]}
                   useInputHandlersConfigs={inputConfigs[inputName](setInputsSt)}

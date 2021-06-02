@@ -7,8 +7,6 @@ hitTarget spawn % 3 NO. make it % prevst.hits / 3, then by +3, +6, +12
 
 change github url
 
-arrows in carrousel. They are inconsistent
-
 fiddle SlotsSpinningSlots timeouts
 
 jsconfig.json!!!!:  quitar "React" y ../../../hub
@@ -17,7 +15,7 @@ classNames: PropTypes.exact <<
 
 defaultProps
 
-add toastwithportal to </>
+ErrorBoundary
 
 // commit msg
-Kept on writing markdowns. Reordered '*Appbar*' menu
+Created '*ExpandableIconWithToast*'. Started composing components.

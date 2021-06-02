@@ -1,5 +1,4 @@
-import React from "react"
-import { Text } from "../../../../hub"
+import { Text } from "hub"
 import styles from "./UseInputHandlers.module.css"
 
 const amountOfWords = 5

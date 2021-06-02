@@ -132,7 +132,7 @@ function ExpandableIcon({
     },
     [onContentClick]
   )
-  expandableiconwithtoast
+
   return (
     <div
       disabled={disabled} // to add disabled styles

@@ -1,5 +1,5 @@
 import useMediaQuery from "../useMediaQuery"
-import { Container, CmpDescription, Text, ExpandableIcon } from "hub"
+import { Container, CmpDescription, Text, Icon } from "hub"
 import {
   classes,
   descItemsObject,
@@ -25,7 +25,7 @@ export default function UseMediaQuery() {
       {/* wrapper for example social media icons. Dynamic classNames */}
       <section className={classes.header(deviceOrientation)}>
         {socialMediaNamesAndJSXs.map(([name, imgJSX], i) => (
-          <ExpandableIcon
+          <Icon.Expandable
             key={name}
             icon={imgJSX}
             content={name}

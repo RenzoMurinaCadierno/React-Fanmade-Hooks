@@ -1,4 +1,3 @@
-import React from "react"
 import { Slots } from "hub"
 import { classes, slotsScoreItemPropTypes } from "./SlotsScoreItem.utils"
 

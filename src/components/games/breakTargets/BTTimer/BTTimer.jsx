@@ -1,5 +1,5 @@
-import React, { useEffect } from "react"
-import { useTimer } from "../../../../hub"
+import { useEffect } from "react"
+import { useTimer } from "hub"
 import { btTimerPropTypes } from "./BTTimer.utils"
 
 export default function BTTimer({
@@ -27,9 +27,10 @@ export default function BTTimer({
   // Also, if we do not add `isGameActive` to the check, game end will destroy all
   // targets and substract/add time accodingly, modifying the timer for next game.
   /* eslint-disable react-hooks/exhaustive-deps */
-  useEffect(() => bonusTime && isGameActive && timer.advance(bonusTime), [
-    points
-  ])
+  useEffect(
+    () => bonusTime && isGameActive && timer.advance(bonusTime),
+    [points]
+  )
 
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => !timer.currentMs && onGameReset(), [timer.currentMs])

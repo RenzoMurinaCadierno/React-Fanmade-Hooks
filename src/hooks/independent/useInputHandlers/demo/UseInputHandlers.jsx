@@ -5,7 +5,7 @@ import {
   CmpDescription,
   Container,
   Text,
-  StyledInput,
+  Input,
   Button,
   useToggle
 } from "hub"
@@ -102,7 +102,7 @@ export default function UseInputHandlers() {
           <Text htmlElem="h4" disabled={content.words.disabled} bold italic>
             {content.words.text}
           </Text>
-          <StyledInput /* just an uncontrolled '*input*' with some stylings */
+          <Input.Styled /* just an uncontrolled '*input*' with some stylings */
             ref={inputRef} /* this ref is attached to that <input>... */
             {...inputHandlers.props} /* ...as well as all inputHandlers.props */
             label={content.inputLabel}

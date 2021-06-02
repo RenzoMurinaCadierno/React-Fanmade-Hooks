@@ -1,0 +1,24 @@
+import PropTypes from "prop-types"
+// import styles from "./ExpandableMenuMainIcon.module.css"
+
+export const classes = {
+  aura: (classNames) => classNames,
+  expandableIcon: (classNames) => classNames
+}
+
+export const expandableIconWithAuraPropTypes = {
+  classNames: PropTypes.exact({
+    aura: PropTypes.exact({
+      container: PropTypes.string,
+      aura: PropTypes.string
+    }),
+    expandableIcon: PropTypes.exact({
+      container: PropTypes.string,
+      icon: PropTypes.string,
+      content: PropTypes.string,
+      barrier: PropTypes.string
+    })
+  }),
+  auraProps: PropTypes.object,
+  expandableIconProps: PropTypes.object
+}

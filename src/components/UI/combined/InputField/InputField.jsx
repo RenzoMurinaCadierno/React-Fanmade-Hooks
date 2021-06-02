@@ -1,5 +1,5 @@
 import { useState, useCallback, useRef, forwardRef } from "react"
-import { Label, Input, InputWithState, Underline } from "hub"
+import { Label, Input, Underline } from "hub"
 import { classes } from "./InputField.utils"
 
 /**
@@ -71,7 +71,9 @@ function InputField(
   // if '*input*' is self controlled, we use an input with its own value and
   // "onChange" handler, otherwise, just a regular '*input*' (mind we will need
   // to pass `value` and `onChange` in this last case)
-  const InputComponent = useRef(selfControlled ? InputWithState : Input).current
+  const InputComponent = useRef(
+    selfControlled ? Input.WithState : Input
+  ).current
   // use `id` or create a unique one if none
   const inputId = useRef(
     id || "input-field-" + Math.floor(Math.random() * 100000)
@@ -130,7 +132,7 @@ function InputField(
       >
         {label}
       </Label>
-      {/* '*Input*' if (!`selfControlled`), '*InputWithState*' otherwise */}
+      {/* '*Input*' if (!`selfControlled`), '*Input.WithState*' otherwise */}
       <InputComponent
         id={inputId}
         ref={inputRef}

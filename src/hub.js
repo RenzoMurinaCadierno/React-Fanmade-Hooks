@@ -1,22 +1,19 @@
-import BadgeWithAnimatedNumber from "./components/UI/composed/BadgeWithAnimatedNumber/BadgeWithAnimatedNumber"
-import CountBar from "./components/UI/composed/CountBar/CountBar"
-import ExpandableIcon from "./components/UI/composed/ExpandableIcon/ExpandableIcon"
-import ExpandableMenu from "./components/UI/composed/ExpandableMenu/ExpandableMenu"
-import InputField from "./components/UI/composed/InputField/InputField"
-import InputWithState from "./components/UI/composed/InputWithState/InputWithState"
-import PhoneDial from "./components/UI/composed/PhoneDial/PhoneDial"
-import StyledInput from "./components/UI/composed/StyledInput/StyledInput"
-import StyledInputWithValidation from "./components/UI/composed/StyledInputWithValidation/StyledInputWithValidation"
-import ToastWithPortal from "./components/UI/composed/ToastWithPortal/ToastWithPortal"
+import BadgeWithAnimatedNumber from "./components/UI/combined/BadgeWithAnimatedNumber/BadgeWithAnimatedNumber"
+import CountBar from "./components/UI/combined/CountBar/CountBar"
+import ExpandableMenu from "./components/UI/combined/ExpandableMenu/ExpandableMenu"
+import InputField from "./components/UI/combined/InputField/InputField"
+import PhoneDial from "./components/UI/combined/PhoneDial/PhoneDial"
+import ToastWithPortal from "./components/UI/combined/ToastWithPortal/ToastWithPortal"
+
+import Icon from "./components/UI/composed/Icon/Icon"
+import Input from "./components/UI/composed/Input/Input"
 
 import Aura from "./components/UI/independent/Aura/Aura"
 import Backdrop from "./components/UI/independent/Backdrop/Backdrop"
-import Badge from "./components/UI/composed/Badge/Badge"
+import Badge from "./components/UI/combined/Badge/Badge"
 import Button from "./components/UI/independent/Button/Button"
 import Coin from "./components/UI/independent/Coin/Coin"
 import Die from "./components/UI/independent/Die/Die"
-import Icon from "./components/UI/independent/Icon/Icon"
-import Input from "./components/UI/independent/Input/Input"
 import Label from "./components/UI/independent/Label/Label"
 import PlayingCard from "./components/UI/independent/PlayingCard/PlayingCard"
 import Progressbar from "./components/UI/independent/Progressbar/Progressbar"
@@ -75,14 +72,12 @@ import LocalStorageCRUD from "./hooks/independent/useLocalStorage/demo/LocalStor
 export {
   BadgeWithAnimatedNumber,
   CountBar,
-  ExpandableIcon,
   ExpandableMenu,
   InputField,
-  InputWithState,
   PhoneDial,
-  StyledInput,
-  StyledInputWithValidation,
   ToastWithPortal,
+  Icon,
+  Input,
   Appbar,
   Carousel,
   Modal,
@@ -99,8 +94,6 @@ export {
   Button,
   Coin,
   Die,
-  Icon,
-  Input,
   Label,
   PlayingCard,
   Progressbar,

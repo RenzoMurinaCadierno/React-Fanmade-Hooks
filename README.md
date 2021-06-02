@@ -14,6 +14,8 @@ Descriptions here are basic, so do not hesitate to check the complete ones at ea
 
 ### Animations, UI & UX
 
+---
+
 - useAnimatedNumber
 
   Given a `number` state passed as first argument, when it updates (by `setState`), this hook animates the increase/decrease until the previous state matches the new one.
@@ -41,6 +43,8 @@ Descriptions here are basic, so do not hesitate to check the complete ones at ea
 
   By default it applies regular bootstrap rules, but also accepts any custom media queries you specify.
 
+  <br />
+
 - useTimer
 
   Generates a customizable timer with the stated initial time, capable of ticking up/down.
@@ -48,6 +52,8 @@ Descriptions here are basic, so do not hesitate to check the complete ones at ea
   <br />
 
 ### Form handlers
+
+---
 
 - useInputHandlers
 
@@ -58,6 +64,8 @@ Descriptions here are basic, so do not hesitate to check the complete ones at ea
   <br />
 
 ### State managers
+
+---
 
 - useCount
 
@@ -94,6 +102,8 @@ Descriptions here are basic, so do not hesitate to check the complete ones at ea
   <br />
 
 ### Effect controllers
+
+---
 
 - useCallbackOnce
 

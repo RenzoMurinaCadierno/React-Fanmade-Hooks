@@ -1,5 +1,4 @@
-import React from "react"
-import { PlayingCard } from "../../../../hub"
+import { PlayingCard } from "hub"
 import styles from "./UseEffectXTimes.module.css"
 
 export const classes = {

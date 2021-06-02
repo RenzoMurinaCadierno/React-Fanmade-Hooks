@@ -28,6 +28,12 @@ import { classes, toastPropTypes } from "./Toast.utils"
  *
  * `classNames?` (object): classNames object for all JSXs rendered here.
  *   Check *utils.js* for its constitution.
+ *
+ * `contentProps?` (object): Props to spread in 'content' '*div*'.
+ *
+ * `togglerProps?` (object): Props to spread in 'close icon' '*div*'.
+ *
+ * `...otherProps?` (object): Props to spread in wrapper '*div*'.
  */
 export default function Toast({
   show = false,
@@ -37,6 +43,8 @@ export default function Toast({
   onClose,
   children,
   classNames = {},
+  contentProps = {},
+  togglerProps = {},
   ...otherProps
 }) {
   const [st, setSt] = useState({ isOpen: false, animation: null })
@@ -86,11 +94,14 @@ export default function Toast({
         {...otherProps}
       >
         {/* content. Where children are rendered */}
-        <div className={classes.content(classNames?.content)}>{children}</div>
+        <div className={classes.content(classNames?.content)} {...contentProps}>
+          {children}
+        </div>
         {/* 'dismiss' clickable '*div*' */}
         <div
           onClick={() => changeAnimationSt("close")}
           className={classes.toggler(classNames?.toggler)}
+          {...togglerProps}
         />
       </div>
     )

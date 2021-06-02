@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect, useRef } from "react"
+import { useCallback, useState, useEffect, useRef } from "react"
 import { Carousel, Container } from "hub"
 import {
   classes,

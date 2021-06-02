@@ -1,4 +1,3 @@
-import React from "react"
 import { classes, appbarLinkPropTypes } from "./AppbarLink.utils"
 
 /**

@@ -1,4 +1,4 @@
-import React from "react"
+import { memo } from "react"
 import { useToggle, ExpandableMenu } from "hub"
 import {
   classes,
@@ -88,6 +88,13 @@ function ExpandableMenuRoot({
   // toggler to 'open menu' ('show list icons')
   const [isMenuOpen, toggleMenuOpen] = useToggle(false)
 
+  const _expandableIconProps = {
+    content: iconsProps.main.content,
+    icon: iconsProps.main.icon,
+    onIconClick: toggleMenuOpen,
+    ...menuIconProps.icon
+  }
+
   return (
     // wrapper container
     <div
@@ -97,13 +104,10 @@ function ExpandableMenuRoot({
       {/* 'menu icon' (main button, the toggler) */}
       <ExpandableMenu.MainIcon
         type={getType(type, isMenuOpen)}
-        icon={iconsProps.main.icon}
-        content={iconsProps.main.content}
         open={isMenuOpen}
-        onIconClick={toggleMenuOpen}
         classNames={classes.mainIcon(classNames.mainIcon)}
         auraProps={menuIconProps.aura}
-        {...menuIconProps.icon}
+        expandableIconProps={_expandableIconProps}
       />
       {/* all 'list icons', displayed when "isMenuOpen" becomes true */}
       {iconsProps.list.map((currentIconProps, i) => (
@@ -126,4 +130,4 @@ function ExpandableMenuRoot({
 
 ExpandableMenuRoot.propTypes = expandableMenuRootPropTypes
 
-export default React.memo(ExpandableMenuRoot)
+export default memo(ExpandableMenuRoot)

@@ -1,6 +1,7 @@
 import { memo, useCallback } from "react"
 import { useLocation } from "react-router-dom"
-import { Container, Text, ExpandableIcon } from "hub"
+import { Container, Text } from "hub"
+import Icon from "components/UI/composed/Icon/Icon"
 import { getHookNameFromPathName } from "utils/utilityFunctions"
 import { urls } from "app.configs.json"
 import codeSvg from "assets/icons/code.svg"
@@ -18,7 +19,7 @@ import { classes } from "./CmpDescription.utils"
  *     as component's description.
  *
  * `iconExpandDirection?` (string): "left" or "right". The direction the
- *   '*ExpandableIcon*' to view hook's code will expand towards.
+ *   '*ExpandableIconWithToast*' to view hook's code will expand towards.
  *   Defaults to "left".
  *
  * `iconUrl?` (string): base path pointing to the folder that contains all
@@ -49,17 +50,28 @@ function CmpDescription({
       )
   }, [])
 
+  const expandableIconProps = {
+    type: "secondary",
+    icon: <img src={codeSvg} alt="<>" />,
+    content: "Go to code",
+    expandDirection: iconExpandDirection,
+    classNames: classes.expIcon(classNames?.expIcon)
+  }
+
+  const toastProps = {
+    timeout: 3000,
+    contentProps: { onClick: openIconUrlInNewTab }
+  }
+
   return (
     <>
       {/* '</>' expandable icon to view github repository */}
-      <ExpandableIcon
-        type="secondary"
-        icon={<img src={codeSvg} alt="<>" />}
-        content="Go to code"
-        expandDirection={iconExpandDirection}
-        onContentClick={openIconUrlInNewTab}
-        classNames={classes.expIcon(classNames?.expIcon)}
-      />
+      <Icon.Expandable.WithToast
+        expandableIconProps={expandableIconProps}
+        toastProps={toastProps}
+      >
+        Tap here to view hook's code in a new tab.
+      </Icon.Expandable.WithToast>
       {/* container for hook name title and description paragraphs */}
       <Container
         htmlElem="section"

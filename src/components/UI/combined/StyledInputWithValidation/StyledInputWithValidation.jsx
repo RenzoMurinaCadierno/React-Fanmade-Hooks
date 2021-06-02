@@ -1,5 +1,5 @@
 import { useRef, useState, useCallback } from "react"
-import { Container, StyledInput, Text, useInputHandlers } from "hub"
+import { Container, Input, Text, useInputHandlers } from "hub"
 import {
   classes,
   styledInputWithValidationPropTypes
@@ -33,7 +33,7 @@ import {
  *
  * `containerProps?` (object): "props" to spread to outer '*div*'.
  *
- * `styledInputProps?` (object): "props" to spread to '*StyledInput*'.
+ * `styledInputProps?` (object): "props" to spread to '*Input.Styled*'.
  *
  * `validationContainerProps?` (object): "props" to spread to '*Container*'.
  *
@@ -92,7 +92,7 @@ export default function StyledInputWithValidation({
       {...containerProps}
     >
       {/* input linked to "useInputHandlers" */}
-      <StyledInput
+      <Input.Styled
         ref={inputRef}
         classNames={classes.styledInput(classNames.styledInput)}
         {...handlers.props}
