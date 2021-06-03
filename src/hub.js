@@ -1,16 +1,15 @@
-import BadgeWithAnimatedNumber from "./components/UI/combined/BadgeWithAnimatedNumber/BadgeWithAnimatedNumber"
 import CountBar from "./components/UI/combined/CountBar/CountBar"
 import ExpandableMenu from "./components/UI/combined/ExpandableMenu/ExpandableMenu"
 import InputField from "./components/UI/combined/InputField/InputField"
 import PhoneDial from "./components/UI/combined/PhoneDial/PhoneDial"
-import ToastWithPortal from "./components/UI/combined/ToastWithPortal/ToastWithPortal"
 
+import Badge from "./components/UI/composed/Badge/Badge"
 import Icon from "./components/UI/composed/Icon/Icon"
 import Input from "./components/UI/composed/Input/Input"
+import Toast from "./components/UI/composed/Toast/Toast"
 
 import Aura from "./components/UI/independent/Aura/Aura"
 import Backdrop from "./components/UI/independent/Backdrop/Backdrop"
-import Badge from "./components/UI/combined/Badge/Badge"
 import Button from "./components/UI/independent/Button/Button"
 import Coin from "./components/UI/independent/Coin/Coin"
 import Die from "./components/UI/independent/Die/Die"
@@ -19,7 +18,6 @@ import PlayingCard from "./components/UI/independent/PlayingCard/PlayingCard"
 import Progressbar from "./components/UI/independent/Progressbar/Progressbar"
 import Switch from "./components/UI/independent/Switch/Switch"
 import Text from "./components/UI/independent/Text/Text"
-import Toast from "./components/UI/independent/Toast/Toast"
 import Underline from "./components/UI/independent/Underline/Underline"
 
 import Appbar from "./components/layout/Appbar/Appbar"
@@ -31,6 +29,7 @@ import BT from "./components/games/breakTargets/BT"
 import Slots from "./components/games/slots/Slots"
 
 import CmpDescription from "./components/app-specific/wrappers/CmpDescription/CmpDescription"
+import ErrorBoundary from "./components/app-specific/wrappers/ErrorBoundary/ErrorBoundary"
 import Navigation from "./components/app-specific/nav/Navigation/Navigation"
 import Router from "./components/app-specific/nav/Router/Router"
 import HomePage from "./components/app-specific/nav/pages/HomePage/HomePage"
@@ -70,27 +69,27 @@ import UseToggle from "./hooks/independent/useToggle/demo/UseToggle"
 import LocalStorageCRUD from "./hooks/independent/useLocalStorage/demo/LocalStorageCRUD/LocalStorageCRUD"
 
 export {
-  BadgeWithAnimatedNumber,
   CountBar,
   ExpandableMenu,
   InputField,
   PhoneDial,
-  ToastWithPortal,
+  Badge,
   Icon,
   Input,
+  Toast,
   Appbar,
   Carousel,
   Modal,
   BT,
   Slots,
   CmpDescription,
+  ErrorBoundary,
   Navigation,
   Router,
   HomePage,
   _404Page,
   Aura,
   Backdrop,
-  Badge,
   Button,
   Coin,
   Die,
@@ -99,7 +98,6 @@ export {
   Progressbar,
   Switch,
   Text,
-  Toast,
   Underline,
   Container,
   useAnimatedNumber,

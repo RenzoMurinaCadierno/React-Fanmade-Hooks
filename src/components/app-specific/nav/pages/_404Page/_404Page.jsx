@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom"
 import { Container, Text, Button } from "hub"
-import errorSVG from "assets/icons/error.svg"
+import _404svg from "assets/icons/_404.svg"
 import { classes } from "./_404Page.utils"
 
 /**
@@ -16,7 +16,7 @@ export default function _404Page() {
   return (
     <div className={classes.container}>
       <Container className={classes.title}>
-        <img src={errorSVG} alt="Error" className={classes.image} />
+        <img src={_404svg} alt="Error" className={classes.image} />
         <Text htmlElem="h3" italic>
           Page not found
         </Text>

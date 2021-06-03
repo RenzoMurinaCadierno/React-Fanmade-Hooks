@@ -1,21 +1,12 @@
-<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+<svg width="128" height="128" xmlns="http://www.w3.org/2000/svg">
 
- <title/>
  <g>
   <title>background</title>
   <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
  </g>
  <g>
   <title>Layer 1</title>
-  <polyline stroke-width="2px" stroke-linejoin="round" stroke="#47cbfc" fill="none" id="svg_1" points="12 25 1 25 1 21 1 1 31 1 31 21 31 25 20 25" class="cls-1"/>
-  <line stroke-width="2px" stroke-linejoin="round" stroke="#47cbfc" fill="none" id="svg_2" y2="31" y1="31" x2="25" x1="22" class="cls-1"/>
-  <line stroke-width="2px" stroke-linejoin="round" stroke="#47cbfc" fill="none" id="svg_3" y2="31" y1="31" x2="10" x1="7" class="cls-1"/>
-  <polygon stroke-width="2px" stroke-linejoin="round" stroke="#47cbfc" fill="none" id="svg_4" points="22 31 10 31 12 25 20 25 22 31" class="cls-1"/>
-  <line stroke-width="2px" stroke-linejoin="round" stroke="#47cbfc" fill="none" id="svg_5" y2="21" y1="21" x2="31" x1="1" class="cls-1"/>
-  <polyline stroke-width="2px" stroke-linejoin="round" stroke="#ffc06e" fill="none" id="svg_6" points="6 8 6 12 9 12 11 12" class="cls-1"/>
-  <polyline stroke-width="2px" stroke-linejoin="round" stroke="#ffc06e" fill="none" id="svg_7" points="9 8 9 12 9 15" class="cls-1"/>
-  <polyline stroke-width="2px" stroke-linejoin="round" stroke="#ffc06e" fill="none" id="svg_8" points="21 8 21 12 24 12 26 12" class="cls-1"/>
-  <polyline stroke-width="2px" stroke-linejoin="round" stroke="#ffc06e" fill="none" id="svg_9" points="24 8 24 12 24 15" class="cls-1"/>
-  <rect stroke-width="2px" stroke-linejoin="round" stroke="#ffc06e" fill="none" id="svg_10" y="9" x="13" width="5" height="5" class="cls-1"/>
+  <path id="svg_3" fill="#1bb1e7" d="m64,0c-35.344,0 -64,28.656 -64,64s28.656,64 64,64s64,-28.655998 64,-64s-28.655998,-64 -64,-64zm0,120c-30.875,0 -56,-25.125 -56,-56s25.125,-56 56,-56s56,25.125 56,56s-25.125,56 -56,56z"/>
+  <path id="svg_6" fill="#d6851a" d="m75.313004,64l16.968994,-16.969002c3.125,-3.125 3.125,-8.195 0,-11.313c-3.116997,-3.125 -8.187996,-3.125 -11.312996,0l-16.969002,16.970001l-16.969002,-16.968998c-3.125,-3.125 -8.195,-3.125 -11.313,0c-3.125,3.116997 -3.125,8.188 0,11.313l16.970001,16.967999l-16.968998,16.969002c-3.125,3.125 -3.125,8.195 0,11.312996c3.116997,3.125 8.188,3.125 11.313,0l16.967999,-16.968994l16.969002,16.968994c3.125,3.125 8.195,3.125 11.312996,0c3.125,-3.116997 3.125,-8.187996 0,-11.312996l-16.968994,-16.969002z"/>
  </g>
 </svg>

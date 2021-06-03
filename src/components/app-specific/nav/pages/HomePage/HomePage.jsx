@@ -1,5 +1,5 @@
 import { useState, useCallback, useRef } from "react"
-import { Text, ExpandableMenu, ToastWithPortal } from "hub"
+import { Text, ExpandableMenu, Toast } from "hub"
 import { classes, toastData } from "./HomePage.utils"
 
 // declared outside to avoid constructing a new object on each render
@@ -53,12 +53,12 @@ export default function HomePage() {
         listIconsProps={listIconsProps.current}
       />
       {/* '*Toast*' triggered by expandable menu's options */}
-      <ToastWithPortal show={toastSt.show} timeout={4000} onClose={hideToast}>
+      <Toast.WithPortal show={toastSt.show} timeout={4000} onClose={hideToast}>
         {/* '*Text*' as content to match styles and to add "onClick" handler */}
         <Text type="primary" onClick={toastData[toastSt.id]?.onClick}>
           {toastData[toastSt.id]?.content}
         </Text>
-      </ToastWithPortal>
+      </Toast.WithPortal>
     </main>
   )
 }

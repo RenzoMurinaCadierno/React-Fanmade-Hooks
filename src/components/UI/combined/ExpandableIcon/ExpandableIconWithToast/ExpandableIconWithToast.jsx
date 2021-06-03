@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Icon, ToastWithPortal } from "hub"
+import { Icon, Toast } from "hub"
 import {
   classes,
   expandableIconWithToastPropTypes
@@ -60,14 +60,14 @@ export default function ExpandableIconWithToast({
         onContentClick={triggerToastAndContentClick}
       />
       {/* toast linked to app's root node */}
-      <ToastWithPortal
+      <Toast.WithPortal
         classNames={classes.toast(classNames.toast)}
         {...toastProps}
         show={showToast}
         onClose={closeToastAndTriggerToastOnClose}
       >
         {children}
-      </ToastWithPortal>
+      </Toast.WithPortal>
     </>
   )
 }

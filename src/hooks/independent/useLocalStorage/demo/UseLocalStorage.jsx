@@ -1,10 +1,5 @@
 import { useCallback, useState } from "react"
-import {
-  Container,
-  CmpDescription,
-  LocalStorageCRUD,
-  ToastWithPortal
-} from "hub"
+import { Container, CmpDescription, LocalStorageCRUD, Toast } from "hub"
 import useLocalStorage from "../useLocalStorage"
 import { classes, descItemsObject, intl, hash } from "./UseLocalStorage.utils"
 
@@ -196,13 +191,13 @@ function CmpTest() {
 
   return (
     <>
-      <ToastWithPortal
+      <Toast.WithPortal
         show={toastSt.show}
         timeout={3000}
         onClose={handleCloseToast}
       >
         {toastSt.msg}
-      </ToastWithPortal>
+      </Toast.WithPortal>
       <section className={classes.cmpTest}>
         {/* CRUD example tree. UI, Auth and Settings are handled here */}
         <LocalStorageCRUD.Root

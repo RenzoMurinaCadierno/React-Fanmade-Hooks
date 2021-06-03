@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { Badge, BadgeWithAnimatedNumber, Slots, useMountFlag } from "hub"
+import { Badge, Slots, useMountFlag } from "hub"
 import {
   classes,
   hookConfigs,
@@ -168,7 +168,7 @@ export default function SlotsBadgeWithScoreAnimation({
           )}
         />
       )}
-      <BadgeWithAnimatedNumber
+      <Badge.WithAnimatedNumber
         {...filteredProps}
         // "star" badge has its content handled by state, all others by props
         content={isStarBadge.current ? starContent : filteredProps.content}

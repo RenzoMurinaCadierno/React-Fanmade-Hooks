@@ -1,11 +1,13 @@
-import { Navigation, Router } from "hub"
+import { Navigation, Router, ErrorBoundary } from "hub"
 import "./App.css"
 
 export default function App() {
   return (
     <div className="App">
-      <Navigation />
-      <Router />
+      <ErrorBoundary>
+        <Navigation />
+        <Router />
+      </ErrorBoundary>
     </div>
   )
 }

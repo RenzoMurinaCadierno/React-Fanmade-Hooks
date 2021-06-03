@@ -1,3 +1,4 @@
+// import Badge from "components/UI/combined/Badge/Badge"
 import { useAnimatedNumber, Badge } from "hub"
 import { badgeWithAnimatedNumberPropTypes } from "./BadgeWithAnimatedNumber.utils"
 

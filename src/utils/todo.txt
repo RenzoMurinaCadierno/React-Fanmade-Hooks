@@ -9,13 +9,9 @@ change github url
 
 fiddle SlotsSpinningSlots timeouts
 
-jsconfig.json!!!!:  quitar "React" y ../../../hub
-
 classNames: PropTypes.exact << 
 
 defaultProps
 
-ErrorBoundary
-
 // commit msg
-Created '*ExpandableIconWithToast*'. Started composing components.
+Added generic '*ErrorBoundary*'. Finsihed composing components.

@@ -1,4 +1,4 @@
-import { BadgeWithAnimatedNumber } from "hub"
+import { Badge } from "hub"
 import {
   classes,
   hookConfigs,
@@ -61,7 +61,7 @@ export default function SlotsResultItem({
         className={classes.image(classNames.image)}
       />
       {/* '*Badge*' to show the content of the related "slot"/"stat" item */}
-      <BadgeWithAnimatedNumber
+      <Badge.WithAnimatedNumber
         content={badgeContent}
         hookConfigs={hookConfigs}
         show
