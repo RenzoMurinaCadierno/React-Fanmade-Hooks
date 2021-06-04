@@ -31,7 +31,7 @@ export const slotsResultScreenPropTypes = {
   scoresBadgesProps: requiredObjectOfArraysOfObjects,
   statsBadgesProps: requiredObjectOfArraysOfObjects,
   onRestartButtonClick: PropTypes.func,
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     resultsContainer: PropTypes.string,
     scoresSection: PropTypes.object,

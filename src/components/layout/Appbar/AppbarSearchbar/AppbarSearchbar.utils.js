@@ -19,9 +19,9 @@ export const appbarSearchbarPropTypes = {
   onClick: PropTypes.func,
   searchIcon: PropTypes.string,
   clearIcon: PropTypes.string,
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
-    inputField: PropTypes.shape({
+    inputField: PropTypes.exact({
       container: PropTypes.string,
       input: PropTypes.string,
       label: PropTypes.string

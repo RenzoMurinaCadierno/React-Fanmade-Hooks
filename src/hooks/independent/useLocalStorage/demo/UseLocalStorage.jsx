@@ -200,7 +200,7 @@ function CmpTest() {
       </Toast.WithPortal>
       <section className={classes.cmpTest}>
         {/* CRUD example tree. UI, Auth and Settings are handled here */}
-        <LocalStorageCRUD.Root
+        <LocalStorageCRUD
           userSt={userSt}
           setUserSt={setUserSt}
           onSignUp={handleSignUp}

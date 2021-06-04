@@ -23,7 +23,7 @@ export const appbarPropTypes = {
   onBackdropClick: PropTypes.func,
   onSearchChange: PropTypes.func,
   onHomeIconClick: PropTypes.func,
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     toggler: PropTypes.object,
     modal: PropTypes.object,

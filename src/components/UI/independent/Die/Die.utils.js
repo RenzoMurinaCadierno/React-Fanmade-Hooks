@@ -18,5 +18,11 @@ export const diePropTypes = {
   max: PropTypes.number,
   isFrozen: PropTypes.bool,
   onBeforeRoll: PropTypes.func,
-  onAfterRoll: PropTypes.func
+  onAfterRoll: PropTypes.func,
+  classNames: PropTypes.exact({
+    container: PropTypes.string,
+    digit: PropTypes.string
+  }),
+  digitProps: PropTypes.object,
+  otherProps: PropTypes.object
 }

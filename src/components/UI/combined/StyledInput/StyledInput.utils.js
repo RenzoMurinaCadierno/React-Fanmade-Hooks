@@ -14,7 +14,7 @@ export const styledInputPropTypes = {
   disabled: PropTypes.bool,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     input: PropTypes.string,
     label: PropTypes.string

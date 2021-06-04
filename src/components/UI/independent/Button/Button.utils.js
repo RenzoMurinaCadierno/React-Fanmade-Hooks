@@ -27,5 +27,6 @@ export const buttonPropTypes = {
     "danger-1"
   ]),
   coloredBg: PropTypes.bool,
-  className: PropTypes.string
+  className: PropTypes.string,
+  otherProps: PropTypes.object
 }

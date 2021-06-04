@@ -15,9 +15,11 @@ export const classes = {
   cmpDesc: {
     container: styles.CmpDescContainer,
     description: styles.CmpDescContent,
-    expIcon: {
-      container: styles.CmpDescExpIconContainer,
-      content: styles.CmpDescExpIconContent
+    codeIcon: {
+      expandableIcon: {
+        container: styles.CmpDescCodeIconContainer,
+        content: styles.CmpDescCodeIconContent
+      }
     }
   },
   cmpTest: styles.CmpTest,

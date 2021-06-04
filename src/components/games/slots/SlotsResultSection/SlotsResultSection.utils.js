@@ -25,7 +25,7 @@ export const slotsResultSectionPropTypes = {
   badgesProps: PropTypes.objectOf(
     PropTypes.arrayOf(PropTypes.object.isRequired).isRequired
   ).isRequired,
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     title: PropTypes.string,
     titleBackground: PropTypes.string,

@@ -46,7 +46,7 @@ export default function Navigation() {
   }, [])
 
   return (
-    <Appbar.Root
+    <Appbar
       onTogglerClick={handleSearch}
       onHomeIconClick={goToHomeUrl}
       onSearchChange={handleSearch}
@@ -83,6 +83,6 @@ export default function Navigation() {
           )
         }
       </Appbar.context.Consumer>
-    </Appbar.Root>
+    </Appbar>
   )
 }

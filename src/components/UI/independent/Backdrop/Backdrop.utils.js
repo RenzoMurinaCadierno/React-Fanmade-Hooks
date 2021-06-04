@@ -14,5 +14,6 @@ export const backdropPropTypes = {
     PropTypes.instanceOf(Element)
   ]),
   children: PropTypes.node,
-  className: PropTypes.string
+  className: PropTypes.string,
+  otherProps: PropTypes.object
 }

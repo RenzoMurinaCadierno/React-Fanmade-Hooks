@@ -17,7 +17,7 @@ export const appbarTogglerPropTypes = {
   isActive: PropTypes.bool,
   animate: PropTypes.bool,
   onClick: PropTypes.func,
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     toggler: PropTypes.string
   }),

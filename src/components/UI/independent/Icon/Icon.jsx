@@ -19,6 +19,8 @@ import { classes } from "./Icon.utils"
  *   "secondary-1", "danger", "danger-1". Defaults to "primary".
  *
  * `className?` (string): incoming className to append to wrapper '*div*'.
+ *
+ * `...otherProps?` (object): Props to spread in wrapper '*div*'.
  */
 function Icon({ children, type = "primary", className, ...otherProps }, ref) {
   return (

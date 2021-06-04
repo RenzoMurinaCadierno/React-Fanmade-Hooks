@@ -17,7 +17,7 @@ export const slotsEffectBadgeContentPropTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
   type: PropTypes.oneOf(["primary", "secondary"]),
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     content: PropTypes.string,
     image: PropTypes.string

@@ -36,7 +36,7 @@ export const modalPropTypes = {
   onOpen: PropTypes.func,
   onClose: PropTypes.func,
   onCloseIconClick: PropTypes.func,
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     backdrop: PropTypes.string,
     container: PropTypes.string,
     iconContainer: PropTypes.string,

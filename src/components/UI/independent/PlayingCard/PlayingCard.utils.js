@@ -23,7 +23,7 @@ export const playingCardPropTypes = {
   suit: validateStringOrImgElem,
   isPokerCard: PropTypes.bool,
   onClick: PropTypes.func,
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     suit: PropTypes.string
   })

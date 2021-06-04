@@ -1,4 +1,4 @@
-import { useCallback, memo } from "react"
+import { memo } from "react"
 import { Container, useClassNameToggle, Carousel } from "hub"
 import pointer from "assets/icons/pointer.svg"
 import { classes, carouselArrowPropTypes } from "./CarouselArrow.utils"

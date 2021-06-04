@@ -14,7 +14,7 @@ export const expandableMenuListIconPropTypes = {
   amountOfIcons: PropTypes.number.isRequired,
   spread: PropTypes.string,
   iconExpandDirection: PropTypes.string,
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     icon: PropTypes.string,
     content: PropTypes.string,

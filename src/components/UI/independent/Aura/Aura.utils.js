@@ -51,11 +51,11 @@ export const auraPropTypes = {
   size: PropTypes.oneOf(["small", "normal", "large"]),
   interval: PropTypes.oneOf(["short", "normal", "long"]),
   inheritBoxShape: PropTypes.bool,
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     aura: PropTypes.string
   }),
-  otherAuraProps: PropTypes.object,
+  auraProps: PropTypes.object,
   otherProps: PropTypes.object
 }
 

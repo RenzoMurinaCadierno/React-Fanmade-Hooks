@@ -14,7 +14,7 @@ export default function LocalStorageCRUDRoot({
 }) {
   return (
     // Carousel's wrapper component
-    <Carousel.Root
+    <Carousel
       autoScrollInterval={4000}
       resumeAutoScrollTimeout={2500}
       classNames={classes.carousel}
@@ -36,7 +36,7 @@ export default function LocalStorageCRUDRoot({
           onSignout={onSignOut}
         />
       </Carousel.Slide>
-    </Carousel.Root>
+    </Carousel>
   )
 }
 

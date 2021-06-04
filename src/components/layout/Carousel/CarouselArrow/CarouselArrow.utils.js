@@ -8,7 +8,6 @@ export const classes = {
     (direction ? styles[capitalize(direction)] : "") +
     " " +
     styles.Container,
-  relativeWrapper: styles.RelativeWrapper,
   arrow: (direction, className) =>
     (className ?? "") +
     " " +
@@ -27,7 +26,7 @@ export const carouselArrowPropTypes = {
   direction: PropTypes.oneOf(["left", "right"]).isRequired,
   imgSrc: PropTypes.string,
   onClick: PropTypes.func,
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     arrow: PropTypes.string
   }),

@@ -9,6 +9,8 @@ import { Input } from "hub"
  *
  * * `onChange?` (function): callback to trigger when input changes.
  *
+ * `...otherProps?` (object): Props to spread in '*Input*'.
+ *
  * @param {React.Ref} ref A reference to this input.
  */
 function InputWithState({ onChange, ...otherProps }, ref) {

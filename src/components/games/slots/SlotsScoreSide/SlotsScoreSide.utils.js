@@ -24,9 +24,12 @@ export const slotsScoreSidePropTypes = {
   propThatTriggersScoreEffect: PropTypes.string.isRequired,
   badgeEffectImgSrcArray: requiredArrayOfArraysOfStrings,
   scoreData: PropTypes.objectOf(scoreDataShape),
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
-    item: PropTypes.object,
+    item: PropTypes.exact({
+      container: PropTypes.string,
+      badge: PropTypes.object
+    }),
     image: PropTypes.string
   })
 }

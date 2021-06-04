@@ -72,7 +72,7 @@ export default memo(function SlotsSpinningSlot({
 
   return (
     // spinning slot, wrapper for all slot items it contains
-    <Carousel.Root
+    <Carousel
       // allow scroll (spin) if parent's and inner state are both true
       autoScroll={areSlotsActive && isActive}
       // autoScrollInterval={310}
@@ -109,6 +109,6 @@ export default memo(function SlotsSpinningSlot({
           )}
         </Carousel.Slide.Unidirectional>
       ))}
-    </Carousel.Root>
+    </Carousel>
   )
 })

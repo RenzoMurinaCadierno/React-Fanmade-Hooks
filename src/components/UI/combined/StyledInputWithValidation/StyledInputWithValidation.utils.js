@@ -35,7 +35,7 @@ export const styledInputWithValidationPropTypes = {
     "left"
   ]),
   messageType: PropTypes.oneOf(["primary", "secondary"]),
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     styledInput: PropTypes.object,
     validationContainer: PropTypes.string,

@@ -21,7 +21,11 @@ import { classes, diePropTypes } from "./Die.utils"
  *   Gets the rolled result as callback.
  *
  * `classNames?` (object): className strings for each JSX rendered here.
- *     Check *utils.js* for its constitution.
+ *   Check *utils.js* for its constitution.
+ *
+ * `digitProps?` (object): Props to spread in 'digit' inner '*span*'.
+ *
+ * `...otherProps?` (object): Props to spread in wrapper '*div*'.
  */
 export default function Die({
   min = 1,
@@ -29,7 +33,9 @@ export default function Die({
   isFrozen,
   onBeforeRoll,
   onAfterRoll,
-  classNames = {}
+  classNames = {},
+  digitProps = {},
+  ...otherProps
 }) {
   // "res" is the number that appears on die, "isRolling" is the rolling state
   const [dieSt, setDieSt] = useState({ res: min, isRolling: false })
@@ -84,9 +90,12 @@ export default function Die({
       )}
       // prevent click events if die is rolling or is frozen by props
       onClick={dieSt.isRolling || isFrozen ? null : performRoll}
+      {...otherProps}
     >
       {/* result */}
-      <span className={classes.digit(classNames.digit)}> {dieSt.res} </span>
+      <span className={classes.digit(classNames.digit)} {...digitProps}>
+        {dieSt.res}
+      </span>
     </div>
   )
 }

@@ -25,7 +25,7 @@ export const toastPropTypes = {
   onOpen: PropTypes.func,
   onClose: PropTypes.func,
   children: PropTypes.node,
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     content: PropTypes.string,
     toggler: PropTypes.string

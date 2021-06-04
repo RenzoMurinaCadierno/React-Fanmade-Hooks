@@ -26,12 +26,12 @@ export const slotsBadgeWithScoreAnimationPropTypes = {
   badgeEffectImgAlt: PropTypes.string.isRequired,
   scoreMultiplier: PropTypes.number,
   triggerScoreEffectOn: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
-  classNames: PropTypes.shape({
-    animated: PropTypes.shape({
+  classNames: PropTypes.exact({
+    animated: PropTypes.exact({
       container: PropTypes.string,
       content: PropTypes.string
     }),
-    main: PropTypes.shape({
+    main: PropTypes.exact({
       container: PropTypes.string,
       content: PropTypes.string
     })

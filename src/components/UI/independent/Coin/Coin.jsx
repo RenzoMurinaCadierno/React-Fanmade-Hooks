@@ -36,7 +36,11 @@ import { classes, coinPropTypes } from "./Coin.utils"
  *   toss boolean as argument.
  *
  * `classNames?` (object): className strings for each JSX rendered here.
- *     Check *utils.js* for its constitution.
+ *   Check *utils.js* for its constitution.
+ *
+ * `resultProps?` (object): Props to spread in 'result' inner '*span*'.
+ *
+ * `...otherProps?` (object): Props to spread in wrapper '*div*'.
  */
 export default function Coin({
   isFrozen,
@@ -48,6 +52,7 @@ export default function Coin({
   onBeforeToss,
   onAfterToss,
   classNames = {},
+  resultProps = {},
   ...otherProps
 }) {
   // "res" true is heads, false is tails. "isTossing" is the tossing state
@@ -95,7 +100,7 @@ export default function Coin({
       )}
       {...otherProps}
     >
-      <div className={classes.result(classNames.result)}>
+      <div className={classes.result(classNames.result)} {...resultProps}>
         {coinSt.isTossing ? toss : coinSt.res ? head : tails}
       </div>
     </div>

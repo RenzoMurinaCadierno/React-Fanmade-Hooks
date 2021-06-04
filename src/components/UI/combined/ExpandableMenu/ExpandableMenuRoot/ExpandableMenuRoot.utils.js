@@ -57,7 +57,7 @@ export const expandableMenuRootPropTypes = {
     })
   ),
   listIconsExpandDirection: PropTypes.oneOf(["left", "right"]),
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     mainIcon: PropTypes.object,
     listIcon: PropTypes.object

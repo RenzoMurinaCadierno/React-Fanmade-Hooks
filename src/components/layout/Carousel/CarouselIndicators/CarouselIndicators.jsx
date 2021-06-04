@@ -1,4 +1,3 @@
-import { useCallback } from "react"
 import { Carousel } from "hub"
 import {
   classes,

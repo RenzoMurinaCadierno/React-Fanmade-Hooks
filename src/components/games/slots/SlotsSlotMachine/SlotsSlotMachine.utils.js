@@ -8,7 +8,7 @@ export const classes = {
 
 export const slotsSlotMachinePropTypes = {
   slotsArrays: getPropTypesRequiredArrays(3),
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     spinningSlot: PropTypes.object
   })
@@ -37,7 +37,8 @@ export const slotsSlotMachinePropTypes = {
  */
 function getPropTypesRequiredArrays(arrQty, res) {
   if (arrQty <= 0) return PropTypes.string
-  res = PropTypes.arrayOf(getPropTypesRequiredArrays(arrQty - 1, res))
-    .isRequired
+  res = PropTypes.arrayOf(
+    getPropTypesRequiredArrays(arrQty - 1, res)
+  ).isRequired
   return res
 }

@@ -27,7 +27,9 @@ export const coinPropTypes = {
   classNames: PropTypes.shape({
     container: PropTypes.string,
     result: PropTypes.string
-  })
+  }),
+  resultProps: PropTypes.object,
+  otherProps: PropTypes.object
 }
 
 function validateStringOrImgElem(props, propName, cmpName) {

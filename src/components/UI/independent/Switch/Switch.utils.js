@@ -30,7 +30,7 @@ export const switchPropTypes = {
   onSwitch: PropTypes.func,
   onSwitchOn: PropTypes.func,
   onSwitchOff: PropTypes.func,
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     slider: PropTypes.string,
     button: PropTypes.string

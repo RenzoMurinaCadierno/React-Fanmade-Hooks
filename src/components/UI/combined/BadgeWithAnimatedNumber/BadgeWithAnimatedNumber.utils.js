@@ -15,5 +15,6 @@ export const badgeWithAnimatedNumberPropTypes = {
     onIteration: PropTypes.func,
     onFinish: PropTypes.func,
     onAbort: PropTypes.func
-  })
+  }),
+  otherProps: PropTypes.object
 }

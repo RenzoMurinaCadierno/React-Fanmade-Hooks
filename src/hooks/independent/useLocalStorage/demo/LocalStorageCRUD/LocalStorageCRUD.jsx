@@ -11,12 +11,12 @@ const slideNames = {
   SETTINGS: "SETTINGS"
 }
 
-// namespace everything related to '*LocalStorageCRUD*'
-const LocalStorageCRUD = {
-  Root: LocalStorageCRUDRoot,
-  Auth: LocalStorageCRUDAuth,
-  Settings: LocalStorageCRUDSettings,
-  slideNames
+function ComposedLocalStorageCRUD(props) {
+  return <LocalStorageCRUDRoot {...props} />
 }
 
-export default LocalStorageCRUD
+ComposedLocalStorageCRUD.Auth = LocalStorageCRUDAuth
+ComposedLocalStorageCRUD.Settings = LocalStorageCRUDSettings
+ComposedLocalStorageCRUD.slideNames = slideNames
+
+export default ComposedLocalStorageCRUD

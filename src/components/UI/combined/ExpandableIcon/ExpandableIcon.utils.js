@@ -37,7 +37,7 @@ export const expandableIconPropTypes = {
   onIconClick: PropTypes.func,
   onContentClick: PropTypes.func,
   disabled: PropTypes.bool,
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     icon: PropTypes.string,
     content: PropTypes.string,

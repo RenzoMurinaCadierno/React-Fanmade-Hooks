@@ -26,7 +26,10 @@ export const countBarPropTypes = {
   classNames: PropTypes.shape({
     container: PropTypes.string,
     minusButton: PropTypes.string,
-    progressbar: PropTypes.object,
+    progressbar: PropTypes.exact({
+      container: PropTypes.string,
+      progress: PropTypes.string
+    }),
     plusButton: PropTypes.string
   })
 }

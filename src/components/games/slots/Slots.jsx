@@ -14,20 +14,22 @@ import {
 } from "./store/slotsGame.reducer"
 import * as actions from "./store/slotsGame.action.creators"
 
-const Slots = {
-  Root: SlotsGameRootNode,
-  ResultScreen: SlotsResultScreen,
-  ResultSection: SlotsResultSection,
-  ResultItem: SlotsResultItem,
-  SlotMachine: SlotsSlotMachine,
-  SpinningSlot: SlotsSpinningSlot,
-  ScoreItem: SlotsScoreItem,
-  ScoreSide: SlotsScoreSide,
-  BadgeWithScoreAnimation: SlotsBadgeWithScoreAnimation,
-  EffectBadgeContent: SlotsEffectBadgeContent,
-  reducer: slotsGameReducer,
-  getInitialState: getReducerInitialState,
-  actions
+function ComposedSlots(props) {
+  return <SlotsGameRootNode {...props} />
 }
 
-export default Slots
+ComposedSlots.Root = SlotsGameRootNode
+ComposedSlots.ResultScreen = SlotsResultScreen
+ComposedSlots.ResultSection = SlotsResultSection
+ComposedSlots.ResultItem = SlotsResultItem
+ComposedSlots.SlotMachine = SlotsSlotMachine
+ComposedSlots.SpinningSlot = SlotsSpinningSlot
+ComposedSlots.ScoreItem = SlotsScoreItem
+ComposedSlots.ScoreSide = SlotsScoreSide
+ComposedSlots.BadgeWithScoreAnimation = SlotsBadgeWithScoreAnimation
+ComposedSlots.EffectBadgeContent = SlotsEffectBadgeContent
+ComposedSlots.reducer = slotsGameReducer
+ComposedSlots.getInitialState = getReducerInitialState
+ComposedSlots.actions = actions
+
+export default ComposedSlots

@@ -13,14 +13,15 @@ import AppbarHomeIcon from "./AppbarHomeIcon/AppbarHomeIcon"
 // its "Provider". Chidren can then make use of it by consuming this context.
 const appbarContext = createContext(() => {})
 
-const Appbar = {
-  Root: AppbarRoot,
-  Toggler: AppbarToggler,
-  Searchbar: AppbarSearchbar,
-  Section: AppbarSection,
-  Link: AppbarLink,
-  HomeIcon: AppbarHomeIcon,
-  context: appbarContext
+function ComposedAppbar(props) {
+  return <AppbarRoot {...props} />
 }
 
-export default Appbar
+ComposedAppbar.Toggler = AppbarToggler
+ComposedAppbar.Searchbar = AppbarSearchbar
+ComposedAppbar.Section = AppbarSection
+ComposedAppbar.Link = AppbarLink
+ComposedAppbar.HomeIcon = AppbarHomeIcon
+ComposedAppbar.context = appbarContext
+
+export default ComposedAppbar

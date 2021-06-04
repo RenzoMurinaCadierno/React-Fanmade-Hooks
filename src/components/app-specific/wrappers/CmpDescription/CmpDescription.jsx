@@ -5,8 +5,8 @@ import Icon from "components/UI/composed/Icon/Icon"
 import { getHookNameFromPathName } from "utils/utilityFunctions"
 import { urls } from "app.configs.json"
 import codeSvg from "assets/icons/code.svg"
-import { classes } from "./CmpDescription.utils"
-
+import { classes, cmpDescriptionPropTypes } from "./CmpDescription.utils"
+defaultProps
 /**
  * Renders the hook's name as title and its description as paragraphs, as well
  * as the expandable icon that links to its Github's repository.
@@ -54,8 +54,7 @@ function CmpDescription({
     type: "secondary",
     icon: <img src={codeSvg} alt="<>" />,
     content: "Go to code",
-    expandDirection: iconExpandDirection,
-    classNames: classes.expIcon(classNames?.expIcon)
+    expandDirection: iconExpandDirection
   }
 
   const toastProps = {
@@ -69,6 +68,7 @@ function CmpDescription({
       <Icon.Expandable.WithToast
         expandableIconProps={expandableIconProps}
         toastProps={toastProps}
+        classNames={classes.codeIcon(classNames?.codeIcon)}
       >
         Tap here to view hook's code in a new tab.
       </Icon.Expandable.WithToast>
@@ -100,5 +100,7 @@ function CmpDescription({
     </>
   )
 }
+
+CmpDescription.propTypes = cmpDescriptionPropTypes
 
 export default memo(CmpDescription)

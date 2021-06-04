@@ -75,7 +75,7 @@ export const badgePropTypes = {
   animateOn: PropTypes.node,
   onMount: PropTypes.func,
   onUnmount: PropTypes.func,
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     content: PropTypes.string
   })

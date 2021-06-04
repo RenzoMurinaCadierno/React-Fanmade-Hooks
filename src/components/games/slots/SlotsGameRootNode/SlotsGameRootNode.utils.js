@@ -55,7 +55,7 @@ function getScoresAndStatsCNs(defaultClassName, classNames = {}) {
 // avoids code duplication
 const slotsScoreSideClassNamesShape = PropTypes.shape({
   container: PropTypes.string,
-  item: PropTypes.shape({
+  item: PropTypes.exact({
     container: PropTypes.string,
     badge: PropTypes.object
   }),
@@ -63,9 +63,10 @@ const slotsScoreSideClassNamesShape = PropTypes.shape({
 })
 
 export const slotsGameRootNodePropTypes = {
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
-    slots: PropTypes.string,
+    resetButton: PropTypes.string,
+    imgToggleButton: PropTypes.string,
     scores: slotsScoreSideClassNamesShape,
     stats: slotsScoreSideClassNamesShape
   })

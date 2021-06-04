@@ -21,7 +21,7 @@ import { classes, auraPropTypes } from "./Aura.utils"
  *   'secondary-1', 'secondary-2', 'danger', 'danger-1', 'danger-2'.
  *   * **Note:** `type` is bound to this app's theme, but can be changed
  *      declaring "background-color" rule in "style" object, inside
- *      `otherAuraProps`.
+ *      `auraProps`.
  *
  * `blink?` (string): The time aura effect stays visible during its iteration
  *   interval. The longer it stays visible, the shorter the pause before the
@@ -42,7 +42,7 @@ import { classes, auraPropTypes } from "./Aura.utils"
  * `classNames?` (object): className strings for each JSX rendered here.
  *   Check *utils.js* for its constitution.
  *
- * `otherAuraProps?` (object): Additional props to pass to aura effect's
+ * `auraProps?` (object): Additional props to pass to aura effect's
  *   '*div*'.
  *
  * `otherProps?` (object): Additional props to pass to wrapper container's
@@ -57,7 +57,7 @@ export default function Aura({
   interval = "normal",
   inheritBoxShape,
   classNames = {},
-  otherAuraProps = {},
+  auraProps = {},
   ...otherProps
 }) {
   return (
@@ -73,7 +73,7 @@ export default function Aura({
           inheritBoxShape,
           classNames.aura
         )}
-        {...otherAuraProps}
+        {...auraProps}
       />
     </div>
   )

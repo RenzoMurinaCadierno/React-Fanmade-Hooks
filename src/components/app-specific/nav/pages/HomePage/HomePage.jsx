@@ -48,7 +48,7 @@ export default function HomePage() {
         fun! ;)
       </Text>
       {/* expandable menu with contact info and repository link */}
-      <ExpandableMenu.Root
+      <ExpandableMenu
         menuIconProps={menuIconProps}
         listIconsProps={listIconsProps.current}
       />

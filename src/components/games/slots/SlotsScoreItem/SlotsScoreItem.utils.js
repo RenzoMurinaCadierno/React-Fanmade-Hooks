@@ -33,7 +33,7 @@ export const slotsScoreItemPropTypes = {
   badgeEffectImgArray: PropTypes.arrayOf(PropTypes.string).isRequired,
   scoreMultiplier: PropTypes.number,
   propThatTriggersScoreEffect: validatePropThatTriggersScoreEffect,
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     content: PropTypes.string
   }),

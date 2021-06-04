@@ -13,7 +13,7 @@ export const carouselSlideUnidirectionalPropTypes = {
   name: PropTypes.string.isRequired,
   children: PropTypes.node,
   timeout: PropTypes.number,
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     animateMount: PropTypes.string,
     animateUnmount: PropTypes.string

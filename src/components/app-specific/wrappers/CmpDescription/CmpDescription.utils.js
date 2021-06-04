@@ -2,13 +2,13 @@ import PropTypes from "prop-types"
 import styles from "./CmpDescription.module.css"
 
 export const classes = {
-  expIcon: (classNames = {}) => ({
+  codeIcon: (classNames = {}) => ({
     expandableIcon: {
       ...classNames?.expandableIcon,
       container:
         (classNames?.expandableIcon?.container ?? "") +
         " " +
-        styles.ExpIconContainer
+        styles.CodeIconContainer
     },
     toast: classNames?.toast
   }),
@@ -16,22 +16,29 @@ export const classes = {
   title: (className) => className ?? "",
   description: (className) => className ?? ""
 }
-test classnames Headers, then proptypes exact on classnames, then todo.js
+
+const codeIconPropTypes = PropTypes.exact({
+  expandableIcon: PropTypes.exact({
+    container: PropTypes.string,
+    icon: PropTypes.string,
+    content: PropTypes.string
+  }),
+  toast: PropTypes.exact({
+    container: PropTypes.string,
+    content: PropTypes.string,
+    toggler: PropTypes.string
+  })
+})
+
 export const cmpDescriptionPropTypes = {
-  descItems: PropTypes.arrayOf(PropTypes.string),
+  descItems: PropTypes.exact({
+    title: PropTypes.string.isRequired,
+    paragraphs: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
+  }),
   iconExpandDirection: PropTypes.oneOf(["left", "right"]),
   iconUrl: PropTypes.string,
-  classNames: PropTypes.shape({
-    expandableIcon: PropTypes.shape({
-      container: PropTypes.string,
-      icon: PropTypes.string,
-      content: PropTypes.string
-    }),
-    toast: PropTypes.shape({
-      container: PropTypes.string,
-      content: PropTypes.string,
-      toggler: PropTypes.string
-    }),
+  classNames: PropTypes.exact({
+    codeIcon: codeIconPropTypes,
     container: PropTypes.string,
     title: PropTypes.string,
     description: PropTypes.string,

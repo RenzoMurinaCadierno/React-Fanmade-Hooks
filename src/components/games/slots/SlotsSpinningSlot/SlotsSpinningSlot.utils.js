@@ -20,13 +20,15 @@ export const slotsSpinningSlot = {
     .isRequired,
   onSlotClick: PropTypes.func,
   areSlotsActive: PropTypes.bool.isRequired,
-  classNames: PropTypes.shape({
-    slotCarousel: PropTypes.shape({
+  classNames: PropTypes.exact({
+    slotCarousel: PropTypes.exact({
       container: PropTypes.string,
       screen: PropTypes.string,
-      slidesContainer: PropTypes.string
+      slidesContainer: PropTypes.string,
+      arrowComponent: PropTypes.string,
+      indicatorsComponent: PropTypes.string
     }),
-    slotSlide: PropTypes.shape({
+    slotSlide: PropTypes.exact({
       container: PropTypes.string,
       animateMount: PropTypes.string,
       animateUnmount: PropTypes.string

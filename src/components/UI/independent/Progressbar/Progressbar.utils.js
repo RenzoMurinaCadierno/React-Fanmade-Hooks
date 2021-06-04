@@ -25,7 +25,7 @@ export const progressbarPropTypes = {
   text: PropTypes.string,
   growFrom: PropTypes.string,
   onClick: PropTypes.func,
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     progress: PropTypes.string
   })

@@ -17,7 +17,7 @@ export const inputFieldPropTypes = {
   onBlur: PropTypes.func,
   onSubmit: PropTypes.func,
   style: PropTypes.object,
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     input: PropTypes.string,
     label: PropTypes.string

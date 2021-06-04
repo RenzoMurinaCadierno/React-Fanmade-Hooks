@@ -43,7 +43,7 @@ export const btTargetPropTypes = {
   onDestroy: PropTypes.func,
   onSelfDestruct: PropTypes.func,
   onAccuracyTimeout: PropTypes.func,
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     target: PropTypes.string,
     content: PropTypes.string

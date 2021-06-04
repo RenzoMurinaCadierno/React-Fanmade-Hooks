@@ -27,7 +27,7 @@ export default function UseAnimatedNumber() {
         descItems={descItemsObject}
         classNames={classes.cmpDesc}
       />
-      <Slots.Root classNames={classes.cmpTest} />
+      <Slots classNames={classes.cmpTest} />
     </>
   )
 }

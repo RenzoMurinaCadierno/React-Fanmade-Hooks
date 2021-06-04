@@ -2,10 +2,11 @@ import ExpandableMenuRoot from "./ExpandableMenuRoot/ExpandableMenuRoot"
 import ExpandableMenuMainIcon from "./ExpandableMenuMainIcon/ExpandableMenuMainIcon"
 import ExpandableMenuListIcon from "./ExpandableMenuListIcon/ExpandableMenuListIcon"
 
-const ExpandableMenu = {
-  Root: ExpandableMenuRoot,
-  MainIcon: ExpandableMenuMainIcon,
-  ListIcon: ExpandableMenuListIcon
+function ComposedExpandableMenu(props) {
+  return <ExpandableMenuRoot {...props} />
 }
 
-export default ExpandableMenu
+ComposedExpandableMenu.MainIcon = ExpandableMenuMainIcon
+ComposedExpandableMenu.ListIcon = ExpandableMenuListIcon
+
+export default ComposedExpandableMenu

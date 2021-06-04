@@ -21,7 +21,7 @@ export const appbarSectionPropTypes = {
   children: PropTypes.node.isRequired,
   isActive: PropTypes.bool,
   title: PropTypes.string.isRequired,
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     title: PropTypes.string,
     content: PropTypes.string

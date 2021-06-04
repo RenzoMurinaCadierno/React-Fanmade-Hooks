@@ -35,7 +35,7 @@ const buttonPropsShape = PropTypes.shape(
 )
 
 export const phoneDialPropTypes = {
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     buttons: PropTypes.string
   }),

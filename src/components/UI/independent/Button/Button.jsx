@@ -21,6 +21,8 @@ import { classes } from "./Button.utils"
  * `onClick?` (function): callback assigned to the button's click.
  *
  * `className?` (string): incoming className string to add to '*button*'.
+ *
+ * `...otherProps?` (object): Props to spread in rendered '*div*'.
  */
 function Button({
   children,

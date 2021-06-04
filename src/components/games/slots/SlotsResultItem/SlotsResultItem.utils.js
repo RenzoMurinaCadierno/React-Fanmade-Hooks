@@ -21,7 +21,7 @@ export const slotsResultItemPropTypes = {
   multiplier: PropTypes.number,
   multiplierImgSrc: PropTypes.string,
   multiplierImgAlt: PropTypes.string,
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     image: PropTypes.string,
     badge: PropTypes.object,

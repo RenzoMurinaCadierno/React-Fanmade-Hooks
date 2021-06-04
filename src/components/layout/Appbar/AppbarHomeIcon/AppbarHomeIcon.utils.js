@@ -14,8 +14,8 @@ export const appbarHomeIconPropTypes = {
   content: PropTypes.string,
   expandDirection: PropTypes.oneOf(["left", "right"]),
   onContentClick: PropTypes.func,
-  classNames: PropTypes.shape({
-    expandableIcon: PropTypes.shape({
+  classNames: PropTypes.exact({
+    expandableIcon: PropTypes.exact({
       container: PropTypes.string,
       icon: PropTypes.string,
       content: PropTypes.string,

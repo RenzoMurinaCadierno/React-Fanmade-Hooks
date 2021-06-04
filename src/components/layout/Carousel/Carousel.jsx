@@ -41,15 +41,16 @@ const defaultCtx = {
  */
 const context = createContext(defaultCtx)
 
-const Carousel = {
-  Root: CarouselRoot,
-  Arrow: CarouselArrow,
-  Arrows: CarouselArrows,
-  Indicator: CarouselIndicator,
-  Indicators: CarouselIndicators,
-  Slide: CarouselSlide,
-  defaultCtx,
-  context
+function ComposedCarousel(props) {
+  return <CarouselRoot {...props} />
 }
 
-export default Carousel
+ComposedCarousel.Arrow = CarouselArrow
+ComposedCarousel.Arrows = CarouselArrows
+ComposedCarousel.Indicator = CarouselIndicator
+ComposedCarousel.Indicators = CarouselIndicators
+ComposedCarousel.Slide = CarouselSlide
+ComposedCarousel.defaultCtx = defaultCtx
+ComposedCarousel.context = context
+
+export default ComposedCarousel

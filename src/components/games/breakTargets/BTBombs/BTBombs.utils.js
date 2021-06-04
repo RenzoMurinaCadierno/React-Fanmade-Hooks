@@ -11,7 +11,7 @@ export const btBombsPropTypes = {
   disabled: PropTypes.bool,
   show: PropTypes.bool,
   onClick: PropTypes.func,
-  classNames: PropTypes.shape({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
     bomb: PropTypes.string
   })
