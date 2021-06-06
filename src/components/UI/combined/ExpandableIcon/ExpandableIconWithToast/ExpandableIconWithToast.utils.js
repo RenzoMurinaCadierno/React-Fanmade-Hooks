@@ -5,7 +5,13 @@ export const classes = {
   toast: (classNames) => classNames
 }
 
-export const expandableIconWithToastPropTypes = {
+export const defaultProps = {
+  classNames: {},
+  expandableIconProps: {},
+  toastProps: {}
+}
+
+export const propTypes = {
   children: PropTypes.node.isRequired,
   classNames: PropTypes.exact({
     expandableIcon: PropTypes.object,

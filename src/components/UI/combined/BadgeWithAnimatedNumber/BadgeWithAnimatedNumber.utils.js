@@ -1,6 +1,8 @@
 import PropTypes from "prop-types"
 
-export const badgeWithAnimatedNumberPropTypes = {
+export const defaultProps = { content: 0 }
+
+export const propTypes = {
   content: PropTypes.number.isRequired,
   hookConfigs: PropTypes.shape({
     timeout: PropTypes.number,

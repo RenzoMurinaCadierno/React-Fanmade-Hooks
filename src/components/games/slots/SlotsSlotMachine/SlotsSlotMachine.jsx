@@ -1,5 +1,5 @@
 import { Slots } from "hub"
-import { classes, slotsSlotMachinePropTypes } from "./SlotsSlotMachine.utils"
+import { classes, defaultProps, propTypes } from "./SlotsSlotMachine.utils"
 
 /**
  * Renders one '*SlotsSpinningSlot*' for each array element in
@@ -17,7 +17,7 @@ import { classes, slotsSlotMachinePropTypes } from "./SlotsSlotMachine.utils"
  */
 export default function SlotsSlotMachine({
   slotsArrays,
-  classNames = {},
+  classNames,
   ...otherProps
 }) {
   return (
@@ -34,4 +34,5 @@ export default function SlotsSlotMachine({
   )
 }
 
-SlotsSlotMachine.propTypes = slotsSlotMachinePropTypes
+SlotsSlotMachine.propTypes = propTypes
+SlotsSlotMachine.defaultProps = defaultProps

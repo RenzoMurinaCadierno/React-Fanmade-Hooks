@@ -7,7 +7,12 @@ export const classes = {
   label: (className) => (className ?? "") + " " + styles.Label
 }
 
-export const inputFieldPropTypes = {
+export const defaultProps = {
+  selfControlled: true,
+  classNames: {}
+}
+
+export const propTypes = {
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   value: PropTypes.string,
   label: PropTypes.string,

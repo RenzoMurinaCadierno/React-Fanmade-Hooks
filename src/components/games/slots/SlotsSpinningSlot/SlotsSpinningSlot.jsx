@@ -1,6 +1,6 @@
 import { useState, useCallback, memo, useEffect } from "react"
 import { Carousel } from "hub"
-import { classes } from "./SlotsSpinningSlot.utils"
+import { classes, defaultProps, propTypes } from "./SlotsSpinningSlot.utils"
 
 // stable timeouts: 500 300 200css
 // cannot add PropTypes as it is a memoized component. However, they are
@@ -44,12 +44,12 @@ import { classes } from "./SlotsSpinningSlot.utils"
  * `classNames?` (object): className strings for each JSX rendered here.
  *   Check *utils.js* for its constitution.
  */
-export default memo(function SlotsSpinningSlot({
+function SlotsSpinningSlot({
   slotsArray,
   onSlotClick,
   areSlotsActive,
   renderIconInsteadOfSVGImg,
-  classNames = {}
+  classNames
 }) {
   // inner active (spinning) state. Defaults to parent's generic active
   // state for all slots. Fallbacks to false if undefined
@@ -111,4 +111,9 @@ export default memo(function SlotsSpinningSlot({
       ))}
     </Carousel>
   )
-})
+}
+
+SlotsSpinningSlot.defaultProps = defaultProps
+SlotsSpinningSlot.propTypes = propTypes
+
+export default memo(SlotsSpinningSlot)

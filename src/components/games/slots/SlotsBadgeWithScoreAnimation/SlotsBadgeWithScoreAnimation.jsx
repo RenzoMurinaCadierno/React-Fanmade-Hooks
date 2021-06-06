@@ -2,8 +2,9 @@ import { useEffect, useRef, useState } from "react"
 import { Badge, Slots, useMountFlag } from "hub"
 import {
   classes,
-  hookConfigs,
-  slotsBadgeWithScoreAnimationPropTypes
+  defaultProps,
+  propTypes,
+  hookConfigs
 } from "./SlotsBadgeWithScoreAnimation.utils"
 
 /**
@@ -59,7 +60,7 @@ export default function SlotsBadgeWithScoreAnimation({
   badgeEffectImgAlt,
   scoreMultiplier,
   triggerScoreEffectOn,
-  classNames = {},
+  classNames,
   ...badgeProps
 }) {
   // state to trigger when to show "score effect" badge. It remains
@@ -182,4 +183,5 @@ export default function SlotsBadgeWithScoreAnimation({
   )
 }
 
-SlotsBadgeWithScoreAnimation.propTypes = slotsBadgeWithScoreAnimationPropTypes
+SlotsBadgeWithScoreAnimation.defaultProps = defaultProps
+SlotsBadgeWithScoreAnimation.propTypes = propTypes

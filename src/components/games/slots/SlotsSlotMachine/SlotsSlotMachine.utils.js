@@ -6,7 +6,9 @@ export const classes = {
   spinningSlot: (className) => className
 }
 
-export const slotsSlotMachinePropTypes = {
+export const defaultProps = { classNames: {} }
+
+export const propTypes = {
   slotsArrays: getPropTypesRequiredArrays(3),
   classNames: PropTypes.exact({
     container: PropTypes.string,

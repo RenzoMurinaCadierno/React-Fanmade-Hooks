@@ -1,8 +1,5 @@
 import { Icon } from "hub"
-import {
-  classes,
-  expandableMenuMainIconPropTypes
-} from "./ExpandableMenuMain.utils"
+import { classes, defaultProps, propTypes } from "./ExpandableMenuMain.utils"
 
 /**
  * Renders the icon that toggles the expandable menu on/off, that is, the one
@@ -34,11 +31,11 @@ import {
  *   '*Icon.Expandable.WithAura*'s '*ExpandableIcon*'.
  */
 export default function ExpandableMenuMainIcon({
-  type = "primary",
-  open = false,
-  classNames = {},
-  auraProps = {},
-  expandableIconProps = {}
+  type,
+  open,
+  classNames,
+  auraProps,
+  expandableIconProps
 }) {
   const _auraProps = {
     isActive: !open,
@@ -61,4 +58,5 @@ export default function ExpandableMenuMainIcon({
   )
 }
 
-ExpandableMenuMainIcon.propTypes = expandableMenuMainIconPropTypes
+ExpandableMenuMainIcon.defaultProps = defaultProps
+ExpandableMenuMainIcon.propTypes = propTypes

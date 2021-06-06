@@ -14,7 +14,9 @@ export const classes = {
     (className ?? "") + " " + styles.MultiplierImage
 }
 
-export const slotsResultItemPropTypes = {
+export const defaultProps = { classNames: {} }
+
+export const propTypes = {
   badgeContent: PropTypes.number.isRequired,
   imgSrc: PropTypes.string.isRequired,
   imgAlt: PropTypes.string.isRequired,

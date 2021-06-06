@@ -10,7 +10,7 @@ export const classes = {
     styles.Container
 }
 
-export const carouselIndicatorPropTypes = {
+export const propTypes = {
   name: PropTypes.string.isRequired,
   isActive: PropTypes.bool.isRequired,
   className: PropTypes.string

@@ -1,5 +1,5 @@
 import { Slots } from "hub"
-import { classes, slotsScoreSidePropTypes } from "./SlotsScoreSide.utils"
+import { classes, defaultProps, propTypes } from "./SlotsScoreSide.utils"
 
 /**
  * Renders a side either for "slots" scores (apple, cherry, lemon, berry),
@@ -55,8 +55,8 @@ export default function SlotsScoreSide({
   badgesProps,
   propThatTriggersScoreEffect,
   badgeEffectImgSrcArray,
-  scoreData = {},
-  classNames = {}
+  scoreData,
+  classNames
 }) {
   const [heartImgArr, starImgArr] = badgeEffectImgSrcArray
 
@@ -92,4 +92,5 @@ export default function SlotsScoreSide({
   )
 }
 
-SlotsScoreSide.propTypes = slotsScoreSidePropTypes
+SlotsScoreSide.propTypes = propTypes
+SlotsScoreSide.defaultProps = defaultProps

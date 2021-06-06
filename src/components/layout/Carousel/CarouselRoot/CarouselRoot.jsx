@@ -2,7 +2,8 @@ import { useCallback, useState, useEffect, useRef } from "react"
 import { Carousel, Container } from "hub"
 import {
   classes,
-  carouselPropTypes,
+  propTypes,
+  defaultProps,
   setNameAndTransitionRelatedContext
 } from "./CarouselRoot.utils"
 
@@ -66,16 +67,16 @@ import {
  */
 export default function CarouselRoot({
   children,
-  autoScroll = true,
-  autoScrollInterval = 3000,
-  autoScrollDirection = "right",
-  resumeAutoScrollTimeout = 3000,
+  autoScroll,
+  autoScrollInterval,
+  autoScrollDirection,
+  resumeAutoScrollTimeout,
   pauseAutoScrollOnInteraction,
   resumeAutoScrollOn,
-  showArrows = true,
-  showIndicators = true,
+  showArrows,
+  showIndicators,
   onSlideClick,
-  classNames = {},
+  classNames,
   ...otherProps
 }) {
   const [isAutoScrolling, setIsAutoScrolling] = useState(true)
@@ -257,4 +258,5 @@ export default function CarouselRoot({
   )
 }
 
-CarouselRoot.propTypes = carouselPropTypes
+CarouselRoot.defaultProps = defaultProps
+CarouselRoot.propTypes = propTypes

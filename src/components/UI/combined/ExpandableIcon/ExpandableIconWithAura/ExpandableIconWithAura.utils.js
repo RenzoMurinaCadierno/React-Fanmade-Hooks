@@ -6,7 +6,13 @@ export const classes = {
   expandableIcon: (classNames) => classNames
 }
 
-export const expandableIconWithAuraPropTypes = {
+export const defaultProps = {
+  classNames: {},
+  auraProps: {},
+  expandableIconProps: {}
+}
+
+export const propTypes = {
   classNames: PropTypes.exact({
     aura: PropTypes.exact({
       container: PropTypes.string,

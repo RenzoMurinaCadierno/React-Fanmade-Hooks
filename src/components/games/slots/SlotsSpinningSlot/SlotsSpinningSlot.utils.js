@@ -15,7 +15,9 @@ export const classes = {
   slotIcon: (className) => (className ?? "") + " " + styles.SlotIcon
 }
 
-export const slotsSpinningSlot = {
+export const defaultProps = { classNames: {} }
+
+export const propTypes = {
   slotsArray: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string).isRequired)
     .isRequired,
   onSlotClick: PropTypes.func,

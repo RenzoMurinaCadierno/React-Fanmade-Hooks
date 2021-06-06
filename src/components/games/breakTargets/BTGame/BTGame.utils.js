@@ -5,7 +5,13 @@ export const classes = {
   container: (className) => (className ?? "") + " " + styles.Container
 }
 
-export const btGamePropTypes = {
+export const defaultProps = {
+  spawnTargetTimeout: 300,
+  maxTargetsOnScreen: 5,
+  classNames: {}
+}
+
+export const propTypes = {
   isGameActive: PropTypes.bool.isRequired,
   spawnTargetTimeout: validateSpawnTargetTimeout,
   maxTargetsOnScreen: PropTypes.number,

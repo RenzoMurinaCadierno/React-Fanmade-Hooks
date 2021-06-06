@@ -12,7 +12,7 @@ export const classes = {
     styles.Container
 }
 
-export const appbarLinkPropTypes = {
+export const propTypes = {
   isActive: PropTypes.bool,
   children: PropTypes.node.isRequired,
   className: PropTypes.string

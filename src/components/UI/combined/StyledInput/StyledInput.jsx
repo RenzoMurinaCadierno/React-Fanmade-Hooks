@@ -2,7 +2,7 @@ import { useState, useCallback, useRef, forwardRef } from "react"
 import { Label, Input, Underline } from "hub"
 import { classes } from "./StyledInput.utils"
 
-// NOTE: we cannot add prop-types here, forwardRef does not support it.
+// NOTE: we cannot add propTypes/defaultProps here, forwardRef does not support it.
 // They are written in *utils.js* if you need them, though.
 
 /**

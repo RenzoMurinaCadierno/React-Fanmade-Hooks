@@ -5,7 +5,13 @@ export const classes = {
   container: (className) => (className ?? "") + " " + styles.Container
 }
 
-export const carouselIndicatorsPropTypes = {
+export const defaultProps = {
+  show: true,
+  indicatorNames: [],
+  classNames: {}
+}
+
+export const propTypes = {
   show: PropTypes.bool,
   indicatorNames: PropTypes.arrayOf(PropTypes.string).isRequired,
   activeName: PropTypes.string.isRequired,

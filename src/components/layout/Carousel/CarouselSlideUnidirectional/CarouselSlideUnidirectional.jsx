@@ -2,7 +2,8 @@ import { useEffect, useState, useContext } from "react"
 import { useClassNameToggle, useMountFlag, Carousel } from "hub"
 import {
   classes,
-  carouselSlideUnidirectionalPropTypes
+  propTypes,
+  defaultProps
 } from "./CarouselSlideUnidirectional.utils"
 
 /**
@@ -41,8 +42,8 @@ import {
 export default function CarouselSlideUnidirectional({
   name,
   children,
-  timeout = 400,
-  classNames = {},
+  timeout,
+  classNames,
   ...otherProps
 }) {
   // grab the slide name and direction to transition from parent's context
@@ -108,4 +109,5 @@ export default function CarouselSlideUnidirectional({
   )
 }
 
-CarouselSlideUnidirectional.propTypes = carouselSlideUnidirectionalPropTypes
+CarouselSlideUnidirectional.defaultProps = defaultProps
+CarouselSlideUnidirectional.propTypes = propTypes

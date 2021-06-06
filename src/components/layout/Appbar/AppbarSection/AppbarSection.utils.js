@@ -17,7 +17,9 @@ export const classes = {
     styles.Content
 }
 
-export const appbarSectionPropTypes = {
+export const defaultProps = { title: "Title", classNames: {} }
+
+export const propTypes = {
   children: PropTypes.node.isRequired,
   isActive: PropTypes.bool,
   title: PropTypes.string.isRequired,

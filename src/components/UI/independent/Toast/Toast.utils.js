@@ -18,7 +18,16 @@ export const classes = {
   toggler: (className) => (className ?? "") + " " + styles.Toggler
 }
 
-export const toastPropTypes = {
+export const defaultProps = {
+  show: false,
+  position: "bottom",
+  timeout: 2000,
+  classNames: {},
+  contentProps: {},
+  togglerProps: {}
+}
+
+export const propTypes = {
   show: PropTypes.bool.isRequired,
   position: PropTypes.oneOf(["center", "bottom", "left", "top", "right"]),
   timeout: PropTypes.number,

@@ -1,20 +1,21 @@
 import { useCallback, useEffect, useState, useRef, memo } from "react"
 import { useClassNameToggle } from "hub"
 import {
-  btTargetPropTypes,
   classes,
+  defaultProps,
+  propTypes,
   getContentOnHit,
   getTextToShowOnHit
 } from "./BTTarget.utils"
 
 function BTTarget({
-  content = "", // <string|object> What to show on target hit. Object shape {accuracy%: msgString, ...}
-  type = "primary", // <string> "primary" or "secondary"
-  x = 50, // <number> spawn X coordinate relative to '*BlankField*' (parent)
-  y = 50, // <number> spawn Y coordinate relative to '*BlankField*' (parent)
-  appearTimeout = 150, // <number> "appear" animation timeout. Must match its CSS animation class
-  destroyAnimationTimeout = 300, // <number> target's destruction animation timeout. Must match its CSS animation class
-  accuracyTimeout = 2000, // <number> target's timeout from delta accuracy 100% to 0%
+  content, // <string|object> What to show on target hit. Object shape {accuracy%: msgString, ...}
+  type, // <string> "primary" or "secondary"
+  x, // <number> spawn X coordinate relative to '*BlankField*' (parent)
+  y, // <number> spawn Y coordinate relative to '*BlankField*' (parent)
+  appearTimeout, // <number> "appear" animation timeout. Must match its CSS animation class
+  destroyAnimationTimeout, // <number> target's destruction animation timeout. Must match its CSS animation class
+  accuracyTimeout, // <number> target's timeout from delta accuracy 100% to 0%
   selfDestruct, // <boolean> true will destroy the target without player interaction
   destroyOnAccuracyTimeout, // <boolean> true will destroy the target at `accuracyTimeout`
   showOnBreak, // <string> "closest", "value" or "content"
@@ -153,6 +154,7 @@ function BTTarget({
   )
 }
 
-BTTarget.propTypes = btTargetPropTypes
+BTTarget.defaultProps = defaultProps
+BTTarget.propTypes = propTypes
 
 export default memo(BTTarget)

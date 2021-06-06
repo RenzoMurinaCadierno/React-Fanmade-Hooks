@@ -4,7 +4,9 @@ export const classes = {
   arrowComponent: (classNames) => classNames
 }
 
-export const carouselArrowsPropTypes = {
+export const defaultProps = { classNames: {} }
+
+export const propTypes = {
   show: PropTypes.bool,
   directions: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   classNames: PropTypes.exact({

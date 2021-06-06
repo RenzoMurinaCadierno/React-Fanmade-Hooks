@@ -1,6 +1,6 @@
 import { useCallback } from "react"
 import { Button } from "hub"
-import { classes, phoneDialPropTypes, buttons } from "./PhoneDial.utils"
+import { classes, defaultProps, propTypes, buttons } from "./PhoneDial.utils"
 
 /**
  * Renders an array of '*Button*' components representing a classic cellphone
@@ -27,7 +27,7 @@ import { classes, phoneDialPropTypes, buttons } from "./PhoneDial.utils"
 export default function PhoneDial({
   onButtonClick,
   classNames,
-  buttonProps = {},
+  buttonProps,
   ...otherProps
 }) {
   const handleButtonClick = useCallback(
@@ -69,4 +69,5 @@ export default function PhoneDial({
   )
 }
 
-PhoneDial.propTypes = phoneDialPropTypes
+PhoneDial.defaultProps = defaultProps
+PhoneDial.propTypes = propTypes

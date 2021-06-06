@@ -23,7 +23,6 @@ function CmpTest() {
         label={`${isDisabled ? "Typing disabled" : "You can type here"}`}
         disabled={isDisabled}
       />
-      {/* <Button type={isDisabled ? "secondary" : ""} onClick={toggleDisabled}> */}
       <Button type={isDisabled ? "secondary" : ""} onClick={toggleDisabled}>
         {`${isDisabled ? "Enable" : "Disable"} typing`}
       </Button>

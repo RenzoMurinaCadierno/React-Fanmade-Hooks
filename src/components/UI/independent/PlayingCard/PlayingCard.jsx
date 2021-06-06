@@ -1,6 +1,7 @@
 import {
   classes,
-  playingCardPropTypes,
+  defaultProps,
+  propTypes,
   getFormattedValue,
   getSuitCNandCharOrJSX
 } from "./PlayingCard.utils"
@@ -40,7 +41,7 @@ export default function PlayingCard({
   suit,
   isPokerCard,
   onClick,
-  classNames = {},
+  classNames,
   ...otherProps
 }) {
   const [defaultSuitCN, suitStrOrJSX] = getSuitCNandCharOrJSX(suit, isPokerCard)
@@ -66,4 +67,5 @@ export default function PlayingCard({
   )
 }
 
-PlayingCard.propTypes = playingCardPropTypes
+PlayingCard.defaultProps = defaultProps
+PlayingCard.propTypes = propTypes

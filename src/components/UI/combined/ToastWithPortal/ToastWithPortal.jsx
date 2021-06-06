@@ -1,6 +1,6 @@
 import { createPortal } from "react-dom"
 import { Toast, useMountFlag } from "hub"
-import { toastWithPortalPropTypes } from "./ToastWithPortal.utils"
+import { propTypes } from "./ToastWithPortal.utils"
 
 /**
  * Renders a '*Toast*' at `portalNode`.
@@ -26,16 +26,16 @@ import { toastWithPortalPropTypes } from "./ToastWithPortal.utils"
  *
  * `toastProps` (object): Props to pass to '*Toast*'.
  */
-export default function ToastWithPortal({
-  portalNode = document.querySelector(".App"),
-  ...toastProps
-}) {
+export default function ToastWithPortal({ portalNode, ...toastProps }) {
   const isMounted = useMountFlag()
 
   return (
     isMounted &&
-    createPortal(<Toast {...toastProps} />, portalNode?.current ?? portalNode)
+    createPortal(
+      <Toast {...toastProps} />,
+      portalNode?.current ?? portalNode ?? document.querySelector(".App")
+    )
   )
 }
 
-ToastWithPortal.propTypes = toastWithPortalPropTypes
+ToastWithPortal.propTypes = propTypes

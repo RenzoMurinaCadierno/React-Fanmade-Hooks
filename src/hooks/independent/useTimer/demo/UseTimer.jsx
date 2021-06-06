@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState, memo } from "react"
 import { useTimer, CmpDescription, BT } from "hub"
 import {
   classes,
+  expandableIconProps,
   descItemsObject,
   scores,
   targetContentObj,
@@ -24,7 +25,7 @@ export default function UseTimer() {
     <div className={classes.container}>
       <CmpDescription
         descItems={descItemsObject}
-        iconExpandDirection="right"
+        expandableIconProps={expandableIconProps}
         classNames={classes.cmpDesc}
       />
       <MemoizedCmpTest />
@@ -90,16 +91,17 @@ function Timer({ isGameActive, bonusTime, points, onGameReset }) {
   // game end will destroy all targets and substract/add time accodingly,
   // modifying the timer for next game.
   /* eslint-disable react-hooks/exhaustive-deps */
-  useEffect(() => bonusTime && isGameActive && timer.advance(bonusTime), [
-    points
-  ])
+  useEffect(
+    () => bonusTime && isGameActive && timer.advance(bonusTime),
+    [points]
+  )
 
   // this useEffect fires when there is no time left (0ms === !timer.currentMs),
   // and triggers game reset logic
-  useEffect(() => !timer.currentMs && onGameReset(), [
-    timer.currentMs,
-    onGameReset
-  ])
+  useEffect(
+    () => !timer.currentMs && onGameReset(),
+    [timer.currentMs, onGameReset]
+  )
 
   return (
     <>

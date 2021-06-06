@@ -1,5 +1,5 @@
 import { Backdrop, Slots, Button } from "hub"
-import { classes, slotsResultScreenPropTypes } from "./SlotsResultScreen.utils"
+import { classes, defaultProps, propTypes } from "./SlotsResultScreen.utils"
 
 /**
  * Renders the "final results" screen UI, triggered when all scores for each
@@ -58,7 +58,7 @@ export default function SlotsResultScreen({
   scoresBadgesProps,
   statsBadgesProps,
   onRestartButtonClick,
-  classNames = {}
+  classNames
 }) {
   return (
     // wrapper. Covers 100% of visible screen
@@ -93,4 +93,5 @@ export default function SlotsResultScreen({
   )
 }
 
-SlotsResultScreen.propTypes = slotsResultScreenPropTypes
+SlotsResultScreen.propTypes = propTypes
+SlotsResultScreen.defaultProps = defaultProps

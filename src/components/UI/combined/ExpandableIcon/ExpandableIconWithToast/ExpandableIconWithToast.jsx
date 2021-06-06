@@ -2,7 +2,8 @@ import { useState } from "react"
 import { Icon, Toast } from "hub"
 import {
   classes,
-  expandableIconWithToastPropTypes
+  defaultProps,
+  propTypes
 } from "./ExpandableIconWithToast.utils"
 
 /**
@@ -26,9 +27,9 @@ import {
  */
 export default function ExpandableIconWithToast({
   children,
-  classNames = {},
-  expandableIconProps = {},
-  toastProps = {}
+  classNames,
+  expandableIconProps,
+  toastProps
 }) {
   const [showToast, setShowToast] = useState(false)
 
@@ -72,4 +73,5 @@ export default function ExpandableIconWithToast({
   )
 }
 
-ExpandableIconWithToast.propTypes = expandableIconWithToastPropTypes
+ExpandableIconWithToast.defaultProps = defaultProps
+ExpandableIconWithToast.propTypes = propTypes

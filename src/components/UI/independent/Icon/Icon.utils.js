@@ -10,7 +10,9 @@ export const classes = {
     styles.Container
 }
 
-export const iconPropTypes = {
+export const defaultProps = { type: "primary" }
+
+export const propTypes = {
   children: PropTypes.node,
   type: PropTypes.oneOf([
     "primary",

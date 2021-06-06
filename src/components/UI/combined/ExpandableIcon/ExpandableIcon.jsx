@@ -2,7 +2,8 @@ import { useCallback, useState, memo } from "react"
 import { Icon } from "hub"
 import {
   classes,
-  expandableIconPropTypes,
+  defaultProps,
+  propTypes,
   typeOf
 } from "./ExpandableIcon.utils"
 
@@ -60,21 +61,21 @@ import {
  * `otherProps` (object): Props to pass to wrapper container '*div*'.
  */
 function ExpandableIcon({
-  type = "primary",
+  type,
   icon,
   content,
   expand,
-  expandDirection = "right",
+  expandDirection,
   tabIndex,
   onFocus,
   onBlur,
   onIconClick,
   onContentClick,
   disabled,
-  classNames = {},
-  iconProps = {},
-  contentProps = {},
-  barrierProps = {},
+  classNames,
+  iconProps,
+  contentProps,
+  barrierProps,
   ...otherProps
 }) {
   const [st, setSt] = useState({ isFocused: false, isExpanded: false })
@@ -176,6 +177,7 @@ function ExpandableIcon({
   )
 }
 
-ExpandableIcon.propTypes = expandableIconPropTypes
+ExpandableIcon.defaultProps = defaultProps
+ExpandableIcon.propTypes = propTypes
 
 export default memo(ExpandableIcon)

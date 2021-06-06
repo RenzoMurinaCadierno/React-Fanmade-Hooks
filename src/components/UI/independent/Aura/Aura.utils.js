@@ -23,6 +23,16 @@ export const classes = {
     styles.Aura
 }
 
+export const defaultProps = {
+  isActive: true,
+  type: "primary",
+  blink: "normal",
+  size: "normal",
+  interval: "normal",
+  classNames: {},
+  auraProps: {}
+}
+
 /**
  * Pascal-cases each string in `words` and returns all of them joined together.
  *
@@ -43,7 +53,7 @@ const validTypePropTypes = getCartesianProduct(
   "-"
 )
 
-export const auraPropTypes = {
+export const propTypes = {
   children: validateChildren,
   isActive: PropTypes.bool,
   type: PropTypes.oneOf(validTypePropTypes),

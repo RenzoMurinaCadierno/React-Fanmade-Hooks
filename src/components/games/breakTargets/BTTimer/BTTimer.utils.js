@@ -14,7 +14,9 @@ const timeRelatedPropTypeCheck = PropTypes.oneOfType([
   })
 ])
 
-export const btTimerPropTypes = {
+export const defaultProps = { initialTime: 60000, tick: -250 }
+
+export const propTypes = {
   initialTime: timeRelatedPropTypeCheck,
   tick: timeRelatedPropTypeCheck,
   isGameActive: PropTypes.bool.isRequired,

@@ -1,5 +1,5 @@
 import { Carousel } from "hub"
-import { classes, carouselArrowsPropTypes } from "./CarouselArrows.utils"
+import { classes, defaultProps, propTypes } from "./CarouselArrows.utils"
 
 /**
  * Container element to wrap all '*CarouselArrow*'s, which serves as controls
@@ -18,7 +18,7 @@ import { classes, carouselArrowsPropTypes } from "./CarouselArrows.utils"
 export default function CarouselArrows({
   show,
   directions,
-  classNames = {},
+  classNames,
   ...otherProps
 }) {
   return (
@@ -36,4 +36,5 @@ export default function CarouselArrows({
   )
 }
 
-CarouselArrows.propTypes = carouselArrowsPropTypes
+CarouselArrows.defaultProps = defaultProps
+CarouselArrows.propTypes = propTypes

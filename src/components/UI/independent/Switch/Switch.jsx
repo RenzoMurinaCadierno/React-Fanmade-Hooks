@@ -1,5 +1,5 @@
 import { useState, memo } from "react"
-import { classes, switchPropTypes } from "./Switch.utils"
+import { classes, defaultProps, propTypes } from "./Switch.utils"
 
 /**
  * Renders a 'Switch' (standard on/off UI element) and handles its logic.
@@ -53,6 +53,7 @@ function Switch({
   )
 }
 
-Switch.propTypes = switchPropTypes
+Switch.defaultProps = defaultProps
+Switch.propTypes = propTypes
 
 export default memo(Switch)

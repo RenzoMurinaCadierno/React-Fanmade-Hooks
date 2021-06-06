@@ -19,7 +19,12 @@ export const classes = {
   closeIcon: (className) => (className ?? "") + " " + styles.CloseIcon
 }
 
-export const modalPropTypes = {
+export const defaultProps = {
+  scrollable: true,
+  classNames: {}
+}
+
+export const propTypes = {
   children: PropTypes.node,
   open: PropTypes.bool.isRequired,
   type: PropTypes.oneOf([

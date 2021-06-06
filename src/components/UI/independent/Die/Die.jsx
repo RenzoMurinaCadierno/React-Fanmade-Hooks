@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { classes, diePropTypes } from "./Die.utils"
+import { classes, defaultProps, propTypes } from "./Die.utils"
 
 /**
  * Renders a functional 'die' UI, with adjustable minimum and maximum roll
@@ -28,13 +28,13 @@ import { classes, diePropTypes } from "./Die.utils"
  * `...otherProps?` (object): Props to spread in wrapper '*div*'.
  */
 export default function Die({
-  min = 1,
-  max = 6,
+  min,
+  max,
   isFrozen,
   onBeforeRoll,
   onAfterRoll,
-  classNames = {},
-  digitProps = {},
+  classNames,
+  digitProps,
   ...otherProps
 }) {
   // "res" is the number that appears on die, "isRolling" is the rolling state
@@ -100,4 +100,5 @@ export default function Die({
   )
 }
 
-Die.propTypes = diePropTypes
+Die.defaultProps = defaultProps
+Die.propTypes = propTypes

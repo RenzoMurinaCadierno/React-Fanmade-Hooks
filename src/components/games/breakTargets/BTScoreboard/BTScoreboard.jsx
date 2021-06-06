@@ -1,5 +1,5 @@
 import { Text, Button, BT } from "hub"
-import { classes, btScoreboardPropTypes } from "./BTScoreboard.utils"
+import { classes, propTypes } from "./BTScoreboard.utils"
 
 export default function BTScoreboard({
   gameSt, // <object> '*BTGame*' game state. Check PropTypes in *utils.js* for its consitution
@@ -9,15 +9,8 @@ export default function BTScoreboard({
   onGameReset, // <function> callback to trigger when game ends
   className // <string> className to attach to container <div /> here
 }) {
-  const {
-    isGameActive,
-    text,
-    hits,
-    points,
-    speed,
-    accSpeed,
-    highScore
-  } = gameSt
+  const { isGameActive, text, hits, points, speed, accSpeed, highScore } =
+    gameSt
   const Timer = timerComponent ?? BT.Timer
 
   return (
@@ -57,4 +50,4 @@ export default function BTScoreboard({
   )
 }
 
-BTScoreboard.propTypes = btScoreboardPropTypes
+BTScoreboard.propTypes = propTypes

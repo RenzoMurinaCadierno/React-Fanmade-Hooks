@@ -1,4 +1,4 @@
-import { classes, auraPropTypes } from "./Aura.utils"
+import { classes, defaultProps, propTypes } from "./Aura.utils"
 
 /**
  * Creates an "aura" effect on the wrapped component.
@@ -50,14 +50,14 @@ import { classes, auraPropTypes } from "./Aura.utils"
  */
 export default function Aura({
   children,
-  isActive = true,
-  type = "primary",
-  blink = "normal",
-  size = "normal",
-  interval = "normal",
+  isActive,
+  type,
+  blink,
+  size,
+  interval,
   inheritBoxShape,
-  classNames = {},
-  auraProps = {},
+  classNames,
+  auraProps,
   ...otherProps
 }) {
   return (
@@ -79,4 +79,5 @@ export default function Aura({
   )
 }
 
-Aura.propTypes = auraPropTypes
+Aura.defaultProps = defaultProps
+Aura.propTypes = propTypes

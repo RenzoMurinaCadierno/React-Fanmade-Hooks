@@ -1,7 +1,8 @@
 import { Icon } from "hub"
 import {
   classes,
-  expandableMenuListIconPropTypes,
+  defaultProps,
+  propTypes,
   getStyle
 } from "./ExpandableMenuListIcon.utils"
 
@@ -51,9 +52,9 @@ export default function ExpandableMenuListIcon({
   show,
   order,
   amountOfIcons,
-  spread = "top",
+  spread,
   iconExpandDirection,
-  classNames = {},
+  classNames,
   ...otherProps
 }) {
   return (
@@ -66,4 +67,5 @@ export default function ExpandableMenuListIcon({
   )
 }
 
-ExpandableMenuListIcon.propTypes = expandableMenuListIconPropTypes
+ExpandableMenuListIcon.defaultProps = defaultProps
+ExpandableMenuListIcon.propTypes = propTypes

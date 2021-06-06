@@ -5,7 +5,7 @@ export const classes = {
   carousel: { container: styles.Carousel }
 }
 
-export const localStorageCRUDRootPropTypes = {
+export const propTypes = {
   userSt: PropTypes.exact({
     id: PropTypes.string,
     user: PropTypes.string,

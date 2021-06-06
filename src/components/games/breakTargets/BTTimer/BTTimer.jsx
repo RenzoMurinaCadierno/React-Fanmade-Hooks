@@ -1,10 +1,10 @@
 import { useEffect } from "react"
 import { useTimer } from "hub"
-import { btTimerPropTypes } from "./BTTimer.utils"
+import { defaultProps, propTypes } from "./BTTimer.utils"
 
 export default function BTTimer({
-  initialTime = 60000,
-  tick = -250,
+  initialTime,
+  tick,
   isGameActive,
   bonusTime,
   points,
@@ -42,4 +42,5 @@ export default function BTTimer({
   )
 }
 
-BTTimer.propTypes = btTimerPropTypes
+BTTimer.defaultProps = defaultProps
+BTTimer.propTypes = propTypes

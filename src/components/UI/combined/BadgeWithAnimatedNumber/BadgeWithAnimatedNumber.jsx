@@ -1,6 +1,6 @@
 // import Badge from "components/UI/combined/Badge/Badge"
 import { useAnimatedNumber, Badge } from "hub"
-import { badgeWithAnimatedNumberPropTypes } from "./BadgeWithAnimatedNumber.utils"
+import { defaultProps, propTypes } from "./BadgeWithAnimatedNumber.utils"
 
 /**
  * Returns a '*Badge*' component whose `content` is a number with an animation
@@ -13,7 +13,7 @@ import { badgeWithAnimatedNumberPropTypes } from "./BadgeWithAnimatedNumber.util
  * `hookConfigs?` (object): Params to pass to "useAnimatedNumber" hook.
  */
 export default function BadgeWithAnimatedNumber({
-  content = 0,
+  content,
   hookConfigs,
   ...otherProps
 }) {
@@ -25,7 +25,8 @@ export default function BadgeWithAnimatedNumber({
   )
 }
 
-BadgeWithAnimatedNumber.propTypes = badgeWithAnimatedNumberPropTypes
+BadgeWithAnimatedNumber.defaultProps = defaultProps
+BadgeWithAnimatedNumber.propTypes = propTypes
 
 /**
  * Creates and returns the value to use as animated number as a React Component

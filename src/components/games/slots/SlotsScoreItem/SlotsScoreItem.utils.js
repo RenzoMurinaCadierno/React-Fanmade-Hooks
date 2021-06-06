@@ -15,6 +15,12 @@ export const classes = {
   })
 }
 
+export const defaultProps = {
+  badgesProps: [],
+  classNames: {},
+  otherBadgeProps: {}
+}
+
 const badgePropsShape = PropTypes.shape({
   key: PropTypes.string.isRequired,
   show: PropTypes.bool.isRequired,
@@ -26,7 +32,7 @@ const badgePropsShape = PropTypes.shape({
   type: PropTypes.string
 })
 
-export const slotsScoreItemPropTypes = {
+export const propTypes = {
   children: PropTypes.node,
   name: PropTypes.string.isRequired,
   badgesProps: PropTypes.arrayOf(badgePropsShape),

@@ -15,7 +15,16 @@ export const classes = {
   barrier: (className) => (className ?? "") + " " + styles.Barrier
 }
 
-export const expandableIconPropTypes = {
+export const defaultProps = {
+  type: "primary",
+  expandDirection: "right",
+  classNames: {},
+  iconProps: {},
+  contentProps: {},
+  barrierProps: {}
+}
+
+export const propTypes = {
   type: PropTypes.oneOf([
     "primary",
     "primary-0",

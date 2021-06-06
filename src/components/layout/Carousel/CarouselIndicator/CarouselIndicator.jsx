@@ -1,4 +1,4 @@
-import { classes, carouselIndicatorPropTypes } from "./CarouselIndicator.utils"
+import { classes, propTypes } from "./CarouselIndicator.utils"
 
 /**
  * Renders a single "active slide index" indicator (spot at bottom of
@@ -31,4 +31,4 @@ export default function CarouselIndicator({
   )
 }
 
-CarouselIndicator.propTypes = carouselIndicatorPropTypes
+CarouselIndicator.propTypes = propTypes

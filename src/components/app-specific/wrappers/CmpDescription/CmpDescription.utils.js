@@ -1,4 +1,5 @@
 import PropTypes from "prop-types"
+import { urls } from "app.configs.json"
 import styles from "./CmpDescription.module.css"
 
 export const classes = {
@@ -17,6 +18,23 @@ export const classes = {
   description: (className) => className ?? ""
 }
 
+export const defaultProps = {
+  descItems: {
+    title: 'Set title as a string in "descItems.title" prop',
+    paragraphs: [
+      'Set paragraphs as an array of strings in "descItems.paragraphs" prop.',
+      'Set paragraphs as an array of strings in "descItems.paragraphs" prop.'
+    ]
+  },
+  iconUrl: urls.github.hooks,
+  classNames: {},
+  expandableIconProps: { expandDirection: "left" },
+  toastProps: {},
+  containerProps: {},
+  titleProps: {},
+  paragraphProps: {}
+}
+
 const codeIconPropTypes = PropTypes.exact({
   expandableIcon: PropTypes.exact({
     container: PropTypes.string,
@@ -30,12 +48,11 @@ const codeIconPropTypes = PropTypes.exact({
   })
 })
 
-export const cmpDescriptionPropTypes = {
+export const propTypes = {
   descItems: PropTypes.exact({
     title: PropTypes.string.isRequired,
     paragraphs: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
   }),
-  iconExpandDirection: PropTypes.oneOf(["left", "right"]),
   iconUrl: PropTypes.string,
   classNames: PropTypes.exact({
     codeIcon: codeIconPropTypes,
@@ -43,5 +60,10 @@ export const cmpDescriptionPropTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
     barrier: PropTypes.string
-  })
+  }),
+  expandableIconProps: PropTypes.object,
+  toastProps: PropTypes.object,
+  containerProps: PropTypes.object,
+  titleProps: PropTypes.object,
+  paragraphProps: PropTypes.object
 }

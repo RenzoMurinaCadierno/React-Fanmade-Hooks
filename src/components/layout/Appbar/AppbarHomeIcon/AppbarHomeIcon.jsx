@@ -1,7 +1,6 @@
 import { memo } from "react"
 import { Icon } from "hub"
-import defaultHomeIconSVG from "assets/icons/home.svg"
-import { classes, appbarHomeIconPropTypes } from "./AppbarHomeIcon.utils"
+import { classes, defaultProps, propTypes } from "./AppbarHomeIcon.utils"
 
 /**
  * Renders a an '*ExpandableIcon*' to use as link to '*HomePage*'.
@@ -24,10 +23,10 @@ import { classes, appbarHomeIconPropTypes } from "./AppbarHomeIcon.utils"
  * `otherExpandableIconProps?` (object): Props to spread in '*ExpandableIcon*'.
  */
 function AppbarHomeIcon({
-  homeIconSVG = defaultHomeIconSVG,
-  expandDirection = "right",
-  content = "Go home",
-  classNames = {},
+  homeIconSVG,
+  expandDirection,
+  content,
+  classNames,
   ...otherExpandableIconProps
 }) {
   return (
@@ -47,6 +46,7 @@ function AppbarHomeIcon({
   )
 }
 
-AppbarHomeIcon.propTypes = appbarHomeIconPropTypes
+AppbarHomeIcon.defaultProps = defaultProps
+AppbarHomeIcon.propTypes = propTypes
 
 export default memo(AppbarHomeIcon)

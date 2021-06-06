@@ -1,5 +1,5 @@
 import { memo } from "react"
-import { classes, textPropTypes } from "./Text.utils"
+import { classes, defaultProps, propTypes } from "./Text.utils"
 
 /**
  * Renders a container for string-related DOM elements ('span', 'p' and 'h1' to
@@ -30,7 +30,7 @@ import { classes, textPropTypes } from "./Text.utils"
  */
 function Text({
   htmlElem,
-  type = "primary",
+  type,
   small,
   italic,
   bold,
@@ -40,7 +40,7 @@ function Text({
   children,
   ...otherProps
 }) {
-  const Component = htmlElem ?? "p"
+  const Component = htmlElem
 
   return (
     <Component
@@ -62,6 +62,7 @@ function Text({
   )
 }
 
-Text.propTypes = textPropTypes
+Text.defaultProps = defaultProps
+Text.propTypes = propTypes
 
 export default memo(Text)

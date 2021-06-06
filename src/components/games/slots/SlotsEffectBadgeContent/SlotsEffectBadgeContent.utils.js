@@ -12,7 +12,9 @@ export const classes = {
   image: (className) => (className ?? "") + " " + styles.Image
 }
 
-export const slotsEffectBadgeContentPropTypes = {
+export const defaultProps = { classNames: {} }
+
+export const propTypes = {
   content: PropTypes.number.isRequired,
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,

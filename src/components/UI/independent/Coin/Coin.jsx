@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { classes, coinPropTypes } from "./Coin.utils"
+import { classes, defaultProps, propTypes } from "./Coin.utils"
 
 /**
  * Renders a functional "coin" UI, with adjustable success probability as well
@@ -44,15 +44,15 @@ import { classes, coinPropTypes } from "./Coin.utils"
  */
 export default function Coin({
   isFrozen,
-  head = "O",
-  tails = "X",
-  toss = "?",
-  successChance = 0.5,
+  head,
+  tails,
+  toss,
+  successChance,
   changeColor,
   onBeforeToss,
   onAfterToss,
-  classNames = {},
-  resultProps = {},
+  classNames,
+  resultProps,
   ...otherProps
 }) {
   // "res" true is heads, false is tails. "isTossing" is the tossing state
@@ -107,4 +107,5 @@ export default function Coin({
   )
 }
 
-Coin.propTypes = coinPropTypes
+Coin.defaultProps = defaultProps
+Coin.propTypes = propTypes

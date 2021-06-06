@@ -15,7 +15,9 @@ export const classes = {
   homeIcon: (classNames) => classNames
 }
 
-export const appbarPropTypes = {
+export const defaultProps = { classNames: {} }
+
+export const propTypes = {
   children: PropTypes.node.isRequired,
   manualToggle: PropTypes.bool,
   animateToggler: PropTypes.bool,

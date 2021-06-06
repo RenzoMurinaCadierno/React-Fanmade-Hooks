@@ -1,4 +1,4 @@
-import { classes, appbarTogglerPropTypes } from "./AppbarToggler.utils"
+import { classes, defaultProps, propTypes } from "./AppbarToggler.utils"
 
 /**
  * Renders a 3-dotted 'toggler' UI at the top-left of the screen.
@@ -22,8 +22,8 @@ import { classes, appbarTogglerPropTypes } from "./AppbarToggler.utils"
 export default function AppbarToggler({
   isActive,
   animate,
-  classNames = {},
-  togglerDisplayProps = {},
+  classNames,
+  togglerDisplayProps,
   ...otherProps
 }) {
   return (
@@ -38,4 +38,5 @@ export default function AppbarToggler({
   )
 }
 
-AppbarToggler.propTypes = appbarTogglerPropTypes
+AppbarToggler.propTypes = propTypes
+AppbarToggler.defaultProps = defaultProps

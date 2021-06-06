@@ -1,5 +1,5 @@
 import { memo } from "react"
-import { classes, containerPropTypes } from "./Container.utils"
+import { classes, defaultProps, propTypes } from "./Container.utils"
 
 /**
  * Renders a generic wrapper container with default and optional styling.
@@ -31,7 +31,7 @@ import { classes, containerPropTypes } from "./Container.utils"
  * `children?` (React.Node): anything React can render, to display as children.
  */
 function Container({
-  htmlElem = "div",
+  htmlElem,
   type,
   flexDirection,
   alignItems,
@@ -62,6 +62,7 @@ function Container({
   )
 }
 
-Container.propTypes = containerPropTypes
+Container.defaultProps = defaultProps
+Container.propTypes = propTypes
 
 export default memo(Container)

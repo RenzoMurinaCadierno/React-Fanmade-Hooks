@@ -9,7 +9,7 @@ import {
 } from "hub"
 import {
   classes,
-  localStorageCRUDSettingsPropTypes,
+  propTypes,
   intl,
   getOppositeConfigState
 } from "./LocalStorageCRUDSettings.utils"
@@ -136,7 +136,7 @@ export default function LocalStorageCRUDSettings({
   )
 }
 
-LocalStorageCRUDSettings.propTypes = localStorageCRUDSettingsPropTypes
+LocalStorageCRUDSettings.propTypes = propTypes
 
 function ConfigOption({ configs, name, primaryOpt, secondaryOpt, onSwitch }) {
   return (

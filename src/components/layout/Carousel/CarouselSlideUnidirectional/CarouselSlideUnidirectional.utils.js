@@ -9,7 +9,9 @@ export const classes = {
   "animate-unmount-right": styles.AnimateUnmountRight
 }
 
-export const carouselSlideUnidirectionalPropTypes = {
+export const defaultProps = { timeout: 400, classNames: {} }
+
+export const propTypes = {
   name: PropTypes.string.isRequired,
   children: PropTypes.node,
   timeout: PropTypes.number,

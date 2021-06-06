@@ -5,7 +5,9 @@ export const classes = {
   container: (className) => (className ?? "") + " " + styles.Container
 }
 
-export const btFieldPropTypes = {
+export const defaultProps = { type: "primary" }
+
+export const propTypes = {
   children: PropTypes.node,
   type: PropTypes.oneOf(["primary", "secondary"]),
   className: PropTypes.string

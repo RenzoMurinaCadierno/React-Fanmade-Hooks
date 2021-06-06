@@ -1,4 +1,4 @@
-import { classes, underlinePropTypes } from "./Underline.utils"
+import { classes, propTypes } from "./Underline.utils"
 
 /**
  * Renders a '*span*' that serves as an underline effect. Normally used to mark
@@ -10,6 +10,8 @@ import { classes, underlinePropTypes } from "./Underline.utils"
  *   element is being focused.
  *
  * `className?` (string): className string to add to rendered '*span*'.
+ *
+ * `otherProps?` (object): Props to spread in rendered '*span*'.
  */
 export default function Underline({ isFocused, className, ...otherProps }) {
   return (
@@ -17,4 +19,4 @@ export default function Underline({ isFocused, className, ...otherProps }) {
   )
 }
 
-Underline.propTypes = underlinePropTypes
+Underline.propTypes = propTypes

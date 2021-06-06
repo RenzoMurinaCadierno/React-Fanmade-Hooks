@@ -11,7 +11,7 @@ export const classes = {
     (type ? styles[type.toLowerCase()] : "") + " " + styles.AuthBanner
 }
 
-export const localStorageCRUDSettingsPropTypes = {
+export const propTypes = {
   userSt: PropTypes.shape({
     id: PropTypes.string,
     isAuth: PropTypes.bool,

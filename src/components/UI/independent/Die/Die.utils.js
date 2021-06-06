@@ -13,7 +13,14 @@ export const classes = {
   digit: (className) => (className ?? "") + " " + styles.Digit
 }
 
-export const diePropTypes = {
+export const defaultProps = {
+  min: 1,
+  max: 6,
+  classNames: {},
+  digitProps: {}
+}
+
+export const propTypes = {
   min: PropTypes.number,
   max: PropTypes.number,
   isFrozen: PropTypes.bool,

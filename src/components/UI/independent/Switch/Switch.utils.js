@@ -24,7 +24,9 @@ export const classes = {
     styles.Button
 }
 
-export const switchPropTypes = {
+export const defaultProps = { initialState: false, classNames: {} }
+
+export const propTypes = {
   initialState: PropTypes.bool,
   isFrozen: PropTypes.bool,
   onSwitch: PropTypes.func,

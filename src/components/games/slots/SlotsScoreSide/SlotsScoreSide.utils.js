@@ -7,6 +7,8 @@ export const classes = {
   image: (className) => (className ?? "") + " " + styles.Image
 }
 
+export const defaultProps = { scoreData: {}, classNames: {} }
+
 const requiredArrayOfArraysOfStrings = PropTypes.arrayOf(
   PropTypes.arrayOf(PropTypes.string).isRequired
 ).isRequired
@@ -18,7 +20,7 @@ const scoreDataShape = PropTypes.shape({
   multiplier: PropTypes.number.isRequired
 })
 
-export const slotsScoreSidePropTypes = {
+export const propTypes = {
   items: requiredArrayOfArraysOfStrings,
   badgesProps: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.object)),
   propThatTriggersScoreEffect: PropTypes.string.isRequired,

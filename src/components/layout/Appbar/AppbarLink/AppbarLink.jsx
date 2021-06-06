@@ -1,4 +1,4 @@
-import { classes, appbarLinkPropTypes } from "./AppbarLink.utils"
+import { classes, propTypes } from "./AppbarLink.utils"
 
 /**
  * Renders a valid component to use as navigation link to a hook example page.
@@ -29,7 +29,6 @@ export default function AppbarLink({
       className={classes.container(
         isActive,
         typeof children === "string" && children.length > 16,
-        // false,
         className
       )}
       {...otherProps}
@@ -39,4 +38,4 @@ export default function AppbarLink({
   )
 }
 
-AppbarLink.propTypes = appbarLinkPropTypes
+AppbarLink.propTypes = propTypes

@@ -3,7 +3,8 @@ import { Slots, Button, useToggle } from "hub"
 import { getReducerInitialState } from "../store/slotsGame.reducer"
 import {
   classes,
-  slotsGameRootNodePropTypes,
+  defaultProps,
+  propTypes,
   slotsArrays,
   resultItems,
   reducerItems,
@@ -50,7 +51,7 @@ const initialState = getReducerInitialState(reducerItems, lives)
  * `classNames?` (object): className strings for each JSX rendered here.
  *   Check *utils.js* for its constitution.
  */
-export default function SlotsGameRootNode({ classNames = {} }) {
+export default function SlotsGameRootNode({ classNames }) {
   // reducer state and dispatch. Handles all game logic
   const [state, dispatch] = useReducer(Slots.reducer, initialState)
   // "final results" modal screen's toggler
@@ -152,4 +153,5 @@ export default function SlotsGameRootNode({ classNames = {} }) {
   )
 }
 
-SlotsGameRootNode.propTypes = slotsGameRootNodePropTypes
+SlotsGameRootNode.defaultProps = defaultProps
+SlotsGameRootNode.propTypes = propTypes

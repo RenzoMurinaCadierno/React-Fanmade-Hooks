@@ -5,7 +5,7 @@ export const classes = {
   container: (className) => (className ?? "") + " " + styles.Container
 }
 
-export const btScoreboardPropTypes = {
+export const propTypes = {
   scores: PropTypes.objectOf(
     PropTypes.exact({
       bonusTime: PropTypes.number.isRequired,

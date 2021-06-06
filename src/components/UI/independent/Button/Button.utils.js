@@ -14,7 +14,7 @@ export const classes = {
     (type && coloredBg ? styles[type + "-colored"] : "")
 }
 
-export const buttonPropTypes = {
+export const propTypes = {
   children: PropTypes.node,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,

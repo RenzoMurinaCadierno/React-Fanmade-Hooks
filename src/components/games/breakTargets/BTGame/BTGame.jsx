@@ -1,14 +1,20 @@
 import { memo, useCallback, useEffect, useState } from "react"
 import { BT } from "hub"
-import { classes, btGamePropTypes, getNewCoords, index } from "./BTGame.utils"
+import {
+  classes,
+  defaultProps,
+  propTypes,
+  getNewCoords,
+  index
+} from "./BTGame.utils"
 
 function BTGame({
   isGameActive, // <boolean> true determines if the game logic is flowing
-  spawnTargetTimeout = 300, // <number> time in ms a new '*BTTarget*' will spawn
-  maxTargetsOnScreen = 5, // <number> the maximum amount of targets on '*BTField*' at once
+  spawnTargetTimeout, // <number> time in ms a new '*BTTarget*' will spawn
+  maxTargetsOnScreen, // <number> the maximum amount of targets on '*BTField*' at once
   targetContent, // <string|object> '*BTTarget*' content to display on hit
   onTargetDestroyed, // <function> callback to trigger on target hit, self-destruct and accuracyTimeout
-  classNames = {} // <object> classNames object. Check *utils.js* for its constitution
+  classNames // <object> classNames object. Check *utils.js* for its constitution
 }) {
   // an array containing the active coordinate sets on each render. Most game logic
   // listeners are attached to changes on this set. Including '*BTTarget*' rendering
@@ -133,6 +139,7 @@ function BTGame({
   )
 }
 
-BTGame.propTypes = btGamePropTypes
+BTGame.defaultProps = defaultProps
+BTGame.propTypes = propTypes
 
 export default memo(BTGame)

@@ -2,7 +2,8 @@ import { useRef, useState, useCallback } from "react"
 import { Container, Input, Text, useInputHandlers } from "hub"
 import {
   classes,
-  styledInputWithValidationPropTypes
+  defaultProps,
+  propTypes
 } from "./StyledInputWithValidation.utils"
 
 /**
@@ -40,15 +41,15 @@ import {
  * `validationMsgProps?` (object): "props" to spread to '*Text*'.
  */
 export default function StyledInputWithValidation({
-  useInputHandlersProps = {},
-  useInputHandlersConfigs = {},
-  validationContainerAnchor = "top",
-  messageType = "secondary",
-  classNames = {},
-  containerProps = {},
-  styledInputProps = {},
-  validationContainerProps = {},
-  validationMsgProps = {}
+  useInputHandlersProps,
+  useInputHandlersConfigs,
+  validationContainerAnchor,
+  messageType,
+  classNames,
+  containerProps,
+  styledInputProps,
+  validationContainerProps,
+  validationMsgProps
 }) {
   // boolean state to trigger validation message bubble '*div*'
   const [isValMsgActive, setIsValMsgActive] = useState(false)
@@ -143,4 +144,5 @@ export default function StyledInputWithValidation({
   )
 }
 
-StyledInputWithValidation.propTypes = styledInputWithValidationPropTypes
+StyledInputWithValidation.defaultProps = defaultProps
+StyledInputWithValidation.propTypes = propTypes

@@ -26,6 +26,8 @@ export const classes = {
   scoreBoard: styles.ScoreBoard
 }
 
+export const expandableIconProps = { expandDirection: "right" }
+
 /**
  * "scores" object to be passed to '*BTScoreboard*' and to '*BTGame*' (this
  * last one after a conversion to make it a valid object for `content`)

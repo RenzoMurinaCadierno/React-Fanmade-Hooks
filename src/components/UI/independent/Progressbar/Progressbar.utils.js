@@ -16,7 +16,18 @@ export const classes = {
     (growFrom ? styles["grow-" + growFrom] : "")
 }
 
-export const progressbarPropTypes = {
+export const defaultProps = {
+  value: 0,
+  min: 0,
+  max: 100,
+  showValue: true,
+  unit: "%",
+  text: "",
+  growFrom: "left",
+  classNames: {}
+}
+
+export const propTypes = {
   value: PropTypes.number,
   min: PropTypes.number,
   max: PropTypes.number,

@@ -15,7 +15,16 @@ export const classes = {
   result: (className) => (className ?? "") + " " + styles.Result
 }
 
-export const coinPropTypes = {
+export const defaultProps = {
+  head: "O",
+  tails: "X",
+  toss: "?",
+  successChance: 0.5,
+  classNames: {},
+  resultProps: {}
+}
+
+export const propTypes = {
   isFrozen: PropTypes.bool,
   head: validateStringOrImgElem,
   tails: validateStringOrImgElem,

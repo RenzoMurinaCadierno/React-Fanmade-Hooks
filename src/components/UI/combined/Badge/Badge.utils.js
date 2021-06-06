@@ -46,6 +46,14 @@ export const classes = {
   animateOnChange: styles.AnimateOnChange
 }
 
+export const defaultProps = {
+  show: true, // always defined.
+  anchor: "top-right",
+  type: "primary",
+  classNames: {},
+  contentProps: {}
+}
+
 const xAnchors = ["top", "bottom"]
 const yAnchors = ["left", "right"]
 const xyAnchors = getDistribution(xAnchors, yAnchors)
@@ -63,7 +71,7 @@ const baseTypes = ["primary", "secondary", "danger"]
 const typeVariations = ["", "0", "1"]
 const typePropTypesOneOfArray = getDistribution(baseTypes, typeVariations)
 
-export const badgePropTypes = {
+export const propTypes = {
   show: PropTypes.bool,
   content: PropTypes.node,
   size: PropTypes.oneOf(["smallest", "small", "medium", "large", "largest"]),

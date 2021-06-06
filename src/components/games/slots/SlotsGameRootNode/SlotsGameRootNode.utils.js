@@ -52,6 +52,8 @@ function getScoresAndStatsCNs(defaultClassName, classNames = {}) {
   }
 }
 
+export const defaultProps = { classNames: {} }
+
 // avoids code duplication
 const slotsScoreSideClassNamesShape = PropTypes.shape({
   container: PropTypes.string,
@@ -62,7 +64,7 @@ const slotsScoreSideClassNamesShape = PropTypes.shape({
   image: PropTypes.string
 })
 
-export const slotsGameRootNodePropTypes = {
+export const propTypes = {
   classNames: PropTypes.exact({
     container: PropTypes.string,
     resetButton: PropTypes.string,

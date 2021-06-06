@@ -1,4 +1,6 @@
 import PropTypes from "prop-types"
+import defaultSearchSVG from "assets/icons/search.svg"
+import defaultCrossSVG from "assets/icons/cross.svg"
 import styles from "./AppbarSearchbar.module.css"
 
 export const classes = {
@@ -15,7 +17,15 @@ export const classes = {
     styles.Icon
 }
 
-export const appbarSearchbarPropTypes = {
+export const defaultProps = {
+  searchIcon: defaultSearchSVG,
+  clearIcon: defaultCrossSVG,
+  classNames: {},
+  iconProps: {},
+  inputFieldProps: {}
+}
+
+export const propTypes = {
   onClick: PropTypes.func,
   searchIcon: PropTypes.string,
   clearIcon: PropTypes.string,

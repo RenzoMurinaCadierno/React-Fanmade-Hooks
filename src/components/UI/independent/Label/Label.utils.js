@@ -14,7 +14,9 @@ export const classes = {
       : "")
 }
 
-export const labelPropTypes = {
+export const defaultProps = { targetInputType: "text" }
+
+export const propTypes = {
   children: PropTypes.string.isRequired,
   isActive: PropTypes.bool,
   targetInputType: validateInputType,

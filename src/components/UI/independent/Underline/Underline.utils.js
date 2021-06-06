@@ -10,7 +10,7 @@ export const classes = {
     (isFocused ? styles.Focused : "")
 }
 
-export const underlinePropTypes = {
+export const propTypes = {
   isFocused: PropTypes.bool,
   className: PropTypes.string
 }

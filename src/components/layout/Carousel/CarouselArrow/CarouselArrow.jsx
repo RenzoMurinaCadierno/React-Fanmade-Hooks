@@ -1,7 +1,7 @@
 import { memo } from "react"
 import { Container, useClassNameToggle, Carousel } from "hub"
 import pointer from "assets/icons/pointer.svg"
-import { classes, carouselArrowPropTypes } from "./CarouselArrow.utils"
+import { classes, defaultProps, propTypes } from "./CarouselArrow.utils"
 
 /**
  * Renders the circle container with the arrow that controls sliding
@@ -27,8 +27,8 @@ function CarouselArrow({
   direction,
   imgSrc,
   onClick,
-  classNames = {},
-  arrowImgProps = {},
+  classNames,
+  arrowImgProps,
   ...otherProps
 }) {
   // className toggling class, triggerer and animation state boolean
@@ -69,6 +69,7 @@ function CarouselArrow({
   )
 }
 
-CarouselArrow.propTypes = carouselArrowPropTypes
+CarouselArrow.defaultProps = defaultProps
+CarouselArrow.propTypes = propTypes
 
 export default memo(CarouselArrow)

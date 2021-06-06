@@ -1,8 +1,9 @@
 import { Container, Slots, Text } from "hub"
 import {
   classes,
-  getBadgeContent,
-  slotsResultSectionPropTypes
+  defaultProps,
+  propTypes,
+  getBadgeContent
 } from "./SlotsResultSection.utils"
 
 /**
@@ -65,7 +66,7 @@ export default function SlotsResultSection({
   multiplierImageArray,
   scoreData,
   badgesProps,
-  classNames = {}
+  classNames
 }) {
   return (
     // wrapper container
@@ -114,4 +115,5 @@ export default function SlotsResultSection({
   )
 }
 
-SlotsResultSection.propTypes = slotsResultSectionPropTypes
+SlotsResultSection.propTypes = propTypes
+SlotsResultSection.defaultProps = defaultProps

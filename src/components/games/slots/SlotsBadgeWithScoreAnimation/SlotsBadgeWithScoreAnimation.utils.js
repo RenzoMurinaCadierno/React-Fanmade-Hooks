@@ -15,12 +15,14 @@ export const classes = {
   })
 }
 
+export const defaultProps = { classNames: {} }
+
 /**
  * Timeout param for 'useAnimatedNumber' in '*BadgeWithAnimatedNumber*'
  */
 export const hookConfigs = { timeout: 300 }
 
-export const slotsBadgeWithScoreAnimationPropTypes = {
+export const propTypes = {
   name: PropTypes.string.isRequired,
   badgeEffectImgSrc: PropTypes.string.isRequired,
   badgeEffectImgAlt: PropTypes.string.isRequired,

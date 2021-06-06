@@ -32,7 +32,9 @@ export const classes = {
     ).trim()
 }
 
-export const containerPropTypes = {
+export const defaultProps = { htmlElem: "div" }
+
+export const propTypes = {
   component: PropTypes.string,
   type: PropTypes.oneOf(["primary", "secondary", "danger"]),
   flexDirection: PropTypes.string,

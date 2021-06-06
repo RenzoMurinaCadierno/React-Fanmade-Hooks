@@ -5,7 +5,9 @@ export const classes = {
   container: (className) => (className ?? "") + " " + styles.Container
 }
 
-export const backdropPropTypes = {
+export const defaultProps = { htmlElem: "div" }
+
+export const propTypes = {
   show: PropTypes.bool.isRequired,
   htmlElem: PropTypes.string,
   portalNode: PropTypes.oneOfType([

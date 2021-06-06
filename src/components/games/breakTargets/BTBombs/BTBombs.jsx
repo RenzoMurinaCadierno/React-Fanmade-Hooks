@@ -1,13 +1,13 @@
 import { useState, memo, useEffect } from "react"
-import { classes, btBombsPropTypes } from "./BTBombs.utils"
+import { classes, defaultProps, propTypes } from "./BTBombs.utils"
 import bomb from "../assets/bomb.svg"
 
 function BTBombs({
   bombs,
   disabled,
-  show = true,
+  show,
   onClick,
-  classNames = {},
+  classNames,
   ...otherProps
 }) {
   // array state with length === `bombs`
@@ -44,6 +44,7 @@ function BTBombs({
   )
 }
 
-BTBombs.propTypes = btBombsPropTypes
+BTBombs.defaultProps = defaultProps
+BTBombs.propTypes = propTypes
 
 export default memo(BTBombs)

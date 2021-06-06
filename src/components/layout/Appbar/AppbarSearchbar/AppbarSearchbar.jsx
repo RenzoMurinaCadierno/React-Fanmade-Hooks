@@ -1,8 +1,6 @@
 import { useCallback, useState, useRef } from "react"
 import { InputField } from "hub"
-import defaultSearchSVG from "assets/icons/search.svg"
-import defaultCrossSVG from "assets/icons/cross.svg"
-import { classes, appbarSearchbarPropTypes } from "./AppbarSearchbar.utils"
+import { classes, defaultProps, propTypes } from "./AppbarSearchbar.utils"
 
 const fakeEmptySyntheticEventObject = { target: { value: "" } }
 
@@ -31,11 +29,11 @@ const fakeEmptySyntheticEventObject = { target: { value: "" } }
  */
 export default function AppbarSearchbar({
   onChange,
-  searchIcon = defaultSearchSVG,
-  clearIcon = defaultCrossSVG,
-  classNames = {},
-  iconProps = {},
-  inputFieldProps = {},
+  searchIcon,
+  clearIcon,
+  classNames,
+  iconProps,
+  inputFieldProps,
   ...otherProps
 }) {
   // '*InputField*' `ref`. Needed to clear it imperatively since it is
@@ -91,4 +89,5 @@ export default function AppbarSearchbar({
   )
 }
 
-AppbarSearchbar.propTypes = appbarSearchbarPropTypes
+AppbarSearchbar.defaultProps = defaultProps
+AppbarSearchbar.propTypes = propTypes

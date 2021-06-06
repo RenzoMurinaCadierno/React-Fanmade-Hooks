@@ -9,7 +9,9 @@ export const classes = {
   item: (classNames) => classNames
 }
 
-export const slotsResultSectionPropTypes = {
+export const defaultProps = { classNames: {} }
+
+export const propTypes = {
   isStatsSection: PropTypes.bool,
   imageArrays: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string))
     .isRequired,

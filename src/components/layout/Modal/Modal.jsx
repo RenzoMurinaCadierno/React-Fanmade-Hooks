@@ -1,5 +1,11 @@
 import { useCallback, useState, useEffect, memo } from "react"
-import { classes, modalPropTypes, timeouts, closeIconSVG } from "./Modal.utils"
+import {
+  classes,
+  defaultProps,
+  propTypes,
+  timeouts,
+  closeIconSVG
+} from "./Modal.utils"
 
 /**
  * Renders a secondary screen that functions as a modal and its backdrop, as
@@ -56,13 +62,13 @@ function Modal({
   open,
   type,
   size,
-  scrollable = true,
+  scrollable,
   closeIcon,
   onOpen,
   onClose,
   onBackdropClick,
   onCloseIconClick,
-  classNames = {},
+  classNames,
   ...otherProps
 }) {
   // "isClosing" becomes true when `open` toggles to false. When so, it
@@ -143,6 +149,7 @@ function Modal({
   )
 }
 
-Modal.propTypes = modalPropTypes
+Modal.defaultProps = defaultProps
+Modal.propTypes = propTypes
 
 export default memo(Modal)

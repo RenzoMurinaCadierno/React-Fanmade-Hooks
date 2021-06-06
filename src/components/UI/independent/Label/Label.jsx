@@ -1,4 +1,4 @@
-import { classes, labelPropTypes } from "./Label.utils"
+import { classes, defaultProps, propTypes } from "./Label.utils"
 
 /**
  * **WORK IN PROGRESS** (currently accepts inputs type 'text' and the like).
@@ -24,7 +24,7 @@ import { classes, labelPropTypes } from "./Label.utils"
 export default function Label({
   children,
   isActive,
-  targetInputType = "text",
+  targetInputType,
   className,
   ...otherProps
 }) {
@@ -38,4 +38,5 @@ export default function Label({
   )
 }
 
-Label.propTypes = labelPropTypes
+Label.defaultProps = defaultProps
+Label.propTypes = propTypes

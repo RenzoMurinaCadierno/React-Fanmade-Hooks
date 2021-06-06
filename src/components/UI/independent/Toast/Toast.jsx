@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react"
-import { classes, toastPropTypes } from "./Toast.utils"
+import { classes, defaultProps, propTypes } from "./Toast.utils"
 
 /**
  * Renders a "Toast" notification component while also handling its logic.
@@ -36,15 +36,15 @@ import { classes, toastPropTypes } from "./Toast.utils"
  * `...otherProps?` (object): Props to spread in wrapper '*div*'.
  */
 export default function Toast({
-  show = false,
-  position = "bottom",
-  timeout = 2000,
+  show,
+  position,
+  timeout,
   onOpen,
   onClose,
   children,
-  classNames = {},
-  contentProps = {},
-  togglerProps = {},
+  classNames,
+  contentProps,
+  togglerProps,
   ...otherProps
 }) {
   const [st, setSt] = useState({ isOpen: false, animation: null })
@@ -108,4 +108,5 @@ export default function Toast({
   )
 }
 
-Toast.propTypes = toastPropTypes
+Toast.defaultProps = defaultProps
+Toast.propTypes = propTypes

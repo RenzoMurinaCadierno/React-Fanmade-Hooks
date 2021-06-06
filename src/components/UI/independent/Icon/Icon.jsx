@@ -1,5 +1,4 @@
-import { forwardRef } from "react"
-import { classes } from "./Icon.utils"
+import { classes, defaultProps, propTypes } from "./Icon.utils"
 
 /**
  * Renders a circle-shaped icon with a React.Element at the center of it.
@@ -22,16 +21,13 @@ import { classes } from "./Icon.utils"
  *
  * `...otherProps?` (object): Props to spread in wrapper '*div*'.
  */
-function Icon({ children, type = "primary", className, ...otherProps }, ref) {
+export default function Icon({ children, type, className, ...otherProps }) {
   return (
-    <div
-      ref={ref}
-      className={classes.container(type, className)}
-      {...otherProps}
-    >
+    <div className={classes.container(type, className)} {...otherProps}>
       {children}
     </div>
   )
 }
 
-export default forwardRef(Icon)
+Icon.propTypes = propTypes
+Icon.defaultProps = defaultProps

@@ -6,9 +6,8 @@ import { useCallback, useState } from "react"
 export default function useReRender() {
   const setRenderCount = useState(0)[1]
 
-  const reRender = useCallback(() => setRenderCount((cnt) => ++cnt), [
-    setRenderCount
-  ])
+  /* eslint-disable react-hooks/exhaustive-deps */
+  const reRender = useCallback(() => setRenderCount((cnt) => ++cnt), [])
 
   return reRender
 }

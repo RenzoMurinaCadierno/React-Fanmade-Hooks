@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react"
 import { createPortal } from "react-dom"
-import { classes, backdropPropTypes } from "./Backdrop.utils"
+import { classes, defaultProps, propTypes } from "./Backdrop.utils"
 
 /**
  * Renders a backdrop. Can be mounted on any DOM node.
@@ -31,8 +31,8 @@ import { classes, backdropPropTypes } from "./Backdrop.utils"
  */
 export default function Backdrop({
   show,
-  htmlElem = "div",
-  portalNode = document.querySelector(".App"),
+  htmlElem,
+  portalNode,
   children,
   className,
   ...otherProps
@@ -51,9 +51,10 @@ export default function Backdrop({
         <Component className={classes.container(className)} {...otherProps}>
           {children}
         </Component>,
-        portalNode?.current ?? portalNode
+        portalNode?.current ?? portalNode ?? document.querySelector(".App")
       )
     : null
 }
 
-Backdrop.propTypes = backdropPropTypes
+Backdrop.defaultProps = defaultProps
+Backdrop.propTypes = propTypes

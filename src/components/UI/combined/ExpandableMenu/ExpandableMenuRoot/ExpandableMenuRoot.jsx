@@ -2,11 +2,12 @@ import { memo } from "react"
 import { useToggle, ExpandableMenu } from "hub"
 import {
   classes,
+  propTypes,
+  defaultProps,
   getDefaultIconProps,
   getIconExpandDirection,
   getIconSpreadDirection,
-  getType,
-  expandableMenuRootPropTypes
+  getType
 } from "./ExpandableMenuRoot.utils"
 
 /**
@@ -75,14 +76,14 @@ import {
  *   to be unique on particular instances of '*ExpandableMenuListIcon*'.
  */
 function ExpandableMenuRoot({
-  anchor = "bottom-right",
+  anchor,
   spread = getIconSpreadDirection(anchor),
-  type = "secondary",
+  type,
   iconsProps = getDefaultIconProps(spread),
   listIconsExpandDirection = getIconExpandDirection(anchor),
-  classNames = {},
-  menuIconProps = {},
-  listIconsProps = {},
+  classNames,
+  menuIconProps,
+  listIconsProps,
   ...otherProps
 }) {
   // toggler to 'open menu' ('show list icons')
@@ -128,6 +129,7 @@ function ExpandableMenuRoot({
   )
 }
 
-ExpandableMenuRoot.propTypes = expandableMenuRootPropTypes
+ExpandableMenuRoot.defaultProps = defaultProps
+ExpandableMenuRoot.propTypes = propTypes
 
 export default memo(ExpandableMenuRoot)

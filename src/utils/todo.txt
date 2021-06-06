@@ -9,9 +9,7 @@ change github url
 
 fiddle SlotsSpinningSlots timeouts
 
-defaultProps
-
 button on uselocalstorage, automatically on after user/pass
 
 // commit msg
-Updated PropTypes and tested them across all components. Composed remaining components.
+Added defaultProps to all components.

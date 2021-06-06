@@ -1,6 +1,6 @@
 import { useState, useCallback, useRef, forwardRef } from "react"
 import { Label, Input, Underline } from "hub"
-import { classes } from "./InputField.utils"
+import { classes, defaultProps } from "./InputField.utils"
 
 /**
  * ***LEGACY*** --- '*StyledInputWithValidation*' is its replacement.
@@ -152,9 +152,10 @@ function InputField(
   )
 }
 
-// well, now we know forwardRef does not support PropTypes...
+// well, now we know forwardRef does not support PropTypes & defaultProps...
 // They are written in utils.js if you wish to check them, though
 //
-// InputField.propTypes = inputFieldPropTypes
+// InputField.propTypes = propTypes
+// InputField.defaultProps = defaultProps
 
 export default forwardRef(InputField)

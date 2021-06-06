@@ -8,7 +8,9 @@ export const classes = {
   })
 }
 
-export const expandableMenuListIconPropTypes = {
+export const defaultProps = { spread: "top", classNames: {} }
+
+export const propTypes = {
   show: PropTypes.bool.isRequired,
   order: PropTypes.number.isRequired,
   amountOfIcons: PropTypes.number.isRequired,

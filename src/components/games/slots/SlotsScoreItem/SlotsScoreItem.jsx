@@ -1,5 +1,5 @@
 import { Slots } from "hub"
-import { classes, slotsScoreItemPropTypes } from "./SlotsScoreItem.utils"
+import { classes, propTypes, defaultProps } from "./SlotsScoreItem.utils"
 
 /**
  * Renders a *'SlotsBadgeWithScoreAnimation'* for each `badgesProps`, and
@@ -57,12 +57,12 @@ import { classes, slotsScoreItemPropTypes } from "./SlotsScoreItem.utils"
 export default function SlotsScoreItem({
   children,
   name,
-  badgesProps = [],
-  badgeEffectImgArray, // prop drill to avoid 1 import for each badge
+  badgesProps,
+  badgeEffectImgArray,
   scoreMultiplier,
   propThatTriggersScoreEffect,
-  classNames = {},
-  otherBadgeProps = {},
+  classNames,
+  otherBadgeProps,
   ...otherContainerProps
 }) {
   return (
@@ -87,4 +87,5 @@ export default function SlotsScoreItem({
   )
 }
 
-SlotsScoreItem.propTypes = slotsScoreItemPropTypes
+SlotsScoreItem.propTypes = propTypes
+SlotsScoreItem.defaultProps = defaultProps

@@ -1,5 +1,5 @@
 import { Container, Progressbar } from "hub"
-import { classes, countBarPropTypes, getHelpers } from "./CountBar.utils"
+import { classes, defaultProps, propTypes, getHelpers } from "./CountBar.utils"
 
 /**
  * Renders two button-like '*div*'s as count controllers (increase and
@@ -45,11 +45,11 @@ import { classes, countBarPropTypes, getHelpers } from "./CountBar.utils"
  */
 export default function CountBar({
   value,
-  min = 0,
-  max = 100,
-  step = 1,
-  addText = "+1",
-  subText = "-1",
+  min,
+  max,
+  step,
+  addText,
+  subText,
   progressText,
   disableButtons,
   disableProgressbar,
@@ -95,4 +95,5 @@ export default function CountBar({
   )
 }
 
-CountBar.propTypes = countBarPropTypes
+CountBar.propTypes = propTypes
+CountBar.defaultProps = defaultProps

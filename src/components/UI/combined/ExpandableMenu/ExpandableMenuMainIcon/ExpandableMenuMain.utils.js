@@ -16,7 +16,15 @@ export const classes = {
   })
 }
 
-export const expandableMenuMainIconPropTypes = {
+export const defaultProps = {
+  type: "primary",
+  open: false,
+  classNames: {},
+  auraProps: {},
+  expandableIconProps: {}
+}
+
+export const propTypes = {
   type: PropTypes.oneOf([
     "primary",
     "primary-0",

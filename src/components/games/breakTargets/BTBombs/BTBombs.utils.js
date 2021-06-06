@@ -6,7 +6,9 @@ export const classes = {
   bomb: (className) => (className ?? "") + " " + styles.Bomb
 }
 
-export const btBombsPropTypes = {
+export const defaultProps = { show: true, classNames: {} }
+
+export const propTypes = {
   bombs: PropTypes.number.isRequired,
   disabled: PropTypes.bool,
   show: PropTypes.bool,

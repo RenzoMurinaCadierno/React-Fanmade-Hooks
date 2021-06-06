@@ -3,10 +3,9 @@ import { useLocation } from "react-router-dom"
 import { Container, Text } from "hub"
 import Icon from "components/UI/composed/Icon/Icon"
 import { getHookNameFromPathName } from "utils/utilityFunctions"
-import { urls } from "app.configs.json"
 import codeSvg from "assets/icons/code.svg"
-import { classes, cmpDescriptionPropTypes } from "./CmpDescription.utils"
-defaultProps
+import { classes, defaultProps, propTypes } from "./CmpDescription.utils"
+
 /**
  * Renders the hook's name as title and its description as paragraphs, as well
  * as the expandable icon that links to its Github's repository.
@@ -18,23 +17,34 @@ defaultProps
  * * `paragraphs` (Array): array of strings, one for each paragraph to render
  *     as component's description.
  *
- * `iconExpandDirection?` (string): "left" or "right". The direction the
- *   '*ExpandableIconWithToast*' to view hook's code will expand towards.
- *   Defaults to "left".
- *
  * `iconUrl?` (string): base path pointing to the folder that contains all
  *   hooks' files and their examples in Github's repository.
  *   Defaults to the one in *app.configs.json*.
  *
- * `classNames` (object): className strings for each JSX rendered here.
+ * `classNames?` (object): className strings for each JSX rendered here.
  *   Check *utils.js* for its constitution.
+ *
+ * `expandableIconProps?` (object): Props to spread in '*ExpandableIcon*',
+ *   inside '*Icon.Expandable.WithToast*'.
+ *
+ * `toastProps?` (object): Props to spread in '*Toast*' inside
+ *   '*Icon.Expandable.WithToast*'.
+ *
+ * `containerProps?` (object): Props to spread in '*Container*'.
+ *
+ * `titleProps?` (object): Props to spread in 'title' '*Text*'.
+ *
+ * `paragraphProps?` (object): Props to spread in each 'paragraph' '*Text*'.
  */
 function CmpDescription({
   descItems,
-  iconExpandDirection = "left",
-  iconUrl = urls.github.hooks,
-  classNames = {},
-  ...otherProps
+  iconUrl,
+  classNames,
+  expandableIconProps,
+  toastProps,
+  containerProps,
+  titleProps,
+  paragraphProps
 }) {
   const location = useLocation()
 
@@ -50,24 +60,25 @@ function CmpDescription({
       )
   }, [])
 
-  const expandableIconProps = {
+  const _expandableIconProps = {
     type: "secondary",
     icon: <img src={codeSvg} alt="<>" />,
     content: "Go to code",
-    expandDirection: iconExpandDirection
+    ...expandableIconProps
   }
 
-  const toastProps = {
+  const _toastProps = {
     timeout: 3000,
-    contentProps: { onClick: openIconUrlInNewTab }
+    contentProps: { onClick: openIconUrlInNewTab },
+    ...toastProps
   }
 
   return (
     <>
       {/* '</>' expandable icon to view github repository */}
       <Icon.Expandable.WithToast
-        expandableIconProps={expandableIconProps}
-        toastProps={toastProps}
+        expandableIconProps={_expandableIconProps}
+        toastProps={_toastProps}
         classNames={classes.codeIcon(classNames?.codeIcon)}
       >
         Tap here to view hook's code in a new tab.
@@ -78,10 +89,15 @@ function CmpDescription({
         flexDirection="column"
         className={classes.container(classNames?.container)}
         aria-label="component title and brief description"
-        {...otherProps}
+        {...containerProps}
       >
         {/* hook name title */}
-        <Text htmlElem="h4" italic className={classes.title(classNames?.title)}>
+        <Text
+          htmlElem="h4"
+          italic
+          className={classes.title(classNames?.title)}
+          {...titleProps}
+        >
           {descItems.title}
         </Text>
         {/* hook description paragraphs */}
@@ -92,6 +108,7 @@ function CmpDescription({
             type="secondary"
             italic
             className={classes.description(classNames?.description)}
+            {...paragraphProps}
           >
             {paragraph}
           </Text>
@@ -101,6 +118,7 @@ function CmpDescription({
   )
 }
 
-CmpDescription.propTypes = cmpDescriptionPropTypes
+CmpDescription.defaultProps = defaultProps
+CmpDescription.propTypes = propTypes
 
 export default memo(CmpDescription)

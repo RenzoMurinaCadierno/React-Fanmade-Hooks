@@ -1,7 +1,8 @@
 import { Icon, Aura } from "hub"
 import {
   classes,
-  expandableIconWithAuraPropTypes
+  defaultProps,
+  propTypes
 } from "./ExpandableIconWithAura.utils"
 
 /**
@@ -17,9 +18,9 @@ import {
  * `expandableIconProps` (object): Props to spread in '*Icon.Expandable*'.
  */
 export default function ExpandableIconWithAura({
-  classNames = {},
-  auraProps = {},
-  expandableIconProps = {}
+  classNames,
+  auraProps,
+  expandableIconProps
 }) {
   return (
     <Aura classNames={classes.aura(classNames.aura)} {...auraProps}>
@@ -31,4 +32,5 @@ export default function ExpandableIconWithAura({
   )
 }
 
-ExpandableIconWithAura.propTypes = expandableIconWithAuraPropTypes
+ExpandableIconWithAura.defaultProps = defaultProps
+ExpandableIconWithAura.propTypes = propTypes

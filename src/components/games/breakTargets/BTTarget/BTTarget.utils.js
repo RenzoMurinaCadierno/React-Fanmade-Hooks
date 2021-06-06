@@ -23,11 +23,19 @@ export const classes = {
   animateScore: styles.AnimateScore
 }
 
-const propTypesUtils = {
-  showOnBreakValidArray: ["content", "value", "closest"]
+export const defaultProps = {
+  content: "",
+  type: "primary",
+  x: 50,
+  y: 50,
+  appearTimeout: 150,
+  destroyAnimationTimeout: 300,
+  accuracyTimeout: 20,
+  classNames: {},
+  contentProps: {}
 }
 
-export const btTargetPropTypes = {
+export const propTypes = {
   content: validateContent,
   type: PropTypes.oneOf(["primary", "secondary"]),
   x: validateSpawnCoords,
@@ -81,16 +89,18 @@ function validateContent(props, propName, componentName) {
   return null
 }
 
+const showOnBreakValidArray = ["content", "value", "closest"]
+
 /**
  * PropType check will fail if `showOnBreak` is not a string or if their values
- * are not the ones in "propTypesUtils.showOnBreakValidArray" specified above
+ * are not the ones in "showOnBreakValidArray" specified above
  */
 function validateBreakTargetContent(props, propName, componentName) {
   const propValue = props[propName]
   if (!propValue) return
   if (
     typeof propValue !== "string" ||
-    !propTypesUtils.showOnBreakValidArray.includes(propValue)
+    !showOnBreakValidArray.includes(propValue)
   ) {
     return new Error(
       `Invalid prop \`${propName}\` with value \`${propValue}\` supplied to ${componentName}. It should be a string with value \`content\`, \`value\` or \`closest\`. Automatically defaulted to \`content\`.`

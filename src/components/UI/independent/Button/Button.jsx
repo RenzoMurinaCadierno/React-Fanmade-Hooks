@@ -1,5 +1,5 @@
 import { useEffect, useState, memo } from "react"
-import { classes } from "./Button.utils"
+import { classes, propTypes } from "./Button.utils"
 
 /**
  * Renders a functional button UI.
@@ -64,5 +64,7 @@ function Button({
     </button>
   )
 }
+
+Button.propTypes = propTypes
 
 export default memo(Button)

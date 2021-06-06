@@ -1,8 +1,5 @@
 import { Carousel } from "hub"
-import {
-  classes,
-  carouselIndicatorsPropTypes
-} from "./CarouselIndicators.utils"
+import { classes, propTypes, defaultProps } from "./CarouselIndicators.utils"
 
 /**
  * Container element to wrap all '*CarouselIndicator*'s. It renders one of them
@@ -26,11 +23,11 @@ import {
  *   Check *utils.js* for its constitution.
  */
 export default function CarouselIndicators({
-  show = true,
-  indicatorNames = [],
+  show,
+  indicatorNames,
   activeName,
   onIndicatorClick,
-  classNames = {},
+  classNames,
   ...otherProps
 }) {
   function handleIndicatorClick(e) {
@@ -60,4 +57,5 @@ export default function CarouselIndicators({
   )
 }
 
-CarouselIndicators.propTypes = carouselIndicatorsPropTypes
+CarouselIndicators.defaultProps = defaultProps
+CarouselIndicators.propTypes = propTypes

@@ -6,6 +6,8 @@ export const classes = {
   button: (className) => (className ?? "") + " " + styles.Button
 }
 
+export const defaultProps = { buttonProps: {} }
+
 /**
  * Array of a sub-arrays, each with a button name as first element ('one',
  * 'two', ..., 'hash') and its representation as second one ('1', '2', ...,
@@ -34,7 +36,7 @@ const buttonPropsShape = PropTypes.shape(
   )
 )
 
-export const phoneDialPropTypes = {
+export const propTypes = {
   classNames: PropTypes.exact({
     container: PropTypes.string,
     buttons: PropTypes.string

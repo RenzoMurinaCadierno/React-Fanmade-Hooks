@@ -12,7 +12,7 @@ export const classes = {
   authBanner: (type) => (type ? styles[type] : "") + " " + styles.AuthBanner
 }
 
-export const localStorageCRUDAuthPropTypes = {
+export const propTypes = {
   isSignIn: PropTypes.bool,
   userSt: PropTypes.shape({
     isAuth: PropTypes.bool,

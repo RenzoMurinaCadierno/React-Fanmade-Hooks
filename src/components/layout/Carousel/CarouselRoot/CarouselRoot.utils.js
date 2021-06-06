@@ -12,7 +12,17 @@ export const classes = {
   indicatorsComponent: (classNames) => classNames
 }
 
-export const carouselPropTypes = {
+export const defaultProps = {
+  autoScroll: true,
+  autoScrollInterval: 3000,
+  autoScrollDirection: "right",
+  resumeAutoScrollTimeout: 3000,
+  showArrows: true,
+  showIndicators: true,
+  classNames: {}
+}
+
+export const propTypes = {
   children: validateChildren,
   autoScroll: PropTypes.bool,
   autoScrollInterval: PropTypes.number,

@@ -1,6 +1,7 @@
 import {
   classes,
-  slotsEffectBadgeContentPropTypes
+  defaultProps,
+  propTypes
 } from "./SlotsEffectBadgeContent.utils"
 
 /**
@@ -32,7 +33,7 @@ export default function SlotsEffectBadgeContent({
   src,
   alt,
   type,
-  classNames = {}
+  classNames
 }) {
   return (
     <div className={classes.container(type, classNames.container)}>
@@ -46,4 +47,5 @@ export default function SlotsEffectBadgeContent({
   )
 }
 
-SlotsEffectBadgeContent.propTypes = slotsEffectBadgeContentPropTypes
+SlotsEffectBadgeContent.propTypes = propTypes
+SlotsEffectBadgeContent.defaultProps = defaultProps

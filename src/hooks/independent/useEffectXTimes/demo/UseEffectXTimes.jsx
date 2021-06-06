@@ -4,7 +4,8 @@ import { Container, CmpDescription, Button, useToggle } from "hub"
 import {
   classes,
   descItemsObject,
-  dealCardToBoard
+  dealCardToBoard,
+  expandableIconProps
 } from "./UseEffectXTimes.utils"
 
 export default function UseEffectXTimes() {
@@ -50,8 +51,8 @@ export default function UseEffectXTimes() {
     <Container htmlElem="main" className={classes.container}>
       <CmpDescription
         descItems={descItemsObject}
-        iconExpandDirection="right"
         classNames={classes.cmpDesc}
+        expandableIconProps={expandableIconProps}
       />
       <section className={classes.cmpTest} aria-label="component testing area">
         {/* Boards, where cards are dealt */}

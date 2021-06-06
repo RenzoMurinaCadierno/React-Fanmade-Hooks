@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react"
-import { classes, appbarSectionPropTypes, index } from "./AppbarSection.utils"
+import { classes, defaultProps, propTypes, index } from "./AppbarSection.utils"
 
 /**
  * Renders the outer wrapper container, section title and inner wrapper
@@ -26,8 +26,8 @@ import { classes, appbarSectionPropTypes, index } from "./AppbarSection.utils"
 export default function AppbarSection({
   children,
   isActive,
-  title = "Title",
-  classNames = {},
+  title,
+  classNames,
   ...otherProps
 }) {
   const [st, setSt] = useState({
@@ -88,4 +88,5 @@ export default function AppbarSection({
   )
 }
 
-AppbarSection.propTypes = appbarSectionPropTypes
+AppbarSection.defaultProps = defaultProps
+AppbarSection.propTypes = propTypes

@@ -1,6 +1,6 @@
 import { useCallback } from "react"
 import { Appbar, Modal, useToggle } from "hub"
-import { classes, appbarPropTypes } from "./AppbarRoot.utils"
+import { classes, defaultProps, propTypes } from "./AppbarRoot.utils"
 
 /**
  * Renders an "appbar toggler" icon at the top-left side of the screen. When
@@ -45,7 +45,7 @@ export default function AppbarRoot({
   onBackdropClick,
   onSearchChange,
   onHomeIconClick,
-  classNames = {}
+  classNames
 }) {
   const [isOpen, toggleOpen] = useToggle(false) // '*Modal*' "open" toggler
 
@@ -110,4 +110,5 @@ export default function AppbarRoot({
   )
 }
 
-AppbarRoot.propTypes = appbarPropTypes
+AppbarRoot.defaultProps = defaultProps
+AppbarRoot.propTypes = propTypes

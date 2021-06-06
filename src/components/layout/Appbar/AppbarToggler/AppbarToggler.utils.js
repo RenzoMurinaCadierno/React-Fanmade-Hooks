@@ -13,7 +13,9 @@ export const classes = {
     styles.Toggler
 }
 
-export const appbarTogglerPropTypes = {
+export const defaultProps = { classNames: {}, togglerDisplayProps: {} }
+
+export const propTypes = {
   isActive: PropTypes.bool,
   animate: PropTypes.bool,
   onClick: PropTypes.func,

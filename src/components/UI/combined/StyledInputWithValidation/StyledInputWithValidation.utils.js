@@ -25,7 +25,19 @@ export const classes = {
     (className ?? "") + " " + styles.ValidationMessage
 }
 
-export const styledInputWithValidationPropTypes = {
+export const defaultProps = {
+  useInputHandlersProps: {},
+  useInputHandlersConfigs: {},
+  validationContainerAnchor: "top",
+  messageType: "secondary",
+  classNames: {},
+  containerProps: {},
+  styledInputProps: {},
+  validationContainerProps: {},
+  validationMsgProps: {}
+}
+
+export const propTypes = {
   useInputHandlersProps: PropTypes.object,
   useInputHandlersConfigs: PropTypes.object,
   validationContainerAnchor: PropTypes.oneOf([

@@ -1,4 +1,5 @@
 import PropTypes from "prop-types"
+import defaultHomeIconSVG from "assets/icons/home.svg"
 import styles from "./AppbarHomeIcon.module.css"
 
 export const classes = {
@@ -9,7 +10,14 @@ export const classes = {
   img: (className) => className
 }
 
-export const appbarHomeIconPropTypes = {
+export const defaultProps = {
+  homeIconSVG: defaultHomeIconSVG,
+  expandDirection: "right",
+  content: "Go home",
+  classNames: {}
+}
+
+export const propTypes = {
   homeIconSVG: PropTypes.string,
   content: PropTypes.string,
   expandDirection: PropTypes.oneOf(["left", "right"]),

@@ -22,7 +22,9 @@ function capitalize(word) {
   return word[0].toUpperCase() + word.slice(1).toLowerCase()
 }
 
-export const carouselArrowPropTypes = {
+export const defaultProps = { classNames: {}, arrowImgProps: {} }
+
+export const propTypes = {
   direction: PropTypes.oneOf(["left", "right"]).isRequired,
   imgSrc: PropTypes.string,
   onClick: PropTypes.func,

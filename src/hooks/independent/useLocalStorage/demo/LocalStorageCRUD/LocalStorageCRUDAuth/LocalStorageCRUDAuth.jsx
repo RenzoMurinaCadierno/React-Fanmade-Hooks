@@ -9,7 +9,7 @@ import {
 } from "hub"
 import {
   classes,
-  localStorageCRUDAuthPropTypes,
+  propTypes,
   intl,
   inputConfigs,
   inputProps,
@@ -34,10 +34,9 @@ export default function LocalStorageCRUDAuth({
   // only when both inputs are valid we enable submit '*Button*'
   const inputsAreValid = inputsSt.user.isValid && inputsSt.pass.isValid
 
-  /* eslint-disable react-hooks/exhaustive-deps */
-  const onAuthButtonClick = useCallback(() => {
+  function onAuthButtonClick() {
     onAuth({ user: inputsSt.user.value, pass: inputsSt.pass.value })
-  }, [inputsSt])
+  }
 
   // when parent's "isAuth" state changes (user logged in or signed up), jump
   // to '*CarouselExampleSettings*'. "isMounted" will be true on the next
@@ -49,7 +48,7 @@ export default function LocalStorageCRUDAuth({
       isAuth && isMounted && jumpToSlide(LocalStorageCRUD.slideNames.SETTINGS),
     [isAuth]
   )
-
+    inputs onsubmit validate input to activate button
   return (
     <>
       {/* upper-left title */}
@@ -99,4 +98,4 @@ export default function LocalStorageCRUDAuth({
   )
 }
 
-LocalStorageCRUDAuth.propTypes = localStorageCRUDAuthPropTypes
+LocalStorageCRUDAuth.propTypes = propTypes

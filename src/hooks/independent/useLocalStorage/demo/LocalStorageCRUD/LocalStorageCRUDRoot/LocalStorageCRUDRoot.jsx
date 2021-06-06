@@ -1,8 +1,5 @@
 import { Carousel, LocalStorageCRUD } from "hub"
-import {
-  classes,
-  localStorageCRUDRootPropTypes
-} from "./LocalStorageCRUDRoot.utils"
+import { classes, propTypes } from "./LocalStorageCRUDRoot.utils"
 
 export default function LocalStorageCRUDRoot({
   userSt,
@@ -40,4 +37,4 @@ export default function LocalStorageCRUDRoot({
   )
 }
 
-LocalStorageCRUDRoot.propTypes = localStorageCRUDRootPropTypes
+LocalStorageCRUDRoot.propTypes = propTypes

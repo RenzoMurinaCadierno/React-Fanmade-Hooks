@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useClassNameToggle } from "hub"
-import { classes, badgePropTypes } from "./Badge.utils"
+import { classes, defaultProps, propTypes } from "./Badge.utils"
 
 /**
  * Renders a standard circular *'Badge'* UI widget. Accepts anything React can
@@ -63,19 +63,19 @@ import { classes, badgePropTypes } from "./Badge.utils"
  *   'container'.
  */
 export default function Badge({
-  show = true, // always defined.
+  show,
   content,
   size,
-  anchor = "top-right",
-  type = "primary",
+  anchor,
+  type,
   typeBackground,
   fontVariant,
   noBorder,
   animateOn,
   onMount,
   onUnmount,
-  classNames = {},
-  contentProps = {},
+  classNames,
+  contentProps,
   ...containerProps
 }) {
   // inner state, which will show the badge and trigger (un)mount animation
@@ -144,4 +144,5 @@ export default function Badge({
   )
 }
 
-Badge.propTypes = badgePropTypes
+Badge.propTypes = propTypes
+Badge.defaultProps = defaultProps

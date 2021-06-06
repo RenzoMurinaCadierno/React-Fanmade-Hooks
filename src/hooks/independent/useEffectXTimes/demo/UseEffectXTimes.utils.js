@@ -29,6 +29,8 @@ export const descItemsObject = {
   ]
 }
 
+export const expandableIconProps = { expandDirection: "right" }
+
 /**
  * Array for "suits" valid characters (spades, clubs, diamonds, hearts)
  */

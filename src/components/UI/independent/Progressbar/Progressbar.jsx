@@ -1,6 +1,7 @@
 import {
   classes,
-  progressbarPropTypes,
+  defaultProps,
+  propTypes,
   getProgressStyle,
   getValidRangeValues
 } from "./Progressbar.utils"
@@ -39,15 +40,15 @@ import {
  *   Check *utils.js* for its constitution.
  */
 export default function Progressbar({
-  value = 0,
-  min = 0,
-  max = 100,
-  showValue = true,
-  unit = "%",
-  text = "",
-  growFrom = "left",
+  value,
+  min,
+  max,
+  showValue,
+  unit,
+  text,
+  growFrom,
   onClick,
-  classNames = {},
+  classNames,
   disabled,
   ...otherProps
 }) {
@@ -72,4 +73,5 @@ export default function Progressbar({
   )
 }
 
-Progressbar.propTypes = progressbarPropTypes
+Progressbar.defaultProps = defaultProps
+Progressbar.propTypes = propTypes

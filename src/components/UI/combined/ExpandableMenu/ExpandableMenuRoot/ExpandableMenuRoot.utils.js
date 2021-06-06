@@ -15,6 +15,18 @@ export const classes = {
   listIcon: (classNames) => classNames
 }
 
+export const defaultProps = {
+  // 'spread', 'iconsProps' and 'listIconsExpandDirection' must be defined as
+  // defaults on component's function signature, as they need each other's
+  // values to be initialized. Cannot be done here as 'this' will be undefined
+  // when trying to access values before initialization.
+  anchor: "bottom-right",
+  type: "secondary",
+  classNames: {},
+  menuIconProps: {},
+  listIconsProps: {}
+}
+
 /**
  * An object whose keys are all four possible `spread` values assignable to
  * '*ExpandableMenuListIcon*'(s), and values each possible `anchor` for
@@ -36,7 +48,7 @@ const spreadOrientations = {
 const anchorPropTypesOneOf = Object.values(spreadOrientations).flat()
 const spreadPropTypesOneOf = Object.keys(spreadOrientations).flat()
 
-export const expandableMenuRootPropTypes = {
+export const propTypes = {
   anchor: PropTypes.oneOf(anchorPropTypesOneOf),
   spread: PropTypes.oneOf(spreadPropTypesOneOf),
   type: PropTypes.oneOf([

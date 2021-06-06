@@ -11,7 +11,16 @@ export const classes = {
   plusButton: (className) => (className ?? "") + " " + styles.PlusButton
 }
 
-export const countBarPropTypes = {
+export const defaultProps = {
+  min: 0,
+  max: 100,
+  step: 1,
+  addText: "+1",
+  subText: "-1",
+  classNames: {}
+}
+
+export const propTypes = {
   value: PropTypes.number,
   min: PropTypes.number,
   max: PropTypes.number,

@@ -1,5 +1,5 @@
 import { Container } from "hub"
-import { classes, btFieldPropTypes } from "./BTField.utils"
+import { classes, defaultProps, propTypes } from "./BTField.utils"
 
 export default function BTField({
   children,
@@ -19,4 +19,5 @@ export default function BTField({
   )
 }
 
-BTField.propTypes = btFieldPropTypes
+BTField.defaultProps = defaultProps
+BTField.propTypes = propTypes

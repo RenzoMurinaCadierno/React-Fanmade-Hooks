@@ -18,7 +18,9 @@ export const classes = {
     styles.Suit
 }
 
-export const playingCardPropTypes = {
+export const defaultProps = { classNames: {} }
+
+export const propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   suit: validateStringOrImgElem,
   isPokerCard: PropTypes.bool,

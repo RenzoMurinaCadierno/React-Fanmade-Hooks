@@ -1,8 +1,9 @@
 import { Badge } from "hub"
 import {
   classes,
-  hookConfigs,
-  slotsResultItemPropTypes
+  defaultProps,
+  propTypes,
+  hookConfigs
 } from "./SlotsResultItem.utils"
 
 /**
@@ -46,7 +47,7 @@ export default function SlotsResultItem({
   multiplier,
   multiplierImgSrc,
   multiplierImgAlt,
-  classNames = {}
+  classNames
 }) {
   return (
     // wrapper component
@@ -87,4 +88,5 @@ export default function SlotsResultItem({
   )
 }
 
-SlotsResultItem.propTypes = slotsResultItemPropTypes
+SlotsResultItem.propTypes = propTypes
+SlotsResultItem.defaultProps = defaultProps

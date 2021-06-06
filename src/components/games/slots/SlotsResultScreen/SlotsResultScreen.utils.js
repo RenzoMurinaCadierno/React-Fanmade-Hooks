@@ -10,11 +10,13 @@ export const classes = {
   button: (className) => (className ?? "") + " " + styles.Button
 }
 
+export const defaultProps = { classNames: {} }
+
 const requiredObjectOfArraysOfObjects = PropTypes.objectOf(
   PropTypes.arrayOf(PropTypes.object.isRequired).isRequired
 ).isRequired
 
-export const slotsResultScreenPropTypes = {
+export const propTypes = {
   show: PropTypes.bool,
   imagesObj: PropTypes.objectOf(
     PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string.isRequired).isRequired)

@@ -31,6 +31,8 @@ export const classes = {
     (onClick ? styles.Clickable : "")
 }
 
+export const defaultProps = { htmlElem: "p", type: "primary" }
+
 const validHtmlElements = ["span", "p", "h1", "h2", "h3", "h4", "h5", "h6"]
 
 const validTextTypes = [
@@ -46,7 +48,7 @@ const validTextTypes = [
   "secondary-3"
 ]
 
-export const textPropTypes = {
+export const propTypes = {
   htmlElem: PropTypes.oneOf(validHtmlElements),
   type: PropTypes.oneOf(validTextTypes),
   italic: PropTypes.bool,
