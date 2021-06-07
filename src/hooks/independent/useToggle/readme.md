@@ -1,5 +1,9 @@
 # useToggle
 
+- [Working example here](https://rfh.netlify.app/use-toggle)
+
+<br />
+
 ## Description
 
 Returns a `boolean` state and its handler to toggle it.

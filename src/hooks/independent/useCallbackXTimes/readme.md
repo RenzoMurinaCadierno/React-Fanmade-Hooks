@@ -1,5 +1,9 @@
 # useCallbackXTimes
 
+- [Working example here](https://rfh.netlify.app/use-callback-x-times)
+
+<br />
+
 ## Description
 
 Takes a callback and returns a handler that invokes it, but that handler will stop working after the number of calls specified in `times`.

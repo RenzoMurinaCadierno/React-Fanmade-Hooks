@@ -41,7 +41,7 @@ export default function HomePage() {
         italic
         className={classes.subtitle}
       >
-        Hooks for all needs made by React enthusiasts.
+        Hooks for many needs made by React enthusiasts.
       </Text>
       <Text htmlElem="h6" type="secondary-2" className={classes.instructions}>
         Hit the toggler at the top-left of the screen and start exploring. Have

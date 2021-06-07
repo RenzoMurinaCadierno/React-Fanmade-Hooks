@@ -1,5 +1,9 @@
 # useEffectXTimes
 
+- [Working example here](https://rfh.netlify.app/use-effect-x-times)
+
+<br />
+
 ## Description
 
 Triggers a callback each time passed `dependencies` change (or on each render if no dependencies), but only up to the specified number in `times`.

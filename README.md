@@ -6,17 +6,26 @@ Hooks for all needs made by React enthusiasts.
 
 A compilation of React custom hooks for multiple purposes, each with an example of their functionality.
 
+## Live examples
+
+In [this website](https://rfh.netlify.app).
+
 ## Hooks
 
 Here's the list of all hooks this library currently holds.
 
 Descriptions here are basic, so do not hesitate to check the complete ones at each hook's individual READMEs ;)
 
+</br />
+
 ### Animations, UI & UX
 
 ---
 
-- useAnimatedNumber
+- **_useAnimatedNumber_**
+
+  - [Working example](https://rfh.netlify.app/use-animated-number)
+  - [Hook folder](https://github.com/RenzoMurinaCadierno/React-Fanmade-Hooks/tree/master/src/hooks/independent/useAnimatedNumber)
 
   Given a `number` state passed as first argument, when it updates (by `setState`), this hook animates the increase/decrease until the previous state matches the new one.
 
@@ -31,13 +40,19 @@ Descriptions here are basic, so do not hesitate to check the complete ones at ea
 
   <br />
 
-- useClassNameToggle
+- **_useClassNameToggle_**
+
+  - [Working example](https://rfh.netlify.app/use-class-name-toggle)
+  - [Hook folder](https://github.com/RenzoMurinaCadierno/React-Fanmade-Hooks/tree/master/src/hooks/independent/useClassNameToggle)
 
   Toggles a className _on_ when invoked by the returned handler, which automatically turns back _off_ after a specified timeout.
 
   <br />
 
-- useMediaQuery
+- **_useMediaQuery_**
+
+  - [Working example](https://rfh.netlify.app/use-media-query)
+  - [Hook folder](https://github.com/RenzoMurinaCadierno/React-Fanmade-Hooks/tree/master/src/hooks/independent/useMediaQuery)
 
   Tracks stated media queries, re-rendering each time one of them changes.
 
@@ -45,7 +60,10 @@ Descriptions here are basic, so do not hesitate to check the complete ones at ea
 
   <br />
 
-- useTimer
+- **_useTimer_**
+
+  - [Working example](https://rfh.netlify.app/use-timer)
+  - [Hook folder](https://github.com/RenzoMurinaCadierno/React-Fanmade-Hooks/tree/master/src/hooks/independent/useTimer)
 
   Generates a customizable timer with the stated initial time, capable of ticking up/down.
 
@@ -55,7 +73,10 @@ Descriptions here are basic, so do not hesitate to check the complete ones at ea
 
 ---
 
-- useInputHandlers
+- **_useInputHandlers_**
+
+  - [Working example](https://rfh.netlify.app/use-input-handlers)
+  - [Hook folder](https://github.com/RenzoMurinaCadierno/React-Fanmade-Hooks/tree/master/src/hooks/independent/useInputHandlers)
 
   Recieves an input reference alongside its props and an optional configuration object, and takes control of that input.
 
@@ -67,13 +88,19 @@ Descriptions here are basic, so do not hesitate to check the complete ones at ea
 
 ---
 
-- useCount
+- **_useCount_**
+
+  - [Working example](https://rfh.netlify.app/use-count)
+  - [Hook folder](https://github.com/RenzoMurinaCadierno/React-Fanmade-Hooks/tree/master/src/hooks/independent/useCount)
 
   Creates an integer counter state and returns it, along its handlers to increase, decrease, reset and set its count step.
 
   <br />
 
-- useLocalStorage
+- **_useLocalStorage_**
+
+  - [Working example](https://rfh.netlify.app/use-local-storage)
+  - [Hook folder](https://github.com/RenzoMurinaCadierno/React-Fanmade-Hooks/tree/master/src/hooks/independent/useLocalStorage)
 
   Targets a key in local storage and offers handlers to **set**, **get**, **delete** and **reset** it as a whole, or to target single or multiple nested keys instead to perform those operations on, given local storage item is a plain object.
 
@@ -83,19 +110,28 @@ Descriptions here are basic, so do not hesitate to check the complete ones at ea
 
   <br />
 
-- usePreviousValue
+- **_usePreviousValue_**
+
+  - [Working example](https://rfh.netlify.app/use-previous-value)
+  - [Hook folder](https://github.com/RenzoMurinaCadierno/React-Fanmade-Hooks/tree/master/src/hooks/independent/usePreviousValue)
 
   Listens to the value passed as parameter and returns its previous version each time it changes.
 
   <br />
 
-- useReRender
+- **_useReRender_**
+
+  - [Working example](https://rfh.netlify.app/use-re-render)
+  - [Hook folder](https://github.com/RenzoMurinaCadierno/React-Fanmade-Hooks/tree/master/src/hooks/independent/useReRender)
 
   Returns a function that upon calling it, the component will re-render.
 
   <br />
 
-- useToggle
+- **_useToggle_**
+
+  - [Working example](https://rfh.netlify.app/use-toggle)
+  - [Hook folder](https://github.com/RenzoMurinaCadierno/React-Fanmade-Hooks/tree/master/src/hooks/independent/useToggle)
 
   Returns a boolean state and its handler to toggle it.
 
@@ -105,13 +141,19 @@ Descriptions here are basic, so do not hesitate to check the complete ones at ea
 
 ---
 
-- useCallbackOnce
+- **_useCallbackOnce_**
+
+  - [Working example](https://rfh.netlify.app/use-callback-once)
+  - [Hook folder](https://github.com/RenzoMurinaCadierno/React-Fanmade-Hooks/tree/master/src/hooks/independent/useCallbackOnce)
 
   Takes a callback and returns a handler that invokes it, but that handler will stop working after it triggers. It deactivates on further invocations.
 
   <br />
 
-- useCallbackXTimes
+- **_useCallbackXTimes_**
+
+  - [Working example](https://rfh.netlify.app/use-callback-x-times)
+  - [Hook folder](https://github.com/RenzoMurinaCadierno/React-Fanmade-Hooks/tree/master/src/hooks/independent/useCallbackXTimes)
 
   Takes a callback and returns a handler that invokes it, but that handler will stop working after the number of calls specified in `times` argument.
 
@@ -119,7 +161,10 @@ Descriptions here are basic, so do not hesitate to check the complete ones at ea
 
   <br />
 
-- useEffectOnce
+- **_useEffectOnce_**
+
+  - [Working example](https://rfh.netlify.app/use-effect-once)
+  - [Hook folder](https://github.com/RenzoMurinaCadierno/React-Fanmade-Hooks/tree/master/src/hooks/independent/useEffectOnce)
 
   Triggers a callback when elements in dependencies array change (or on each render if no dependencies were provided), but only once.
 
@@ -127,7 +172,10 @@ Descriptions here are basic, so do not hesitate to check the complete ones at ea
 
   <br />
 
-- useEffectXTimes
+- **_useEffectXTimes_**
+
+  - [Working example](https://rfh.netlify.app/use-effect-x-times)
+  - [Hook folder](https://github.com/RenzoMurinaCadierno/React-Fanmade-Hooks/tree/master/src/hooks/independent/useEffectXTimes)
 
   Triggers a callback each time passed dependencies array change (or on each render if no dependencies), but only up to the specified number in `times` argument.
 

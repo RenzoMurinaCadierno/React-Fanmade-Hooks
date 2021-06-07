@@ -1,5 +1,9 @@
 # useLocalStorage
 
+- [Working example here](https://rfh.netlify.app/use-local-storage)
+
+<br />
+
 ## Description
 
 Targets a key in local storage and offers handlers to **set**, **get**, **delete** and **reset** it as a whole, or to target single or multiple nested keys instead to perform those operations on, given local storage item is a plain `object`.

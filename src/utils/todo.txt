@@ -11,5 +11,7 @@ fiddle SlotsSpinningSlots timeouts
 
 button on uselocalstorage, automatically on after user/pass
 
+publishing: https://www.youtube.com/watch?v=Ufwbp838yZA
+
 // commit msg
-Added defaultProps to all components.
+Added readme links.

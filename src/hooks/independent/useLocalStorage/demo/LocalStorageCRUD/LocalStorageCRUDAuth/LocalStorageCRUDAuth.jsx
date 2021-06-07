@@ -48,7 +48,7 @@ export default function LocalStorageCRUDAuth({
       isAuth && isMounted && jumpToSlide(LocalStorageCRUD.slideNames.SETTINGS),
     [isAuth]
   )
-    inputs onsubmit validate input to activate button
+
   return (
     <>
       {/* upper-left title */}

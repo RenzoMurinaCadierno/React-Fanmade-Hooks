@@ -1,5 +1,9 @@
 # useTimer
 
+- [Working example here](https://rfh.netlify.app/use-timer)
+
+<br />
+
 ## Description
 
 Generates a timer with the stated initial time, capable of ticking up/down.
