@@ -2,8 +2,6 @@
 
 - [Working example here](https://rfh.netlify.app/use-effect-once)
 
-<br />
-
 ## Description
 
 Triggers a callback when elements in `dependencies` change (or on each render if no `dependencies` were provided), but only once.

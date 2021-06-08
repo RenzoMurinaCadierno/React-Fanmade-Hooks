@@ -2,8 +2,6 @@
 
 - [Working example here](https://rfh.netlify.app/use-input-handlers)
 
-<br />
-
 ## Description
 
 Recieves an input reference alongside its props and an optional configuration object, and takes control of that input.

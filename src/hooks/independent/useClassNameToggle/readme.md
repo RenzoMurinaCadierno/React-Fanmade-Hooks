@@ -2,8 +2,6 @@
 
 - [Working example here](https://rfh.netlify.app/use-class-name-toggle)
 
-<br />
-
 ## Description
 
 Toggles `className` _on_ when invoked by the returned handler, which automatically turns back _off_ after `timeout`.

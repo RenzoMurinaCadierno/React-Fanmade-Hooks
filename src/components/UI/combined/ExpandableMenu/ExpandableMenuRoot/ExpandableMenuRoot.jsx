@@ -89,13 +89,17 @@ function ExpandableMenuRoot({
   // toggler to 'open menu' ('show list icons')
   const [isMenuOpen, toggleMenuOpen] = useToggle(false)
 
+  const defaultIconsProps = getDefaultIconProps(spread)
+  const defaultMainIconProps = defaultIconsProps.main
+  const safeListIconsProps = iconsProps.list ?? defaultIconsProps.list
+
   const _expandableIconProps = {
-    content: iconsProps.main.content,
-    icon: iconsProps.main.icon,
+    content: iconsProps?.main?.content ?? defaultMainIconProps.content,
+    icon: iconsProps?.main?.icon ?? defaultMainIconProps.icon,
     onIconClick: toggleMenuOpen,
     ...menuIconProps.icon
   }
-
+  console.log(iconsProps.list)
   return (
     // wrapper container
     <div
@@ -111,20 +115,26 @@ function ExpandableMenuRoot({
         expandableIconProps={_expandableIconProps}
       />
       {/* all 'list icons', displayed when "isMenuOpen" becomes true */}
-      {iconsProps.list.map((currentIconProps, i) => (
-        <ExpandableMenu.ListIcon
-          key={i}
-          type={type}
-          show={isMenuOpen}
-          order={i}
-          amountOfIcons={iconsProps.list.length}
-          spread={spread}
-          iconExpandDirection={listIconsExpandDirection}
-          classNames={classes.listIcon(classNames.listIcon)}
-          {...listIconsProps}
-          {...currentIconProps}
-        />
-      ))}
+      {safeListIconsProps.map((currentIconProps, i) => {
+        const ListIconComponent = currentIconProps.toastProps
+          ? ExpandableMenu.ListIcon.WithToast
+          : ExpandableMenu.ListIcon
+
+        return (
+          <ListIconComponent
+            key={i}
+            type={type}
+            show={isMenuOpen}
+            order={i}
+            amountOfIcons={safeListIconsProps.length}
+            spread={spread}
+            iconExpandDirection={listIconsExpandDirection}
+            classNames={classes.listIcon(classNames.listIcon)}
+            {...listIconsProps}
+            {...currentIconProps}
+          />
+        )
+      })}
     </div>
   )
 }

@@ -65,7 +65,8 @@ export const propTypes = {
   iconsProps: PropTypes.objectOf(
     PropTypes.shape({
       icon: PropTypes.element,
-      content: PropTypes.any
+      content: PropTypes.any,
+      toastProps: PropTypes.object
     })
   ),
   listIconsExpandDirection: PropTypes.oneOf(["left", "right"]),

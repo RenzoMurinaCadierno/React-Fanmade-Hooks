@@ -28,7 +28,8 @@ import Modal from "./components/layout/Modal/Modal"
 import BT from "./components/games/breakTargets/BT"
 import Slots from "./components/games/slots/Slots"
 
-import CmpDescription from "./components/app-specific/wrappers/CmpDescription/CmpDescription"
+import CmpDescription from "./components/app-specific/layout/CmpDescription/CmpDescription"
+import CodeMenu from "./components/app-specific/layout/CodeMenu/CodeMenu"
 import ErrorBoundary from "./components/app-specific/wrappers/ErrorBoundary/ErrorBoundary"
 import Navigation from "./components/app-specific/nav/Navigation/Navigation"
 import Router from "./components/app-specific/nav/Router/Router"
@@ -83,6 +84,7 @@ export {
   BT,
   Slots,
   CmpDescription,
+  CodeMenu,
   ErrorBoundary,
   Navigation,
   Router,

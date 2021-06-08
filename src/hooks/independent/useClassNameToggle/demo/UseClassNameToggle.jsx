@@ -2,13 +2,14 @@ import { useState } from "react"
 import useClassNameToggle from "../useClassNameToggle"
 import { CmpDescription, Text } from "hub"
 import heart from "assets/icons/heart.svg"
+import plainCode from "../utils/plain"
 import { descItemsObject } from "./UseClassNameToggle.utils"
 import styles from "./UseClassNameToggle.module.css"
 
 export default function UseCount() {
   return (
     <>
-      <CmpDescription descItems={descItemsObject} />
+      <CmpDescription descItems={descItemsObject} plainCode={plainCode} />
       <CmpTest />
     </>
   )

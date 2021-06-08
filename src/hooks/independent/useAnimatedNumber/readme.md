@@ -2,8 +2,6 @@
 
 - [Working example here](https://rfh.netlify.app/use-animated-number)
 
-<br />
-
 ## Description
 
 Given a `number` state passed as first argument, when it updates (by `setState`), this hook animates the increase/decrease until the previous state matches the new one.

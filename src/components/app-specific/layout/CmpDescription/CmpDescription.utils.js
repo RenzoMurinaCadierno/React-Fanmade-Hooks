@@ -3,16 +3,16 @@ import { urls } from "app.configs.json"
 import styles from "./CmpDescription.module.css"
 
 export const classes = {
-  codeIcon: (classNames = {}) => ({
-    expandableIcon: {
-      ...classNames?.expandableIcon,
-      container:
-        (classNames?.expandableIcon?.container ?? "") +
-        " " +
-        styles.CodeIconContainer
-    },
-    toast: classNames?.toast
-  }),
+  // codeIcon: (classNames = {}) => ({
+  //   expandableIcon: {
+  //     ...classNames?.expandableIcon,
+  //     container:
+  //       (classNames?.expandableIcon?.container ?? "") +
+  //       " " +
+  //       styles.CodeIconContainer
+  //   },
+  //   toast: classNames?.toast
+  // }),
   container: (className) => className ?? "",
   title: (className) => className ?? "",
   description: (className) => className ?? ""
@@ -28,8 +28,7 @@ export const defaultProps = {
   },
   iconUrl: urls.github.hooks,
   classNames: {},
-  expandableIconProps: { expandDirection: "left" },
-  toastProps: {},
+  codeMenuProps: {},
   containerProps: {},
   titleProps: {},
   paragraphProps: {}

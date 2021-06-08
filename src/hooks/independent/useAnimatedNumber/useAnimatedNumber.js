@@ -115,6 +115,8 @@ import { useState, useEffect } from "react"
  *     starting value and target value.
  *
  * @returns {number} The number being animated (hook's inner state).
+ *
+ * @author Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>
  */
 export default function useAnimatedNumber(value = 100000, configs = {}) {
   const {

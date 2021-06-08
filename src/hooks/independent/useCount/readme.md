@@ -2,8 +2,6 @@
 
 - [Working example here](https://rfh.netlify.app/use-count)
 
-<br />
-
 ## Description
 
 Creates an integer counter state and returns it, along its handlers to increase, decrease, reset and set its count step.

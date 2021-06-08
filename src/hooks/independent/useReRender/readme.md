@@ -1,7 +1,5 @@
 # useReRender
 
-<br />
-
 - [Working example here](https://rfh.netlify.app/use-re-render)
 
 ## Description
