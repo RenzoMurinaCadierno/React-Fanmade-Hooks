@@ -13,5 +13,7 @@ button on uselocalstorage, automatically on after user/pass
 
 publishing: https://www.youtube.com/watch?v=Ufwbp838yZA
 
+Icon.WithAura, Icon.WithToast, then replace ExpandableMenuMainIcon
+
 // commit msg
-Started reworking '*ExpandableMenu*' and adding "copy code" functionality.
+Kept on reworking '*ExpandableMenu*'.

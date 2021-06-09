@@ -2,13 +2,33 @@ import PropTypes from "prop-types"
 import styles from "./ExpandableMenuListIcon.module.css"
 
 export const classes = {
-  icon: (classNames = {}) => ({
+  expandableIcon: (classNames = {}) => ({
     ...classNames,
-    container: (classNames.container ?? "") + " " + styles.Icon
+    container: (classNames?.container ?? "") + " " + styles.Icon
+  }),
+  expandableIconWithToast: (classNames = {}) => ({
+    expandableIcon: {
+      ...classNames,
+      container: (classNames?.container ?? "") + " " + styles.Icon
+    },
+    toast: classNames?.toast
   })
 }
 
 export const defaultProps = { spread: "top", classNames: {} }
+
+const expandableIconClassNamesExactShape = PropTypes.exact({
+  container: PropTypes.string,
+  icon: PropTypes.string,
+  content: PropTypes.string,
+  barrier: PropTypes.string
+})
+
+const toastClassNamesExactShape = PropTypes.exact({
+  container: PropTypes.string,
+  content: PropTypes.string,
+  toggler: PropTypes.string
+})
 
 export const propTypes = {
   show: PropTypes.bool.isRequired,
@@ -16,13 +36,30 @@ export const propTypes = {
   amountOfIcons: PropTypes.number.isRequired,
   spread: PropTypes.string,
   iconExpandDirection: PropTypes.string,
-  classNames: PropTypes.exact({
-    container: PropTypes.string,
-    icon: PropTypes.string,
-    content: PropTypes.string,
-    barrier: PropTypes.string
-  }),
-  otherProps: PropTypes.object
+  toastProps: PropTypes.object,
+  classNames: PropTypes.oneOf([
+    expandableIconClassNamesExactShape,
+    PropTypes.exact({
+      expandableIcon: expandableIconClassNamesExactShape,
+      toast: toastClassNamesExactShape
+    })
+  ]),
+  expandableIconProps: PropTypes.object
+}
+
+/**
+ * Returns true if `toastProps` is a valid object to pass to
+ * '*Icon.Expandable.WithToast*'.
+ *
+ * Such case will make '*ExpandableMenuListIcon*' render that children
+ * component. Otherwise, '*Icon.Expandable*' will take its place.
+ *
+ * @param {object} toastProps '*ExpandableMenuListIcon*' `toastProps`
+ */
+export function isIconWithToast(toastProps) {
+  return (
+    toastProps && typeof toastProps === "object" && toastProps instanceof Object
+  )
 }
 
 /**

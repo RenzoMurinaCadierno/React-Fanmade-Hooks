@@ -12,6 +12,19 @@ export const classes = {
   instructions: styles.Instructions
 }
 
+/**
+ * Returns an object to pass to '*ExpandableMenu*'s
+ * '*Icon.Expandable.WithToast*' on each `iconsProps.list` that triggers a
+ * toast.
+ *
+ * Sets the correct `url` to open a new tab (github, linkedin) when tapping the
+ * toast, as well as toast's `timeout` and `children` (rendered text)
+ *
+ * @param {string} text '*Toast*' `children`.
+ * @param {string} url Link to open in a new tab when tapping '*Toast*' content.
+ *
+ * @returns {object} '*Icon.Expandable.WithToast*' inner '*Toast*' `props`.
+ */
 function getToastProps(text, url) {
   return {
     timeout: 4000,
@@ -20,15 +33,22 @@ function getToastProps(text, url) {
   }
 }
 
+/**
+ * Sets some props for `iconsProps.aura` in '*ExpandableMenu*'
+ */
 export const menuIconProps = { aura: { size: "small", interval: "long" } }
 
+/**
+ * Sets props for `iconsProps.list` in '*ExpandableMenu*'. Github and linkedIn
+ * icons will render an '*Icon.Expandable.WithToast*', and contact, a basic
+ * '*Icon.Expandable*'.
+ */
 export const iconsProps = {
   list: [
     {
       icon: <img src={mail} alt="mail" />,
       content: "Contact",
       toastProps: getToastProps("Contact us at nmcadierno@gmail.com")
-      // onClick: null
     },
     {
       icon: <img src={linkedin} alt="linkedin" />,
@@ -45,35 +65,6 @@ export const iconsProps = {
         "Tap here to open Github's repository",
         urls.github.repo
       )
-      // onClick: () => window.open(urls.github.repo)
     }
   ]
-  // noId: {
-  // content: "Either null pointer or easter egg. I'd rather the latter ;)",
-  // onClick: null
-  // }
 }
-
-// /**
-//  * Object with keys 'mail', 'linkedin' and 'github', each with an object
-//  * as value containing '*ToastWithPortal*' `content` and `onClick`.
-//  */
-// export const toastData = {
-//   mail: {
-//     content: "Contact us at nmcadierno@gmail.com",
-//     // onClick: null
-//   },
-//   linkedin: {
-//     content: "Tap here to open author's LinkedIn",
-//     toastProps: getToastProps(urls.linkedin, "Contact us at nmcadierno@gmail.com")
-//   },
-//   github: {
-//     content: "Tap here to open Github's repository",
-//     toastProps: getToastProps(urls.github.repo)
-//     // onClick: () => window.open(urls.github.repo)
-//   },
-//   noId: {
-//     content: "Either null pointer or easter egg. I'd rather the latter ;)",
-//     // onClick: null
-//   }
-// }

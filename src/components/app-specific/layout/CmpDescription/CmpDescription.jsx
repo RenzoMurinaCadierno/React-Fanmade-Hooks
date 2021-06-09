@@ -4,7 +4,12 @@ import { CodeMenu, Container, Text } from "hub"
 import Icon from "components/UI/composed/Icon/Icon"
 import { getHookNameFromPathName } from "utils/utilityFunctions"
 import codeSvg from "assets/icons/code.svg"
-import { classes, defaultProps, propTypes } from "./CmpDescription.utils"
+import {
+  classes,
+  defaultProps,
+  propTypes,
+  defaultMenuIconProps
+} from "./CmpDescription.utils"
 
 /**
  * Renders the hook's name as title and its description as paragraphs, as well
@@ -50,7 +55,8 @@ function CmpDescription({
       <CodeMenu
         url={iconUrl + getHookNameFromPathName(location.pathname)}
         plainCode={plainCode}
-        {...codeMenuProps}
+        classNames={classes.codeIcon(classNames?.codeIcon)}
+        {...{ ...defaultMenuIconProps, ...codeMenuProps }}
       />
       {/* container for hook name title and description paragraphs */}
       <Container

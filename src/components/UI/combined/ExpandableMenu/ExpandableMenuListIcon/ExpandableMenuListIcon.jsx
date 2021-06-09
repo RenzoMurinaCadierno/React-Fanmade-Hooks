@@ -3,6 +3,7 @@ import {
   classes,
   defaultProps,
   propTypes,
+  isIconWithToast,
   getStyle
 } from "./ExpandableMenuListIcon.utils"
 
@@ -19,6 +20,11 @@ import {
  *
  * The total amount of rendered icons must be provided to `amountOfIcons` for
  * "z-index" managing, so components do not overlay against each other.
+ *
+ * Defining `toastProps` as a valid object will render an
+ * '*ExpandableIconWithToast*', passing `toastProps` as its inner '*Toast*'
+ * `props`. If left undefined or if it is not a valid object, this component
+ * will render an '*ExpandableIcon*' instead.
  *
  * @param {object} props
  *
@@ -43,10 +49,15 @@ import {
  * `iconExpandDirection?` (string): '*Icon.Expandable*' `expandDirection`. Can
  *   be one of 'left' or 'right'.
  *
+ * `toastProps?` (object): Props to spread in '*Icon.Expandable.WithToast*'.
+ *   If defined and valid, the aforementioned component will be this one's
+ *   return value. Otherwise, this component will render an '*Icon.Expandable*'.
+ *
  * `classNames?` (object): className strings for each JSX rendered here.
  *   Check *utils.js* for its constitution.
  *
- * `...otherProps?` (object): Props to spread in '*Icon.Expandable*'.
+ * `...expandableIconProps?` (object): Props to spread in '*Icon.Expandable*' or
+ *   '*Icon.Expandable.WithToast*'.
  */
 export default function ExpandableMenuListIcon({
   show,
@@ -55,15 +66,34 @@ export default function ExpandableMenuListIcon({
   spread,
   iconExpandDirection,
   classNames,
-  ...otherProps
+  toastProps,
+  ...expandableIconProps
 }) {
-  return (
-    <Icon.Expandable
-      expandDirection={iconExpandDirection}
-      classNames={classes.icon(classNames)}
-      style={getStyle(order, spread, show, amountOfIcons)}
-      {...otherProps}
-    />
+  // flag to determine which '*Icon*' to render
+  const _isIconWithToast = isIconWithToast(toastProps)
+  // and which `classNames` object to pass as props
+  const _classNames =
+    classes[_isIconWithToast ? "expandableIconWithToast" : "expandableIcon"](
+      classNames
+    )
+  // props shared by both '*Icon.Expandable*' and '*Icon.Expandable.WithToast*'
+  const sharedExpandableIconProps = {
+    expandDirection: iconExpandDirection,
+    style: getStyle(order, spread, show, amountOfIcons),
+    ...expandableIconProps
+  }
+  // if `toastProps` is defined and valid, render '*Icon.Expandable.WithToast*'.
+  // Otherwise, '*Icon.Expandable*'
+  return _isIconWithToast ? (
+    <Icon.Expandable.WithToast
+      expandableIconProps={sharedExpandableIconProps}
+      toastProps={toastProps}
+      classNames={_classNames}
+    >
+      {toastProps.children}
+    </Icon.Expandable.WithToast>
+  ) : (
+    <Icon.Expandable classNames={_classNames} {...sharedExpandableIconProps} />
   )
 }
 

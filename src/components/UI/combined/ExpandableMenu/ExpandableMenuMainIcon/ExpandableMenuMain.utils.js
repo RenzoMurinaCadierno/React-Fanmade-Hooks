@@ -2,14 +2,14 @@ import PropTypes from "prop-types"
 import styles from "./ExpandableMenuMainIcon.module.css"
 
 export const classes = {
-  icon: (open, classNames = {}) => ({
+  icon: (open, rotateOnOpen, classNames = {}) => ({
     aura: classNames?.aura ?? {},
     expandableIcon: {
       ...classNames?.expandableIcon,
       container:
         (classNames.expandableIcon?.container ?? "") +
         " " +
-        (open ? styles.Open : "") +
+        (open ? (rotateOnOpen ? styles.RotateOpen : styles.Open) : "") +
         " " +
         styles.Icon
     }
@@ -37,6 +37,7 @@ export const propTypes = {
     "danger-1"
   ]),
   open: PropTypes.bool.isRequired,
+  rotateOnOpen: PropTypes.bool,
   classNames: PropTypes.exact({
     aura: PropTypes.exact({
       container: PropTypes.string,

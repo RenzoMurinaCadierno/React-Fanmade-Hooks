@@ -8,6 +8,7 @@ import github from "assets/icons/github.svg"
 export const classes = {
   container: (anchor, className) =>
     (className ?? "") +
+    " " +
     (anchor ? styles[anchor.toLowerCase()] : "") +
     " " +
     styles.Container,
@@ -16,10 +17,10 @@ export const classes = {
 }
 
 export const defaultProps = {
-  // 'spread', 'iconsProps' and 'listIconsExpandDirection' must be defined as
-  // defaults on component's function signature, as they need each other's
-  // values to be initialized. Cannot be done here as 'this' will be undefined
-  // when trying to access values before initialization.
+  // 'spread', 'listIconsExpandDirection' must be defined as defaults on
+  // component's function signature, as they need each other's values to be
+  // initialized. Cannot be done here as 'this' will be undefined when trying
+  // to access values before initialization.
   anchor: "bottom-right",
   type: "secondary",
   classNames: {},
@@ -47,6 +48,11 @@ const spreadOrientations = {
 
 const anchorPropTypesOneOf = Object.values(spreadOrientations).flat()
 const spreadPropTypesOneOf = Object.keys(spreadOrientations).flat()
+const iconPropsShape = PropTypes.shape({
+  icon: PropTypes.element,
+  content: PropTypes.any,
+  toastProps: PropTypes.object
+})
 
 export const propTypes = {
   anchor: PropTypes.oneOf(anchorPropTypesOneOf),
@@ -62,13 +68,10 @@ export const propTypes = {
     "danger-0",
     "danger-1"
   ]),
-  iconsProps: PropTypes.objectOf(
-    PropTypes.shape({
-      icon: PropTypes.element,
-      content: PropTypes.any,
-      toastProps: PropTypes.object
-    })
-  ),
+  iconsProps: PropTypes.exact({
+    main: iconPropsShape,
+    list: PropTypes.arrayOf(iconPropsShape)
+  }),
   listIconsExpandDirection: PropTypes.oneOf(["left", "right"]),
   classNames: PropTypes.exact({
     container: PropTypes.string,

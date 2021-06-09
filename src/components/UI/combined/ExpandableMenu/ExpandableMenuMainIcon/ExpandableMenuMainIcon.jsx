@@ -21,6 +21,9 @@ import { classes, defaultProps, propTypes } from "./ExpandableMenuMain.utils"
  * > **Note:** When rendered by '*ExpandableMenuRoot*', '*Icon.Expandable*' here
  *   will automatically toggle styles depending on the state of this prop.
  *
+ * `rotateOnOpen` (boolean): true will perform a 180deg rotation on
+ *   '*Icon.Expandable.WithAura*' when menu is opened (`open` is true).
+ *
  * `classNames?` (object): className strings for each JSX rendered here.
  *   Check *utils.js* for its constitution.
  *
@@ -33,27 +36,28 @@ import { classes, defaultProps, propTypes } from "./ExpandableMenuMain.utils"
 export default function ExpandableMenuMainIcon({
   type,
   open,
+  rotateOnOpen,
   classNames,
   auraProps,
   expandableIconProps
 }) {
-  const _auraProps = {
+  const computedAuraProps = {
     isActive: !open,
     type,
     ...auraProps
   }
-
-  const _expandableIconProps = {
+  create icon.withAura and add it here. Then icon.withtoast, then cmpDescription
+  const computedExpandableIconProps = {
     type,
-    expand: false,
+    expand: false, // lock menu icon to
     ...expandableIconProps
   }
 
   return (
     <Icon.Expandable.WithAura
-      auraProps={_auraProps}
-      expandableIconProps={_expandableIconProps}
-      classNames={classes.icon(open, classNames)}
+      auraProps={computedAuraProps}
+      expandableIconProps={computedExpandableIconProps}
+      classNames={classes.icon(open, rotateOnOpen, classNames)}
     />
   )
 }

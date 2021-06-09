@@ -1,18 +1,9 @@
 import PropTypes from "prop-types"
 import { urls } from "app.configs.json"
-import styles from "./CmpDescription.module.css"
+// import styles from "./CmpDescription.module.css"
 
 export const classes = {
-  // codeIcon: (classNames = {}) => ({
-  //   expandableIcon: {
-  //     ...classNames?.expandableIcon,
-  //     container:
-  //       (classNames?.expandableIcon?.container ?? "") +
-  //       " " +
-  //       styles.CodeIconContainer
-  //   },
-  //   toast: classNames?.toast
-  // }),
+  codeIcon: (classNames) => classNames,
   container: (className) => className ?? "",
   title: (className) => className ?? "",
   description: (className) => className ?? ""
@@ -52,6 +43,7 @@ export const propTypes = {
     title: PropTypes.string.isRequired,
     paragraphs: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
   }),
+  plainCode: PropTypes.string,
   iconUrl: PropTypes.string,
   classNames: PropTypes.exact({
     codeIcon: codeIconPropTypes,
@@ -60,9 +52,16 @@ export const propTypes = {
     description: PropTypes.string,
     barrier: PropTypes.string
   }),
-  expandableIconProps: PropTypes.object,
-  toastProps: PropTypes.object,
+  codeMenuProps: PropTypes.object,
   containerProps: PropTypes.object,
   titleProps: PropTypes.object,
   paragraphProps: PropTypes.object
+}
+
+/**
+ * Sets some props for `iconsProps.aura` in '*ExpandableMenu*' rendered by
+ * '*CodeMenu*'.
+ */
+export const defaultMenuIconProps = {
+  menuIconProps: { aura: { size: "small", interval: "long" } }
 }

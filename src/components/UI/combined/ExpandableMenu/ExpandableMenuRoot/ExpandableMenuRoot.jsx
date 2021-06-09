@@ -41,14 +41,18 @@ import {
  *   their variations if possible. Theme color's auto-toggling is only
  *   available on those two.
  *
- * `iconsProps` (object): Object with two keys, 'main' and 'list', and their
+ * `rotateOnOpen` (boolean): true will perform a 180deg rotation on
+ *   '*ExpandableMenuMainIcon*' when menu is opened. An added effect if you wish
+ *   to use a 'gear' or an 'arrow' image.
+ *
+ * `iconsProps` (object): Object with two keys, "main" and "list", and their
  *   values being:
- * > * 'main': a single object containing all props to spread in
+ * > * "main": a single object containing all props to spread in
  *     '*ExpandableMenuMainIcon*' ('menu toggler' icon). `icon` and `content`
  *     are mandatory.
- * > * 'list': an array of objects, one for each '*ExpandableMenuListIcon*'
+ * > * "list": an array of objects, one for each '*ExpandableMenuListIcon*'
  *     ('list item' icon) containing props to spread on them individually.
- *     Like in 'main', `icon` and `content` must be provided on each.
+ *     Like in "main", `icon` and `content` must be provided on each.
  *
  * > Defaults to the result of "getDefaultIconProps", calculated on current
  *   `spread`.
@@ -59,10 +63,9 @@ import {
  * `listIconsExpandDirection?` (string): '*ExpandableMenuListIcon*' inner
  *   '*ExpandableIcon*'s `expandDirection`. It tells each '*ExpandableIcon*'
  *   where to expand when focused on.
- *
  *   > * Can be one of 'left', 'right'.
  *   > * Defaults to one calculated by "getIconExpandDirection" with current
- *     `anchor` as input.
+ *     `anchor` as argument.
  *
  * `classNames?` (object): className strings for each JSX rendered here.
  *   Check *utils.js* for its constitution.
@@ -79,7 +82,8 @@ function ExpandableMenuRoot({
   anchor,
   spread = getIconSpreadDirection(anchor),
   type,
-  iconsProps = getDefaultIconProps(spread),
+  rotateOnOpen,
+  iconsProps,
   listIconsExpandDirection = getIconExpandDirection(anchor),
   classNames,
   menuIconProps,
@@ -88,18 +92,19 @@ function ExpandableMenuRoot({
 }) {
   // toggler to 'open menu' ('show list icons')
   const [isMenuOpen, toggleMenuOpen] = useToggle(false)
-
+  // compute default props for both `iconsProps.main` and `iconsProps.list`
   const defaultIconsProps = getDefaultIconProps(spread)
+  // if any are undefined, failsafe to their respective default ones
   const defaultMainIconProps = defaultIconsProps.main
   const safeListIconsProps = iconsProps.list ?? defaultIconsProps.list
-
-  const _expandableIconProps = {
+  // calculate the object to pass to `ExpandableMenu.MainIcon`
+  const computedExpandableIconProps = {
     content: iconsProps?.main?.content ?? defaultMainIconProps.content,
     icon: iconsProps?.main?.icon ?? defaultMainIconProps.icon,
     onIconClick: toggleMenuOpen,
     ...menuIconProps.icon
   }
-  console.log(iconsProps.list)
+
   return (
     // wrapper container
     <div
@@ -110,18 +115,15 @@ function ExpandableMenuRoot({
       <ExpandableMenu.MainIcon
         type={getType(type, isMenuOpen)}
         open={isMenuOpen}
+        rotateOnOpen={rotateOnOpen}
         classNames={classes.mainIcon(classNames.mainIcon)}
         auraProps={menuIconProps.aura}
-        expandableIconProps={_expandableIconProps}
+        expandableIconProps={computedExpandableIconProps}
       />
       {/* all 'list icons', displayed when "isMenuOpen" becomes true */}
       {safeListIconsProps.map((currentIconProps, i) => {
-        const ListIconComponent = currentIconProps.toastProps
-          ? ExpandableMenu.ListIcon.WithToast
-          : ExpandableMenu.ListIcon
-
         return (
-          <ListIconComponent
+          <ExpandableMenu.ListIcon
             key={i}
             type={type}
             show={isMenuOpen}
