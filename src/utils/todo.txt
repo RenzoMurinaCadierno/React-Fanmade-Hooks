@@ -16,4 +16,4 @@ publishing: https://www.youtube.com/watch?v=Ufwbp838yZA
 Icon.WithAura, Icon.WithToast, then replace ExpandableMenuMainIcon
 
 // commit msg
-Kept on reworking '*ExpandableMenu*'.
+Finished recomposing '*Icon*'. Must still test and re-comment.

@@ -10,7 +10,7 @@ import { classes, defaultProps, propTypes } from "./ExpandableMenuMain.utils"
  *
  * @param {object} props
  *
- * `type?` (string): This app's theme stylings to apply to '*Icon.Expandable*'.
+ * `type?` (string): This app's theme stylings to apply to '*Icon.WithAura*'.
  *   Defaults to 'primary' and can be one of 'primary', 'primary-1',
  *   'secondary', 'secondary-1', 'danger', 'danger-1'.
  *
@@ -18,7 +18,7 @@ import { classes, defaultProps, propTypes } from "./ExpandableMenuMain.utils"
  *   declared in parent component ('*ExpandableMenuRoot*'), false hides them
  *   again.
  *
- * > **Note:** When rendered by '*ExpandableMenuRoot*', '*Icon.Expandable*' here
+ * > **Note:** When rendered by '*ExpandableMenuRoot*', '*Icon.WithAura*' here
  *   will automatically toggle styles depending on the state of this prop.
  *
  * `rotateOnOpen` (boolean): true will perform a 180deg rotation on
@@ -27,38 +27,31 @@ import { classes, defaultProps, propTypes } from "./ExpandableMenuMain.utils"
  * `classNames?` (object): className strings for each JSX rendered here.
  *   Check *utils.js* for its constitution.
  *
- * `auraProps?` (object): Props to spread in '*Icon.Expandable.WithAura*'s
- *   '*Aura*'.
+ * `auraProps?` (object): Props to spread in '*Icon.WithAura* inner '*Aura*'.
  *
- * `expandableIconProps?` (object): Props to spread in
- *   '*Icon.Expandable.WithAura*'s '*ExpandableIcon*'.
+ * `iconProps?` (object): Props to spread in '*Icon.WithAura*' inner '*Icon*'.
+ *
  */
 export default function ExpandableMenuMainIcon({
+  children,
   type,
   open,
   rotateOnOpen,
   classNames,
   auraProps,
-  expandableIconProps
+  ...iconProps
 }) {
-  const computedAuraProps = {
-    isActive: !open,
-    type,
-    ...auraProps
-  }
-  create icon.withAura and add it here. Then icon.withtoast, then cmpDescription
-  const computedExpandableIconProps = {
-    type,
-    expand: false, // lock menu icon to
-    ...expandableIconProps
-  }
+  const computedAuraProps = { isActive: !open, type, ...auraProps }
 
   return (
-    <Icon.Expandable.WithAura
+    <Icon.WithAura
+      type={type}
       auraProps={computedAuraProps}
-      expandableIconProps={computedExpandableIconProps}
       classNames={classes.icon(open, rotateOnOpen, classNames)}
-    />
+      {...iconProps}
+    >
+      {children}
+    </Icon.WithAura>
   )
 }
 

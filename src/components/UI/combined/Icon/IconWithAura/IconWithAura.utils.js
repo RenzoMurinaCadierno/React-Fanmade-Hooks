@@ -3,21 +3,23 @@ import PropTypes from "prop-types"
 
 export const classes = {
   aura: (classNames) => classNames,
+  icon: (className) => className,
   expandableIcon: (classNames) => classNames
 }
 
 export const defaultProps = {
   classNames: {},
-  auraProps: {},
-  expandableIconProps: {}
+  auraProps: {}
 }
 
 export const propTypes = {
+  isExpandable: PropTypes.bool,
   classNames: PropTypes.exact({
     aura: PropTypes.exact({
       container: PropTypes.string,
       aura: PropTypes.string
     }),
+    icon: PropTypes.string,
     expandableIcon: PropTypes.exact({
       container: PropTypes.string,
       icon: PropTypes.string,
@@ -25,6 +27,5 @@ export const propTypes = {
       barrier: PropTypes.string
     })
   }),
-  auraProps: PropTypes.object,
-  expandableIconProps: PropTypes.object
+  auraProps: PropTypes.object
 }

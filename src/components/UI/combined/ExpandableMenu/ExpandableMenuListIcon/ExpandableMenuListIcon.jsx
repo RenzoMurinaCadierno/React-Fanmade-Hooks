@@ -6,7 +6,8 @@ import {
   isIconWithToast,
   getStyle
 } from "./ExpandableMenuListIcon.utils"
-
+check all files and comments in icons except iconwithtoast/aura. Then cmpDesc
+then Compose Inputs
 /**
  * Renders a list icon to be displayed when '*ExpandableMenuMainIcon*' toggler
  * switches its `open` state to true.
@@ -56,7 +57,7 @@ import {
  * `classNames?` (object): className strings for each JSX rendered here.
  *   Check *utils.js* for its constitution.
  *
- * `...expandableIconProps?` (object): Props to spread in '*Icon.Expandable*' or
+ * `...iconProps?` (object): Props to spread in '*Icon.Expandable*' or
  *   '*Icon.Expandable.WithToast*'.
  */
 export default function ExpandableMenuListIcon({
@@ -67,33 +68,24 @@ export default function ExpandableMenuListIcon({
   iconExpandDirection,
   classNames,
   toastProps,
-  ...expandableIconProps
+  ...iconProps
 }) {
-  // flag to determine which '*Icon*' to render
+  // flag to determine which '*Icon.Expandable*' to render (with or w/o toast)
   const _isIconWithToast = isIconWithToast(toastProps)
-  // and which `classNames` object to pass as props
-  const _classNames =
-    classes[_isIconWithToast ? "expandableIconWithToast" : "expandableIcon"](
-      classNames
-    )
   // props shared by both '*Icon.Expandable*' and '*Icon.Expandable.WithToast*'
-  const sharedExpandableIconProps = {
+  const sharedIconProps = {
     expandDirection: iconExpandDirection,
     style: getStyle(order, spread, show, amountOfIcons),
-    ...expandableIconProps
+    classNames:
+      classes[_isIconWithToast ? "iconWithToast" : "icon"](classNames),
+    ...iconProps
   }
   // if `toastProps` is defined and valid, render '*Icon.Expandable.WithToast*'.
   // Otherwise, '*Icon.Expandable*'
   return _isIconWithToast ? (
-    <Icon.Expandable.WithToast
-      expandableIconProps={sharedExpandableIconProps}
-      toastProps={toastProps}
-      classNames={_classNames}
-    >
-      {toastProps.children}
-    </Icon.Expandable.WithToast>
+    <Icon.Expandable.WithToast toastProps={toastProps} {...sharedIconProps} />
   ) : (
-    <Icon.Expandable classNames={_classNames} {...sharedExpandableIconProps} />
+    <Icon.Expandable {...sharedIconProps} />
   )
 }
 

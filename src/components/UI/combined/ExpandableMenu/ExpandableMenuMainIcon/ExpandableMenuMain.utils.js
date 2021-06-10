@@ -4,25 +4,16 @@ import styles from "./ExpandableMenuMainIcon.module.css"
 export const classes = {
   icon: (open, rotateOnOpen, classNames = {}) => ({
     aura: classNames?.aura ?? {},
-    expandableIcon: {
-      ...classNames?.expandableIcon,
-      container:
-        (classNames.expandableIcon?.container ?? "") +
-        " " +
-        (open ? (rotateOnOpen ? styles.RotateOpen : styles.Open) : "") +
-        " " +
-        styles.Icon
-    }
+    icon:
+      (classNames?.icon ?? "") +
+      " " +
+      (open ? (rotateOnOpen ? styles.RotateOpen : styles.Open) : "") +
+      " " +
+      styles.Icon
   })
 }
 
-export const defaultProps = {
-  type: "primary",
-  open: false,
-  classNames: {},
-  auraProps: {},
-  expandableIconProps: {}
-}
+export const defaultProps = { type: "primary", open: false, classNames: {} }
 
 export const propTypes = {
   type: PropTypes.oneOf([
@@ -43,13 +34,8 @@ export const propTypes = {
       container: PropTypes.string,
       aura: PropTypes.string
     }),
-    expandableIcon: PropTypes.exact({
-      container: PropTypes.string,
-      icon: PropTypes.string,
-      content: PropTypes.string,
-      barrier: PropTypes.string
-    })
+    icon: PropTypes.string
   }),
   auraProps: PropTypes.object,
-  expandableIconProps: PropTypes.object
+  iconProps: PropTypes.object
 }

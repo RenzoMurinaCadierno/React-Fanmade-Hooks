@@ -116,8 +116,7 @@ export function getDefaultIconProps(spread) {
           alt="menu"
           style={{ transform: `rotate(${pointerRotations[spread] ?? 90}deg)` }}
         />
-      ),
-      content: "pointer"
+      )
     },
     list: [
       {

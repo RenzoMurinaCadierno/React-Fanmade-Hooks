@@ -94,16 +94,7 @@ function ExpandableMenuRoot({
   const [isMenuOpen, toggleMenuOpen] = useToggle(false)
   // compute default props for both `iconsProps.main` and `iconsProps.list`
   const defaultIconsProps = getDefaultIconProps(spread)
-  // if any are undefined, failsafe to their respective default ones
-  const defaultMainIconProps = defaultIconsProps.main
   const safeListIconsProps = iconsProps.list ?? defaultIconsProps.list
-  // calculate the object to pass to `ExpandableMenu.MainIcon`
-  const computedExpandableIconProps = {
-    content: iconsProps?.main?.content ?? defaultMainIconProps.content,
-    icon: iconsProps?.main?.icon ?? defaultMainIconProps.icon,
-    onIconClick: toggleMenuOpen,
-    ...menuIconProps.icon
-  }
 
   return (
     // wrapper container
@@ -118,8 +109,11 @@ function ExpandableMenuRoot({
         rotateOnOpen={rotateOnOpen}
         classNames={classes.mainIcon(classNames.mainIcon)}
         auraProps={menuIconProps.aura}
-        expandableIconProps={computedExpandableIconProps}
-      />
+        onClick={toggleMenuOpen}
+        {...menuIconProps.icon}
+      >
+        {iconsProps?.main?.icon ?? defaultIconsProps.main.icon}
+      </ExpandableMenu.MainIcon>
       {/* all 'list icons', displayed when "isMenuOpen" becomes true */}
       {safeListIconsProps.map((currentIconProps, i) => {
         return (

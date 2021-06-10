@@ -2,11 +2,11 @@ import PropTypes from "prop-types"
 import styles from "./ExpandableMenuListIcon.module.css"
 
 export const classes = {
-  expandableIcon: (classNames = {}) => ({
+  icon: (classNames = {}) => ({
     ...classNames,
     container: (classNames?.container ?? "") + " " + styles.Icon
   }),
-  expandableIconWithToast: (classNames = {}) => ({
+  iconWithToast: (classNames = {}) => ({
     expandableIcon: {
       ...classNames,
       container: (classNames?.container ?? "") + " " + styles.Icon
@@ -37,14 +37,14 @@ export const propTypes = {
   spread: PropTypes.string,
   iconExpandDirection: PropTypes.string,
   toastProps: PropTypes.object,
-  classNames: PropTypes.oneOf([
+  classNames: PropTypes.oneOfType([
     expandableIconClassNamesExactShape,
     PropTypes.exact({
       expandableIcon: expandableIconClassNamesExactShape,
       toast: toastClassNamesExactShape
     })
   ]),
-  expandableIconProps: PropTypes.object
+  iconProps: PropTypes.object
 }
 
 /**
