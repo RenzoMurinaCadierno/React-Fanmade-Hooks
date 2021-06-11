@@ -99,7 +99,7 @@ const pointerRotations = { top: 90, bottom: -90, right: 180, left: 0 }
  * * 'list': an array of objects, one for each '*ExpandableMenuListIcon*' to
  *     render sequentially. Besides `icon` and `content`, `contentProps` is
  *     present, which will be spread in the inner 'content' '*div*' inside
- *     '*ExpandableIcon*'. This assigns a `data-id` to that content '*div*' for
+ *     '*Icon.Expandable*'. This assigns a `data-id` to that content '*div*' for
  *     synthetic event to bubble up and resolve "onClick" handlers.
  *
  * @param {string} spread '*ExpandableMenuRoot*' `spread`. Necessary to rotate
@@ -183,6 +183,7 @@ export function getIconExpandDirection(anchor) {
  *
  * @param {string} typeProp Current type, related to app's theme. Can be one of
  *   'primary', 'primary-1', 'secondary', 'secondary-1',.
+ *
  * @param {boolean} isOpen Menu toggler's boolean state ("isMenuOpen").
  *
  * @returns The current type if `isOpen` is false, or the opposite type if it
@@ -209,6 +210,7 @@ export function getType(typeProp, isOpen) {
  *
  * @param {string} typeName App's main theme. Can be one of 'primary' or
  *   'secondary'.
+ *
  * @param {string?} variation Theme variation. Can be one of '0', '1', '2' or
  *   a falsy value.
  */

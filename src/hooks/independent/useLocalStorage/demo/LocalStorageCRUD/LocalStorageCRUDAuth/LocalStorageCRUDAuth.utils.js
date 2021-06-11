@@ -6,7 +6,7 @@ export const classes = {
   inputsContainer: styles.InputsContainer,
   inputComponent: {
     container: styles.InputContainer,
-    styledInput: { label: styles.InputLabel }
+    inputStyled: { label: styles.InputLabel }
   },
   button: styles.Button,
   authBanner: (type) => (type ? styles[type] : "") + " " + styles.AuthBanner

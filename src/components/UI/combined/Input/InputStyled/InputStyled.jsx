@@ -1,6 +1,6 @@
-import { useState, useCallback, useRef, forwardRef } from "react"
+import { useState, useRef, forwardRef } from "react"
 import { Label, Input, Underline } from "hub"
-import { classes } from "./StyledInput.utils"
+import { classes } from "./InputStyled.utils"
 
 // NOTE: we cannot add propTypes/defaultProps here, forwardRef does not support it.
 // They are written in *utils.js* if you need them, though.
@@ -11,7 +11,7 @@ import { classes } from "./StyledInput.utils"
  *
  * Keep in mind this input is **not** self-controlled, it only handles its UI
  * functionality. If you want one that manages its own state, use '*Input*',
- * '*StyledInputWithValidation*', or '*InputField*' (this last one is legacy).
+ * '*InputWithValidation*', or '*InputField*' (this last one is legacy).
  *
  * @param {object} props
  *
@@ -40,7 +40,7 @@ import { classes } from "./StyledInput.utils"
  *
  * @param {React.ref} ref A React.Reference to the input element.
  */
-function StyledInput(
+function InputStyled(
   {
     id,
     value,
@@ -61,30 +61,24 @@ function StyledInput(
   // use `id`, or create a unique one if undefined
   const inputId = useRef(
     id || "input-field-" + Math.floor(Math.random() * 100000)
-  ).current
-
-  const handleFocus = useCallback(
-    (e) => {
-      // set focus state to true and trigger callback
-      setIsFocused(true)
-      onFocus?.(e)
-    },
-    [setIsFocused, onFocus]
   )
 
-  const handleBlur = useCallback(
-    (e) => {
-      // set focus state to false and trigger callback
-      setIsFocused(false)
-      onBlur?.(e)
-    },
-    [setIsFocused, onBlur]
-  )
+  const handleFocus = (e) => {
+    // set focus state to true and trigger callback
+    setIsFocused(true)
+    onFocus?.(e)
+  }
 
+  const handleBlur = (e) => {
+    // set focus state to false and trigger callback
+    setIsFocused(false)
+    onBlur?.(e)
+  }
+  console.log(ref)
   return (
     <div className={classes.container(classNames.container)}>
       <Label
-        htmlFor={inputId}
+        htmlFor={inputId.current}
         targetInputType="text"
         // keep label up if '*input*' is focused or value !== ""
         isActive={isFocused || !!value}
@@ -95,7 +89,7 @@ function StyledInput(
         {label}
       </Label>
       <Input
-        id={inputId}
+        id={inputId.current}
         ref={ref}
         value={value}
         onFocus={handleFocus}
@@ -114,4 +108,4 @@ function StyledInput(
   )
 }
 
-export default forwardRef(StyledInput)
+export default forwardRef(InputStyled)

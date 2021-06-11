@@ -38,7 +38,9 @@ export const propTypes = {
   iconExpandDirection: PropTypes.string,
   toastProps: PropTypes.object,
   classNames: PropTypes.oneOfType([
+    // classNames for '*Icon.Expandable*'
     expandableIconClassNamesExactShape,
+    // classNames for '*Icon.Expandable.WithToast*'
     PropTypes.exact({
       expandableIcon: expandableIconClassNamesExactShape,
       toast: toastClassNamesExactShape
@@ -63,16 +65,19 @@ export function isIconWithToast(toastProps) {
 }
 
 /**
- * Returns an object to spread on '*ExpandableIcon*' `style`, populated with
- * either visible or hidden stylings, depending on `show` state.
+ * Returns an object to spread on either rendered '*Icon*' `style`, populated
+ * with either visible or hidden stylings, depending on `show`.
  *
  * @param {number} order Current icon's position as an incremental integer
  *   starting from 0 (0, 1, 2, 3, ...).
+ *
  * @param {string} spread Direction every icon spread towards when `show` is
  *   true (when they become visible). Can be one of 'top', 'right', 'bottom',
  *   'left'.
+ *
  * @param {boolean} show true applies visible stylings for the icon, false adds
  *   hidden stylings to it.
+ *
  * @param {number} amountOfIcons The total amount of icons rendered in the
  *   list (normally in '*ExpandableMenuRoot*'). Used to determine each icon's
  *   "z-index", which comes in play when `spread` is either 'left' or 'right'

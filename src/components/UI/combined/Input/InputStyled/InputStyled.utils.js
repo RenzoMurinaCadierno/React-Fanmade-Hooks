@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import styles from "./StyledInput.module.css"
+import styles from "./InputStyled.module.css"
 
 export const classes = {
   container: (className) => (className ?? "") + " " + styles.Container,

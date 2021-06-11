@@ -57,7 +57,7 @@
   .CmpDescCodeIconContainer {
     /* since we are not listening to media query changes using JS, we need to 
        directly modify the classes. This would have been much easier by simply 
-       using the right "props" in 'ExpandableIcon' */
+       using the right "props" in 'IconExpandable' */
     top: 0;
     bottom: unset;
     left: unset;

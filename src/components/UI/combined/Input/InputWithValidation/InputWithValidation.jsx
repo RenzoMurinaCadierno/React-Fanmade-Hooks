@@ -1,13 +1,9 @@
-import { useRef, useState, useCallback } from "react"
+import { useRef, useState } from "react"
 import { Container, Input, Text, useInputHandlers } from "hub"
-import {
-  classes,
-  defaultProps,
-  propTypes
-} from "./StyledInputWithValidation.utils"
+import { classes, defaultProps, propTypes } from "./InputWithValidation.utils"
 
 /**
- * Returns a '*StyledInput*' component linked to '*useInputHandlers*' hook.
+ * Returns a '*InputStyled*' component linked to '*useInputHandlers*' hook.
  *
  * It is designed to be validated. Hence, it should recieve "onSubmit" callback
  * in `useInputHandlersProps`).
@@ -17,7 +13,9 @@ import {
  *
  * @param {object} props
  *
- * `useInputHandlersProps?` (object): "props" to pass to '*useInputHandlers*'
+ * `isStyled` (boolean): true renders '*Input.Styled*'. False, '*Input*'.
+ *
+ * `useInputHandlersProps?` (object): `props` to pass to '*useInputHandlers*'
  *   hook.
  *
  * `useInputHandlersConfigs?` (object): "configs" to pass to
@@ -32,22 +30,29 @@ import {
  * `classNames?` (object) classNames for all JSXs rendered here. Check their
  *   constitution in *utils.js*.
  *
- * `containerProps?` (object): "props" to spread to outer '*div*'.
+ * > **Note:** if `isStyled` is true, target key to pass classNames to rendered
+ *   '*Input*' is "inputStyled". Otherwise, it is "input".
  *
- * `styledInputProps?` (object): "props" to spread to '*Input.Styled*'.
+ * `containerProps?` (object): `props` to spread to outer '*div*'.
  *
- * `validationContainerProps?` (object): "props" to spread to '*Container*'.
+ * `inputProps?` (object): `props` to spread to either '*Input*' or
+ *   '*Input.Styled*'.
  *
- * `validationMsgProps?` (object): "props" to spread to '*Text*'.
+ * `validationContainerProps?` (object): `props` to spread to 'validation
+ *   message' bubble '*Container*'.
+ *
+ * `validationMsgProps?` (object): `props` to spread to 'validation message'
+ *   '*Text*'.
  */
-export default function StyledInputWithValidation({
+export default function InputWithValidation({
+  isStyled,
   useInputHandlersProps,
   useInputHandlersConfigs,
   validationContainerAnchor,
   messageType,
   classNames,
   containerProps,
-  styledInputProps,
+  inputProps,
   validationContainerProps,
   validationMsgProps
 }) {
@@ -55,7 +60,7 @@ export default function StyledInputWithValidation({
   const [isValMsgActive, setIsValMsgActive] = useState(false)
   // ref pointing to input
   const inputRef = useRef()
-  // "useInputHandlers" hook that controls '*StyledInput*'
+  // "useInputHandlers" hook that controls '*InputStyled*'
   const handlers = useInputHandlers(
     inputRef,
     {
@@ -72,33 +77,41 @@ export default function StyledInputWithValidation({
    * passing all other args to that callback.
    */
   /* eslint-disable react-hooks/exhaustive-deps */
-  const setValMsgStAndTriggerCb = useCallback((newSt, cbName, ...otherArgs) => {
+  const setValMsgStAndTriggerCb = (newSt, cbName, ...otherArgs) => {
     setIsValMsgActive(newSt)
     useInputHandlersProps[cbName]?.(...otherArgs)
-  }, [])
+  }
 
   /**
    * Sets focus on input and triggers onClick callback assigned to
    * validationContainerProps, if any. No need to ever reconstruct it
    */
   /* eslint-disable react-hooks/exhaustive-deps */
-  const handleValContainerClick = useCallback((e) => {
+  const handleValContainerClick = (e) => {
     handlers.focus()
     validationContainerProps.onClick?.(e)
-  }, [])
+  }
 
   return (
     <div
       className={classes.container(classNames.container)}
       {...containerProps}
     >
-      {/* input linked to "useInputHandlers" */}
-      <Input.Styled
-        ref={inputRef}
-        classNames={classes.styledInput(classNames.styledInput)}
-        {...handlers.props}
-        {...styledInputProps}
-      />
+      {/* input linked to "useInputHandlers". Renders '*Input.Styled*' or 
+        '*Input*' depending on `isStyled` */}
+      {isStyled ? (
+        <Input.Styled
+          ref={inputRef}
+          classNames={classes.inputStyled(classNames.inputStyled)}
+          {...{ ...handlers.props, ...inputProps }}
+        />
+      ) : (
+        <Input
+          ref={inputRef}
+          className={classes.input(classNames.input)}
+          {...{ ...handlers.props, ...inputProps }}
+        />
+      )}
       {
         // if `isValMsgActive` is true and there are errors, render the
         // validation message bubble
@@ -144,5 +157,5 @@ export default function StyledInputWithValidation({
   )
 }
 
-StyledInputWithValidation.defaultProps = defaultProps
-StyledInputWithValidation.propTypes = propTypes
+InputWithValidation.defaultProps = defaultProps
+InputWithValidation.propTypes = propTypes

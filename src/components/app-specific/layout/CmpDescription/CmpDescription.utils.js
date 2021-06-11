@@ -25,17 +25,37 @@ export const defaultProps = {
   paragraphProps: {}
 }
 
+const expandableIconClassNamesExactShape = PropTypes.exact({
+  container: PropTypes.string,
+  icon: PropTypes.string,
+  content: PropTypes.string,
+  barrier: PropTypes.string
+})
+
+const toastClassNamesExactShape = PropTypes.exact({
+  container: PropTypes.string,
+  content: PropTypes.string,
+  toggler: PropTypes.string
+})
+
 const codeIconPropTypes = PropTypes.exact({
-  expandableIcon: PropTypes.exact({
-    container: PropTypes.string,
-    icon: PropTypes.string,
-    content: PropTypes.string
+  container: PropTypes.string,
+  mainIcon: PropTypes.exact({
+    aura: PropTypes.exact({
+      container: PropTypes.string,
+      aura: PropTypes.string
+    }),
+    icon: PropTypes.string
   }),
-  toast: PropTypes.exact({
-    container: PropTypes.string,
-    content: PropTypes.string,
-    toggler: PropTypes.string
-  })
+  listIcon: PropTypes.oneOfType([
+    // classNames for '*Icon.Expandable*'
+    expandableIconClassNamesExactShape,
+    // classNames for '*Icon.Expandable.WithToast*'
+    PropTypes.exact({
+      expandableIcon: expandableIconClassNamesExactShape,
+      toast: toastClassNamesExactShape
+    })
+  ])
 })
 
 export const propTypes = {
@@ -59,7 +79,7 @@ export const propTypes = {
 }
 
 /**
- * Sets some props for `iconsProps.aura` in '*ExpandableMenu*' rendered by
+ * Sets initial props for `iconsProps.aura` in '*ExpandableMenu*' rendered by
  * '*CodeMenu*'.
  */
 export const defaultMenuIconProps = {

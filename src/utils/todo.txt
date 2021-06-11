@@ -13,7 +13,7 @@ button on uselocalstorage, automatically on after user/pass
 
 publishing: https://www.youtube.com/watch?v=Ufwbp838yZA
 
-Icon.WithAura, Icon.WithToast, then replace ExpandableMenuMainIcon
+check comments on anything that uses Input and Icon combined
 
 // commit msg
-Finished recomposing '*Icon*'. Must still test and re-comment.
+Tested and re-commented '*Icon*'-related components. Started composing '*Input*'

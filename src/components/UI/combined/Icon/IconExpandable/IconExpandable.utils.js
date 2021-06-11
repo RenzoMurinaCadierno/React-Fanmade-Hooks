@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import styles from "./ExpandableIcon.module.css"
+import styles from "./IconExpandable.module.css"
 
 export const classes = {
   container: (className) => (className ?? "") + " " + styles.Container,

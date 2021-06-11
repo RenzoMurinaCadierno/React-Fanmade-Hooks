@@ -3,15 +3,15 @@ import { Icon, Toast } from "hub"
 import { classes, defaultProps, propTypes } from "./IconWithToast.utils"
 
 /**
- * Renders either and '*Icon*' or an '*ExpandableIcon*', both capable of
+ * Renders either and '*Icon*' or an '*IconExpandable*', both capable of
  * triggering a '*ToastWithPortal*'. '*Icon*' does it when it is tapped, and
- * '*ExpandableIcon*', when its content is clicked ().
+ * '*IconExpandable*', when its content is clicked ().
  *
  * The '*ToastWithPortal*' is portal-linked to App's root '*div*' by default.
  *
  * @param {object} props
  *
- * `isExpandable?` (boolean): true will render an '*ExpandableIcon*', false
+ * `isExpandable?` (boolean): true will render an '*IconExpandable*', false
  *   calls for an '*Icon*'.
  *
  * `classNames?` (object): className strings for each JSX rendered here.
@@ -36,7 +36,7 @@ export default function IconWithToast({
 
   /**
    * Sets "show" to true which triggers '*ToastWithPortal*'. Also fires
-   * '*ExpandableIcon*' `onContentClick` or '*Icon*' `onClick`, if any (since
+   * '*IconExpandable*' `onContentClick` or '*Icon*' `onClick`, if any (since
    * this function overrides the incoming one in props).
    */
   const triggerToastAndIconClick = () => {

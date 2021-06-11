@@ -3,24 +3,24 @@ import { Icon } from "hub"
 import { classes, defaultProps, propTypes } from "./AppbarHomeIcon.utils"
 
 /**
- * Renders a an '*ExpandableIcon*' to use as link to '*HomePage*'.
+ * Renders a an '*IconExpandable*' to use as link to '*HomePage*'.
  *
  * @param {object} props
  *
  * `homeIconSVG?` (string): Path to an svg image to use as '*img*' "src" for
- *   '*ExpandableIcon*' `content`. Defaults to a 'home' icon svg image.
+ *   '*IconExpandable*' `content`. Defaults to a 'home' icon svg image.
  *
- * `content` (string): '*ExpandableIcon*' `content`. Text to show when icon is
+ * `content` (string): '*IconExpandable*' `content`. Text to show when icon is
  *   tapped open. Defaults to 'Go home'.
  *
- * `expandDirection?` (string): Direction '*ExpandableIcon*' `content` will
+ * `expandDirection?` (string): Direction '*IconExpandable*' `content` will
  *   spread towards when tapping its icon. Defaults to 'right', and can be one
  *   of 'left', 'right'.
  *
  * `classNames?` (object): className strings for each JSX rendered here.
  *   Check utils.js for its constitution.
  *
- * `otherExpandableIconProps?` (object): Props to spread in '*ExpandableIcon*'.
+ * `otherExpandableIconProps?` (object): Props to spread in '*IconExpandable*'.
  */
 function AppbarHomeIcon({
   homeIconSVG,

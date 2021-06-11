@@ -1,13 +1,12 @@
 import PropTypes from "prop-types"
-import styles from "./StyledInputWithValidation.module.css"
+import styles from "./InputWithValidation.module.css"
 
 export const classes = {
   container: (className) => (className ?? "") + " " + styles.Container,
-  styledInput: (classNames) => ({
-    container: (classNames?.container ?? "") + " " + styles.InputContainer,
-    label: classNames?.label ?? "",
-    input: classNames?.input ?? "",
-    underline: classNames?.underline ?? ""
+  input: (className) => (className ?? "") + " " + styles.InputContainer,
+  inputStyled: (classNames) => ({
+    ...classNames,
+    container: (classNames?.container ?? "") + " " + styles.InputContainer
   }),
   validationContainer: (anchor, className) =>
     (className ?? "") +
@@ -32,7 +31,7 @@ export const defaultProps = {
   messageType: "secondary",
   classNames: {},
   containerProps: {},
-  styledInputProps: {},
+  inputProps: {},
   validationContainerProps: {},
   validationMsgProps: {}
 }
@@ -49,13 +48,19 @@ export const propTypes = {
   messageType: PropTypes.oneOf(["primary", "secondary"]),
   classNames: PropTypes.exact({
     container: PropTypes.string,
-    styledInput: PropTypes.object,
+    input: PropTypes.string,
+    inputStyled: PropTypes.exact({
+      container: PropTypes.string,
+      label: PropTypes.string,
+      input: PropTypes.string,
+      underline: PropTypes.string
+    }),
     validationContainer: PropTypes.string,
     validationContainerArrow: PropTypes.string,
     validationMessage: PropTypes.string
   }),
   containerProps: PropTypes.object,
-  styledInputProps: PropTypes.object,
+  inputProps: PropTypes.object,
   validationContainerProps: PropTypes.object,
   validationMsgProps: PropTypes.object
 }

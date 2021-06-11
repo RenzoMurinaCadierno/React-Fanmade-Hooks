@@ -1,17 +1,17 @@
 /* all devices landscape */
 .Icon {
-  /* '*ExpandableIcon*' container */
+  /* '*Icon.WithAura*' container */
   transition: var(--generic-transition);
   z-index: 1;
 }
 
 .Icon.Open {
-  /* '*ExpandableIcon*' container when `open` is true */
+  /* '*Icon.WithAura*' container when `open` is true */
   transform: scale(1.2);
 }
 
 .Icon.RotateOpen {
-  /* '*ExpandableIcon*' container when `open` and `rotateOnOpen` are true */
+  /* '*Icon.WithAura*' container when `open` and `rotateOnOpen` are true */
   transform: rotate(-180deg) scale(1.2);
 }
 /* end animation keyframes */

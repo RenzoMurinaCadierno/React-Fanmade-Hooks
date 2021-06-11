@@ -14,7 +14,7 @@ import {
  * Renders a round menu icon that, when tapped, displays a list of expandable
  * icons. If the list is being displayed, tapping again will hide that list.
  *
- * '*ExpandableIcon*'s are used for both menu icon ('*ExpandableMenuMainIcon*')
+ * Composed '*Icon*'s are used for both menu icon ('*ExpandableMenuMainIcon*')
  * and list icons ('*ExpandableMenuListIcon*').
  *
  * Anchor positioning for the menu icon, as well as spread and expand direction
@@ -61,7 +61,7 @@ import {
  *     "getDefaultIconProps".
  *
  * `listIconsExpandDirection?` (string): '*ExpandableMenuListIcon*' inner
- *   '*ExpandableIcon*'s `expandDirection`. It tells each '*ExpandableIcon*'
+ *   '*Icon.Expandable*'s `expandDirection`. It tells each '*Icon.Expandable*'
  *   where to expand when focused on.
  *   > * Can be one of 'left', 'right'.
  *   > * Defaults to one calculated by "getIconExpandDirection" with current

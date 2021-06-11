@@ -3,7 +3,7 @@ import { Label, Input, Underline } from "hub"
 import { classes, defaultProps } from "./InputField.utils"
 
 /**
- * ***LEGACY*** --- '*StyledInputWithValidation*' is its replacement.
+ * ***LEGACY*** --- '*InputWithValidation*' is its replacement.
  *
  * Renders an invisible input with a label and an underline to create a style
  * matching this app's default.

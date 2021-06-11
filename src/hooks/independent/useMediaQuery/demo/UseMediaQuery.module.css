@@ -21,7 +21,7 @@
 }
 
 .Header {
-  /* wrapper for social media '*ExpandableIcon*'s */
+  /* wrapper for social media '*IconExpandable*'s */
   justify-content: space-evenly;
   transition: var(--generic-transition-out);
 }

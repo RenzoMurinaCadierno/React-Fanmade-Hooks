@@ -1,5 +1,5 @@
 import Icon from "components/UI/independent/Icon/Icon"
-import ExpandableIcon from "components/UI/combined/ExpandableIcon/ExpandableIcon"
+import IconExpandable from "components/UI/combined/Icon/IconExpandable/IconExpandable"
 import IconWithToast from "components/UI/combined/Icon/IconWithToast/IconWithToast"
 import IconWithAura from "components/UI/combined/Icon/IconWithAura/IconWithAura"
 
@@ -7,18 +7,18 @@ function ComposedIcon(props) {
   return <Icon {...props} />
 }
 
-function ExpandableIconWithAura(props) {
+function IconExpandableWithAura(props) {
   return <IconWithAura {...props} isExpandable />
 }
 
-function ExpandableIconWithToast(props) {
+function IconExpandableWithToast(props) {
   return <IconWithToast {...props} isExpandable />
 }
 
 ComposedIcon.WithAura = IconWithAura
 ComposedIcon.WithToast = IconWithToast
-ComposedIcon.Expandable = ExpandableIcon
-ComposedIcon.Expandable.WithAura = ExpandableIconWithAura
-ComposedIcon.Expandable.WithToast = ExpandableIconWithToast
+ComposedIcon.Expandable = IconExpandable
+ComposedIcon.Expandable.WithAura = IconExpandableWithAura
+ComposedIcon.Expandable.WithToast = IconExpandableWithToast
 
 export default ComposedIcon

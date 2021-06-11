@@ -6,8 +6,7 @@ import {
   isIconWithToast,
   getStyle
 } from "./ExpandableMenuListIcon.utils"
-check all files and comments in icons except iconwithtoast/aura. Then cmpDesc
-then Compose Inputs
+
 /**
  * Renders a list icon to be displayed when '*ExpandableMenuMainIcon*' toggler
  * switches its `open` state to true.
@@ -15,17 +14,17 @@ then Compose Inputs
  * Its `show` property must be synchronized to the opposite state of `open` on
  * the associated '*ExpandableMenuMainIcon*'.
  *
- * Moreover, when several '*ExpandableMenuListIcon*'s are rendered sequentially,
- * they must follow an incremental integer `order` starting from 0, being 0 the
+ * Moreover, when several '*ExpandableMenuListIcon*'s are rendered sequentially.
+ * They must follow an incremental integer `order` starting from 0, being 0 the
  * icon closest to '*ExpandableMenuMainIcon*', 1 the follow-up, and so on.
  *
  * The total amount of rendered icons must be provided to `amountOfIcons` for
- * "z-index" managing, so components do not overlay against each other.
+ * "auto-z-index" managing, so components do not overlay against each other.
  *
  * Defining `toastProps` as a valid object will render an
- * '*ExpandableIconWithToast*', passing `toastProps` as its inner '*Toast*'
+ * '*Icon.Expandable.WithToast*', passing `toastProps` as its inner '*Toast*'
  * `props`. If left undefined or if it is not a valid object, this component
- * will render an '*ExpandableIcon*' instead.
+ * will render an '*IconExpandable*' instead.
  *
  * @param {object} props
  *

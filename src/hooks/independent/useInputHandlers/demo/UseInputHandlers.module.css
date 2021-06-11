@@ -103,7 +103,7 @@
 }
 
 .InputContainer {
-  /* outermost '*div*' in '*StyledInput*' */
+  /* outermost '*div*' in '*InputStyled*' */
   width: 85%;
 }
 /* end all devices landscape */
@@ -190,7 +190,7 @@
   }
 
   .InputContainer {
-    /* outermost '*div*' in '*StyledInput*' */
+    /* outermost '*div*' in '*InputStyled*' */
     width: 75%;
     align-self: flex-end;
   }
