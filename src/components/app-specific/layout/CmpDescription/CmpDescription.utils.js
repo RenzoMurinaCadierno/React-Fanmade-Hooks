@@ -25,7 +25,7 @@ export const defaultProps = {
   paragraphProps: {}
 }
 
-const expandableIconClassNamesExactShape = PropTypes.exact({
+const iconExpandableClassNamesExactShape = PropTypes.exact({
   container: PropTypes.string,
   icon: PropTypes.string,
   content: PropTypes.string,
@@ -49,10 +49,10 @@ const codeIconPropTypes = PropTypes.exact({
   }),
   listIcon: PropTypes.oneOfType([
     // classNames for '*Icon.Expandable*'
-    expandableIconClassNamesExactShape,
+    iconExpandableClassNamesExactShape,
     // classNames for '*Icon.Expandable.WithToast*'
     PropTypes.exact({
-      expandableIcon: expandableIconClassNamesExactShape,
+      iconExpandable: iconExpandableClassNamesExactShape,
       toast: toastClassNamesExactShape
     })
   ])

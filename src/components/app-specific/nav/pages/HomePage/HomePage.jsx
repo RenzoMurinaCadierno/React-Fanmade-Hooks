@@ -11,6 +11,8 @@ import { classes, menuIconProps, iconsProps } from "./HomePage.utils"
  */
 export default function HomePage() {
   const ref = useRef()
+  test all Inputs with refs and state, specially styled, then change InputField. Afterwards, add all plainCodes
+
   return (
     // wrapper container
     <main className={classes.container}>

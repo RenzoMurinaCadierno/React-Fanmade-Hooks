@@ -1,9 +1,9 @@
 import { useState, useCallback, useRef, forwardRef } from "react"
 import { Label, Input, Underline } from "hub"
-import { classes, defaultProps } from "./InputField.utils"
+import { classes } from "./InputField.utils"
 
 /**
- * ***LEGACY*** --- '*InputWithValidation*' is its replacement.
+ * ***LEGACY*** --- '*Input.WithValidation*' is its replacement.
  *
  * Renders an invisible input with a label and an underline to create a style
  * matching this app's default.
@@ -101,13 +101,13 @@ function InputField(
     [setIsFocused, onBlur]
   )
 
+  /**
+   * trigger on submission provided `onSubmit` callback is defined.
+   * Pass the event object as param, as well as the reference to the input in
+   * case it is needed
+   */
   const handleSubmit = useCallback(
-    (e) => {
-      // trigger on submission provided `onSubmit` callback is defined.
-      // Pass the event object as param, as well as the reference to the input
-      // in case it is needed
-      onSubmit?.(e, inputRef.current)
-    },
+    (e) => onSubmit?.(e, inputRef.current),
     [onSubmit, inputRef]
   )
 

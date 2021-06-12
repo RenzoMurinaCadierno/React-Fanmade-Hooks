@@ -7,7 +7,7 @@ export const classes = {
     container: styles.CmpDescContainer,
     description: styles.CmpDescContent,
     codeIcon: {
-      expandableIcon: {
+      iconExpandable: {
         container: styles.CmpDescCodeIconContainer,
         content: styles.CmpDescCodeIconContent
       }
@@ -29,7 +29,7 @@ export const descItemsObject = {
   ]
 }
 
-export const expandableIconProps = { expandDirection: "right" }
+export const iconExpandableProps = { expandDirection: "right" }
 
 /**
  * Array for "suits" valid characters (spades, clubs, diamonds, hearts)

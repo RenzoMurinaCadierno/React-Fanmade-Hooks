@@ -3,7 +3,7 @@ import defaultHomeIconSVG from "assets/icons/home.svg"
 import styles from "./AppbarHomeIcon.module.css"
 
 export const classes = {
-  expandableIcon: (classNames = {}) => ({
+  iconExpandable: (classNames = {}) => ({
     ...classNames,
     container: (classNames?.container ?? "") + " " + styles.Container
   }),
@@ -23,7 +23,7 @@ export const propTypes = {
   expandDirection: PropTypes.oneOf(["left", "right"]),
   onContentClick: PropTypes.func,
   classNames: PropTypes.exact({
-    expandableIcon: PropTypes.exact({
+    iconExpandable: PropTypes.exact({
       container: PropTypes.string,
       icon: PropTypes.string,
       content: PropTypes.string,

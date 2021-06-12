@@ -14,8 +14,6 @@ import { Input } from "hub"
  * `...otherProps?` (object): Props to spread in '*Input*'.
  *
  * @param {React.Ref} ref A reference to this input.
- *  > **Note:** It **_does not work_** if `isStyled` is true, since
- *    '*Input.Styled*' handles its own ref.
  */
 function InputWithState({ isStyled, onChange, ...otherProps }, ref) {
   const [val, setVal] = useState("")

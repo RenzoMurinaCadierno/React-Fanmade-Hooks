@@ -16,4 +16,4 @@ publishing: https://www.youtube.com/watch?v=Ufwbp838yZA
 check comments on anything that uses Input and Icon combined
 
 // commit msg
-Tested and re-commented '*Icon*'-related components. Started composing '*Input*'
+Revised comments linked to '*Icon*' and '*Input*' components. Started testing composed '*Input*' components  

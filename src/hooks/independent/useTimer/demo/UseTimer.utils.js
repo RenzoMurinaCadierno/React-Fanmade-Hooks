@@ -16,7 +16,7 @@ export const classes = {
     container: styles.CmpDescContainer,
     description: styles.CmpDescContent,
     codeIcon: {
-      expandableIcon: {
+      iconExpandable: {
         container: styles.CmpDescCodeIconContainer,
         content: styles.CmpDescCodeIconContent
       }
@@ -26,7 +26,7 @@ export const classes = {
   scoreBoard: styles.ScoreBoard
 }
 
-export const expandableIconProps = { expandDirection: "right" }
+export const iconExpandableProps = { expandDirection: "right" }
 
 /**
  * "scores" object to be passed to '*BTScoreboard*' and to '*BTGame*' (this

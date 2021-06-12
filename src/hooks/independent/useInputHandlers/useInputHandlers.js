@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect, useRef } from "react"
+import { useState, useCallback, useEffect } from "react"
 
 /**
  * Recieves an input reference alongside its props and an optional configuration
@@ -120,9 +120,9 @@ export default function useInputHandlers(ref, props = {}, configs = {}) {
     onSubmit,
     onSubmitFail,
     onValidation
-  } = useRef(configs).current
+  } = configs
   // same for the calculated rule names and functions array
-  const valRulesArr = useRef(_getValidationRulesArr(validators))
+  const valRulesArr = _getValidationRulesArr(validators)
 
   const [st, setSt] = useState({
     value: "", // input's value
@@ -133,142 +133,103 @@ export default function useInputHandlers(ref, props = {}, configs = {}) {
   const [, ping] = useState(true)
   const reRender = useCallback(() => ping((st) => !st), [ping])
 
-  const applyEffect = useCallback(
-    (propOrMethod, value, doReRender, ...args) => {
-      let returnValue
-      if (typeof propOrMethod === "function") {
-        // on an input method, call it over target input passing args as params
-        returnValue = propOrMethod.apply(ref.current, args)
-      } else {
-        // otherwise it is an input property. Set its value
-        returnValue = ref.current[propOrMethod] = value
-      }
-      // if re-rendering was designated, queue a component re-render
-      doReRender && reRender()
-      // the return will be one of the function that called for applyEffect
-      return returnValue
-    },
-    [ref, reRender]
-  )
+  const applyEffect = (propOrMethod, value, doReRender, ...args) => {
+    let returnValue
+    if (typeof propOrMethod === "function") {
+      // on an input method, call it over target input passing args as params
+      returnValue = propOrMethod.apply(ref.current, args)
+    } else {
+      // otherwise it is an input property. Set its value
+      returnValue = ref.current[propOrMethod] = value
+    }
+    // if re-rendering was designated, queue a component re-render
+    doReRender && reRender()
+    // the return will be one of the function that called for applyEffect
+    return returnValue
+  }
 
-  const blur = useCallback(
-    // reRender = true will re-render the component upon applyEffect's
-    // resolution
-    (reRender) => applyEffect(ref.current.blur, null, reRender),
-    [applyEffect, ref]
-  )
+  // reRender = true will re-render the component upon applyEffect's
+  // resolution
+  const blur = (reRender) => applyEffect(ref.current.blur, null, reRender)
 
-  const focus = useCallback(
-    (reRender) => applyEffect(ref.current.focus, null, reRender),
-    [applyEffect, ref]
-  )
+  const focus = (reRender) => applyEffect(ref.current.focus, null, reRender)
 
-  const disable = useCallback(
-    (reRender) => applyEffect("disabled", true, reRender),
-    [applyEffect]
-  )
+  const disable = (reRender) => applyEffect("disabled", true, reRender)
 
-  const enable = useCallback(
-    (reRender) => applyEffect("disabled", false, reRender),
-    [applyEffect]
-  )
+  const enable = (reRender) => applyEffect("disabled", false, reRender)
 
-  const toggleDisable = useCallback(
-    (reRender) => applyEffect("disabled", !ref.current.disabled, reRender),
-    [applyEffect, ref]
-  )
+  const toggleDisable = (reRender) =>
+    applyEffect("disabled", !ref.current.disabled, reRender)
 
-  const setDOMProp = useCallback(
-    // sets a DOM property on the input to the assigned value
-    (propName, value, reRender) => applyEffect(propName, value, reRender),
-    [applyEffect]
-  )
+  // sets a DOM property on the input to the assigned value
+  const setDOMProp = (propName, value, reRender) =>
+    applyEffect(propName, value, reRender)
 
-  const callDOMProp = useCallback(
-    // calls for an input's DOM function assigned as a property
-    (propName, ...args) => {
-      applyEffect(ref.current[propName], null, false, args)
-    },
-    [applyEffect, ref]
-  )
+  // calls for an input's DOM function assigned as a property
+  const callDOMProp = (propName, ...args) => {
+    applyEffect(ref.current[propName], null, false, args)
+  }
 
-  const getProp = useCallback(
-    // gets the assigned value to a property of the input. It is case-sensitive,
-    // which also means it will fetch for React-ish props ("onClick",
-    // "onChange") and DOM props ("disabled", "onkeypress", "onchange")
-    (propName, doReRender) => {
-      const targetProp = Object.keys(props).find((prop) => prop === propName)
-      doReRender && reRender()
-      return props[targetProp] ?? ref.current[propName]
-    },
-    [ref, props, reRender]
-  )
+  // gets the assigned value to a property of the input. It is case-sensitive,
+  // which also means it will fetch for React-ish props ("onClick",
+  // "onChange") and DOM props ("disabled", "onkeypress", "onchange")
+  const getProp = (propName, doReRender) => {
+    const targetProp = Object.keys(props).find((prop) => prop === propName)
+    doReRender && reRender()
+    return props[targetProp] ?? ref.current[propName]
+  }
 
-  // "onChange" should not change once assigned
-  /* eslint-disable react-hooks/exhaustive-deps*/
-  const handleChange = useCallback(
-    // input's assigned on value onchange controller
-    (e) => {
-      const newValObj = _getUpdatedValidationObj(
-        validateOnChange,
-        valRulesArr.current,
-        e.target.value
-      )
-      validateOnChange && onValidation?.(newValObj, e)
-      // are we preventing change? If so, do nothing. Mind that we are passing
-      // the new validation rules as second argument if `preventChange` is a
-      // function. That's why we need to calculate them before preventing change
-      if (
-        typeof preventChange === "function"
-          ? preventChange(e, newValObj)
-          : preventChange
-      ) {
-        return
-      }
-      // set state with the new validation object and input's value
-      _setStWithNewValueAndValidationObj(setSt, e.target.value, newValObj)
-      // trigger "onChange" if assigned. Pass event and the new validation
-      // object in case it's needed
-      return props.onChange?.(e, newValObj)
-    },
-    [setSt, onValidation, validateOnChange, valRulesArr, preventChange]
-  )
+  // input's assigned on value onchange controller
+  const handleChange = (e) => {
+    const newValObj = _getUpdatedValidationObj(
+      validateOnChange,
+      valRulesArr,
+      e.target.value
+    )
+    validateOnChange && onValidation?.(newValObj, e)
+    // are we preventing change? If so, do nothing. Mind that we are passing
+    // the new validation rules as second argument if `preventChange` is a
+    // function. That's why we need to calculate them before preventing change
+    if (
+      typeof preventChange === "function"
+        ? preventChange(e, newValObj)
+        : preventChange
+    ) {
+      return
+    }
+    // set state with the new validation object and input's value
+    _setStWithNewValueAndValidationObj(setSt, e.target.value, newValObj)
+    // trigger "onChange" if assigned. Pass event and the new validation
+    // object in case it's needed
+    return props.onChange?.(e, newValObj)
+  }
 
-  const handleSetValue = useCallback(
-    // input's assigned on-manual-setValue controller
-    (newValue) => {
-      const newValObj = _getUpdatedValidationObj(
-        validateOnChange,
-        valRulesArr.current,
-        newValue
-      )
-      onValidation?.(newValObj, newValue)
-      // set state with the new validation object and new input's value
-      _setStWithNewValueAndValidationObj(setSt, newValue, newValObj)
-      // trigger "onSetValue" callback if assigned. Pass the new value and the
-      // new validation object in case it's needed
-      return onSetValue?.(newValue, newValObj)
-    },
-    [setSt, onValidation, onSetValue, validateOnChange, valRulesArr]
-  )
+  // input's assigned on-manual-setValue controller
+  const handleSetValue = (newValue) => {
+    const newValObj = _getUpdatedValidationObj(
+      validateOnChange,
+      valRulesArr,
+      newValue
+    )
+    onValidation?.(newValObj, newValue)
+    // set state with the new validation object and new input's value
+    _setStWithNewValueAndValidationObj(setSt, newValue, newValObj)
+    // trigger "onSetValue" callback if assigned. Pass the new value and the
+    // new validation object in case it's needed
+    return onSetValue?.(newValue, newValObj)
+  }
 
-  const handleValidateOnBlur = useCallback(
-    (e) => {
-      const newValObj = _getUpdatedValidationObj(
-        validateOnBlur,
-        valRulesArr.current,
-        e.target.value
-      )
-      onValidation?.(newValObj, e)
-      _setStWithNewValueAndValidationObj(setSt, e.target.value, newValObj)
-    },
-    [setSt, validateOnBlur, valRulesArr, onValidation]
-  )
+  const handleValidateOnBlur = (e) => {
+    const newValObj = _getUpdatedValidationObj(
+      validateOnBlur,
+      valRulesArr,
+      e.target.value
+    )
+    onValidation?.(newValObj, e)
+    _setStWithNewValueAndValidationObj(setSt, e.target.value, newValObj)
+  }
 
-  const clear = useCallback(
-    () => setSt((prevSt) => ({ ...prevSt, value: "" })),
-    [setSt]
-  )
+  const clear = () => setSt((prevSt) => ({ ...prevSt, value: "" }))
 
   // Console will warn us here of several dependencies we cannot add, as they
   // will re-construct this callback and thus re-triggering useEffect below
@@ -280,9 +241,9 @@ export default function useInputHandlers(ref, props = {}, configs = {}) {
     if (submitKeyCodes.includes(e.keyCode)) {
       // if we are validating inputs, "valRulesArr.length" will have at least 1
       // entry
-      if (valRulesArr.current.length) {
+      if (valRulesArr.length) {
         // calculate the new validation object
-        const newValObj = _getValidationObj(valRulesArr.current, e.target.value)
+        const newValObj = _getValidationObj(valRulesArr, e.target.value)
         // save the previous input value to pass to "onSubmit" callback, as if
         // we clear the input, then "e.target.value" will be empty
         const previousValue = e.target.value

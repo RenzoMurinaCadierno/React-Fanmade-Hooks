@@ -3,21 +3,21 @@ import { Icon, Toast } from "hub"
 import { classes, defaultProps, propTypes } from "./IconWithToast.utils"
 
 /**
- * Renders either and '*Icon*' or an '*IconExpandable*', both capable of
- * triggering a '*ToastWithPortal*'. '*Icon*' does it when it is tapped, and
- * '*IconExpandable*', when its content is clicked ().
+ * Renders either and '*Icon*' or an '*Icon.Expandable*', both capable of
+ * triggering a '*Toast.WithPortal*'. '*Icon*' does it when it is tapped, and
+ * '*Icon.Expandable*', when its content is clicked ().
  *
- * The '*ToastWithPortal*' is portal-linked to App's root '*div*' by default.
+ * The '*Toast.WithPortal*' is portal-linked to App's root '*div*' by default.
  *
  * @param {object} props
  *
- * `isExpandable?` (boolean): true will render an '*IconExpandable*', false
+ * `isExpandable?` (boolean): true will render an '*Icon.Expandable*', false
  *   calls for an '*Icon*'.
  *
  * `classNames?` (object): className strings for each JSX rendered here.
  *   Check *utils.js* for its constitution.
  *
- * `toastProps?` (object): Props to spread in '*ToastWithPortal*'. Mind they
+ * `toastProps?` (object): Props to spread in '*Toast.WithPortal*'. Mind they
  *   should include `children` to render toast's content.
  *
  * `...iconProps?` (object): Props to spread in either '*Icon*' or
@@ -35,8 +35,8 @@ export default function IconWithToast({
   const [showToast, setShowToast] = useState(false)
 
   /**
-   * Sets "show" to true which triggers '*ToastWithPortal*'. Also fires
-   * '*IconExpandable*' `onContentClick` or '*Icon*' `onClick`, if any (since
+   * Sets "show" to true which triggers '*Toast.WithPortal*'. Also fires
+   * '*Icon.Expandable*' `onContentClick` or '*Icon*' `onClick`, if any (since
    * this function overrides the incoming one in props).
    */
   const triggerToastAndIconClick = () => {
@@ -56,10 +56,10 @@ export default function IconWithToast({
   return (
     <>
       {/* if an expandable icon is rendered, tapping its content triggers 
-      '*ToastWithPortal*'. If it is a regular icon, tapping itself does it */}
+      '*Toast.WithPortal*'. If it is a regular icon, tapping itself does it */}
       {isExpandable ? (
         <Icon.Expandable
-          classNames={classes.expandableIcon(classNames.expandableIcon)}
+          classNames={classes.iconExpandable(classNames.iconExpandable)}
           {...iconProps}
           onContentClick={triggerToastAndIconClick}
         />

@@ -3,7 +3,8 @@ import { Container, Input, Text, useInputHandlers } from "hub"
 import { classes, defaultProps, propTypes } from "./InputWithValidation.utils"
 
 /**
- * Returns a '*InputStyled*' component linked to '*useInputHandlers*' hook.
+ * Returns either an '*Input*' or an '*Input.Styled*' component, either of them
+ * linked to '*useInputHandlers*' hook.
  *
  * It is designed to be validated. Hence, it should recieve "onSubmit" callback
  * in `useInputHandlersProps`).

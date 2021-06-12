@@ -1,6 +1,6 @@
 /* all devices landscape */
 .Container {
-  /* '*IconExpandable*' wrapper container */
+  /* '*Icon.Expandable*' wrapper container */
   position: absolute;
   margin: 1% 0 0 1%;
   z-index: 21;

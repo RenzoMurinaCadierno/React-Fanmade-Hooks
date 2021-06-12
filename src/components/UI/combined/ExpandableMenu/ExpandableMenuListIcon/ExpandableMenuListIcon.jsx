@@ -24,7 +24,7 @@ import {
  * Defining `toastProps` as a valid object will render an
  * '*Icon.Expandable.WithToast*', passing `toastProps` as its inner '*Toast*'
  * `props`. If left undefined or if it is not a valid object, this component
- * will render an '*IconExpandable*' instead.
+ * will render an '*Icon.Expandable*' instead.
  *
  * @param {object} props
  *

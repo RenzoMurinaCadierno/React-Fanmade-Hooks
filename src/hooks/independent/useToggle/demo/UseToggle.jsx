@@ -1,5 +1,5 @@
 import useToggle from "../useToggle"
-import { CmpDescription, Container, InputField, Button } from "hub"
+import { CmpDescription, Container, Input, Button } from "hub"
 import { classes, descItemsObject } from "./UseToggle.utils"
 
 export default function UseToggle() {
@@ -19,7 +19,7 @@ function CmpTest() {
 
   return (
     <Container htmlElem="section" className={classes.container}>
-      <InputField
+      <Input.Styled
         label={`${isDisabled ? "Typing disabled" : "You can type here"}`}
         disabled={isDisabled}
       />

@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 export const classes = {
   aura: (classNames) => classNames,
   icon: (className) => className,
-  expandableIcon: (classNames) => classNames
+  iconExpandable: (classNames) => classNames
 }
 
 export const defaultProps = {
@@ -20,7 +20,7 @@ export const propTypes = {
       aura: PropTypes.string
     }),
     icon: PropTypes.string,
-    expandableIcon: PropTypes.exact({
+    iconExpandable: PropTypes.exact({
       container: PropTypes.string,
       icon: PropTypes.string,
       content: PropTypes.string,

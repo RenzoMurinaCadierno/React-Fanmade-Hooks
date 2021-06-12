@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState, memo } from "react"
 import { useTimer, CmpDescription, BT } from "hub"
 import {
   classes,
-  expandableIconProps,
+  iconExpandableProps,
   descItemsObject,
   scores,
   targetContentObj,
@@ -25,7 +25,7 @@ export default function UseTimer() {
     <div className={classes.container}>
       <CmpDescription
         descItems={descItemsObject}
-        expandableIconProps={expandableIconProps}
+        iconExpandableProps={iconExpandableProps}
         classNames={classes.cmpDesc}
       />
       <MemoizedCmpTest />

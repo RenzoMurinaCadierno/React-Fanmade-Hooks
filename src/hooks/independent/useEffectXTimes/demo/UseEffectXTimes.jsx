@@ -5,7 +5,7 @@ import {
   classes,
   descItemsObject,
   dealCardToBoard,
-  expandableIconProps
+  iconExpandableProps
 } from "./UseEffectXTimes.utils"
 
 export default function UseEffectXTimes() {
@@ -52,7 +52,7 @@ export default function UseEffectXTimes() {
       <CmpDescription
         descItems={descItemsObject}
         classNames={classes.cmpDesc}
-        expandableIconProps={expandableIconProps}
+        iconExpandableProps={iconExpandableProps}
       />
       <section className={classes.cmpTest} aria-label="component testing area">
         {/* Boards, where cards are dealt */}

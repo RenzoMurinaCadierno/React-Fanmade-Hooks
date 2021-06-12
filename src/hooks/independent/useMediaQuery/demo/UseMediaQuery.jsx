@@ -24,7 +24,7 @@ export default function UseMediaQuery() {
     >
       {/* wrapper for example social media icons. Dynamic classNames */}
       <section className={classes.header(deviceOrientation)}>
-        {socialMediaNamesAndJSXs.map(([name, imgJSX], i) => (
+        {socialMediaNamesAndJSXs.map(([name, imgJSX]) => (
           <Icon.Expandable
             key={name}
             icon={imgJSX}

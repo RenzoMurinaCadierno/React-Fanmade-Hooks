@@ -109,7 +109,7 @@ export function slugify(pathName) {
 
 /**
  * Returns the camelcased hook name from location.pathname, used
- * to complete the URL name for 'IconExpandable' in 'CmpDescription'
+ * to complete the URL name for 'Icon.Expandable' in 'CmpDescription'
  * to create the link to hook's folder in Github repository
  * @param {string} pathName location.pathName (from React Router).
  *   Its slugified, format "/use-hook-name"

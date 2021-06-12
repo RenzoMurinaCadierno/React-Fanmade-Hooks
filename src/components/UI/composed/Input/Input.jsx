@@ -11,8 +11,7 @@ const ComposedInput = { ...Input }
 // function InputStyledWithState(props) {
 //   return React.forwardRef(<InputWithState {...props} isStyled />)
 // }
-test inputWithState, check all comments related to components where input/icon
-are used, then change InputField. Afterwards, add all plainCodes 
+
 const InputStyledWithState = forwardRef(function (props, ref) {
   return <InputWithState {...props} isStyled ref={ref} />
 })

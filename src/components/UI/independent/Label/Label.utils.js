@@ -45,7 +45,9 @@ const inputTypes = [
 
 function validateInputType(props, propName, componentName) {
   const targetInputType = props[propName]
+
   if (typeof targetInputType === "undefined") return
+
   if (!inputTypes.includes(targetInputType)) {
     return new TypeError(
       `Invalid prop "${propName}" with value \`${targetInputType}\` supplied to "${componentName}". Expected one of these strings (case-sensitive): "checkbox", "color", "date", "datetime-local", "email", "file", "month", "number", "password", "radio", "range", "search", "tel", "text", "time", "url", "week".`

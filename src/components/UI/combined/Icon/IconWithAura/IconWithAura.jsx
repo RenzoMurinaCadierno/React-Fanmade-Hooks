@@ -2,12 +2,12 @@ import { Icon, Aura } from "hub"
 import { classes, defaultProps, propTypes } from "./IconWithAura.utils"
 
 /**
- * Renders either and '*Icon*' or an '*IconExpandable*', both with an '*Aura*'
+ * Renders either and '*Icon*' or an '*Icon.Expandable*', both with an '*Aura*'
  * surrounding it.
  *
  * @param {object} props
  *
- * `isExpandable?` (boolean): `true` will render an '*IconExpandable*', `false`
+ * `isExpandable?` (boolean): `true` will render an '*Icon.Expandable*', `false`
  *   calls for an '*Icon*'.
  *
  * `classNames?` (object): className strings for each JSX rendered here.
@@ -28,7 +28,7 @@ export default function IconWithAura({
     <Aura classNames={classes.aura(classNames.aura)} {...auraProps}>
       {isExpandable ? (
         <Icon.Expandable
-          classNames={classes.expandableIcon(classNames.expandableIcon)}
+          classNames={classes.iconExpandable(classNames.iconExpandable)}
           {...iconProps}
         />
       ) : (

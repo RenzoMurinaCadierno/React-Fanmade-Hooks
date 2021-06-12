@@ -10,8 +10,9 @@ import { classes } from "./InputStyled.utils"
  * '*Underline*' to form a complete styled input.
  *
  * Keep in mind this input is **not** self-controlled, it only handles its UI
- * functionality. If you want one that manages its own state, use '*Input*',
- * '*InputWithValidation*', or '*InputField*' (this last one is legacy).
+ * functionality. If you want one that manages its own state, use
+ * '*Input.WithState*', '*Input.Styled.WithState*', '*Input.WithValidation*',
+ * '*Input.Styled.WithValidation*', or '*InputField*' (this last one is legacy).
  *
  * @param {object} props
  *
@@ -63,6 +64,10 @@ function InputStyled(
     id || "input-field-" + Math.floor(Math.random() * 100000)
   )
 
+  const fallbackRef = useRef()
+
+  const inputRef = ref ?? fallbackRef
+
   const handleFocus = (e) => {
     // set focus state to true and trigger callback
     setIsFocused(true)
@@ -74,14 +79,16 @@ function InputStyled(
     setIsFocused(false)
     onBlur?.(e)
   }
-  console.log(ref)
+
   return (
     <div className={classes.container(classNames.container)}>
       <Label
         htmlFor={inputId.current}
         targetInputType="text"
-        // keep label up if '*input*' is focused or value !== ""
-        isActive={isFocused || !!value}
+        // keep label active (raised up) if '*Input*' is focused, its outer
+        // value is not empty (if controlled) or if its ref value is not empty
+        // (uncontrolled)
+        isActive={isFocused || !!value || !!inputRef?.current?.value}
         disabled={disabled}
         className={classes.label(classNames.label)}
         {...labelProps}
@@ -90,7 +97,7 @@ function InputStyled(
       </Label>
       <Input
         id={inputId.current}
-        ref={ref}
+        ref={inputRef}
         value={value}
         onFocus={handleFocus}
         onBlur={handleBlur}

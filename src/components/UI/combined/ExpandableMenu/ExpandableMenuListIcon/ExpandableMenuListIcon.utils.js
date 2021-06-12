@@ -7,7 +7,7 @@ export const classes = {
     container: (classNames?.container ?? "") + " " + styles.Icon
   }),
   iconWithToast: (classNames = {}) => ({
-    expandableIcon: {
+    iconExpandable: {
       ...classNames,
       container: (classNames?.container ?? "") + " " + styles.Icon
     },
@@ -17,7 +17,7 @@ export const classes = {
 
 export const defaultProps = { spread: "top", classNames: {} }
 
-const expandableIconClassNamesExactShape = PropTypes.exact({
+const iconExpandableClassNamesExactShape = PropTypes.exact({
   container: PropTypes.string,
   icon: PropTypes.string,
   content: PropTypes.string,
@@ -39,10 +39,10 @@ export const propTypes = {
   toastProps: PropTypes.object,
   classNames: PropTypes.oneOfType([
     // classNames for '*Icon.Expandable*'
-    expandableIconClassNamesExactShape,
+    iconExpandableClassNamesExactShape,
     // classNames for '*Icon.Expandable.WithToast*'
     PropTypes.exact({
-      expandableIcon: expandableIconClassNamesExactShape,
+      iconExpandable: iconExpandableClassNamesExactShape,
       toast: toastClassNamesExactShape
     })
   ]),

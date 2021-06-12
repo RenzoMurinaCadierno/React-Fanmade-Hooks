@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 export const classes = {
   icon: (className) => className,
-  expandableIcon: (classNames) => classNames,
+  iconExpandable: (classNames) => classNames,
   toast: (classNames) => classNames
 }
 
@@ -13,7 +13,7 @@ export const propTypes = {
   isExpandable: PropTypes.bool,
   classNames: PropTypes.exact({
     icon: PropTypes.string,
-    expandableIcon: PropTypes.exact({
+    iconExpandable: PropTypes.exact({
       container: PropTypes.string,
       icon: PropTypes.string,
       content: PropTypes.string,
