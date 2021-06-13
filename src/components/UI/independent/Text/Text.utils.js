@@ -45,7 +45,12 @@ const validTextTypes = [
   "secondary-0",
   "secondary-1",
   "secondary-2",
-  "secondary-3"
+  "secondary-3",
+  "danger",
+  "danger-0",
+  "danger-1",
+  "danger-2",
+  "danger-3"
 ]
 
 export const propTypes = {

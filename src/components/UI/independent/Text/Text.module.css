@@ -86,6 +86,23 @@
 .secondary-3 {
   color: var(--secondary-3);
 }
+
+.danger,
+.danger-0 {
+  color: var(--danger-0);
+}
+
+.danger-1 {
+  color: var(--danger-1);
+}
+
+.danger-2 {
+  color: var(--danger-2);
+}
+
+.danger-3 {
+  color: var(--danger-3);
+}
 /* end classNames added by `type` */
 
 /* classNames added by `textShadow` */
@@ -109,6 +126,17 @@
 .text-shadow-secondary-2,
 .text-shadow-secondary-3 {
   text-shadow: var(--text-shadow-secondary-1-vw);
+}
+
+.text-shadow-danger,
+.text-shadow-danger-0 {
+  text-shadow: var(--text-shadow-danger-0-vw);
+}
+
+.text-shadow-danger-1,
+.text-shadow-danger-2,
+.text-shadow-danger-3 {
+  text-shadow: var(--text-shadow-danger-1-vw);
 }
 /* end classNames added by `textShadow` */
 
@@ -205,6 +233,17 @@
   .text-shadow-secondary-2,
   .text-shadow-secondary-3 {
     text-shadow: var(--text-shadow-secondary-1-vh);
+  }
+
+  .text-shadow-danger,
+  .text-shadow-danger-0 {
+    text-shadow: var(--text-shadow-danger-0-vh);
+  }
+
+  .text-shadow-danger-1,
+  .text-shadow-danger-2,
+  .text-shadow-danger-3 {
+    text-shadow: var(--text-shadow-danger-1-vh);
   }
   /* end classNames added by `textShadow` */
 }

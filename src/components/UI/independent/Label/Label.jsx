@@ -1,3 +1,4 @@
+import { memo } from "react"
 import { classes, defaultProps, propTypes } from "./Label.utils"
 
 /**
@@ -21,7 +22,7 @@ import { classes, defaultProps, propTypes } from "./Label.utils"
  *
  * `className?` (string): className string to add to rendered '*label*'.
  */
-export default function Label({
+function Label({
   children,
   isActive,
   targetInputType,
@@ -40,3 +41,5 @@ export default function Label({
 
 Label.defaultProps = defaultProps
 Label.propTypes = propTypes
+
+export default memo(Label)

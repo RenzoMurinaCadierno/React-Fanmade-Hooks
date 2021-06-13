@@ -11,12 +11,30 @@ import { classes, menuIconProps, iconsProps } from "./HomePage.utils"
  */
 export default function HomePage() {
   const ref = useRef()
-  test all Inputs with refs and state, specially styled, then change InputField. Afterwards, add all plainCodes
+  // Afterwards, add all plainCodes
 
   return (
     // wrapper container
     <main className={classes.container}>
-      <Input.Styled.WithState label="as" ref={ref} classNames={{ asd: 123 }} />
+      <Input.Styled
+        ref={ref}
+        inputProps={{
+          label: "Message"
+        }}
+        messageType="primary"
+        validationContainerAnchor="bottom"
+        useInputHandlersConfigs={{
+          validators: { alphanumeric: null },
+          // clearOnSubmit: true,
+          forceSubmit: true,
+          // validateOnChange: true,
+          onValidation: (e) => console.log("validating"),
+          // onSubmit: (e) => console.log(e),
+          onSubmit: (e) => console.log(e, "submitasd"),
+          onSubmitFail: (e) => console.log(e, "asd")
+        }}
+        // classNames={{ inputStyled: { asd: 123 } }}
+      />
     </main>
   )
 }

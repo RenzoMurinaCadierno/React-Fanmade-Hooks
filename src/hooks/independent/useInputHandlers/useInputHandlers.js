@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react"
+import { useState, useCallback, useEffect, useRef } from "react"
 
 /**
  * Recieves an input reference alongside its props and an optional configuration
@@ -122,7 +122,7 @@ export default function useInputHandlers(ref, props = {}, configs = {}) {
     onValidation
   } = configs
   // same for the calculated rule names and functions array
-  const valRulesArr = _getValidationRulesArr(validators)
+  const valRulesArr = useRef(_getValidationRulesArr(validators))
 
   const [st, setSt] = useState({
     value: "", // input's value
@@ -183,9 +183,10 @@ export default function useInputHandlers(ref, props = {}, configs = {}) {
   const handleChange = (e) => {
     const newValObj = _getUpdatedValidationObj(
       validateOnChange,
-      valRulesArr,
+      valRulesArr.current,
       e.target.value
     )
+    // trigger "onValidation" if we are validating on change
     validateOnChange && onValidation?.(newValObj, e)
     // are we preventing change? If so, do nothing. Mind that we are passing
     // the new validation rules as second argument if `preventChange` is a
@@ -208,7 +209,7 @@ export default function useInputHandlers(ref, props = {}, configs = {}) {
   const handleSetValue = (newValue) => {
     const newValObj = _getUpdatedValidationObj(
       validateOnChange,
-      valRulesArr,
+      valRulesArr.current,
       newValue
     )
     onValidation?.(newValObj, newValue)
@@ -222,7 +223,7 @@ export default function useInputHandlers(ref, props = {}, configs = {}) {
   const handleValidateOnBlur = (e) => {
     const newValObj = _getUpdatedValidationObj(
       validateOnBlur,
-      valRulesArr,
+      valRulesArr.current,
       e.target.value
     )
     onValidation?.(newValObj, e)
@@ -241,9 +242,9 @@ export default function useInputHandlers(ref, props = {}, configs = {}) {
     if (submitKeyCodes.includes(e.keyCode)) {
       // if we are validating inputs, "valRulesArr.length" will have at least 1
       // entry
-      if (valRulesArr.length) {
+      if (valRulesArr.current.length) {
         // calculate the new validation object
-        const newValObj = _getValidationObj(valRulesArr, e.target.value)
+        const newValObj = _getValidationObj(valRulesArr.current, e.target.value)
         // save the previous input value to pass to "onSubmit" callback, as if
         // we clear the input, then "e.target.value" will be empty
         const previousValue = e.target.value
@@ -302,7 +303,7 @@ export default function useInputHandlers(ref, props = {}, configs = {}) {
     value: st.value,
     // "setValue" will only modify input's value, not "validation" object
     setValue: handleSetValue,
-    // "validation" object shape { rules: {}, messages: [], isvalid: boolean }
+    // "validation" object shape { rules: {}, messages: [], isValid: boolean }
     validation: st.valObj,
     clear,
     blur,

@@ -1,6 +1,5 @@
 import CountBar from "./components/UI/combined/CountBar/CountBar"
 import ExpandableMenu from "./components/UI/combined/ExpandableMenu/ExpandableMenu"
-import InputField from "./components/UI/combined/InputField/InputField"
 import PhoneDial from "./components/UI/combined/PhoneDial/PhoneDial"
 
 import Badge from "./components/UI/composed/Badge/Badge"
@@ -72,7 +71,6 @@ import LocalStorageCRUD from "./hooks/independent/useLocalStorage/demo/LocalStor
 export {
   CountBar,
   ExpandableMenu,
-  InputField,
   PhoneDial,
   Badge,
   Icon,

@@ -13,7 +13,5 @@ button on uselocalstorage, automatically on after user/pass
 
 publishing: https://www.youtube.com/watch?v=Ufwbp838yZA
 
-check comments on anything that uses Input and Icon combined
-
 // commit msg
-Revised comments linked to '*Icon*' and '*Input*' components. Started testing composed '*Input*' components  
+Splitted '*Input*' composed components further. Squished bug in '*Input.WithValidation*'. 

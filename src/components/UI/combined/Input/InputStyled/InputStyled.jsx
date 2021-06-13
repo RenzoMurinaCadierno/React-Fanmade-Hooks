@@ -12,7 +12,8 @@ import { classes } from "./InputStyled.utils"
  * Keep in mind this input is **not** self-controlled, it only handles its UI
  * functionality. If you want one that manages its own state, use
  * '*Input.WithState*', '*Input.Styled.WithState*', '*Input.WithValidation*',
- * '*Input.Styled.WithValidation*', or '*InputField*' (this last one is legacy).
+ * '*Input.Styled.WithValidation*', '*Input.WithValidationBubbles*' or
+ * '*Input.Styled.WithValidationBubbles*'.
  *
  * @param {object} props
  *
@@ -39,7 +40,7 @@ import { classes } from "./InputStyled.utils"
  *
  * `otherInputProps?` (object): "props" to spread on '*Input*'.
  *
- * @param {React.ref} ref A React.Reference to the input element.
+ * @param {React.ref} ref A React reference to the input element.
  */
 function InputStyled(
   {

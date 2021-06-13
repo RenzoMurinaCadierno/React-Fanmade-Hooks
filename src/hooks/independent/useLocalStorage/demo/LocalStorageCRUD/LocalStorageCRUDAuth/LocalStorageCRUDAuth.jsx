@@ -1,4 +1,4 @@
-import { useCallback, useState, useEffect, useContext } from "react"
+import { useState, useEffect, useContext } from "react"
 import {
   Text,
   Input,
@@ -73,7 +73,7 @@ export default function LocalStorageCRUDAuth({
             {/* "user" and "pass" inputs */}
             <div className={classes.inputsContainer}>
               {inputNamesAndValAnchor.map(([inputName, anchor]) => (
-                <Input.Styled.WithValidation
+                <Input.Styled.WithValidationBubbles
                   key={inputName}
                   useInputHandlersProps={inputProps[inputName]}
                   useInputHandlersConfigs={inputConfigs[inputName](setInputsSt)}

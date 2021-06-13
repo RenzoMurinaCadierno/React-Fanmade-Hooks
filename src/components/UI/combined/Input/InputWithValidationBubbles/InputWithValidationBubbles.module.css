@@ -1,0 +1,146 @@
+/* all devices landscape */
+.Container {
+  /* wrapper container */
+  position: relative;
+  min-width: 8vw;
+}
+
+.InputContainer {
+  /* InputStyled's container '*div*' */
+  max-width: 100%;
+  min-width: 100%;
+}
+
+.ValidationContainer {
+  /* validation msg bubble '*div*' container */
+  min-width: 100%;
+  position: absolute;
+  margin: auto !important;
+  background: var(--translucent-background);
+  overflow-y: auto;
+  animation: fade-in 200ms ease-in forwards;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.Pointer {
+  /* validation msg arrow '*img*' */
+  width: 3vw;
+  height: 3vw;
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  animation: fade-in 200ms ease-in forwards;
+}
+
+.Pointer.primary {
+  filter: drop-shadow(var(--drop-shadow-primary-lg-vw)) brightness(0.73);
+}
+
+.Pointer.secondary {
+  filter: hue-rotate(185deg) drop-shadow(var(--drop-shadow-secondary-lg-vw))
+    brightness(0.73);
+}
+
+.Pointer.danger {
+  filter: hue-rotate(160deg) brightness(0.6) saturate(1.6)
+    drop-shadow(var(--drop-shadow-danger-lg-vw));
+}
+
+.ValidationContainer.top {
+  /* validation msg bubble '*div*' on "top" `validationContainerAnchor` */
+  bottom: 150%;
+  left: 0;
+  right: 0;
+}
+
+.Pointer.top {
+  transform: rotate(-90deg);
+  left: 85%;
+  top: -100%;
+}
+
+.ValidationContainer.right {
+  /* validation msg bubble '*div*' on "right" `validationContainerAnchor` */
+  top: 50%;
+  right: -87%;
+  transform: translateY(-50%);
+  min-width: 50%;
+  max-height: 300%;
+}
+
+.Pointer.right {
+  top: 3%;
+  left: 100.5%;
+}
+
+.ValidationContainer.bottom {
+  /* validation msg bubble '*div*' on "bottom" `validationContainerAnchor` */
+  top: 150%;
+  left: 0;
+  right: 0;
+}
+
+.Pointer.bottom {
+  transform: rotate(90deg);
+  right: 85%;
+  bottom: -100%;
+}
+
+.ValidationContainer.left {
+  /* validation msg bubble '*div*' on "left" `validationContainerAnchor` */
+  top: 50%;
+  left: -87%;
+  transform: translateY(-50%);
+  min-width: 50%;
+  max-height: 300%;
+}
+
+.Pointer.left {
+  transform: rotate(180deg);
+  top: 3%;
+  right: 100.5%;
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    /* wrapper container */
+    min-width: 8vh;
+  }
+
+  .Pointer {
+    /* validation msg arrow '*img*' */
+    width: 3vh;
+    height: 3vh;
+  }
+
+  .Pointer.top {
+    top: -95%;
+  }
+
+  .Pointer.right {
+    left: 90%;
+  }
+
+  .Pointer.bottom {
+    bottom: -95%;
+  }
+
+  .Pointer.left {
+    right: 90%;
+  }
+}
+/* end all devices portrait */
+
+/* animation keyframes */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* end animation keyframes */

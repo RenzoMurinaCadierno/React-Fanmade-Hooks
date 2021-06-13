@@ -1,16 +1,16 @@
 import { useCallback, useState, useRef } from "react"
-import { InputField } from "hub"
+import { Input } from "hub"
 import { classes, defaultProps, propTypes } from "./AppbarSearchbar.utils"
 
 const fakeEmptySyntheticEventObject = { target: { value: "" } }
 
 /**
- * Renders an '*Inputfield*' that functions as a search bar for hook names in
+ * Renders an '*Input*' that functions as a search bar for hook names in
  * '*Appbar*', as well as its search icon '*img*'.
  *
  * @param {object} props
  *
- * `onChange` (function): '*InputField*' "onChange" handler.
+ * `onChange` (function): '*Input*' "onChange" handler.
  *
  * `searchIcon?` (string): Path to an svg image to use as 'search' icon's '*img*'
  *   "src".
@@ -23,7 +23,7 @@ const fakeEmptySyntheticEventObject = { target: { value: "" } }
  *
  * `iconProps?` (object): Props to spread in search icon's '*img*'.
  *
- * `inputFieldProps?` (object): Props to spread in '*InputField*'.
+ * `inputProps?` (object): Props to spread in '*Input*'.
  *
  * `...otherProps?` (object): Props to spread in container '*div*'.
  */
@@ -33,37 +33,34 @@ export default function AppbarSearchbar({
   clearIcon,
   classNames,
   iconProps,
-  inputFieldProps,
+  inputProps,
   ...otherProps
 }) {
-  // '*InputField*' `ref`. Needed to clear it imperatively since it is
+  // '*Input*' `ref`. Needed to clear it imperatively since it is
   // uncontrolled
   const inputRef = useRef()
   // state to control rendered '*img*' and its `onClick` handler
   const [isInputEmpty, setIsInputEmpty] = useState(true)
 
   /**
-   * Toggles "isInputEmpty" depending on '*InputField*' `value`. It also
+   * Toggles "isInputEmpty" depending on '*Input*' `value`. It also
    * triggers `onChange`.
    */
-  const handleChange = useCallback(
-    (e) => {
-      if (!e.target.value || (e.target.value && isInputEmpty)) {
-        setIsInputEmpty((prevSt) => !prevSt)
-      }
-      onChange?.(e)
-    },
-    [isInputEmpty, onChange]
-  )
+  const handleChange = (e) => {
+    if (!e.target.value || (e.target.value && isInputEmpty)) {
+      setIsInputEmpty((prevSt) => !prevSt)
+    }
+    onChange?.(e)
+  }
 
   /**
-   * Clears '*InputField*' and sets "isInputEmpty" to false. It also triggers
+   * Clears '*Input*' and sets "isInputEmpty" to false. It also triggers
    * `handleChange` passing a fake empty synthetic event object an argument.
    */
-  const clearInput = useCallback(() => {
+  const clearInput = () => {
     inputRef.current.value = ""
     handleChange(fakeEmptySyntheticEventObject)
-  }, [handleChange])
+  }
 
   return (
     // wrapper container
@@ -77,13 +74,13 @@ export default function AppbarSearchbar({
         {...iconProps}
       />
       {/* search input field */}
-      <InputField
+      <Input.Styled
         ref={inputRef}
         label="Search"
         role="search"
         onChange={handleChange}
-        classNames={classes.inputField(classNames.inputField)}
-        {...inputFieldProps}
+        classNames={classes.input(classNames.input)}
+        {...inputProps}
       />
     </div>
   )

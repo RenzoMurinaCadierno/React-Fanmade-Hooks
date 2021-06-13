@@ -5,9 +5,9 @@ import styles from "./AppbarSearchbar.module.css"
 
 export const classes = {
   container: (className) => (className ?? "") + " " + styles.Container,
-  inputField: (classNames = {}) => ({
+  input: (classNames = {}) => ({
     ...classNames,
-    container: (classNames.container ?? "") + " " + styles.InputField
+    container: (classNames.container ?? "") + " " + styles.Input
   }),
   icon: (isInputEmpty, className) =>
     (className ?? "") +
@@ -22,7 +22,7 @@ export const defaultProps = {
   clearIcon: defaultCrossSVG,
   classNames: {},
   iconProps: {},
-  inputFieldProps: {}
+  inputProps: {}
 }
 
 export const propTypes = {
@@ -31,7 +31,7 @@ export const propTypes = {
   clearIcon: PropTypes.string,
   classNames: PropTypes.exact({
     container: PropTypes.string,
-    inputField: PropTypes.exact({
+    input: PropTypes.exact({
       container: PropTypes.string,
       input: PropTypes.string,
       label: PropTypes.string
@@ -39,6 +39,6 @@ export const propTypes = {
     icon: PropTypes.string
   }),
   iconProps: PropTypes.object,
-  inputFieldProps: PropTypes.object,
+  inputProps: PropTypes.object,
   otherProps: PropTypes.object
 }

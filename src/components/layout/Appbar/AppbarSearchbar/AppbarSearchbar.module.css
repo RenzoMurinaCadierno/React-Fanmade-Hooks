@@ -15,8 +15,8 @@
   z-index: 20;
 }
 
-.InputField {
-  /* '*InputField*', the search bar */
+.Input {
+  /* '*Input*', the search bar */
   width: 70%;
   margin: var(--generic-margin-vw);
 }
@@ -44,8 +44,8 @@
     padding: var(--small-padding-vh);
   }
 
-  .InputField {
-    /* '*InputField*', the search bar */
+  .Input {
+    /* '*Input*', the search bar */
     margin: var(--generic-margin-vh);
   }
 

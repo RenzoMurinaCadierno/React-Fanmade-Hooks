@@ -1,4 +1,4 @@
-import { forwardRef, useCallback, useState } from "react"
+import { forwardRef, useState } from "react"
 import { Input } from "hub"
 // import styles from "./InputWithState.module.css"
 
@@ -18,13 +18,10 @@ import { Input } from "hub"
 function InputWithState({ isStyled, onChange, ...otherProps }, ref) {
   const [val, setVal] = useState("")
 
-  const handleChange = useCallback(
-    (e) => {
-      setVal(e.target.value)
-      onChange?.(e)
-    },
-    [onChange, setVal]
-  )
+  const handleChange = (e) => {
+    setVal(e.target.value)
+    onChange?.(e)
+  }
 
   return isStyled ? (
     <Input.Styled

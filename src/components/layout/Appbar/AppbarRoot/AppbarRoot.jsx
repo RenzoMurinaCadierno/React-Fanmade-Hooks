@@ -7,7 +7,7 @@ import { classes, defaultProps, propTypes } from "./AppbarRoot.utils"
  * clicked, it shows a '*Modal*' component with each '*AppbarLink*' ordered by
  * '*AppbarSection*'s.
  *
- * It will also generate an '*InputField*' to filter the list of links.
+ * It will also generate an '*Input*' to filter the list of links.
  *
  * @param {object} props
  *

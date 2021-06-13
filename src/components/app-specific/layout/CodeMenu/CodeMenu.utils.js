@@ -2,8 +2,14 @@ import PropTypes from "prop-types"
 import code from "assets/icons/code.svg"
 import tick from "assets/icons/tick.svg"
 import cross from "assets/icons/cross.svg"
+import styles from "./CodeMenu.module.css"
 
-export const classes = { codeMenu: (classNames) => classNames }
+export const classes = {
+  codeMenu: (classNames) => ({
+    ...classNames,
+    container: styles.Container
+  })
+}
 
 export const defaultProps = { anchor: "top-right" }
 
