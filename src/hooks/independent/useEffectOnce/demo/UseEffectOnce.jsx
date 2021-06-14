@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react"
 import useEffectOnce from "../useEffectOnce"
 import { Container, CmpDescription, Text, Button, PhoneDial } from "hub"
+import plainCode from "../utils/plain"
 import {
   classes,
   descItemsObject,
@@ -49,6 +50,7 @@ export default function UseEffectOnce() {
     <Container htmlElem="main" className={classes.container}>
       <CmpDescription
         descItems={descItemsObject}
+        plainCode={plainCode}
         classNames={classes.cmpDesc}
       />
       <section className={classes.cmpTest} aria-label="component testing area">

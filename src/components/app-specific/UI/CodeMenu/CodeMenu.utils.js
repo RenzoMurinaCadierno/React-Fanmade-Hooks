@@ -1,16 +1,16 @@
 import PropTypes from "prop-types"
 import code from "assets/icons/code.svg"
-import tick from "assets/icons/tick.svg"
-import cross from "assets/icons/cross.svg"
+import copySVG from "assets/icons/copy.svg"
+import linkSVG from "assets/icons/link.svg"
 import styles from "./CodeMenu.module.css"
 
 export const classes = {
-  codeMenu: (classNames) => ({
+  codeMenu: (classNames = {}) => ({
     ...classNames,
-    container: styles.Container
+    container: (classNames.container ?? "") + " " + styles.Container
   })
 }
-
+create CodeMenu.WithMediaQuery to move it around
 export const defaultProps = { anchor: "top-right" }
 
 const iconPropsShape = PropTypes.shape({
@@ -66,7 +66,7 @@ export function getIconsProps(url, plainCode) {
     main: { icon: <img src={code} alt="code" /> },
     list: [
       {
-        icon: <img src={cross} alt="Go to code" />,
+        icon: <img src={linkSVG} alt="Go to code" />,
         content: "Go to code",
         toastProps: {
           timeout: 4000,
@@ -75,7 +75,7 @@ export function getIconsProps(url, plainCode) {
         }
       },
       {
-        icon: <img src={tick} alt="Copy code" />,
+        icon: <img src={copySVG} alt="Copy code" />,
         content: "Copy code",
         onContentClick: () =>
           navigator.clipboard.writeText(

@@ -112,9 +112,10 @@ function BTTarget({
     onSpawn?.()
     // if the intention is to destroy the target once `accuracyTimeout` expires,
     // set the timeout to do so here, triggering "breakTarget" in consequence
-    const lifeTimeout = setTimeout(() => {
-      destroyOnAccuracyTimeout && breakTarget(false, true)
-    }, [accuracyTimeout])
+    const lifeTimeout = setTimeout(
+      () => destroyOnAccuracyTimeout && breakTarget(false, true),
+      accuracyTimeout
+    )
     return () => clearTimeout(lifeTimeout)
   }, [])
 

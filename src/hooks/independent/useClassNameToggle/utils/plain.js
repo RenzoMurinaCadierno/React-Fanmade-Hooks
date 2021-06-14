@@ -1,4 +1,4 @@
-export default `/******************************************************************************
+const plainCode = `/******************************************************************************
  * **WARNING!** This code is written in ES2020! 
  * You will need a babel transpiler that fits it.
  * Or you can use Create-React-App ^3.3.0, since it is already implemented there
@@ -32,6 +32,8 @@ import { useCallback, useState, useEffect } from "react"
  * \`elem 2\` (boolean): The className's 'on'/'off' state. True means it is
  *   currently being rendered in target component's \`className\`, false indicates
  *   it is not present there.
+ * 
+ * @author Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>
  */
 export default function useClassNameToggle({
   className,
@@ -76,3 +78,5 @@ export default function useClassNameToggle({
 
   return [classNameSt.cn, trigger, classNameSt.isActive]
 }`
+
+export default plainCode

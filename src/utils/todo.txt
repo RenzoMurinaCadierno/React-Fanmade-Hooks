@@ -13,5 +13,7 @@ button on uselocalstorage, automatically on after user/pass
 
 publishing: https://www.youtube.com/watch?v=Ufwbp838yZA
 
+change code icon location on timer and the other one
+
 // commit msg
-Splitted '*Input*' composed components further. Squished bug in '*Input.WithValidation*'. 
+Added all plain codes. Changed '*CodeMenu*' svgs. Fixed bug in '*BT.Target*'.

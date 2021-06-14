@@ -1,5 +1,6 @@
 import useToggle from "../useToggle"
 import { CmpDescription, Container, Input, Button } from "hub"
+import plainCode from "../utils/plain"
 import { classes, descItemsObject } from "./UseToggle.utils"
 
 export default function UseToggle() {
@@ -7,6 +8,7 @@ export default function UseToggle() {
     <>
       <CmpDescription
         descItems={descItemsObject}
+        plainCode={plainCode}
         classNames={classes.cmpDesc}
       />
       <CmpTest />

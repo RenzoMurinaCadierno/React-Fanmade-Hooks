@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState, memo } from "react"
 import { useTimer, CmpDescription, BT } from "hub"
+import plainCode from "../utils/plain"
 import {
   classes,
   iconExpandableProps,
@@ -17,18 +18,15 @@ import {
 // '*BTField*' in '*BTGame*' two times, and we will be spawning lots of them.
 
 export default function UseTimer() {
-  // skip re-renders on '*CmpTest*' as it has no props (its children will
-  // re-render though).
-  const MemoizedCmpTest = memo(CmpTest)
-
   return (
     <div className={classes.container}>
       <CmpDescription
         descItems={descItemsObject}
+        plainCode={plainCode}
         iconExpandableProps={iconExpandableProps}
         classNames={classes.cmpDesc}
       />
-      <MemoizedCmpTest />
+      <CmpTest />
     </div>
   )
 }

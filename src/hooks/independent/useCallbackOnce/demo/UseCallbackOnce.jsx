@@ -1,5 +1,6 @@
 import { useState } from "react"
 import useCallbackOnce from "../useCallbackOnce"
+import plainCode from "../utils/plain"
 import { CmpDescription, Text, Button, Switch } from "hub"
 import {
   classes,
@@ -13,6 +14,7 @@ export default function UseCallbackOnce() {
     <>
       <CmpDescription
         descItems={descItemsObject}
+        plainCode={plainCode}
         classNames={classes.cmpDesc}
       />
       <CmpTest />

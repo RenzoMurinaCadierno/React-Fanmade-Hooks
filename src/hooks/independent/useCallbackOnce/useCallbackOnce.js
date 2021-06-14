@@ -15,6 +15,8 @@ import { useCallback, useState } from "react"
  *
  * `elem 2` (function): Resets the invoker, allowing it to trigger `callback`
  *   again.
+ *
+ * @author Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>
  */
 export default function useCallbackOnce(callback) {
   const [isCallbackUsed, setIsCallbackUsed] = useState(false)

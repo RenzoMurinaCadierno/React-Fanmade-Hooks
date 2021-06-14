@@ -21,6 +21,8 @@ import { useCallback, useEffect, useRef } from "react"
  * * `arg 0` (function): handler to reset `times` back to its initial state.
  * * `arg 1` (function): handler to set a new number of times with the number
  *     passed as argument.
+ *
+ * @author Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>
  */
 export default function useEffectXTimes(
   cb,

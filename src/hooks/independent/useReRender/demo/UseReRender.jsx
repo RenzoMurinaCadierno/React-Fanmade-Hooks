@@ -3,6 +3,7 @@ import useReRender from "../useReRender"
 import { Toast, Container, CmpDescription, Button } from "hub"
 import pointer from "assets/icons/pointer.svg"
 import refresh from "assets/icons/refresh.svg"
+import plainCode from "../utils/plain"
 import {
   classes,
   descItemsObject,
@@ -46,6 +47,7 @@ export default function UseReRender() {
       <Container htmlElem="main" className={classes.container}>
         <CmpDescription
           descItems={descItemsObject}
+          plainCode={plainCode}
           classNames={classes.cmpDesc}
         />
         <section

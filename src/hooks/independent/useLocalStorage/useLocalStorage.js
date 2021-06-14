@@ -74,6 +74,8 @@ import { useEffect, useCallback, useState } from "react"
  *
  * @returns {object} An object with "get", "set", "del" and "reset" handlers.
  * Check each of those function's in-signature comments to know how they work.
+ *
+ * @author Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>
  */
 export default function useLocalStorage(configs = {}) {
   /**
@@ -484,7 +486,7 @@ export default function useLocalStorage(configs = {}) {
       if (!_arg.canBeJsonStringified()) {
         const nestedKey =
           Array.isArray(arg) && typeof arg[0] === "string"
-            ? `\`${arg[0]}\` `
+            ? "`" + arg[0] + "`"
             : ""
         return _consoleErr(
           "invalidValue",
@@ -694,7 +696,7 @@ function _getPathStrings(target, string = "", result = []) {
   // value
   for (const key in target.get()) {
     const prevStr = string // save current path string to reset after recursion
-    string += `${key}.` // add current key to path string
+    string += "`" + key + "`." // add current key to path string
     _getPathStrings(_val(target.get()[key]), string, result) // recurse on value
     string = prevStr // reset path string for next keys
   }
@@ -772,7 +774,7 @@ function _createPathAndSetValue(path, value, lsItem, lsKeyName, noConsole) {
 }
 
 function _getSetValErrorMsg(key, index) {
-  return `\n  > key: \`${key}\`, index in dot notation: ${index}\n`
+  return '\n  > key: "' + key + '", index in dot notation: ' + index + "\n"
 }
 
 /**
@@ -855,34 +857,108 @@ function _consoleErr(type, metaData, doNotLogInConsole) {
   let message = "<useLocalStorage> "
   switch (type) {
     case "udpateValue":
-      message += `Could not update value for nested key \`${metaData[1]}\` in local storage with key \`${metaData[0]}\` (nested key error @ index ${metaData[2]} in \`configs.updateOnValueChange\` initialization array, tiggered by nested key \`useEffect()\` listening to \`configs.value\`).\n\nIf you intend to halt the update process in one of the designed nested keys, pass it as a first argument inside an array to \`configs.updateOnValueChange\`, and a function that returns a boolean as the second argument (true will proceed with the update, false will prevent it).\n\nRemember that that function recieves the current value for that key, the updated value and the current local storage item as parameters for you to work with.\n`
+      message +=
+        'Could not update value for nested key "' +
+        metaData[1] +
+        '" in local storage with key "' +
+        metaData[0] +
+        '" (nested key error @ index ' +
+        metaData[2] +
+        ' in "configs.updateOnValueChange" initialization array, tiggered by nested key "useEffect()" listening to "configs.value").\n\nIf you intend to halt the update process in one of the designed nested keys, pass it as a first argument inside an array to "configs.updateOnValueChange", and a function that returns a boolean as the second argument (true will proceed with the update, false will prevent it).\n\nRemember that that function recieves the current value for that key, the updated value and the current local storage item as parameters for you to work with.\n'
       break
     case "set-1":
-      message += `Could not set local storage for key \`${metaData[0]}\` with current value \`${metaData[1]}\`.\n\nTo use \`set()\`'s nested keys functionality, make sure key \`${metaData[0]}\` exists in local storage, with a plain object as value.\n\nYou can either set it calling \`set()\` with an object \`{}\` as first argument and a boolean \`true\` as the second one, or use \`reset()\` to restore local storage key if it was deleted.\n\nIf you use the latter and want to deal with nested keys, \`configs.value\` when calling for \`useLocalStorage()\` should have been a plain object. If it was not, you can pass one as an argument to \`reset()\` to set local storage value with.\n`
+      message +=
+        'Could not set local storage for key "' +
+        metaData[0] +
+        '" with current value "' +
+        metaData[1] +
+        '".\n\nTo use "set()"\'s nested keys functionality, make sure key "' +
+        metaData[0] +
+        '" exists in local storage, with a plain object as value.\n\nYou can either set it calling "set()" with an object "{}" as first argument and a boolean "true" as the second one, or use "reset()" to restore local storage key if it was deleted.\n\nIf you use the latter and want to deal with nested keys, "configs.value" when calling for "useLocalStorage()" should have been a plain object. If it was not, you can pass one as an argument to "reset()" to set local storage value with.\n'
       break
     case "set-2":
-      message += `Could not set local storage (error in \`set()\` with argument \`${metaData[0]}\` at index ${metaData[1]}).\n\n(1) Did you want to use nested key's functionality?\n\nLocal storage value has to be an object, and you must pass arrays as arguments to \`set()\` for each nested key you want to modify, with shape:\n\n  [\n    <any> value to set to inner local storage key -OR- <function> that resolves in a value (will get the current value for the target key and current local storage item as arguments),\n    <string> local storage key path in dot notation\n  ].\n\n(2) Did you intend to set local storage in the traditional way?\n\nPass any value as the first argument to \`set()\` (not restricted to shape stated above), and a boolean \`true\` as the second one.\n\nIn case you need to set an empty object as local storage value to use nested keys functionality, make that first argument be \`{}\`.\n\n(3) Did you pass a function to determine local storage state using the previous value?\n\nThat works if you are trying to override the value (second argument \`true\`, as explained in -(2)-), or if you are using nested keys functionality (check the first argument of the array in -(1)-).\n`
+      message +=
+        'Could not set local storage (error in "set()" with argument "' +
+        metaData[0] +
+        '" at index ' +
+        metaData[1] +
+        ').\n\n(1) Did you want to use nested key\'s functionality?\n\nLocal storage value has to be an object, and you must pass arrays as arguments to "set()" for each nested key you want to modify, with shape:\n\n  [\n    <any> value to set to inner local storage key -OR- <function> that resolves in a value (will get the current value for the target key and current local storage item as arguments),\n    <string> local storage key path in dot notation\n  ].\n\n(2) Did you intend to set local storage in the traditional way?\n\nPass any value as the first argument to "set()" (not restricted to shape stated above), and a boolean "true" as the second one.\n\nIn case you need to set an empty object as local storage value to use nested keys functionality, make that first argument be "{}".\n\n(3) Did you pass a function to determine local storage state using the previous value?\n\nThat works if you are trying to override the value (second argument "true", as explained in -(2)-), or if you are using nested keys functionality (check the first argument of the array in -(1)-).\n'
       break
     case "set-3":
-      message += `Could not set stringified value \`${metaData[0]}\` to nested key \`${metaData[1]}\`. Make sure local storage value for key \`${metaData[2]}\` is a plain JS object, and nested key is a non-empty string.\n\nDo you need to restore local storage with key \`${metaData[2]}\` to its initial state? Use \`reset()\`.\nIf your initial local storage state was not a plain object, pass an empty object \`{}\` as argument for nested keys to work.\n\nOr, if you intend to set local storage in the traditional way (overriding its value), call \`set()\` with the value as the first argument and a boolean \`true\` as the second one.\n`
+      message +=
+        'Could not set stringified value "' +
+        metaData[0] +
+        '" to nested key "' +
+        metaData[1] +
+        '". Make sure local storage value for key "' +
+        metaData[2] +
+        '" is a plain JS object, and nested key is a non-empty string.\n\nDo you need to restore local storage with key "' +
+        metaData[2] +
+        '" to its initial state? Use "reset()".\nIf your initial local storage state was not a plain object, pass an empty object "{}" as argument for nested keys to work.\n\nOr, if you intend to set local storage in the traditional way (overriding its value), call "set()" with the value as the first argument and a boolean "true" as the second one.\n'
       break
     case "get-1":
-      message += `Could not retrieve local storage with key \`${metaData}\`.\n\nMake sure local storage for key \`${metaData}\` exists.\n\nIf you need to re-create it, use \`set()\` with a value as first argument and a boolean \`true\` as the second one, or \`reset()\` given the initial value was a valid one.\n\nIf you attempted to set a value and you defined \`configs.selfRebuildValue\`, then local storage was auto-rebuilt for you. You can ignore this error.\n`
+      message +=
+        'Could not retrieve local storage with key "' +
+        metaData +
+        '".\n\nMake sure local storage for key "' +
+        metaData +
+        '" exists.\n\nIf you need to re-create it, use "set()" with a value as first argument and a boolean "true" as the second one, or "reset()" given the initial value was a valid one.\n\nIf you attempted to set a value and you defined "configs.selfRebuildValue", then local storage was auto-rebuilt for you. You can ignore this error.\n'
       break
     case "get-2":
-      message += `Could not retrieve value of supplied nested key \`${metaData[1]}\` for local storage key \`${metaData[0]}\` (@ \`get()\`, argument index ${metaData[2]}).\n\nMake sure local storage for key \`${metaData[0]}\` exists, and nested key is a non-empty string.\n\nIf you need to re-create local storage, use \`set()\` or \`reset()\`.\n`
+      message +=
+        'Could not retrieve value of supplied nested key "' +
+        metaData[1] +
+        '" for local storage key "' +
+        metaData[0] +
+        '" (@ "get()", argument index ' +
+        metaData[2] +
+        ').\n\nMake sure local storage for key "' +
+        metaData[0] +
+        '" exists, and nested key is a non-empty string.\n\nIf you need to re-create local storage, use "set()" or "reset()".\n'
       break
     case "trySetLocalStorage":
-      message += `Could not set local storage item with key \`${metaData[0]}\`.\n\nEither:\n  (1) key is not defined, \n  (2) local storage is disabled on your browser, \n  (3) storage quota for current item was exceeded, or \n  (4) a circular structure was attempted to be parsed to JSON.\n\nThis last case can happen when trying to parse invalid objects (like functions or event objects).\n\nDid you accidentally pass one to a function call as an argument, to a nested key's value, or to the state this hook is listening at to update local storage automatically?\n\n<-- Error and stack -->\n\n${metaData[1]}\n`
+      message +=
+        'Could not set local storage item with key "' +
+        metaData[0] +
+        "\".\n\nEither:\n  (1) key is not defined, \n  (2) local storage is disabled on your browser, \n  (3) storage quota for current item was exceeded, or \n  (4) a circular structure was attempted to be parsed to JSON.\n\nThis last case can happen when trying to parse invalid objects (like functions or event objects).\n\nDid you accidentally pass one to a function call as an argument, to a nested key's value, or to the state this hook is listening at to update local storage automatically?\n\n<-- Error and stack -->\n\n" +
+        metaData[1] +
+        "\n"
       break
     case "tryParseLocalStorage":
-      message += `Could not JSON-parse local storage with key \`${metaData[0]}\`, as requested by function \`${metaData[1]}()\` (manually defaulted to \`${metaData[2]}\` as fail-safe).\n\nThis normally occurs when value in local storage is invalid (like \`undefined\`).\n\nTry overriding that value with \`set()\` by passing a new value as first argument, and a boolean \`true\` as the second one.\n\nYou can also use \`reset()\` given initial local storage value was a valid one.\n\n${metaData[3]}\n`
+      message +=
+        'Could not JSON-parse local storage with key "' +
+        metaData[0] +
+        '", as requested by function "' +
+        metaData[1] +
+        '()" (manually defaulted to "' +
+        metaData[2] +
+        '" as fail-safe).\n\nThis normally occurs when value in local storage is invalid (like "undefined").\n\nTry overriding that value with "set()" by passing a new value as first argument, and a boolean "true" as the second one.\n\nYou can also use "reset()" given initial local storage value was a valid one.\n\n' +
+        metaData[3] +
+        "\n"
       break
     case "invalidKeys":
-      message += `Could not set nested keys to local storage with key \`${metaData[0]}\` (dot notation format error @ \`set()\`).\n\nThis probably occured due to handling an invalid key name in the dot notation path string, either while resolving it or while passing it as an argument to \`set()\`, \`reset()\`, or to configs.updateValueOnChange.\n\nInvalid key names are "undefined", "null", "[]", "{}" or an empty string.\n\nDot notation path string with errors:\n\n  > ${metaData[1]}\n\nConflicts at:\n${metaData[2]}`
+      message +=
+        'Could not set nested keys to local storage with key "' +
+        metaData[0] +
+        '" (dot notation format error @ "set()").\n\nThis probably occured due to handling an invalid key name in the dot notation path string, either while resolving it or while passing it as an argument to "set()", "reset()", or to configs.updateValueOnChange.\n\nInvalid key names are "undefined", "null", "[]", "{}" or an empty string.\n\nDot notation path string with errors:\n\n  > ' +
+        metaData[1] +
+        "\n\nConflicts at:\n" +
+        metaData[2] +
+        "\n"
       break
     case "invalidValue":
-      message += `Could not ${metaData[1]} nested key ${metaData[3]}of local storage with key \`${metaData[0]}\` (error @ \`${metaData[1]}()\`, argument index ${metaData[2]}).\n\nThis happened because a nested key or value to JSON-stringify was invalid, possibly because of it being a function or an object with a circular reference.\n`
+      message +=
+        "Could not " +
+        metaData[1] +
+        " nested key " +
+        metaData[3] +
+        'of local storage with key "' +
+        metaData[0] +
+        '" (error @ "' +
+        metaData[1] +
+        '()", argument index ' +
+        metaData[2] +
+        ").\n\nThis happened because a nested key or value to JSON-stringify was invalid, possibly because of it being a function or an object with a circular reference.\n"
       break
     default:
       message += "Unhandled error message."
@@ -899,11 +975,15 @@ function _consoleErr(type, metaData, doNotLogInConsole) {
  * @param {string|Array} metaData extra info used to construct the error message
  */
 function _throwErr(errObj, msgKey, ErrorClass, metaData) {
-  const errorAndStack = errObj ? `\n\n<-- Error and stack -->\n\n${errObj}` : ""
+  const errorAndStack = errObj ? "\n\n<-- Error and stack -->\n\n" + errObj : ""
   let message = "<useLocalStorage> "
   switch (msgKey) {
     case "mount":
-      message += `Invalid local storage key name \`${metaData}\`. It must be a string and cannot be omitted.\n\nDid you forget to pass local storage key name when calling the hook?\nThis hook accepts a config object as its only parameter. Pass local storage key name to its \`key\` property to initialize it.${errorAndStack}`
+      message +=
+        'Invalid local storage key name "' +
+        metaData +
+        '". It must be a string and cannot be omitted.\n\nDid you forget to pass local storage key name when calling the hook?\nThis hook accepts a config object as its only parameter. Pass local storage key name to its "key" property to initialize it.' +
+        errorAndStack
       break
     default:
       message += "Unhandled error message."

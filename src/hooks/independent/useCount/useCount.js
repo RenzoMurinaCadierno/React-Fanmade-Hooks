@@ -28,6 +28,8 @@ import { useState, useCallback } from "react"
  *
  * `setStep` (function): takes a number as argument and sets the current step
  *   state to it.
+ *
+ * @author Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>
  */
 export default function useCount(initialNum = 0, step = 1) {
   const [count, setCount] = useState(initialNum)

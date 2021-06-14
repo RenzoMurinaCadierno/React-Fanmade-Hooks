@@ -14,13 +14,7 @@ export const classes = {
   container: styles.Container,
   cmpDesc: {
     container: styles.CmpDescContainer,
-    description: styles.CmpDescContent,
-    codeIcon: {
-      iconExpandable: {
-        container: styles.CmpDescCodeIconContainer,
-        content: styles.CmpDescCodeIconContent
-      }
-    }
+    description: styles.CmpDescContent
   },
   cmpTest: styles.CmpTest,
   scoreBoard: styles.ScoreBoard

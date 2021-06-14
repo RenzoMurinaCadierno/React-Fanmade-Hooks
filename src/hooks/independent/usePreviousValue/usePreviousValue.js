@@ -8,6 +8,8 @@ import { useRef, useEffect } from "react"
  *
  * @returns {any} the previous value for the current state of the one this
  *   hook is keeping track of.
+ *
+ * @author Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>
  */
 export default function usePreviousValue(value) {
   const prevValue = useRef()

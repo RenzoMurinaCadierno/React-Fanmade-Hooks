@@ -5,7 +5,13 @@ import { useState, useCallback } from "react"
  *
  * @param {boolean?} initialState the initial state of the boolean.
  *
- * @returns {Array} [ booleanState, togglerFunction ]
+ * @returns {Array} An array shaped:
+ *
+ * `elem 0` (boolean): Current state.
+ *
+ * `elem 1` (function): Handler that toggles state when invoked.
+ *
+ * @author Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>
  */
 export default function useToggle(initialState = false) {
   const [state, setState] = useState(initialState)

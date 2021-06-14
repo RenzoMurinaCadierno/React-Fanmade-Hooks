@@ -104,6 +104,8 @@ import { useState, useCallback, useEffect, useRef } from "react"
  *   element.
  *
  * `reRender` (function): forces a component re-render.
+ *
+ * @author Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>
  */
 export default function useInputHandlers(ref, props = {}, configs = {}) {
   // save configs in a Ref. They should not change once instantiated

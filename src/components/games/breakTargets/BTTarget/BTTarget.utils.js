@@ -30,7 +30,7 @@ export const defaultProps = {
   y: 50,
   appearTimeout: 150,
   destroyAnimationTimeout: 300,
-  accuracyTimeout: 20,
+  accuracyTimeout: 2000,
   classNames: {},
   contentProps: {}
 }

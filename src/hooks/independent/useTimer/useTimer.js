@@ -62,6 +62,8 @@ import { useCallback, useState, useRef, useEffect } from "react"
  *
  * `setTimer` (function): takes an amount of ms asa parameter (type Number) or
  *   a "time" object in the format of "_inMs" and sets the timer to that value.
+ *
+ * @author Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>
  */
 export default function useTimer({
   initialTime = { days: 0, hs: 0, secs: 0, ms: 0 },
@@ -302,18 +304,26 @@ function _isValidTimeSpan(timeSpan, timeObj, validKeys, caller) {
   // on a time span key that does not match a valid one, warn and return false
   if (!validKeys.includes(timeSpan)) {
     console.error(
-      `<useTimer> Invalid key \`${timeSpan}\` supplied to \`${caller}\`. Must be one of${_validTimeSpans.map(
-        (k) => ` \`${k}\``
-      )}.`
+      "<useTimer> Invalid key `" +
+        timeSpan +
+        "` supplied to `" +
+        caller +
+        "`. Must be one of" +
+        _validTimeSpans.map((k) => "`" + k + "`") +
+        "."
     )
     return false
   }
   // on a value for that key that is not a number, warn and return false
   if (typeof timeObj[timeSpan] !== "number") {
     console.error(
-      `<useTimer> Key \`${timeSpan}\` supplied to \`${caller}\` is type ${typeof timeObj[
-        timeSpan
-      ]}. Must be a number.`
+      "<useTimer> Key `" +
+        timeSpan +
+        "` supplied to `" +
+        caller +
+        "` is type " +
+        typeof timeObj[timeSpan] +
+        ". Must be a number."
     )
     return false
   }
@@ -344,7 +354,9 @@ function _validateArgAndSetTimerSt(
   // if it is invalid, warn in console and do not update state
   if (!timeInMs) {
     return console.error(
-      `<useTimer> Invalid argument supplied to \`${caller}()\`. Must be higher than 0 ms.`
+      "<useTimer> Invalid argument supplied to `" +
+        caller +
+        "()`. Must be higher than 0 ms."
     )
   }
   // the time value is correct, update the stated key with it
@@ -369,9 +381,15 @@ function _getMs(timeAsNumOrObj, caller) {
   // console and return 0 (0ms)
   if (typeof timeAsNumOrObj !== "object" || Array.isArray(timeAsNumOrObj)) {
     console.error(
-      `<useTimer> Invalid parameter \`${timeAsNumOrObj}\` of type ${typeof timeAsNumOrObj} supplied to \`${caller}\`. Must be a number (representing ms) or an object with keys${_validTimeSpans.map(
-        (k) => ` \`${k}\``
-      )}.`
+      "<useTimer> Invalid parameter `" +
+        timeAsNumOrObj +
+        "` of type " +
+        typeof timeAsNumOrObj +
+        " supplied to `" +
+        caller +
+        "`. Must be a number (representing ms) or an object with keys" +
+        _validTimeSpans.map((k) => " `" + k + "`") +
+        "."
     )
     return 0
   }

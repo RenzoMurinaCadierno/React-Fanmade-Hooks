@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react"
 import useEffectXTimes from "../useEffectXTimes"
 import { Container, CmpDescription, Button, useToggle } from "hub"
+import plainCode from "../utils/plain"
 import {
   classes,
   descItemsObject,
@@ -51,6 +52,7 @@ export default function UseEffectXTimes() {
     <Container htmlElem="main" className={classes.container}>
       <CmpDescription
         descItems={descItemsObject}
+        plainCode={plainCode}
         classNames={classes.cmpDesc}
         iconExpandableProps={iconExpandableProps}
       />

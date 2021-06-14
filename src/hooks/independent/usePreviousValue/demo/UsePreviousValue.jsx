@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react"
 import usePreviousValue from "../usePreviousValue"
 import { CmpDescription, Container, Text, Die } from "hub"
+import plainCode from "../utils/plain"
 import {
   classes,
   descItemsObject,
@@ -25,7 +26,7 @@ export default function UseToggle() {
 
   return (
     <>
-      <CmpDescription descItems={descItemsObject} />
+      <CmpDescription descItems={descItemsObject} plainCode={plainCode} />
       {/* 'rollable' "die" component */}
       <Container htmlElem="section" className={classes.diceRoll}>
         <Text htmlElem="h5" italic type="primary">

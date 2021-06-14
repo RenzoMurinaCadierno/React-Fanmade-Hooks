@@ -45,6 +45,8 @@ const defaultQueries = {
  *   indicating if they currently match.
  * * `elem 1` (object): all stated media query keys, each with the media query
  *   match rule as a string.
+ *
+ * @author Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>
  */
 export default function useMediaQuery(
   customQueries,

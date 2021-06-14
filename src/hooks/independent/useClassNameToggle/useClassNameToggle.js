@@ -26,6 +26,8 @@ import { useCallback, useState, useEffect } from "react"
  * `elem 2` (boolean): The className's 'on'/'off' state. True means it is
  *   currently being rendered in target component's `className`, false indicates
  *   it is not present there.
+ *
+ * @author Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>
  */
 export default function useClassNameToggle({
   className,

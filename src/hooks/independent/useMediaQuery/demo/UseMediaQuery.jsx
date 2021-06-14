@@ -1,5 +1,6 @@
 import useMediaQuery from "../useMediaQuery"
 import { Container, CmpDescription, Text, Icon } from "hub"
+import plainCode from "../utils/plain"
 import {
   classes,
   descItemsObject,
@@ -43,6 +44,7 @@ export default function UseMediaQuery() {
       <div className={classes.descAndMQs(deviceOrientation)}>
         <CmpDescription
           descItems={descItemsObject}
+          plainCode={plainCode}
           classNames={classes.cmpDesc(deviceOrientation)}
         />
         {/* wrapper for rules and "matches"' wrapper. Static className */}

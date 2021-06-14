@@ -15,6 +15,8 @@ import { useCallback, useEffect, useRef } from "react"
  *   "useEffect" trigger. Defaults to false.
  *
  * @returns {function} handler to restore "useEffect" functionality.
+ *
+ * @author Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>
  */
 export default function useEffectOnce(
   cb,

@@ -23,6 +23,8 @@ import { useCallback, useState } from "react"
  * `elem 2` (function): Resets the amount of times to invoke `callback` back to
  *   its original state provided in `times`. It accepts a number as argument, in
  *   which case the new amount of times to trigger `callback` will be set to it.
+ *
+ * @author Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>
  */
 export default function useCallbackXTimes(callback, times = 1) {
   const [callsLeft, setCallsLeft] = useState(getValidTimeValue(times, 1))

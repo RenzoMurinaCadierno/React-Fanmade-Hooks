@@ -9,6 +9,7 @@ import {
   Button,
   useToggle
 } from "hub"
+import plainCode from "../utils/plain"
 import {
   classes,
   descItemsObject,
@@ -93,6 +94,7 @@ export default function UseInputHandlers() {
       <Container className={classes.container}>
         <CmpDescription
           descItems={descItemsObject}
+          plainCode={plainCode}
           classNames={classes.cmpDesc}
         />
         <section
