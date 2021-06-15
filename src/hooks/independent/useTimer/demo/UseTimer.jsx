@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useState, memo } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { useTimer, CmpDescription, BT } from "hub"
 import plainCode from "../utils/plain"
 import {
   classes,
-  iconExpandableProps,
   descItemsObject,
+  codeMenuProps,
   scores,
   targetContentObj,
   initialGameState,
@@ -23,7 +23,8 @@ export default function UseTimer() {
       <CmpDescription
         descItems={descItemsObject}
         plainCode={plainCode}
-        iconExpandableProps={iconExpandableProps}
+        isCodeMenuAnchorHandledByMediaQuery
+        codeMenuProps={codeMenuProps}
         classNames={classes.cmpDesc}
       />
       <CmpTest />

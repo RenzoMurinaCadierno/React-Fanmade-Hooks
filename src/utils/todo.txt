@@ -13,7 +13,5 @@ button on uselocalstorage, automatically on after user/pass
 
 publishing: https://www.youtube.com/watch?v=Ufwbp838yZA
 
-change code icon location on timer and the other one
-
 // commit msg
-Added all plain codes. Changed '*CodeMenu*' svgs. Fixed bug in '*BT.Target*'.
+Added '*CodeMenuWithMediaQuery*'. Started using it where needed.

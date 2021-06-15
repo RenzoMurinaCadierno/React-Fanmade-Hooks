@@ -45,6 +45,7 @@ export default function UseMediaQuery() {
         <CmpDescription
           descItems={descItemsObject}
           plainCode={plainCode}
+          codeMenuProps={{ anchor: mq.pt ? "bottom-left" : "top-right" }}
           classNames={classes.cmpDesc(deviceOrientation)}
         />
         {/* wrapper for rules and "matches"' wrapper. Static className */}

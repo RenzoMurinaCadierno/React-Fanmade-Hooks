@@ -10,7 +10,7 @@ export const classes = {
     container: (classNames.container ?? "") + " " + styles.Container
   })
 }
-create CodeMenu.WithMediaQuery to move it around
+
 export const defaultProps = { anchor: "top-right" }
 
 const iconPropsShape = PropTypes.shape({

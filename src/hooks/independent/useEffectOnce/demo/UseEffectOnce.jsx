@@ -5,6 +5,7 @@ import plainCode from "../utils/plain"
 import {
   classes,
   descItemsObject,
+  codeMenuProps,
   getInitialGameSt,
   handleGameLogicAfterDigitButtonClick,
   resetGameState,
@@ -51,6 +52,8 @@ export default function UseEffectOnce() {
       <CmpDescription
         descItems={descItemsObject}
         plainCode={plainCode}
+        isCodeMenuAnchorHandledByMediaQuery
+        codeMenuProps={codeMenuProps}
         classNames={classes.cmpDesc}
       />
       <section className={classes.cmpTest} aria-label="component testing area">

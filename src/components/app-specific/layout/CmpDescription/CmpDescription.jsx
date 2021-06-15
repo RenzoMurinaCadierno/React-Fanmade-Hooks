@@ -21,9 +21,12 @@ import {
  * * `paragraphs` (Array): array of strings, one for each paragraph to render
  *     as component's description.
  *
- * `iconUrl?` (string): base path pointing to the folder that contains all
+ * `iconUrl?` (string): Base path pointing to the folder that contains all
  *   hooks' files and their examples in Github's repository.
  *   Defaults to the one in *app.configs.json*.
+ *
+ * `isCodeMenuAnchorHandledByMediaQuery` (bool): Falsey renders '*CodeMenu*' as
+ *   the code icon component, where truthy displays '*CodeMenu.WithMediaQuery*'.
  *
  * `classNames?` (object): className strings for each JSX rendered here.
  *   Check *utils.js* for its constitution.
@@ -40,6 +43,7 @@ function CmpDescription({
   descItems,
   plainCode,
   iconUrl,
+  isCodeMenuAnchorHandledByMediaQuery,
   classNames,
   codeMenuProps,
   containerProps,
@@ -48,10 +52,14 @@ function CmpDescription({
 }) {
   const location = useLocation()
 
+  const CodeMenuComponent = isCodeMenuAnchorHandledByMediaQuery
+    ? CodeMenu.WithMediaQuery
+    : CodeMenu
+
   return (
     <>
       {/* '</>' expandable menu to copy code and to view it in github */}
-      <CodeMenu
+      <CodeMenuComponent
         url={iconUrl + getHookNameFromPathName(location.pathname)}
         plainCode={plainCode}
         classNames={classes.codeIcon(classNames?.codeIcon)}

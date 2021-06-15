@@ -13,6 +13,7 @@ import plainCode from "../utils/plain"
 import {
   classes,
   descItemsObject,
+  codeMenuProps,
   resetGameSt,
   setHelpTextInGameSt,
   processAnswer,
@@ -95,6 +96,8 @@ export default function UseInputHandlers() {
         <CmpDescription
           descItems={descItemsObject}
           plainCode={plainCode}
+          isCodeMenuAnchorHandledByMediaQuery
+          codeMenuProps={codeMenuProps}
           classNames={classes.cmpDesc}
         />
         <section

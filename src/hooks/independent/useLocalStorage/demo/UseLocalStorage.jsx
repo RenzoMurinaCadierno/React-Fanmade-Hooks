@@ -2,7 +2,13 @@ import { useCallback, useState } from "react"
 import { Container, CmpDescription, LocalStorageCRUD, Toast } from "hub"
 import useLocalStorage from "../useLocalStorage"
 import plainCode from "../utils/plain"
-import { classes, descItemsObject, intl, hash } from "./UseLocalStorage.utils"
+import {
+  classes,
+  descItemsObject,
+  codeMenuProps,
+  intl,
+  hash
+} from "./UseLocalStorage.utils"
 
 const hashEx = hash.get(5) // load a hash to create the default user
 
@@ -12,6 +18,7 @@ export default function UseLocalStorage() {
       <CmpDescription
         descItems={descItemsObject}
         plainCode={plainCode}
+        codeMenuProps={codeMenuProps}
         classNames={classes.cmpDesc}
       />
       <CmpTest />

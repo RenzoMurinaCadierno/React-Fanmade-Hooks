@@ -18,6 +18,10 @@ export const descItemsObject = {
   ]
 }
 
+export const codeMenuProps = {
+  mqToAnchor: { pt: "top-right", default: "bottom-right" }
+}
+
 /**
  * Object with digit names as keys, and their number versions as values.
  */

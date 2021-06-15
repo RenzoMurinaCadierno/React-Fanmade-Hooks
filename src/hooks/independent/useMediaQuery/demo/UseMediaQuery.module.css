@@ -84,16 +84,11 @@
 
 .Header-portrait {
   width: 90%;
-  height: 8%;
-}
-
-.Header-portrait * {
-  margin: var(--small-margin-vh) 0;
+  height: unset;
 }
 
 .DescAndMQs-portrait {
   width: 90%;
-  height: 85%;
 }
 
 .CmpDescContent-portrait {
@@ -102,7 +97,7 @@
 
 .MQSeparation-portrait {
   grid-auto-flow: dense;
-  margin-bottom: 10%;
+  margin-bottom: 7%;
   margin-top: 2%;
 }
 

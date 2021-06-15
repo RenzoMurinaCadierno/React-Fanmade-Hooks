@@ -5,8 +5,8 @@ import plainCode from "../utils/plain"
 import {
   classes,
   descItemsObject,
-  dealCardToBoard,
-  iconExpandableProps
+  codeMenuProps,
+  dealCardToBoard
 } from "./UseEffectXTimes.utils"
 
 export default function UseEffectXTimes() {
@@ -53,8 +53,9 @@ export default function UseEffectXTimes() {
       <CmpDescription
         descItems={descItemsObject}
         plainCode={plainCode}
+        isCodeMenuAnchorHandledByMediaQuery
+        codeMenuProps={codeMenuProps}
         classNames={classes.cmpDesc}
-        iconExpandableProps={iconExpandableProps}
       />
       <section className={classes.cmpTest} aria-label="component testing area">
         {/* Boards, where cards are dealt */}

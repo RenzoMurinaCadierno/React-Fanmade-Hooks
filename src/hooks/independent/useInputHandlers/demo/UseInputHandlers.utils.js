@@ -25,6 +25,10 @@ export const descItemsObject = {
   ]
 }
 
+export const codeMenuProps = {
+  mqToAnchor: { pt: "bottom-left", default: "top-right" }
+}
+
 /**
  * Handles logic to start or reset the game.
  *

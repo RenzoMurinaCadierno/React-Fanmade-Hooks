@@ -5,13 +5,7 @@ export const classes = {
   container: styles.Container,
   cmpDesc: {
     container: styles.CmpDescContainer,
-    description: styles.CmpDescContent,
-    codeIcon: {
-      iconExpandable: {
-        container: styles.CmpDescCodeIconContainer,
-        content: styles.CmpDescCodeIconContent
-      }
-    }
+    description: styles.CmpDescContent
   },
   cmpTest: styles.Grid,
   board: styles.Board,
@@ -29,7 +23,9 @@ export const descItemsObject = {
   ]
 }
 
-export const iconExpandableProps = { expandDirection: "right" }
+export const codeMenuProps = {
+  mqToAnchor: { pt: "top-right", default: "bottom-left" }
+}
 
 /**
  * Array for "suits" valid characters (spades, clubs, diamonds, hearts)

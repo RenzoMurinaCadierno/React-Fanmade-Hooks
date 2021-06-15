@@ -33,7 +33,7 @@ import Navigation from "./components/app-specific/nav/Navigation/Navigation"
 import Router from "./components/app-specific/nav/Router/Router"
 import HomePage from "./components/app-specific/nav/pages/HomePage/HomePage"
 import _404Page from "./components/app-specific/nav/pages/_404Page/_404Page"
-import CodeMenu from "./components/app-specific/UI/CodeMenu/CodeMenu"
+import CodeMenu from "./components/app-specific/UI/composed/CodeMenu/CodeMenu"
 
 import useAnimatedNumber from "./hooks/independent/useAnimatedNumber/useAnimatedNumber"
 import useClassNameToggle from "./hooks/independent/useClassNameToggle/useClassNameToggle"

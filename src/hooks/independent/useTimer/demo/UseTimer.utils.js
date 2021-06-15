@@ -20,7 +20,9 @@ export const classes = {
   scoreBoard: styles.ScoreBoard
 }
 
-export const iconExpandableProps = { expandDirection: "right" }
+export const codeMenuProps = {
+  mqToAnchor: { pt: "top-right", default: "bottom-left" }
+}
 
 /**
  * "scores" object to be passed to '*BTScoreboard*' and to '*BTGame*' (this

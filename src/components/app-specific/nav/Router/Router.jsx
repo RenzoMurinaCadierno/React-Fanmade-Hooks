@@ -30,6 +30,7 @@ export default function Router() {
     ],
     []
   )
+  test copy code, suspense/lazy then react17 pwa
 
   return (
     <Switch>

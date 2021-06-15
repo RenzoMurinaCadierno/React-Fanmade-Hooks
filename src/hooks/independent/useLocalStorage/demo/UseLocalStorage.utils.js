@@ -18,6 +18,8 @@ export const descItemsObject = {
   ]
 }
 
+export const codeMenuProps = { anchor: "bottom-right", spread: "left" }
+
 /**
  * Language strings to display depending on currently loaded
  * "userSt.configs.lang"
