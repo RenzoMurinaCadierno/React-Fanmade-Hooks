@@ -5,6 +5,7 @@ import { CmpDescription, Text, Button, Switch } from "hub"
 import {
   classes,
   descItemsObject,
+  metaTagsProps,
   getButtonText,
   getButtonType
 } from "./UseCallbackOnce.utils"
@@ -14,7 +15,7 @@ export default function UseCallbackOnce() {
     <>
       <CmpDescription
         descItems={descItemsObject}
-        plainCode={plainCode}
+        {...{ plainCode, metaTagsProps }}
         classNames={classes.cmpDesc}
       />
       <CmpTest />

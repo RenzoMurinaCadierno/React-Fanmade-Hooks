@@ -1,3 +1,4 @@
+import { getMetaTagsProps } from "utils/utilityFunctions"
 import styles from "./UseCallbackOnce.module.css"
 
 export const classes = {
@@ -14,6 +15,14 @@ export const descItemsObject = {
     "Flipping the switch on will make the button work only once."
   ]
 }
+
+export const metaTagsProps = getMetaTagsProps({
+  title: "RFH " + descItemsObject.title,
+  author: "Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>",
+  description:
+    descItemsObject.title + " hook. " + descItemsObject.paragraphs[0],
+  keywords: "callback, once, useCallbackOnce"
+})
 
 export function getButtonType(isCountLimitActive, wasCountInvoked) {
   return !isCountLimitActive

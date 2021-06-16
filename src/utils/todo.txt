@@ -13,5 +13,7 @@ button on uselocalstorage, automatically on after user/pass
 
 publishing: https://www.youtube.com/watch?v=Ufwbp838yZA
 
+suspense/lazy, pwa
+
 // commit msg
-Added '*CodeMenuWithMediaQuery*'. Started using it where needed.
+Created '*MetaTags*'. Started adding meta-tags to all pages.

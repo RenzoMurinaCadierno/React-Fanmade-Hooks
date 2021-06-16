@@ -1,3 +1,4 @@
+import { getMetaTagsProps } from "utils/utilityFunctions"
 import styles from "./UseCallbackXTimes.module.css"
 
 /**
@@ -29,3 +30,11 @@ export const descItemsObject = {
     `Once any coin reaches ${tosses} tosses, tap its "Coin toss" text to reset its callback's count.`
   ]
 }
+
+export const metaTagsProps = getMetaTagsProps({
+  title: "RFH " + descItemsObject.title,
+  author: "Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>",
+  description:
+    descItemsObject.title + " hook. " + descItemsObject.paragraphs[0],
+  keywords: "callback, useCallbackXTimes"
+})

@@ -2,14 +2,19 @@ import { useState, useEffect, useRef } from "react"
 import useCallbackXTimes from "../useCallbackXTimes"
 import { CmpDescription, Text, Coin } from "hub"
 import plainCode from "../utils/plain"
-import { tosses, classes, descItemsObject } from "./UseCallbackXTimes.utils"
+import {
+  tosses,
+  classes,
+  descItemsObject,
+  metaTagsProps
+} from "./UseCallbackXTimes.utils"
 
 export default function UseCallbackXTimes() {
   return (
     <>
       <CmpDescription
         classNames={classes.cmpDesc}
-        plainCode={plainCode}
+        {...{ plainCode, metaTagsProps }}
         descItems={descItemsObject}
       />
       <section className={classes.cmpTest} aria-label="component testing area">

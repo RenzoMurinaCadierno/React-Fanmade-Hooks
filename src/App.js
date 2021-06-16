@@ -1,4 +1,4 @@
-import { Navigation, Router, ErrorBoundary } from "hub"
+import { ErrorBoundary, Navigation, Router } from "hub"
 import "./App.css"
 
 export default function App() {

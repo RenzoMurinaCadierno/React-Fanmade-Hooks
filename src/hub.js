@@ -29,6 +29,7 @@ import Slots from "./components/games/slots/Slots"
 
 import CmpDescription from "./components/app-specific/layout/CmpDescription/CmpDescription"
 import ErrorBoundary from "./components/app-specific/layout/ErrorBoundary/ErrorBoundary"
+import MetaTags from "./components/app-specific/layout/MetaTags/MetaTags"
 import Navigation from "./components/app-specific/nav/Navigation/Navigation"
 import Router from "./components/app-specific/nav/Router/Router"
 import HomePage from "./components/app-specific/nav/pages/HomePage/HomePage"
@@ -84,6 +85,7 @@ export {
   CmpDescription,
   CodeMenu,
   ErrorBoundary,
+  MetaTags,
   Navigation,
   Router,
   HomePage,

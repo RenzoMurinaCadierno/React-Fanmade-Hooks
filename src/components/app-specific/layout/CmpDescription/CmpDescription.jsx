@@ -1,6 +1,6 @@
 import { memo } from "react"
 import { useLocation } from "react-router-dom"
-import { CodeMenu, Container, Text } from "hub"
+import { CodeMenu, Container, MetaTags, Text } from "hub"
 import { getHookNameFromPathName } from "utils/utilityFunctions"
 import {
   classes,
@@ -31,6 +31,8 @@ import {
  * `classNames?` (object): className strings for each JSX rendered here.
  *   Check *utils.js* for its constitution.
  *
+ * `metaTagsProps?` (object): Props to spread in '*MetaTags*'.
+ *
  * `codeMenuProps?` (object): Props to spread in '*CodeMenu*'.
  *
  * `containerProps?` (object): Props to spread in '*Container*'.
@@ -45,6 +47,7 @@ function CmpDescription({
   iconUrl,
   isCodeMenuAnchorHandledByMediaQuery,
   classNames,
+  metaTagsProps,
   codeMenuProps,
   containerProps,
   titleProps,
@@ -58,6 +61,7 @@ function CmpDescription({
 
   return (
     <>
+      <MetaTags {...metaTagsProps} />
       {/* '</>' expandable menu to copy code and to view it in github */}
       <CodeMenuComponent
         url={iconUrl + getHookNameFromPathName(location.pathname)}

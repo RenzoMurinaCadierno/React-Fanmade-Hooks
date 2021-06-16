@@ -1,6 +1,10 @@
 import { CmpDescription, Slots } from "hub"
 import plainCode from "../utils/plain"
-import { classes, descItemsObject } from "./UseAnimatedNumber.utils"
+import {
+  classes,
+  descItemsObject,
+  metaTagsProps
+} from "./UseAnimatedNumber.utils"
 
 /**
  * "useAnimatedNumber" hook example.
@@ -26,7 +30,7 @@ export default function UseAnimatedNumber() {
     <>
       <CmpDescription
         descItems={descItemsObject}
-        plainCode={plainCode}
+        {...{ plainCode, metaTagsProps }}
         classNames={classes.cmpDesc}
       />
       <Slots classNames={classes.cmpTest} />

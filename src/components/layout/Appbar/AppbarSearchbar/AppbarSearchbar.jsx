@@ -1,4 +1,4 @@
-import { useCallback, useState, useRef } from "react"
+import { useState, useRef } from "react"
 import { Input } from "hub"
 import { classes, defaultProps, propTypes } from "./AppbarSearchbar.utils"
 
