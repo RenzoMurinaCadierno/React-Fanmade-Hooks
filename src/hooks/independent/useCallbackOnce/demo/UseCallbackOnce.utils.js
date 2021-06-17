@@ -1,4 +1,3 @@
-import { getMetaTagsProps } from "utils/utilityFunctions"
 import styles from "./UseCallbackOnce.module.css"
 
 export const classes = {
@@ -7,7 +6,7 @@ export const classes = {
   button: styles.Button
 }
 
-export const descItemsObject = {
+export const descItems = {
   title: "useCallbackOnce",
   paragraphs: [
     "Triggers an assigned callback one time only.",
@@ -16,13 +15,13 @@ export const descItemsObject = {
   ]
 }
 
-export const metaTagsProps = getMetaTagsProps({
-  title: "RFH " + descItemsObject.title,
+export const metaTagsProps = {
+  title: "RFH " + descItems.title,
   author: "Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>",
-  description:
-    descItemsObject.title + " hook. " + descItemsObject.paragraphs[0],
-  keywords: "callback, once, useCallbackOnce"
-})
+  description: descItems.title + " hook. " + descItems.paragraphs[0],
+  keywords:
+    "callback, once, useCallbackOnce, react, fanmade, hooks, react fanmade hooks"
+}
 
 export function getButtonType(isCountLimitActive, wasCountInvoked) {
   return !isCountLimitActive

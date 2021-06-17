@@ -6,7 +6,8 @@ import refresh from "assets/icons/refresh.svg"
 import plainCode from "../utils/plain"
 import {
   classes,
-  descItemsObject,
+  descItems,
+  metaTagsProps,
   directionStrings,
   toastTexts
 } from "./UseReRender.utils"
@@ -46,8 +47,7 @@ export default function UseReRender() {
       </Toast>
       <Container htmlElem="main" className={classes.container}>
         <CmpDescription
-          descItems={descItemsObject}
-          plainCode={plainCode}
+          {...{ descItems, plainCode, metaTagsProps }}
           classNames={classes.cmpDesc}
         />
         <section

@@ -9,7 +9,7 @@ export const classes = {
   button: styles.Button
 }
 
-export const descItemsObject = {
+export const descItems = {
   title: "useReRender",
   paragraphs: [
     "Forces the component to re-render.",
@@ -17,6 +17,14 @@ export const descItemsObject = {
     "Notification bar's orientation and active states are stored in a useRef hook, which does not re-render the component when it changes.",
     "The button in the middle forces a re-render, thus triggering the notification with its new orientation."
   ]
+}
+
+export const metaTagsProps = {
+  title: "RFH " + descItems.title,
+  author: "Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>",
+  description: descItems.title + " hook. " + descItems.paragraphs[0],
+  keywords:
+    "render, re-render, re render, useReRender, react, fanmade, hooks, react fanmade hooks"
 }
 
 /**

@@ -23,6 +23,7 @@ import Appbar from "./components/layout/Appbar/Appbar"
 import Carousel from "./components/layout/Carousel/Carousel"
 import Container from "./components/layout/Container/Container"
 import Modal from "./components/layout/Modal/Modal"
+import WarpElements from "./components/layout/WarpElements/WarpElements"
 
 import BT from "./components/games/breakTargets/BT"
 import Slots from "./components/games/slots/Slots"
@@ -80,6 +81,7 @@ export {
   Appbar,
   Carousel,
   Modal,
+  WarpElements,
   BT,
   Slots,
   CmpDescription,

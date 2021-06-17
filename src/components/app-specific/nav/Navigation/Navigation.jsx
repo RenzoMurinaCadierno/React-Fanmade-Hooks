@@ -40,10 +40,10 @@ export default function Navigation() {
   const goToHomeUrl = useCallback(() => history.push("/"), [])
 
   /* eslint-disable react-hooks/exhaustive-deps */
-  const goToHookUrl = useCallback((hookName, closeAppbar) => {
+  const goToHookUrl = (hookName, closeAppbar) => {
     closeAppbar()
     history.push(slugify(hookName))
-  }, [])
+  }
 
   return (
     <Appbar

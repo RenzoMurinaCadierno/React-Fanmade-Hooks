@@ -13,7 +13,7 @@ button on uselocalstorage, automatically on after user/pass
 
 publishing: https://www.youtube.com/watch?v=Ufwbp838yZA
 
-suspense/lazy, pwa
+suspense/lazy, useCallbacks, pwa
 
 // commit msg
-Created '*MetaTags*'. Started adding meta-tags to all pages.
+Created '*WarpElements*'. Refactored '*MetaTags*' and added meta-tags everywhere.

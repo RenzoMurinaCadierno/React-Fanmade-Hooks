@@ -1,12 +1,12 @@
 import useCount from "../useCount"
 import { CmpDescription, Text, CountBar } from "hub"
 import plainCode from "../utils/plain"
-import { classes, descItemsObject } from "./UseCount.utils"
+import { classes, descItems, metaTagsProps } from "./UseCount.utils"
 
 export default function UseCount() {
   return (
     <>
-      <CmpDescription descItems={descItemsObject} plainCode={plainCode} />
+      <CmpDescription {...{ descItems, plainCode, metaTagsProps }} />
       <CmpTest />
     </>
   )

@@ -3,16 +3,13 @@ import useClassNameToggle from "../useClassNameToggle"
 import { CmpDescription, Text } from "hub"
 import heart from "assets/icons/heart.svg"
 import plainCode from "../utils/plain"
-import { descItemsObject, metaTagsProps } from "./UseClassNameToggle.utils"
+import { descItems, metaTagsProps } from "./UseClassNameToggle.utils"
 import styles from "./UseClassNameToggle.module.css"
 
 export default function UseCount() {
   return (
     <>
-      <CmpDescription
-        descItems={descItemsObject}
-        {...{ plainCode, metaTagsProps }}
-      />
+      <CmpDescription {...{ descItems, plainCode, metaTagsProps }} />
       <CmpTest />
     </>
   )

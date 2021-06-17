@@ -47,38 +47,31 @@ function BTTarget({
     timeout: destroyAnimationTimeout
   })
 
-  /* eslint-disable react-hooks/exhaustive-deps */
-  const breakTarget = useCallback(
-    (isSelfDestruct, isAccuracyTimeout) => {
-      // trigger the addition of both classNames above
-      triggerDestroyTgt()
-      triggerShowPts()
-      // calculate what to show as content when target is destroyed
-      const newContent = getContentOnHit(
-        content,
-        st.spawnTime,
-        new Date().getTime(),
-        accuracyTimeout,
-        appearTimeout
-      )
-      // set it as state's res
-      setSt((prevSt) => ({ ...prevSt, res: newContent }))
-      // trigger the respective callback depending on how the target was destroyed.
-      // The boolan is a flag to determine if it was a target manually hit by the player
-      if (isSelfDestruct) {
-        onSelfDestruct?.(targetRef.current, newContent, false, x, y)
-      } else if (isAccuracyTimeout) {
-        onAccuracyTimeout?.(targetRef.current, newContent, false, x, y)
-      } else onHit?.(targetRef.current, newContent, true, x, y)
-    },
-    [triggerDestroyTgt, triggerShowPts, x, y]
-  )
+  // trigger the addition of both classNames above
+  const breakTarget = (isSelfDestruct, isAccuracyTimeout) => {
+    triggerDestroyTgt()
+    triggerShowPts()
+    // calculate what to show as content when target is destroyed
+    const newContent = getContentOnHit(
+      content,
+      st.spawnTime,
+      new Date().getTime(),
+      accuracyTimeout,
+      appearTimeout
+    )
+    // set it as state's res
+    setSt((prevSt) => ({ ...prevSt, res: newContent }))
+    // trigger the respective callback depending on how the target was destroyed.
+    // The boolan is a flag to determine if it was a target manually hit by the player
+    if (isSelfDestruct) {
+      onSelfDestruct?.(targetRef.current, newContent, false, x, y)
+    } else if (isAccuracyTimeout) {
+      onAccuracyTimeout?.(targetRef.current, newContent, false, x, y)
+    } else onHit?.(targetRef.current, newContent, true, x, y)
+  }
 
-  const handleClick = useCallback(
-    // on player click on a target, trigger "breakTarget"
-    () => !isDestroyed && breakTarget(),
-    [isDestroyed, breakTarget]
-  )
+  // on player click on a target, trigger "breakTarget"
+  const handleClick = () => !isDestroyed && breakTarget()
 
   // eslint will warn us to add `onSpawn` as dependencies, but we do not want this
   // useEffect to re-trigger if that callback changes. So, ignore warnings

@@ -19,13 +19,21 @@ export const classes = {
     styles[`MQSeparation-${mqView}`] + " " + styles.MQSeparation
 }
 
-export const descItemsObject = {
+export const descItems = {
   title: "useMediaQuery",
   paragraphs: [
     "Grants access to default and custom media queries' states.",
     "Try resizing the screen. Icons disable in portrait view. In landscape view, they change color to blue on width <600px, light blue on width >600px and to orange on width >1234px.",
     'This example does not use "@media" rules in CSS files.'
   ]
+}
+
+export const metaTagsProps = {
+  title: "RFH " + descItems.title,
+  author: "Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>",
+  description: descItems.title + " hook. " + descItems.paragraphs[0],
+  keywords:
+    "media, query, media query, useMediaQuery, react, fanmade, hooks, react fanmade hooks"
 }
 
 export const socialMediaNamesAndJSXs = [

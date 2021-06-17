@@ -1,8 +1,8 @@
 import { Component } from "react"
 import { withRouter } from "react-router-dom"
-import { Container, Text, Button } from "hub"
+import { Container, Text, Button, MetaTags } from "hub"
 import errorSVG from "assets/icons/error.svg"
-import { classes } from "./ErrorBoundary.utils"
+import { classes, metaTagsProps } from "./ErrorBoundary.utils"
 
 /**
  * Renders a generic Error Boundary page to replace the entire component tree
@@ -26,6 +26,7 @@ export default withRouter(
     render() {
       return this.state.hasError ? (
         <div className={classes.container}>
+          <MetaTags {...metaTagsProps} />
           <Container className={classes.title}>
             <img src={errorSVG} alt="Error" className={classes.image} />
             <Text htmlElem="h3" italic>

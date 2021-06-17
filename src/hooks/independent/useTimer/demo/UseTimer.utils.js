@@ -1,6 +1,16 @@
 import styles from "./UseTimer.module.css"
 
-export const descItemsObject = {
+export const classes = {
+  container: styles.Container,
+  cmpDesc: {
+    container: styles.CmpDescContainer,
+    description: styles.CmpDescContent
+  },
+  cmpTest: styles.CmpTest,
+  scoreBoard: styles.ScoreBoard
+}
+
+export const descItems = {
   title: "useTimer",
   paragraphs: [
     "Generates and ticks a timer or countdown.",
@@ -10,14 +20,12 @@ export const descItemsObject = {
   ]
 }
 
-export const classes = {
-  container: styles.Container,
-  cmpDesc: {
-    container: styles.CmpDescContainer,
-    description: styles.CmpDescContent
-  },
-  cmpTest: styles.CmpTest,
-  scoreBoard: styles.ScoreBoard
+export const metaTagsProps = {
+  title: "RFH " + descItems.title,
+  author: "Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>",
+  description: descItems.title + " hook. " + descItems.paragraphs[0],
+  keywords:
+    "timer, countdown, useTimer, react, fanmade, hooks, react fanmade hooks"
 }
 
 export const codeMenuProps = {

@@ -4,7 +4,8 @@ import { Container, CmpDescription, Text, Button, PhoneDial } from "hub"
 import plainCode from "../utils/plain"
 import {
   classes,
-  descItemsObject,
+  descItems,
+  metaTagsProps,
   codeMenuProps,
   getInitialGameSt,
   handleGameLogicAfterDigitButtonClick,
@@ -13,6 +14,19 @@ import {
 } from "./UseEffectOnce.utils"
 
 export default function UseEffectOnce() {
+  return (
+    <Container htmlElem="main" className={classes.container}>
+      <CmpDescription
+        isCodeMenuAnchorHandledByMediaQuery
+        {...{ descItems, plainCode, metaTagsProps, codeMenuProps }}
+        classNames={classes.cmpDesc}
+      />
+      <CmpTest />
+    </Container>
+  )
+}
+
+function CmpTest() {
   const [gameSt, setGameSt] = useState(getInitialGameSt())
 
   /**
@@ -48,30 +62,21 @@ export default function UseEffectOnce() {
   )
 
   return (
-    <Container htmlElem="main" className={classes.container}>
-      <CmpDescription
-        descItems={descItemsObject}
-        plainCode={plainCode}
-        isCodeMenuAnchorHandledByMediaQuery
-        codeMenuProps={codeMenuProps}
-        classNames={classes.cmpDesc}
+    <section className={classes.cmpTest} aria-label="component testing area">
+      {/* 'help' text */}
+      <Text htmlElem="h6" type="secondary-2" italic bold>
+        {gameSt.text}
+      </Text>
+      {/* all phone buttons */}
+      <PhoneDial
+        aria-label="Tap the buttons to guess the number"
+        onButtonClick={handleDigitButtonClick}
+        buttonProps={gameSt.disabledBtnProps}
       />
-      <section className={classes.cmpTest} aria-label="component testing area">
-        {/* 'help' text */}
-        <Text htmlElem="h6" type="secondary-2" italic bold>
-          {gameSt.text}
-        </Text>
-        {/* all phone buttons */}
-        <PhoneDial
-          aria-label="Tap the buttons to guess the number"
-          onButtonClick={handleDigitButtonClick}
-          buttonProps={gameSt.disabledBtnProps}
-        />
-        {/* 'retry' button (resets "useEffectOnce") */}
-        <Button type="primary-1" disabled={gameSt.disableRetry} onClick={retry}>
-          Retry (fix buttons)
-        </Button>
-      </section>
-    </Container>
+      {/* 'retry' button (resets "useEffectOnce") */}
+      <Button type="primary-1" disabled={gameSt.disableRetry} onClick={retry}>
+        Retry (fix buttons)
+      </Button>
+    </section>
   )
 }

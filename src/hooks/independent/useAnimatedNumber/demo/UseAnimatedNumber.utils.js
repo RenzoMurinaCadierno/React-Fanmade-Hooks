@@ -1,4 +1,3 @@
-import { getMetaTagsProps } from "utils/utilityFunctions"
 import styles from "./UseAnimatedNumber.module.css"
 
 export const classes = {
@@ -9,7 +8,7 @@ export const classes = {
   cmpTest: { container: styles.CmpTest }
 }
 
-export const descItemsObject = {
+export const descItems = {
   title: "useAnimatedNumber",
   paragraphs: [
     "Animates a number when it changes. Accepts custom timeout, iterations and step, as well as decimal precision and callbacks on start/iteration/end.",
@@ -17,10 +16,10 @@ export const descItemsObject = {
   ]
 }
 
-export const metaTagsProps = getMetaTagsProps({
-  title: "RFH " + descItemsObject.title,
+export const metaTagsProps = {
+  title: "RFH " + descItems.title,
   author: "Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>",
-  description:
-    descItemsObject.title + " hook. " + descItemsObject.paragraphs[0],
-  keywords: "animated, number, animated number, useAnimatedNumber"
-})
+  description: descItems.title + " hook. " + descItems.paragraphs[0],
+  keywords:
+    "animated, number, animated number, useAnimatedNumber, react, fanmade, hooks, react fanmade hooks"
+}

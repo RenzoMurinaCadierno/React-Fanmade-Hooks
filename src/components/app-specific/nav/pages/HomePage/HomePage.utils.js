@@ -1,6 +1,5 @@
 import { Text } from "hub"
 import { urls } from "app.configs.json"
-import { getMetaTagsProps } from "utils/utilityFunctions"
 import mail from "assets/icons/mail.svg"
 import linkedin from "assets/icons/linkedin.svg"
 import github from "assets/icons/github.svg"
@@ -13,11 +12,12 @@ export const classes = {
   instructions: styles.Instructions
 }
 
-export const metaTagsProps = getMetaTagsProps({
+export const metaTagsProps = {
   title: "React Fanmade Hooks",
+  author: "Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>",
   description: "Hooks for many needs made by React enthusiasts.",
-  keywords: ""
-})
+  keywords: "react, fanmade, hooks, react fanmade hooks"
+}
 
 /**
  * Returns an object to pass to '*ExpandableMenu*'s

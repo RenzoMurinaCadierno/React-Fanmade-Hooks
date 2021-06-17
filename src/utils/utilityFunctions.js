@@ -1,27 +1,3 @@
-export function getMetaTagsProps({ title, author, description, keywords }) {
-  return {
-    mountInHead: true,
-    tagsArray: [
-      { tag: "title", children: title },
-      {
-        tag: "meta",
-        name: "author",
-        content: author
-      },
-      {
-        tag: "meta",
-        name: "description",
-        content: description
-      },
-      {
-        tag: "meta",
-        name: "keywords",
-        content: "react, fanmade, hooks, react fanmade hooks, " + keywords
-      }
-    ]
-  }
-}
-
 /**
  * Takes a string a returns it all of its words' first letter in uppercase
  * and the rest in lowercase

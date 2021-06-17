@@ -4,12 +4,26 @@ import { Container, CmpDescription, Button, useToggle } from "hub"
 import plainCode from "../utils/plain"
 import {
   classes,
-  descItemsObject,
+  descItems,
+  metaTagsProps,
   codeMenuProps,
   dealCardToBoard
 } from "./UseEffectXTimes.utils"
 
 export default function UseEffectXTimes() {
+  return (
+    <Container htmlElem="main" className={classes.container}>
+      <CmpDescription
+        isCodeMenuAnchorHandledByMediaQuery
+        {...{ descItems, plainCode, metaTagsProps, codeMenuProps }}
+        classNames={classes.cmpDesc}
+      />
+      <CmpTest />
+    </Container>
+  )
+}
+
+function CmpTest() {
   // booleans "useEffectXTimes" will get as dependencies
   const [bool1, toggleBool1] = useToggle()
   const [bool2, toggleBool2] = useToggle()
@@ -49,26 +63,17 @@ export default function UseEffectXTimes() {
   }, [toggleBool1, toggleBool2])
 
   return (
-    <Container htmlElem="main" className={classes.container}>
-      <CmpDescription
-        descItems={descItemsObject}
-        plainCode={plainCode}
-        isCodeMenuAnchorHandledByMediaQuery
-        codeMenuProps={codeMenuProps}
-        classNames={classes.cmpDesc}
-      />
-      <section className={classes.cmpTest} aria-label="component testing area">
-        {/* Boards, where cards are dealt */}
-        <Board boardNumber={1} boardArray={board1} boolean={bool1} />
-        <Board boardNumber={2} boardArray={board2} boolean={bool2} />
-        {/* Buttons to toggle each boards' boolean state */}
-        <Button onClick={toggleBool1}> Toggle board 1 boolean </Button>
-        <Button onClick={toggleBool2}> Toggle board 2 boolean </Button>
-        <Button onClick={toggleBothBooleans}> Toggle both booleans </Button>
-        {/* master reset Button (useEffect reset and clear board) */}
-        <Button onClick={resetExample}>Reset board and useEffect count</Button>
-      </section>
-    </Container>
+    <section className={classes.cmpTest} aria-label="component testing area">
+      {/* Boards, where cards are dealt */}
+      <Board boardNumber={1} boardArray={board1} boolean={bool1} />
+      <Board boardNumber={2} boardArray={board2} boolean={bool2} />
+      {/* Buttons to toggle each boards' boolean state */}
+      <Button onClick={toggleBool1}> Toggle board 1 boolean </Button>
+      <Button onClick={toggleBool2}> Toggle board 2 boolean </Button>
+      <Button onClick={toggleBothBooleans}> Toggle both booleans </Button>
+      {/* master reset Button (useEffect reset and clear board) */}
+      <Button onClick={resetExample}>Reset board and useEffect count</Button>
+    </section>
   )
 }
 

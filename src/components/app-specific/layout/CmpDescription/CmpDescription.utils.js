@@ -72,6 +72,12 @@ export const propTypes = {
     description: PropTypes.string,
     barrier: PropTypes.string
   }),
+  metaTagsProps: PropTypes.exact({
+    title: PropTypes.string,
+    author: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    keywords: PropTypes.string.isRequired
+  }),
   codeMenuProps: PropTypes.object,
   containerProps: PropTypes.object,
   titleProps: PropTypes.object,

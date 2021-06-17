@@ -1,6 +1,7 @@
+import { lazy } from "react"
 import styles from "./UseCount.module.css"
 
-export const descItemsObject = {
+export const descItems = {
   title: "useCount",
   paragraphs: [
     "Gets a count state and its increase, decrease, reset and step handlers, as well as its step's state.",
@@ -18,4 +19,11 @@ export const classes = {
     minusButton: styles.StepCountBarButton,
     plusButton: styles.StepCountBarButton
   }
+}
+
+export const metaTagsProps = {
+  title: "RFH " + descItems.title,
+  author: "Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>",
+  description: descItems.title + " hook. " + descItems.paragraphs[0],
+  keywords: "count, useCount, react, fanmade, hooks, react fanmade hooks"
 }

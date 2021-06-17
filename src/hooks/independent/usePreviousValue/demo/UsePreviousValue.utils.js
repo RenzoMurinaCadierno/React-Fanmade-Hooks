@@ -7,9 +7,17 @@ export const classes = {
   border: styles.Border
 }
 
-export const descItemsObject = {
+export const descItems = {
   title: "usePreviousValue",
   paragraphs: ["Saves the former value.", "Try rolling the die."]
+}
+
+export const metaTagsProps = {
+  title: "RFH " + descItems.title,
+  author: "Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>",
+  description: descItems.title + " hook. " + descItems.paragraphs[0],
+  keywords:
+    "previous, value, usePreviousValue, react, fanmade, hooks, react fanmade hooks"
 }
 
 /**

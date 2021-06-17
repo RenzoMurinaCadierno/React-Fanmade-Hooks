@@ -1,7 +1,7 @@
 import { useHistory } from "react-router-dom"
-import { Container, Text, Button } from "hub"
+import { Container, Text, Button, MetaTags } from "hub"
 import _404svg from "assets/icons/_404.svg"
-import { classes } from "./_404Page.utils"
+import { classes, metaTagsProps } from "./_404Page.utils"
 
 /**
  * Renders an Error page on any failed route.
@@ -15,6 +15,7 @@ export default function _404Page() {
 
   return (
     <div className={classes.container}>
+      <MetaTags {...metaTagsProps} />
       <Container className={classes.title}>
         <img src={_404svg} alt="Error" className={classes.image} />
         <Text htmlElem="h3" italic>

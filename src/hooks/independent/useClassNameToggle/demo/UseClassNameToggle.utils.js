@@ -1,6 +1,4 @@
-import { getMetaTagsProps } from "utils/utilityFunctions"
-
-export const descItemsObject = {
+export const descItems = {
   title: "useClassNameToggle",
   paragraphs: [
     "Toggles a className on/off given a specified timeout.",
@@ -8,10 +6,10 @@ export const descItemsObject = {
   ]
 }
 
-export const metaTagsProps = getMetaTagsProps({
-  title: "RFH " + descItemsObject.title,
+export const metaTagsProps = {
+  title: "RFH " + descItems.title,
   author: "Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>",
-  description:
-    descItemsObject.title + " hook. " + descItemsObject.paragraphs[0],
-  keywords: "class, toggle, classname, classname toggle, useClassNameToggle"
-})
+  description: descItems.title + " hook. " + descItems.paragraphs[0],
+  keywords:
+    "class, toggle, classname, classname toggle, useClassNameToggle, react, fanmade, hooks, react fanmade hooks"
+}

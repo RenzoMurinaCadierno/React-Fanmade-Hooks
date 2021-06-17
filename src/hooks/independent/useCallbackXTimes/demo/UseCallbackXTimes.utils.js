@@ -1,4 +1,3 @@
-import { getMetaTagsProps } from "utils/utilityFunctions"
 import styles from "./UseCallbackXTimes.module.css"
 
 /**
@@ -20,7 +19,7 @@ export const classes = {
   coin: { container: styles.CoinContainer }
 }
 
-export const descItemsObject = {
+export const descItems = {
   title: "useCallbackXTimes",
   paragraphs: [
     "Triggers an assigned callback the specified amount of times.",
@@ -31,10 +30,10 @@ export const descItemsObject = {
   ]
 }
 
-export const metaTagsProps = getMetaTagsProps({
-  title: "RFH " + descItemsObject.title,
+export const metaTagsProps = {
+  title: "RFH " + descItems.title,
   author: "Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>",
-  description:
-    descItemsObject.title + " hook. " + descItemsObject.paragraphs[0],
-  keywords: "callback, useCallbackXTimes"
-})
+  description: descItems.title + " hook. " + descItems.paragraphs[0],
+  keywords:
+    "callback, useCallbackXTimes, react, fanmade, hooks, react fanmade hooks"
+}

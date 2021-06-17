@@ -12,7 +12,8 @@ import {
 import plainCode from "../utils/plain"
 import {
   classes,
-  descItemsObject,
+  descItems,
+  metaTagsProps,
   codeMenuProps,
   resetGameSt,
   setHelpTextInGameSt,
@@ -22,6 +23,20 @@ import {
 } from "./UseInputHandlers.utils"
 
 export default function UseInputHandlers() {
+  return (
+    // Game results wrapper screen
+    <Container className={classes.container}>
+      <CmpDescription
+        isCodeMenuAnchorHandledByMediaQuery
+        {...{ descItems, plainCode, metaTagsProps, codeMenuProps }}
+        classNames={classes.cmpDesc}
+      />
+      <CmpTest />
+    </Container>
+  )
+}
+
+function CmpTest() {
   const [gameSt, setGameSt] = useState({
     words: [], // random words to type will be pushed here on each game
     answers: [], // and same for answers given by the player
@@ -82,7 +97,7 @@ export default function UseInputHandlers() {
 
   return (
     <>
-      {/* Game results wrapper screen */}
+      {" "}
       <Modal
         open={isModalOpen}
         closeIcon // add the default close icon
@@ -92,44 +107,32 @@ export default function UseInputHandlers() {
         {/* Game results inner UI */}
         <ResultsSummary gameSt={gameSt} />
       </Modal>
-      <Container className={classes.container}>
-        <CmpDescription
-          descItems={descItemsObject}
-          plainCode={plainCode}
-          isCodeMenuAnchorHandledByMediaQuery
-          codeMenuProps={codeMenuProps}
-          classNames={classes.cmpDesc}
+      <section className={classes.cmpTest} aria-label="component testing area">
+        <Text htmlElem="h4" disabled={content.words.disabled} bold italic>
+          {content.words.text}
+        </Text>
+        <Input.Styled /* just an uncontrolled '*input*' with some stylings */
+          ref={inputRef} /* this ref is attached to that <input>... */
+          {...inputHandlers.props} /* ...as well as all inputHandlers.props */
+          label={content.inputLabel}
+          classNames={classes.input}
         />
-        <section
-          className={classes.cmpTest}
-          aria-label="component testing area"
+        {/* invisible text triggered by "useInputHandler" validations */}
+        <Text type={content.helpText.type} italic>
+          {content.helpText.text}
+        </Text>
+        {/* "start game"/"reset game" button */}
+        <Button type={content.startBtn.type} onClick={startGame}>
+          {content.startBtn.text}
+        </Button>
+        {/* "show results screen" button */}
+        <Button
+          disabled={content.resultsBtn.disabled}
+          onClick={content.resultsBtn.onClick}
         >
-          <Text htmlElem="h4" disabled={content.words.disabled} bold italic>
-            {content.words.text}
-          </Text>
-          <Input.Styled /* just an uncontrolled '*input*' with some stylings */
-            ref={inputRef} /* this ref is attached to that <input>... */
-            {...inputHandlers.props} /* ...as well as all inputHandlers.props */
-            label={content.inputLabel}
-            classNames={classes.input}
-          />
-          {/* invisible text triggered by "useInputHandler" validations */}
-          <Text type={content.helpText.type} italic>
-            {content.helpText.text}
-          </Text>
-          {/* "start game"/"reset game" button */}
-          <Button type={content.startBtn.type} onClick={startGame}>
-            {content.startBtn.text}
-          </Button>
-          {/* "show results screen" button */}
-          <Button
-            disabled={content.resultsBtn.disabled}
-            onClick={content.resultsBtn.onClick}
-          >
-            Check results
-          </Button>
-        </section>
-      </Container>
+          Check results
+        </Button>
+      </section>
     </>
   )
 }

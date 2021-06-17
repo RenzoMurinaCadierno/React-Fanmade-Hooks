@@ -4,7 +4,8 @@ import useLocalStorage from "../useLocalStorage"
 import plainCode from "../utils/plain"
 import {
   classes,
-  descItemsObject,
+  descItems,
+  metaTagsProps,
   codeMenuProps,
   intl,
   hash
@@ -16,9 +17,7 @@ export default function UseLocalStorage() {
   return (
     <Container htmlElem="main" className={classes.container}>
       <CmpDescription
-        descItems={descItemsObject}
-        plainCode={plainCode}
-        codeMenuProps={codeMenuProps}
+        {...{ descItems, plainCode, metaTagsProps, codeMenuProps }}
         classNames={classes.cmpDesc}
       />
       <CmpTest />

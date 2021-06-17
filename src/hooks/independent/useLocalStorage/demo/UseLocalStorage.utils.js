@@ -9,13 +9,21 @@ export const classes = {
   cmpTest: styles.CmpTest
 }
 
-export const descItemsObject = {
+export const descItems = {
   title: "useLocalStorage",
   paragraphs: [
     "Takes control of a local storage key, offering customizable get, set, del and reset handlers in return, as well as automatic state syncing.",
     "Open local storage in developer tools and track changes when you sign up, delete a user or modify its settings.",
     "Handlers control keys in local storage item, and user settings' state is synced (updates local storage automatically)."
   ]
+}
+
+export const metaTagsProps = {
+  title: "RFH " + descItems.title,
+  author: "Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>",
+  description: descItems.title + " hook. " + descItems.paragraphs[0],
+  keywords:
+    "local, storage, local storage, useLocalStorage, react, fanmade, hooks, react fanmade hooks"
 }
 
 export const codeMenuProps = { anchor: "bottom-right", spread: "left" }

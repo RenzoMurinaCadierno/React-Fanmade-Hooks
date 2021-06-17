@@ -4,11 +4,21 @@ import { CmpDescription, Container, Text, Die } from "hub"
 import plainCode from "../utils/plain"
 import {
   classes,
-  descItemsObject,
+  descItems,
+  metaTagsProps,
   prevRollContainerProps
 } from "./UsePreviousValue.utils"
 
 export default function UseToggle() {
+  return (
+    <>
+      <CmpDescription descItems={descItems} {...{ plainCode, metaTagsProps }} />
+      <CmpTest />
+    </>
+  )
+}
+
+function CmpTest() {
   // we keep state as a single object to force a reconstruction when we roll
   // the die. This is to re-render the component so that all values update
   const [dieSt, setDieSt] = useState({ res: 1 })
@@ -26,7 +36,6 @@ export default function UseToggle() {
 
   return (
     <>
-      <CmpDescription descItems={descItemsObject} plainCode={plainCode} />
       {/* 'rollable' "die" component */}
       <Container htmlElem="section" className={classes.diceRoll}>
         <Text htmlElem="h5" italic type="primary">

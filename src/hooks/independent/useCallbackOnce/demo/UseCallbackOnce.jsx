@@ -4,7 +4,7 @@ import plainCode from "../utils/plain"
 import { CmpDescription, Text, Button, Switch } from "hub"
 import {
   classes,
-  descItemsObject,
+  descItems,
   metaTagsProps,
   getButtonText,
   getButtonType
@@ -14,8 +14,7 @@ export default function UseCallbackOnce() {
   return (
     <>
       <CmpDescription
-        descItems={descItemsObject}
-        {...{ plainCode, metaTagsProps }}
+        {...{ descItems, plainCode, metaTagsProps }}
         classNames={classes.cmpDesc}
       />
       <CmpTest />

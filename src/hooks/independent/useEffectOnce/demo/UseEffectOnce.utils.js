@@ -9,13 +9,21 @@ export const classes = {
   cmpTest: styles.CmpTestContainer
 }
 
-export const descItemsObject = {
+export const descItems = {
   title: "useEffectOnce",
   paragraphs: [
     "useEffect but it only applies once.",
     "Try to guess the hidden digit. One useEffect is listening to all buttons. Tapping on them will trigger the game flow logic only once. Afterwards, useEffect disables and buttons will no longer work.",
     "Retrying will re-enable useEffect, thus restoring buttons' functionality."
   ]
+}
+
+export const metaTagsProps = {
+  title: "RFH " + descItems.title,
+  author: "Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>",
+  description: descItems.title + " hook. " + descItems.paragraphs[0],
+  keywords:
+    "effect, once, useEffect, useEffectOnce, react, fanmade, hooks, react fanmade hooks"
 }
 
 export const codeMenuProps = {

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import useLocalStorage from "../useLocalStorage"
 import { Container, CmpDescription } from "../../../../hub"
-import { classes, descItemsObject } from "./UseLocalStorage.utils"
+import { classes, descItems } from "./UseLocalStorage.utils"
 
 export default function UseLocalStorage() {
   const [val, setVal] = useState(1)
@@ -54,10 +54,7 @@ export default function UseLocalStorage() {
 
   return (
     <Container htmlElem="main" className={classes.container}>
-      <CmpDescription
-        descItems={descItemsObject}
-        classNames={classes.cmpDesc}
-      />
+      <CmpDescription descItems={descItems} classNames={classes.cmpDesc} />
       <section className={classes.cmpTest} aria-label="component testing area">
         <button onClick={() => setVal(val + 1)}>val++</button>
         <button onClick={setVal}>valEvt</button>

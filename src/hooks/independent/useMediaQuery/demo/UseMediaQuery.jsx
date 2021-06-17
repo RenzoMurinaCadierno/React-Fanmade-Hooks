@@ -3,7 +3,8 @@ import { Container, CmpDescription, Text, Icon } from "hub"
 import plainCode from "../utils/plain"
 import {
   classes,
-  descItemsObject,
+  descItems,
+  metaTagsProps,
   socialMediaNamesAndJSXs
 } from "./UseMediaQuery.utils"
 
@@ -43,8 +44,7 @@ export default function UseMediaQuery() {
       </section>
       <div className={classes.descAndMQs(deviceOrientation)}>
         <CmpDescription
-          descItems={descItemsObject}
-          plainCode={plainCode}
+          {...{ descItems, plainCode, metaTagsProps }}
           codeMenuProps={{ anchor: mq.pt ? "bottom-left" : "top-right" }}
           classNames={classes.cmpDesc(deviceOrientation)}
         />

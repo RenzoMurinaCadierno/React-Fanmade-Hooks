@@ -14,13 +14,21 @@ export const classes = {
   boolean: styles.Boolean
 }
 
-export const descItemsObject = {
+export const descItems = {
   title: "useEffectXTimes",
   paragraphs: [
     "useEffect but it stops applying after the specified count.",
     "Try some Poker. Both boards will listen to 5 changes on their booleans to deal cards. After change 5, they will no longer deal.",
     "Resetting will clear the board and restore useEffect's listen count back to 5."
   ]
+}
+
+export const metaTagsProps = {
+  title: "RFH " + descItems.title,
+  author: "Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>",
+  description: descItems.title + " hook. " + descItems.paragraphs[0],
+  keywords:
+    "effect, useEffect, useEffectXTimes, react, fanmade, hooks, react fanmade hooks"
 }
 
 export const codeMenuProps = {

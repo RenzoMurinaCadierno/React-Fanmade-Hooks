@@ -5,7 +5,7 @@ import plainCode from "../utils/plain"
 import {
   tosses,
   classes,
-  descItemsObject,
+  descItems,
   metaTagsProps
 } from "./UseCallbackXTimes.utils"
 
@@ -13,9 +13,8 @@ export default function UseCallbackXTimes() {
   return (
     <>
       <CmpDescription
+        {...{ descItems, plainCode, metaTagsProps }}
         classNames={classes.cmpDesc}
-        {...{ plainCode, metaTagsProps }}
-        descItems={descItemsObject}
       />
       <section className={classes.cmpTest} aria-label="component testing area">
         <TextAndCoin />

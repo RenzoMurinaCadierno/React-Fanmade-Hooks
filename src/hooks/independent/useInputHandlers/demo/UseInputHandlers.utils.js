@@ -16,13 +16,21 @@ export const classes = {
   input: { container: styles.InputContainer }
 }
 
-export const descItemsObject = {
+export const descItems = {
   title: "useInputHandlers",
   paragraphs: [
     "Takes control of an input, offering several handlers in return. It also adds validation on its state and mimics form submission.",
     `How fast do you type? Start the game and type the ${amountOfWords} sets of words that appear above the input. Hit "Enter" to submit each one.`,
     "This example input autofocuses when game starts and blurs when it ends. It does not submit if empty, clears on submit, caps at 20 characters, and tells you when you typed correctly."
   ]
+}
+
+export const metaTagsProps = {
+  title: "RFH " + descItems.title,
+  author: "Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>",
+  description: descItems.title + " hook. " + descItems.paragraphs[0],
+  keywords:
+    "input, input handlers, useInputHandlers, react, fanmade, hooks, react fanmade hooks"
 }
 
 export const codeMenuProps = {

@@ -3,7 +3,8 @@ import { useTimer, CmpDescription, BT } from "hub"
 import plainCode from "../utils/plain"
 import {
   classes,
-  descItemsObject,
+  descItems,
+  metaTagsProps,
   codeMenuProps,
   scores,
   targetContentObj,
@@ -21,10 +22,8 @@ export default function UseTimer() {
   return (
     <div className={classes.container}>
       <CmpDescription
-        descItems={descItemsObject}
-        plainCode={plainCode}
         isCodeMenuAnchorHandledByMediaQuery
-        codeMenuProps={codeMenuProps}
+        {...{ descItems, plainCode, metaTagsProps, codeMenuProps }}
         classNames={classes.cmpDesc}
       />
       <CmpTest />
