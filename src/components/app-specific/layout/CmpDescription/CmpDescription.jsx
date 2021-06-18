@@ -65,9 +65,8 @@ function CmpDescription({
       {/* '</>' expandable menu to copy code and to view it in github */}
       <CodeMenuComponent
         url={iconUrl + getHookNameFromPathName(location.pathname)}
-        plainCode={plainCode}
         classNames={classes.codeIcon(classNames?.codeIcon)}
-        {...{ ...defaultMenuIconProps, ...codeMenuProps }}
+        {...{ plainCode, ...defaultMenuIconProps, ...codeMenuProps }}
       />
       {/* container for hook name title and description paragraphs */}
       <Container

@@ -15,6 +15,7 @@ import Die from "./components/UI/independent/Die/Die"
 import Label from "./components/UI/independent/Label/Label"
 import PlayingCard from "./components/UI/independent/PlayingCard/PlayingCard"
 import Progressbar from "./components/UI/independent/Progressbar/Progressbar"
+import Spinner from "./components/UI/independent/Spinner/Spinner"
 import Switch from "./components/UI/independent/Switch/Switch"
 import Text from "./components/UI/independent/Text/Text"
 import Underline from "./components/UI/independent/Underline/Underline"
@@ -23,7 +24,7 @@ import Appbar from "./components/layout/Appbar/Appbar"
 import Carousel from "./components/layout/Carousel/Carousel"
 import Container from "./components/layout/Container/Container"
 import Modal from "./components/layout/Modal/Modal"
-import WarpElements from "./components/layout/WarpElements/WarpElements"
+import WarpPortal from "./components/layout/WarpPortal/WarpPortal"
 
 import BT from "./components/games/breakTargets/BT"
 import Slots from "./components/games/slots/Slots"
@@ -81,7 +82,7 @@ export {
   Appbar,
   Carousel,
   Modal,
-  WarpElements,
+  WarpPortal,
   BT,
   Slots,
   CmpDescription,
@@ -100,6 +101,7 @@ export {
   Label,
   PlayingCard,
   Progressbar,
+  Spinner,
   Switch,
   Text,
   Underline,

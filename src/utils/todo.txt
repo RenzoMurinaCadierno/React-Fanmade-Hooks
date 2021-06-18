@@ -16,4 +16,4 @@ publishing: https://www.youtube.com/watch?v=Ufwbp838yZA
 suspense/lazy, useCallbacks, pwa
 
 // commit msg
-Created '*WarpElements*'. Refactored '*MetaTags*' and added meta-tags everywhere.
+Changed '*WarpPortal*' to '*WarpPortal*'. Started with '*Spinner*'.

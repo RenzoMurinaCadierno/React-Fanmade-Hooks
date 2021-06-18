@@ -1,4 +1,4 @@
-import { WarpElements } from "hub"
+import { WarpPortal } from "hub"
 import { defaultProps, propTypes } from "./MetaTags.utils"
 
 /**
@@ -17,12 +17,12 @@ import { defaultProps, propTypes } from "./MetaTags.utils"
  */
 export default function MetaTags({ title, author, description, keywords }) {
   return (
-    <WarpElements portalNode={document.head}>
+    <WarpPortal portalNode={document.head}>
       {title && <title>{title}</title>}
       <meta name="author" content={author} />
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
-    </WarpElements>
+    </WarpPortal>
   )
 }
 

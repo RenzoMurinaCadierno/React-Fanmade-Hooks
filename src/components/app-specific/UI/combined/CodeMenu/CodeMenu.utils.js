@@ -41,10 +41,6 @@ export const propTypes = {
   })
 }
 
-function isNonEmptyString(str) {
-  return str && typeof str === "string"
-}
-
 /**
  * Returns a valid object to pass to '*CodeMenu*' inner '*ExpandableMenu*'
  * `iconsProps`.
@@ -77,20 +73,45 @@ export function getIconsProps(url, plainCode) {
       {
         icon: <img src={copySVG} alt="Copy code" />,
         content: "Copy code",
-        onContentClick: () =>
-          navigator.clipboard.writeText(
-            isNonEmptyString(plainCode)
-              ? plainCode
-              : "Error while copying. Sorry :("
-          ),
+        onContentClick: () => tryCopyCodeToClipboard(plainCode),
         toastProps: {
           timeout: 4000,
           children:
-            typeof plainCode === "string"
+            typeof isNonEmptyString(plainCode) && navigator.clipboard
               ? "Copied! Paste it in a .js file and go nuts!"
               : "Error while copying. Sorry :("
         }
       }
     ]
+  }
+}
+
+/**
+ * Validates is `str` is type "string" and not empty.
+ *
+ * @param {string} str The string to validate.
+ */
+function isNonEmptyString(str) {
+  return str && typeof str === "string"
+}
+
+/**
+ * Copies `plainCode` to clipboard if browser supports "navigator.clipboard"
+ * API. Otherwise, it warns in console.
+ *
+ * @param {string} plainCode The code to try copy.
+ */
+async function tryCopyCodeToClipboard(plainCode) {
+  const codeToCopy = isNonEmptyString(plainCode)
+    ? plainCode
+    : "Error while copying. Sorry :("
+
+  try {
+    await navigator?.clipboard?.writeText(codeToCopy)
+  } catch (err) {
+    console.warn(
+      "Could not copy code :/\n\n`navigator.clipboard` API is used to perform such task. Make sure your browser supports it.\n\n",
+      err
+    )
   }
 }

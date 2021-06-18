@@ -1,0 +1,209 @@
+.Container {
+  position: relative;
+  width: 4vw;
+  height: 0;
+  padding-bottom: 4vw;
+}
+
+.Dot {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 20%;
+  height: 0;
+  padding-bottom: 20%;
+  border-radius: 50%;
+  background-color: var(--primary-0);
+  margin: auto;
+}
+
+.Dot::before,
+.Dot::after {
+  position: absolute;
+  content: "";
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  background-color: inherit;
+}
+
+.Dot:nth-child(1) {
+  bottom: unset;
+  animation: flicker2 2.4s 0s ease-in-out infinite;
+}
+
+.Dot:nth-child(1)::before {
+  top: 50%;
+  left: 130%;
+  animation: flicker 2.4s 0.1s linear infinite;
+}
+
+.Dot:nth-child(1)::after {
+  top: 110%;
+  left: 200%;
+  animation: flicker 2.4s 0.2s linear infinite;
+}
+
+.Dot:nth-child(2) {
+  left: unset;
+  animation: flicker2 2.4s 0.3s ease-in-out infinite;
+}
+
+.Dot:nth-child(2)::before {
+  top: 130%;
+  right: 50%;
+  animation: flicker 2.4s 0.4s linear infinite;
+}
+
+.Dot:nth-child(2)::after {
+  top: 200%;
+  right: 110%;
+  animation: flicker 2.4s 0.5s linear infinite;
+}
+
+.Dot:nth-child(3) {
+  top: unset;
+  animation: flicker2 2.4s 0.6s ease-in-out infinite;
+}
+
+.Dot:nth-child(3)::before {
+  top: 0;
+  right: 130%;
+  animation: flicker 2.4s 0.7s linear infinite;
+}
+
+.Dot:nth-child(3)::after {
+  top: -70%;
+  right: 200%;
+  animation: flicker 2.4s 0.8s linear infinite;
+}
+
+.Dot:nth-child(4) {
+  right: unset;
+  animation: flicker2 2.4s 0.9s ease-in-out infinite;
+}
+
+.Dot:nth-child(4)::before {
+  bottom: 130%;
+  left: 40%;
+  animation: flicker 2.4s 1s linear infinite;
+}
+
+.Dot:nth-child(4)::after {
+  bottom: 190%;
+  left: 110%;
+  animation: flicker 2.4s 1.1s linear infinite;
+}
+
+.Container.xxs {
+  width: 2vw;
+  padding-bottom: 2vw;
+}
+
+.Container.xs {
+  width: 3vw;
+  padding-bottom: 3vw;
+}
+
+.Container.sm {
+  width: 4.5vw;
+  padding-bottom: 4.5vw;
+}
+
+.Container.md {
+  width: 6vw;
+  padding-bottom: 6vw;
+}
+
+.Container.lg {
+  width: 7.5vw;
+  padding-bottom: 7.5vw;
+}
+
+.Container.xl {
+  width: 10vw;
+  padding-bottom: 10vw;
+}
+
+.Container.xxl {
+  width: 15vw;
+  padding-bottom: 15vw;
+}
+
+.Dot.primary-0,
+.Dot.primary {
+  background-color: var(--primary-0);
+}
+
+.Dot.primary-1 {
+  background-color: var(--primary-1);
+}
+
+.Dot.primary-2 {
+  background-color: var(--primary-2);
+}
+
+.Dot.primary-3 {
+  background-color: var(--primary-3);
+}
+
+.Dot.secondary-0,
+.Dot.secondary {
+  background-color: var(--secondary-0);
+}
+
+.Dot.secondary-1 {
+  background-color: var(--secondary-1);
+}
+
+.Dot.secondary-2 {
+  background-color: var(--secondary-2);
+}
+
+.Dot.secondary-3 {
+  background-color: var(--secondary-3);
+}
+
+.Dot.danger-0,
+.Dot.danger {
+  background-color: var(--danger-0);
+}
+
+.Dot.danger-1 {
+  background-color: var(--danger-1);
+}
+
+.Dot.danger-2 {
+  background-color: var(--danger-2);
+}
+
+.Dot.danger-3 {
+  background-color: var(--danger-3);
+}
+
+@keyframes flicker {
+  0%,
+  21%,
+  41%,
+  61%,
+  100% {
+    opacity: 0;
+  }
+  20%,
+  40%,
+  60% {
+    opacity: 1;
+  }
+}
+
+@keyframes flicker2 {
+  0%,
+  51% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
