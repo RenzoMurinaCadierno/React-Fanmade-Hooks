@@ -1,4 +1,6 @@
+/* all devices landscape */
 .Container {
+  /* wrapper container '*div*' */
   position: relative;
   width: 4vw;
   height: 0;
@@ -6,6 +8,7 @@
 }
 
 .Dot {
+  /* 'main dots' (big ones). Container '*div*'s */
   position: absolute;
   top: 0;
   right: 0;
@@ -21,6 +24,7 @@
 
 .Dot::before,
 .Dot::after {
+  /* 'secondary dots' (small ones). */
   position: absolute;
   content: "";
   width: 60%;
@@ -30,73 +34,86 @@
 }
 
 .Dot:nth-child(1) {
+  /* top 'main dot' */
   bottom: unset;
-  animation: flicker2 2.4s 0s ease-in-out infinite;
+  animation: flicker-main-dot 2.4s 0s ease-in-out infinite;
 }
 
 .Dot:nth-child(1)::before {
+  /* second top 'secondary dot' */
   top: 50%;
   left: 130%;
-  animation: flicker 2.4s 0.1s linear infinite;
+  animation: flicker-secondary-dot 2.4s 0.1s linear infinite;
 }
 
 .Dot:nth-child(1)::after {
+  /* first top 'secondary dot' */
   top: 110%;
   left: 200%;
-  animation: flicker 2.4s 0.2s linear infinite;
+  animation: flicker-secondary-dot 2.4s 0.2s linear infinite;
 }
 
 .Dot:nth-child(2) {
+  /* right 'main dot' */
   left: unset;
-  animation: flicker2 2.4s 0.3s ease-in-out infinite;
+  animation: flicker-main-dot 2.4s 0.3s ease-in-out infinite;
 }
 
 .Dot:nth-child(2)::before {
+  /* first right 'secondary dot' */
   top: 130%;
   right: 50%;
-  animation: flicker 2.4s 0.4s linear infinite;
+  animation: flicker-secondary-dot 2.4s 0.4s linear infinite;
 }
 
 .Dot:nth-child(2)::after {
+  /* second right 'secondary dot' */
   top: 200%;
   right: 110%;
-  animation: flicker 2.4s 0.5s linear infinite;
+  animation: flicker-secondary-dot 2.4s 0.5s linear infinite;
 }
 
 .Dot:nth-child(3) {
+  /* bottom 'main dot' */
   top: unset;
-  animation: flicker2 2.4s 0.6s ease-in-out infinite;
+  animation: flicker-main-dot 2.4s 0.6s ease-in-out infinite;
 }
 
 .Dot:nth-child(3)::before {
+  /* first bottom 'secondary dot' */
   top: 0;
   right: 130%;
-  animation: flicker 2.4s 0.7s linear infinite;
+  animation: flicker-secondary-dot 2.4s 0.7s linear infinite;
 }
 
 .Dot:nth-child(3)::after {
+  /* second bottom 'secondary dot' */
   top: -70%;
   right: 200%;
-  animation: flicker 2.4s 0.8s linear infinite;
+  animation: flicker-secondary-dot 2.4s 0.8s linear infinite;
 }
 
 .Dot:nth-child(4) {
+  /* left 'main dot' */
   right: unset;
-  animation: flicker2 2.4s 0.9s ease-in-out infinite;
+  animation: flicker-main-dot 2.4s 0.9s ease-in-out infinite;
 }
 
 .Dot:nth-child(4)::before {
+  /* first left 'secondary dot' */
   bottom: 130%;
   left: 40%;
-  animation: flicker 2.4s 1s linear infinite;
+  animation: flicker-secondary-dot 2.4s 1s linear infinite;
 }
 
 .Dot:nth-child(4)::after {
+  /* second left 'secondary dot' */
   bottom: 190%;
   left: 110%;
-  animation: flicker 2.4s 1.1s linear infinite;
+  animation: flicker-secondary-dot 2.4s 1.1s linear infinite;
 }
 
+/* classNames added by `size` */
 .Container.xxs {
   width: 2vw;
   padding-bottom: 2vw;
@@ -131,7 +148,9 @@
   width: 15vw;
   padding-bottom: 15vw;
 }
+/* end classNames added by `size` */
 
+/* classNames added by `type` */
 .Dot.primary-0,
 .Dot.primary {
   background-color: var(--primary-0);
@@ -182,8 +201,65 @@
 .Dot.danger-3 {
   background-color: var(--danger-3);
 }
+/* end classNames added by `type` */
+/* all devices landscape */
 
-@keyframes flicker {
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    width: 4vh;
+    padding-bottom: 4vh;
+  }
+
+  .Container.xxs {
+    width: 2vh;
+    padding-bottom: 2vh;
+  }
+
+  .Container.xs {
+    width: 3vh;
+    padding-bottom: 3vh;
+  }
+
+  .Container.sm {
+    width: 4.5vh;
+    padding-bottom: 4.5vh;
+  }
+
+  .Container.md {
+    width: 6vh;
+    padding-bottom: 6vh;
+  }
+
+  .Container.lg {
+    width: 7.5vh;
+    padding-bottom: 7.5vh;
+  }
+
+  .Container.xl {
+    width: 10vh;
+    padding-bottom: 10vh;
+  }
+
+  .Container.xxl {
+    width: 15vh;
+    padding-bottom: 15vh;
+  }
+}
+/* all devices portrait */
+
+/* animation keyframes */
+@keyframes flicker-main-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes flicker-secondary-dot {
   0%,
   21%,
   41%,
@@ -197,13 +273,4 @@
     opacity: 1;
   }
 }
-
-@keyframes flicker2 {
-  0%,
-  51% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
+/* end animation keyframes */

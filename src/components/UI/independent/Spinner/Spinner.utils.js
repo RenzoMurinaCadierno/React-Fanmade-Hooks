@@ -34,7 +34,7 @@ const validTypes = [
 ]
 
 export const propTypes = {
-  size: PropTypes.oneOf(["xxs", "xs", "md", "lg", "xl", "xxl"]),
+  size: PropTypes.oneOf(["xxs", "xs", "sm", "md", "lg", "xl", "xxl"]),
   type: PropTypes.oneOf(validTypes),
   classNames: PropTypes.exact({
     container: PropTypes.string,

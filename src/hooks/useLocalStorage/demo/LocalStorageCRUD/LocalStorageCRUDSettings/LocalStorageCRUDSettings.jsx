@@ -1,4 +1,4 @@
-import { useContext, useCallback } from "react"
+import { useContext } from "react"
 import {
   Button,
   Switch,
@@ -53,28 +53,24 @@ export default function LocalStorageCRUDSettings({
   // current language's strings depending on `configs.lang`
   const currentLang = intl[configs.lang ?? "en"]
 
-  /* eslint-disable react-hooks/exhaustive-deps */
-  const onAuthClick = useCallback((authHandler) => {
+  const onAuthClick = (authHandler) => {
     // authHandler = `onDeleteUser` || `onSignout`
     authHandler()
     // move to Signin screen once logged out
     jumpToSlide(LocalStorageCRUD.slideNames.SIGN_IN)
-  }, [])
+  }
 
-  const toggleConfigState = useCallback(
-    // switch between language and color states in parent's state
-    (e) => {
-      const configName = e.target.dataset.configname
-      setUserSt((prevSt) => ({
-        ...prevSt,
-        configs: {
-          ...prevSt.configs,
-          [configName]: getOppositeConfigState(configName, prevSt.configs)
-        }
-      }))
-    },
-    [setUserSt]
-  )
+  // switch between language and color states in parent's state
+  const toggleConfigState = (e) => {
+    const configName = e.target.dataset.configname
+    setUserSt((prevSt) => ({
+      ...prevSt,
+      configs: {
+        ...prevSt.configs,
+        [configName]: getOppositeConfigState(configName, prevSt.configs)
+      }
+    }))
+  }
 
   return (
     <div className={classes.container}>

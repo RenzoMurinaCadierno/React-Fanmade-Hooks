@@ -82,17 +82,21 @@ function CmpTest() {
     }
   )
 
-  const startGame = useCallback(() => {
-    // set "gameSt" to its default initial state
+  /**
+   * Set "gameSt" to its default initial state,clear the '*input*' and set
+   * focus on it
+   */
+  const startGame = () => {
     resetGameSt(setGameSt)
-    // clear the '*input*' and set focus on it
     inputHandlers.clear()
     inputHandlers.focus()
-  }, [setGameSt, inputHandlers])
+  }
 
-  // returns the styles and children strings to use for the game's UI. We
-  // abstract the logic so as not to conflict with the custom hook example's
-  // functionality
+  /**
+   * Returns the styles and children strings to use for the game's UI. We
+   * abstract the logic so as not to conflict with the custom hook example's
+   *
+   */
   const content = getTextsAndStyles(gameSt, inputHandlers.value, toggleModal)
 
   return (

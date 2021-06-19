@@ -1,4 +1,3 @@
-import { lazy } from "react"
 import styles from "./UseCount.module.css"
 
 export const descItems = {

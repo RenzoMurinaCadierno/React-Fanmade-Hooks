@@ -1,4 +1,4 @@
-import { useCallback, useRef } from "react"
+import { useRef } from "react"
 import useReRender from "../useReRender"
 import { Toast, Container, CmpDescription, Button } from "hub"
 import pointer from "assets/icons/pointer.svg"
@@ -19,20 +19,19 @@ export default function UseReRender() {
   const toastPos = useRef("center")
   const openModal = useRef(false)
 
-  const handleArrowClick = useCallback((e) => {
-    toastPos.current = e.target.dataset.direction
-  }, [])
+  const handleArrowClick = (e) =>
+    (toastPos.current = e.target.dataset.direction)
 
-  const handleCloseModal = useCallback(() => {
+  const handleCloseModal = () => {
     toastPos.current = "center"
     openModal.current = false
     reRender()
-  }, [reRender])
+  }
 
-  const handleReRender = useCallback(() => {
+  const handleReRender = () => {
     openModal.current = true
     reRender()
-  }, [reRender])
+  }
 
   return (
     <>

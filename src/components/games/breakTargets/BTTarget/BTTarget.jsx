@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, useRef, memo } from "react"
+import { useEffect, useState, useRef, memo } from "react"
 import { useClassNameToggle } from "hub"
 import {
   classes,
@@ -70,9 +70,6 @@ function BTTarget({
     } else onHit?.(targetRef.current, newContent, true, x, y)
   }
 
-  // on player click on a target, trigger "breakTarget"
-  const handleClick = () => !isDestroyed && breakTarget()
-
   // eslint will warn us to add `onSpawn` as dependencies, but we do not want this
   // useEffect to re-trigger if that callback changes. So, ignore warnings
   /* eslint-disable react-hooks/exhaustive-deps */
@@ -121,7 +118,8 @@ function BTTarget({
         >
           <div
             ref={targetRef}
-            onClick={handleClick}
+            // on target click, trigger "breakTarget"
+            onClick={() => !isDestroyed && breakTarget()}
             className={
               classes.target(st.type, isDestroyed, classNames?.target) +
               " " +

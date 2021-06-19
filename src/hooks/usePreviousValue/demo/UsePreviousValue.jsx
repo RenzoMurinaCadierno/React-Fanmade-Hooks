@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react"
+import { useState } from "react"
 import usePreviousValue from "../usePreviousValue"
 import { CmpDescription, Container, Text, Die } from "hub"
 import plainCode from "../utils/plain"
@@ -27,12 +27,9 @@ function CmpTest() {
   const secondToLastDigit = usePreviousValue(lastDigit)
   const thirdToLastDigit = usePreviousValue(secondToLastDigit)
 
-  const handleAfterRoll = useCallback(
-    // returning a new object out of a function callback for setState forces
-    // a re-render even on the same result.
-    (newRes) => setDieSt(() => ({ res: newRes })),
-    [setDieSt]
-  )
+  // returning a new object out of a function callback for setState forces
+  // a re-render even on the same result.
+  const handleAfterRoll = (newRes) => setDieSt(() => ({ res: newRes }))
 
   return (
     <>

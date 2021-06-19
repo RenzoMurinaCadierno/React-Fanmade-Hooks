@@ -35,8 +35,8 @@ export default function AppbarSection({
     showContent: false // controls displaying this component's children
   })
 
+  // show children
   const handleClick = useCallback(
-    // show children
     () => setSt((prevSt) => ({ ...prevSt, showContent: true })),
     [setSt]
   )

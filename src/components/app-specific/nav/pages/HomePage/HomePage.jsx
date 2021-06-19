@@ -1,4 +1,4 @@
-import { MetaTags, Text, ExpandableMenu, Spinner } from "hub"
+import { MetaTags, Text, ExpandableMenu } from "hub"
 import {
   classes,
   metaTagsProps,
@@ -17,10 +17,9 @@ export default function HomePage() {
   return (
     // wrapper container
     <main className={classes.container}>
-      <Spinner />
       <MetaTags {...metaTagsProps} />
       {/* title and subtitles '*Text*'s */}
-      {/* <Text htmlElem="h2" italic className={classes.title}>
+      <Text htmlElem="h2" italic className={classes.title}>
         React Fanmade Hooks
       </Text>
       <Text
@@ -34,7 +33,7 @@ export default function HomePage() {
       <Text htmlElem="h6" type="secondary-2" className={classes.instructions}>
         Hit the toggler at the top-left of the screen and start exploring. Have
         fun! ;)
-      </Text> */}
+      </Text>
       {/* expandable menu with contact info and repository link */}
       <ExpandableMenu
         rotateOnOpen

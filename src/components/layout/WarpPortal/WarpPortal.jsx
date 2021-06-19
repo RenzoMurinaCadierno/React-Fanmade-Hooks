@@ -27,6 +27,7 @@ export default function WarpPortal({ children, portalNode }) {
   // this with a boolean state linked to mount phase of this component
   const [isDOMReady, setIsDOMReady] = useState(false)
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => portalNode && setIsDOMReady(true), [])
 
   // render children where '*WarpPortal*' was called from if no `portalNode`

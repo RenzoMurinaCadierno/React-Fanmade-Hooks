@@ -56,7 +56,8 @@ export default function Toast({
 
   // if `show` becomes true, change animation state to "open". This triggers
   // useEffect chain below
-  useEffect(() => show && changeAnimationSt("open"), [show, changeAnimationSt])
+  /* eslint-disable react-hooks/exhaustive-deps */
+  useEffect(() => show && changeAnimationSt("open"), [show])
 
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
