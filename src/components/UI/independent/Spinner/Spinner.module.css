@@ -2,9 +2,14 @@
 .Container {
   /* wrapper container '*div*' */
   position: relative;
-  width: 4vw;
+  width: 5vw;
   height: 0;
-  padding-bottom: 4vw;
+  padding-bottom: 5vw;
+}
+
+.Container[disabled] {
+  filter: var(--disabled-filter);
+  pointer-events: none;
 }
 
 .Dot {
@@ -207,8 +212,8 @@
 /* all devices portrait */
 @media screen and (orientation: portrait) {
   .Container {
-    width: 4vh;
-    padding-bottom: 4vh;
+    width: 5vh;
+    padding-bottom: 5vh;
   }
 
   .Container.xxs {

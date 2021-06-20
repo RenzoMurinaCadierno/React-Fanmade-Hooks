@@ -1,0 +1,9 @@
+.Container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Spinner {
+  margin-right: var(--large-margin-vh);
+}

@@ -1,0 +1,52 @@
+/* all devices landscape */
+.CmpTest {
+  width: 80%;
+  height: 40%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+.CountContainer {
+  /* main count '*Countbar*' */
+  width: 90%;
+}
+
+.StepCountContainer {
+  /* step '*Countbar*' */
+  width: 55%;
+}
+
+.StepCountBarButton {
+  /* step '*Countbar*' lateral button-styled '*div*'s */
+  width: 45% !important;
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .CmpTest {
+    height: 50%;
+    grid-template-rows: repeat(2, 1fr 4fr);
+    grid-template-columns: 1fr;
+    margin-top: 5%;
+  }
+
+  .StepCountContainer,
+  .CountContainer {
+    padding-bottom: 20%;
+  }
+
+  .CountContainer {
+    /* main count '*Countbar*' */
+    width: 100%;
+  }
+
+  .StepCountContainer {
+    /* step '*Countbar*' */
+    width: 65%;
+  }
+}
+/* end all devices portrait */

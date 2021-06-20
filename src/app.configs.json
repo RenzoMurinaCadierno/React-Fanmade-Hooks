@@ -18,7 +18,8 @@
       "useCallbackOnce",
       "useCallbackXTimes",
       "useEffectOnce",
-      "useEffectXTimes"
+      "useEffectXTimes",
+      "useLatency"
     ]
   },
   "urls": {

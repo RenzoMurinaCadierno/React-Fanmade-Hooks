@@ -18,4 +18,4 @@ useCallbacks, pwa
 test TOAST's useCallback to see renders, then pwa
 
 // commit msg
-Finished '*Spinner*'. Started revising performance.
+Started with '*useLatency*' and '*ButtonWithSpinner*'

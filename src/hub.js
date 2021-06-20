@@ -3,13 +3,13 @@ import ExpandableMenu from "./components/UI/combined/ExpandableMenu/ExpandableMe
 import PhoneDial from "./components/UI/combined/PhoneDial/PhoneDial"
 
 import Badge from "./components/UI/composed/Badge/Badge"
+import Button from "./components/UI/composed/Button/Button"
 import Icon from "./components/UI/composed/Icon/Icon"
 import Input from "./components/UI/composed/Input/Input"
 import Toast from "./components/UI/composed/Toast/Toast"
 
 import Aura from "./components/UI/independent/Aura/Aura"
 import Backdrop from "./components/UI/independent/Backdrop/Backdrop"
-import Button from "./components/UI/independent/Button/Button"
 import Coin from "./components/UI/independent/Coin/Coin"
 import Die from "./components/UI/independent/Die/Die"
 import Label from "./components/UI/independent/Label/Label"
@@ -48,6 +48,7 @@ import useCount from "./hooks/useCount/useCount"
 import useEffectOnce from "./hooks/useEffectOnce/useEffectOnce"
 import useEffectXTimes from "./hooks/useEffectXTimes/useEffectXTimes"
 import useInputHandlers from "./hooks/useInputHandlers/useInputHandlers"
+import useLatency from "./hooks/useLatency/useLatency"
 import useLocalStorage from "./hooks/useLocalStorage/useLocalStorage"
 import useMediaQuery from "./hooks/useMediaQuery/useMediaQuery"
 import useMountFlag from "./hooks/useMountFlag/useMountFlag"
@@ -64,6 +65,7 @@ import UseCount from "./hooks/useCount/demo/UseCount"
 import UseEffectOnce from "./hooks/useEffectOnce/demo/UseEffectOnce"
 import UseEffectXTimes from "./hooks/useEffectXTimes/demo/UseEffectXTimes"
 import UseInputHandlers from "./hooks/useInputHandlers/demo/UseInputHandlers"
+import UseLatency from "./hooks/useLatency/demo/UseLatency"
 import UseLocalStorage from "./hooks/useLocalStorage/demo/UseLocalStorage"
 import UseMediaQuery from "./hooks/useMediaQuery/demo/UseMediaQuery"
 import UsePreviousValue from "./hooks/usePreviousValue/demo/UsePreviousValue"
@@ -116,6 +118,7 @@ export {
   useEffectOnce,
   useEffectXTimes,
   useInputHandlers,
+  useLatency,
   useLocalStorage,
   useMediaQuery,
   useMountFlag,
@@ -130,6 +133,7 @@ export {
   UseCount,
   UseEffectOnce,
   UseEffectXTimes,
+  UseLatency,
   UseInputHandlers,
   UseLocalStorage,
   UseMediaQuery,
