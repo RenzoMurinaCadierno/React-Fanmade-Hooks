@@ -4,6 +4,53 @@
   align-items: center;
 }
 
-.Spinner {
-  margin-right: var(--large-margin-vh);
+.Container.top,
+.Container.bottom {
+  flex-direction: column;
+}
+
+.Container.right,
+.Container.left {
+  flex-direction: row;
+}
+
+.Spinner,
+.Spinner.left {
+  margin-right: var(--generic-margin-vw);
+}
+
+.Spinner.top {
+  margin-right: unset;
+  margin-bottom: var(--generic-margin-vw);
+}
+
+.Spinner.right {
+  margin-right: unset;
+  margin-left: var(--generic-margin-vw);
+  order: 1;
+}
+
+.Spinner.bottom {
+  margin-right: unset;
+  margin-top: var(--generic-margin-vw);
+  order: 1;
+}
+
+@media screen and (orientation: portrait) {
+  .Spinner,
+  .Spinner.left {
+    margin-right: var(--generic-margin-vh);
+  }
+
+  .Spinner.top {
+    margin-bottom: var(--generic-margin-vh);
+  }
+
+  .Spinner.right {
+    margin-left: var(--generic-margin-vh);
+  }
+
+  .Spinner.bottom {
+    margin-top: var(--generic-margin-vh);
+  }
 }

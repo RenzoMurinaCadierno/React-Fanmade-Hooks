@@ -1,4 +1,4 @@
-import styles from "./UseLatency.module.css"
+// import styles from "./UseLatency.module.css"
 
 export const descItems = {
   title: "useCount",
@@ -9,7 +9,7 @@ export const descItems = {
 }
 
 export const classes = {
-  // cmpTest: styles.CmpTest,
+  // cmpTest: styles.CmpTest
 }
 
 export const metaTagsProps = {

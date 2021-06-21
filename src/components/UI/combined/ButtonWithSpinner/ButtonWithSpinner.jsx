@@ -8,17 +8,25 @@ import { classes, defaultProps, propTypes } from "./ButtonWithSpinner.utils"
  */
 export default function ButtonWithSpinner({
   showSpinner,
+  spinnerAnchor,
   children,
   classNames,
   spinnerProps,
   ...buttonProps
 }) {
   return (
-    <Button className={classes.button(classNames.button)} {...buttonProps}>
+    <Button
+      className={classes.button(spinnerAnchor, classNames.button)}
+      {...buttonProps}
+    >
       {showSpinner && (
         <Spinner
           size="xs"
-          classNames={classes.spinner(classNames.spinner)}
+          classNames={classes.spinner(
+            !!children,
+            spinnerAnchor,
+            classNames.spinner
+          )}
           {...spinnerProps}
         />
       )}

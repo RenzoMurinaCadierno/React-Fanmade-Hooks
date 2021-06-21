@@ -1,6 +1,6 @@
 import useLatency from "../useLatency"
 import { CmpDescription, Spinner, Button } from "hub"
-import plainCode from "../utils/plain"
+import plainCode from "./plain"
 import { classes, descItems, metaTagsProps } from "./UseLatency.utils"
 import { useEffect, useRef, useState } from "react"
 
@@ -33,10 +33,16 @@ function CmpTest() {
   }
   console.log(isLoading)
   const { trigger, release, abort, getElapsedMs } = useLatency({
-    // checkpointInterval: 200,
+    checkpointAtMs: 200,
     // onCheckpoint: (ms) => console.log(ms)
-    abortAtMs: 1500
-    // releaseAtMs: 200,
+    // abortOn: [st, st2],
+    // releaseOn: [st, st2],
+    abortAtMs: 1500,
+    triggerOn: st,
+    duration: 2000,
+    onStart: start,
+    onRelease: show,
+    onAbort: hide
   })
 
   const fire = () => trigger(2000, start).then(show).catch(hide)
@@ -48,7 +54,7 @@ function CmpTest() {
       <button onClick={release}>release</button>
       <button onClick={abort}>abort</button>
       <button onClick={fire}>fire</button>
-      {/* <button onClick={() => setSt((s) => ++s)}>toggle</button> */}
+      <button onClick={() => setSt((s) => ++s)}>toggle</button>
       <Button.WithSpinner spinnerAnchor="asd" showSpinner={isLoading}>
         {isLoading ? "loading" : "ok!"}
       </Button.WithSpinner>
