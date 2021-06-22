@@ -1,0 +1,52 @@
+/* all devices landscape */
+.Container {
+  /* progress background container '*div*' */
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: var(--generic-transition);
+}
+
+/* classNames added by `type` */
+.Container,
+.Container.primary,
+.Container.primary-0 {
+  background-color: var(--primary-0-translucent-background);
+}
+
+.Container.primary-1 {
+  background-color: var(--primary-1-translucent-background);
+}
+
+.Container.primary-2 {
+  background-color: var(--primary-2-translucent-background);
+}
+
+.Container.secondary,
+.Container.secondary-0 {
+  background-color: var(--secondary-0-translucent-background);
+}
+
+.Container.secondary-1 {
+  background-color: var(--secondary-1-translucent-background);
+}
+
+.Container.secondary-2 {
+  background-color: var(--secondary-2-translucent-background);
+}
+
+.Container.danger,
+.Container.danger-0 {
+  background-color: var(--danger-0-translucent-background);
+}
+
+.Container.danger-1 {
+  background-color: var(--danger-1-translucent-background);
+}
+
+.Container.danger-2 {
+  background-color: var(--danger-2-translucent-background);
+}
+/* end classNames added by `type` */
+/* end all devices landscape */

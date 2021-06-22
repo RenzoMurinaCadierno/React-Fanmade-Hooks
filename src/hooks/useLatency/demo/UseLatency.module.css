@@ -1,52 +1,35 @@
 /* all devices landscape */
+.Container {
+  /* wrapper container */
+  width: 100%;
+  height: 100%;
+}
+
 .CmpTest {
-  width: 80%;
-  height: 40%;
-  display: grid;
+  /* *'CmpTest*' wrapper */
+  /* width: 60%; */
+  margin: 0 7.5%;
+  /* height: 90%; */
+  display: flex;
   align-items: center;
-  justify-content: center;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
-}
-
-.CountContainer {
-  /* main count '*Countbar*' */
-  width: 90%;
-}
-
-.StepCountContainer {
-  /* step '*Countbar*' */
-  width: 55%;
-}
-
-.StepCountBarButton {
-  /* step '*Countbar*' lateral button-styled '*div*'s */
-  width: 45% !important;
+  justify-content: space-between;
+  flex-direction: column;
 }
 /* end all devices landscape */
 
 /* all devices portrait */
 @media screen and (orientation: portrait) {
+  .Container {
+    /* wrapper container */
+    margin: 0 var(--generic-margin-vh);
+    flex-direction: column;
+  }
+
   .CmpTest {
-    height: 50%;
-    grid-template-rows: repeat(2, 1fr 4fr);
-    grid-template-columns: 1fr;
-    margin-top: 5%;
-  }
-
-  .StepCountContainer,
-  .CountContainer {
-    padding-bottom: 20%;
-  }
-
-  .CountContainer {
-    /* main count '*Countbar*' */
-    width: 100%;
-  }
-
-  .StepCountContainer {
-    /* step '*Countbar*' */
-    width: 65%;
+    /* *'CmpTest*' wrapper */
+    width: 95%;
+    height: 40%;
   }
 }
+
 /* end all devices portrait */

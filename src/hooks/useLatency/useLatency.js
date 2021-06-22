@@ -9,18 +9,26 @@ import { useCallback, useEffect, useRef, useState } from "react"
  * @author Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>
  */
 export default function useLatency(configs = {}) {
-  const { checkpointInterval, onCheckpoint, abortAtMs, releaseAtMs } = configs
+  const {
+    checkpointInterval,
+    onCheckpoint,
+    abortAtMs,
+    releaseAtMs,
+    doNotReRenderOnAction
+  } = configs
 
-  const [isCheckpointActive, setIsCheckpointActive] = useState(false)
+  const [isActive, setIsActive] = useState(null)
   const refs = useRef({ timeout: 0, initTime: 0, resolve: null, reject: null })
-test and create demo. see why so many re-renders on checkpointInterval
+
+  const reRenderOnAction = checkpointInterval || !doNotReRenderOnAction
+
   const trigger = useCallback(
     async (duration, onStart) => {
       await abort()
       refs.current.initTime = new Date().getTime()
       typeof onStart === "function" && onStart()
       return new Promise((resolve, reject) => {
-        checkpointInterval && setIsCheckpointActive(true)
+        reRenderOnAction && setIsActive(true)
         refs.current.resolve = resolve
         refs.current.reject = reject
         refs.current.timeout = setTimeout(release, duration)
@@ -29,49 +37,52 @@ test and create demo. see why so many re-renders on checkpointInterval
     [checkpointInterval]
   )
 
-  const release = useCallback(async () => {
+  const release = useCallback(async (_, elapsedMs) => {
     if (refs.current.resolve) {
-      checkpointInterval && setIsCheckpointActive(false)
-      await _terminate("resolve", refs.current)
+      reRenderOnAction && setIsActive(false)
+      await _terminate("resolve", refs.current, elapsedMs ?? getElapsedMs())
     }
   }, [])
 
-  const abort = useCallback(async () => {
+  const abort = useCallback(async (_, elapsedMs) => {
     if (refs.current.reject) {
-      checkpointInterval && setIsCheckpointActive(false)
-      await _terminate("reject", refs.current)
+      reRenderOnAction && setIsActive(false)
+      await _terminate("reject", refs.current, elapsedMs ?? getElapsedMs())
     }
   }, [])
 
   const getElapsedMs = useCallback(
-    () => new Date().getTime() - refs.current.initTime,
+    // () => new Date().getTime() - refs.current.initTime
+    () => {
+      const delta = new Date().getTime() - refs.current.initTime
+      if (!checkpointInterval) return delta
+      return Math.floor(delta / checkpointInterval) * checkpointInterval
+    },
     []
   )
 
   useEffect(() => {
     let interval = 0
     _crashOnInvalidCheckpointInterval(checkpointInterval)
-    if (isCheckpointActive && refs.current.resolve) {
+    if (isActive) {
       const isValidAbortAtMs = _validateType(abortAtMs, "number")
       const isValidReleaseAtMs = _validateType(releaseAtMs, "number")
-      const isValidOnCheckpoint = _validateType(onCheckpoint, "function")
       interval = setInterval(async () => {
         const elapsedMs = getElapsedMs()
         const isAbort = isValidAbortAtMs && abortAtMs <= elapsedMs
         const isRelease = isValidReleaseAtMs && releaseAtMs <= elapsedMs
-        if (isAbort) await abort()
-        else if (isRelease) await release()
-        else if (isValidOnCheckpoint) onCheckpoint(elapsedMs)
+        if (isAbort) await abort(null, elapsedMs)
+        else if (isRelease) await release(null, elapsedMs)
+        else if (typeof onCheckpoint === "function") onCheckpoint(elapsedMs)
       }, checkpointInterval)
     }
     return () => clearInterval(interval)
-  }, [isCheckpointActive])
+  }, [isActive])
 
-  return { trigger, release, abort, getElapsedMs }
+  return { isActive, trigger, release, abort, getElapsedMs }
 }
 
-async function _terminate(terminator, refsCurrent) {
-  const elapsedMs = new Date().getTime() - refsCurrent.initTime
+async function _terminate(terminator, refsCurrent, elapsedMs) {
   clearTimeout(refsCurrent.timeout)
   refsCurrent.initTime = 0
   await refsCurrent[terminator](elapsedMs)

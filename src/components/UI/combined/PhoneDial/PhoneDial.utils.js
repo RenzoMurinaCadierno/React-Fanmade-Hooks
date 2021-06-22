@@ -42,5 +42,6 @@ export const propTypes = {
     buttons: PropTypes.string
   }),
   onButtonClick: PropTypes.func,
-  buttonProps: buttonPropsShape
+  buttonProps: buttonPropsShape,
+  genericButtonProps: PropTypes.object
 }

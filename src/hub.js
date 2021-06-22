@@ -14,6 +14,7 @@ import Coin from "./components/UI/independent/Coin/Coin"
 import Die from "./components/UI/independent/Die/Die"
 import Label from "./components/UI/independent/Label/Label"
 import PlayingCard from "./components/UI/independent/PlayingCard/PlayingCard"
+import ProgressBackground from "./components/UI/independent/ProgressBackground/ProgressBackground"
 import Progressbar from "./components/UI/independent/Progressbar/Progressbar"
 import Spinner from "./components/UI/independent/Spinner/Spinner"
 import Switch from "./components/UI/independent/Switch/Switch"
@@ -27,6 +28,7 @@ import Modal from "./components/layout/Modal/Modal"
 import WarpPortal from "./components/layout/WarpPortal/WarpPortal"
 
 import BT from "./components/games/breakTargets/BT"
+import CodeFrenzy from "./components/games/codeFrenzy/CodeFrenzy"
 import Slots from "./components/games/slots/Slots"
 
 import CmpDescription from "./components/app-specific/layout/CmpDescription/CmpDescription"
@@ -88,6 +90,7 @@ export {
   Modal,
   WarpPortal,
   BT,
+  CodeFrenzy,
   Slots,
   CmpDescription,
   CodeMenu,
@@ -104,6 +107,7 @@ export {
   Die,
   Label,
   PlayingCard,
+  ProgressBackground,
   Progressbar,
   Spinner,
   Switch,

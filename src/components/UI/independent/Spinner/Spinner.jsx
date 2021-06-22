@@ -1,3 +1,4 @@
+import { memo } from "react"
 import { classes, defaultProps, propTypes } from "./Spinner.utils"
 
 /**
@@ -29,13 +30,7 @@ import { classes, defaultProps, propTypes } from "./Spinner.utils"
  * `classNames?` (object): className strings for all JSXs rendered here.
  *   Check *utils.js* for its constitution.
  */
-export default function Spinner({
-  size,
-  type,
-  classNames,
-  dotProps,
-  ...otherProps
-}) {
+function Spinner({ size, type, classNames, dotProps, ...otherProps }) {
   return (
     <div
       role="status"
@@ -55,3 +50,5 @@ export default function Spinner({
 
 Spinner.defaultProps = defaultProps
 Spinner.propTypes = propTypes
+
+export default memo(Spinner)

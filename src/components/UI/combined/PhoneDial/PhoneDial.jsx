@@ -21,13 +21,20 @@ import { classes, defaultProps, propTypes, buttons } from "./PhoneDial.utils"
  *
  * > E.g.: { six: { onClick: (e) => console.log(e) }, star: { disabled: true } }
  *
- * * **Note**: defining "onClick" for a specific button in `buttonProps` will
+ * * **Note:** Defining "onClick" for a specific button in `buttonProps` will
  *     override `onButtonClick.onClick` for that button instance.
+ *
+ * `genericButtonProps?` (object): props to spread on each rendered '*Button*'.
+ *
+ * * **Note:** `buttonProps` are higher in specificity, which means props
+ *   defined there for individual button instances will override the respective
+ *   ones here for that button instance only.
  */
 export default function PhoneDial({
   onButtonClick,
   classNames,
   buttonProps,
+  genericButtonProps,
   ...otherProps
 }) {
   const handleButtonClick = useCallback(
@@ -57,6 +64,7 @@ export default function PhoneDial({
           key={btnName}
           type="primary"
           className={classes.button(classNames?.button)}
+          {...genericButtonProps}
           {...buttonProps[btnName]}
           data-value={btnRepr} // placing these last three props below...
           data-name={btnName} // ...`buttonProps` will ensure they will NOT...

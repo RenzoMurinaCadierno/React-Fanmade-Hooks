@@ -1,20 +1,23 @@
-.Container {
+/* all devices landscape */
+.Button {
+  /* '*Button*' */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.Container.top,
-.Container.bottom {
+/* classNames added by `type` */
+.Button.top,
+.Button.bottom {
   flex-direction: column;
 }
 
-.Container.right,
-.Container.left {
+.Button.right,
+.Button.left {
   flex-direction: row;
 }
 
-.Spinner,
+.Spinner, /* '*Spinner*' */
 .Spinner.left {
   margin-right: var(--generic-margin-vw);
 }
@@ -35,9 +38,13 @@
   margin-top: var(--generic-margin-vw);
   order: 1;
 }
+/* end classNames added by `type` */
+/* end all devices landscape */
 
+/* all devices portrait */
 @media screen and (orientation: portrait) {
-  .Spinner,
+  /* classNames added by `type` */
+  .Spinner, /* Spinner */
   .Spinner.left {
     margin-right: var(--generic-margin-vh);
   }
@@ -53,4 +60,6 @@
   .Spinner.bottom {
     margin-top: var(--generic-margin-vh);
   }
+  /* end classNames added by `type` */
 }
+/* end all devices portrait */

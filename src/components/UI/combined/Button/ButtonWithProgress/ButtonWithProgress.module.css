@@ -1,0 +1,7 @@
+/* all devices landscape */
+.Button {
+  /* '*Button*', which is '*ProgressBackground*' parent */
+  position: relative; /* a must, as stated in '*ProgressBackground*' */
+  overflow: hidden; /* hide overflowing '*ProgressBackground*' borders */
+}
+/* end all devices landscape */
