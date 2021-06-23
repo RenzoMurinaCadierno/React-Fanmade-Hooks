@@ -16,21 +16,19 @@ export const defaultProps = {
   progressProps: {}
 }
 
-const validTypes = [
-  "primary",
-  "secondary",
-  "danger",
-  "primary-1",
-  "secondary-1",
-  "danger-1"
-]
-
 export const propTypes = {
   showProgress: PropTypes.bool,
   min: PropTypes.number,
   value: PropTypes.number,
   max: PropTypes.number,
-  type: PropTypes.oneOf(validTypes),
+  type: PropTypes.oneOf([
+    "primary",
+    "secondary",
+    "danger",
+    "primary-1",
+    "secondary-1",
+    "danger-1"
+  ]),
   shrink: PropTypes.bool,
   classNames: PropTypes.exact({
     button: PropTypes.string,

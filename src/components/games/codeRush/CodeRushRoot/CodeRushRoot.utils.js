@@ -25,4 +25,20 @@ export const propTypes = {
     progress: PropTypes.string
   })
 }
-go on
+
+const digits = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "#", "*"]
+
+export function getCode() {
+  let code = []
+  while (code.length < 2) {
+    const digit = digits[Math.floor(Math.random() * digits.length)]
+    if (!code.includes(digit)) code = [...code, digit]
+  }
+  return code
+}
+
+export function haveExactValues(attempts, code) {
+  if (!attempts.length || attempts.length !== code.length) return false
+  if (attempts.some((value) => !code.includes(value))) return false
+  return true
+}

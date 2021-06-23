@@ -37,6 +37,8 @@ export default function PhoneDial({
   genericButtonProps,
   ...otherProps
 }) {
+  // console.log("render")
+
   const handleButtonClick = useCallback(
     (e) => {
       // "name" is the word ('one', 'star'), "value" is the representation ('1',

@@ -28,7 +28,7 @@ import Modal from "./components/layout/Modal/Modal"
 import WarpPortal from "./components/layout/WarpPortal/WarpPortal"
 
 import BT from "./components/games/breakTargets/BT"
-import CodeFrenzy from "./components/games/codeFrenzy/CodeFrenzy"
+import CodeRush from "./components/games/codeRush/CodeRush"
 import Slots from "./components/games/slots/Slots"
 
 import CmpDescription from "./components/app-specific/layout/CmpDescription/CmpDescription"
@@ -90,7 +90,7 @@ export {
   Modal,
   WarpPortal,
   BT,
-  CodeFrenzy,
+  CodeRush,
   Slots,
   CmpDescription,
   CodeMenu,

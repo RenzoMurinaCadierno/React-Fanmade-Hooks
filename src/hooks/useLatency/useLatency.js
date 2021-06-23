@@ -20,8 +20,10 @@ export default function useLatency(configs = {}) {
   const [isActive, setIsActive] = useState(null)
   const refs = useRef({ timeout: 0, initTime: 0, resolve: null, reject: null })
 
+  // useCallbacks will not reconstruct when this variable changes
   const reRenderOnAction = checkpointInterval || !doNotReRenderOnAction
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   const trigger = useCallback(
     async (duration, onStart) => {
       await abort()
@@ -37,6 +39,7 @@ export default function useLatency(configs = {}) {
     [checkpointInterval]
   )
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   const release = useCallback(async (_, elapsedMs) => {
     if (refs.current.resolve) {
       reRenderOnAction && setIsActive(false)
@@ -44,6 +47,7 @@ export default function useLatency(configs = {}) {
     }
   }, [])
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   const abort = useCallback(async (_, elapsedMs) => {
     if (refs.current.reject) {
       reRenderOnAction && setIsActive(false)
@@ -51,16 +55,13 @@ export default function useLatency(configs = {}) {
     }
   }, [])
 
-  const getElapsedMs = useCallback(
-    // () => new Date().getTime() - refs.current.initTime
-    () => {
-      const delta = new Date().getTime() - refs.current.initTime
-      if (!checkpointInterval) return delta
-      return Math.floor(delta / checkpointInterval) * checkpointInterval
-    },
-    []
-  )
+  const getElapsedMs = useCallback(() => {
+    const delta = new Date().getTime() - refs.current.initTime
+    if (!checkpointInterval) return delta
+    return Math.floor(delta / checkpointInterval) * checkpointInterval
+  }, [checkpointInterval])
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     let interval = 0
     _crashOnInvalidCheckpointInterval(checkpointInterval)
