@@ -35,7 +35,7 @@ export default function CodeRushNumPad({
     <PhoneDial
       // onButtonClick={onPhoneButtonClick}
       // buttonProps={buttonProps}
-      genericButtonProps={{ disabled: !code.length && !attempt.length }}
+      genericButtonProps={{ disabled: code[0].length > 1 && !attempt.length }}
       onButtonClick={updateAttemptAndButtonProps}
       classNames={classes.numPad(classNames)}
       // {...otherProps}

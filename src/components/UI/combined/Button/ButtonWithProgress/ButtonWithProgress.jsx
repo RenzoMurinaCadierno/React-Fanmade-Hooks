@@ -46,12 +46,11 @@ import { classes, defaultProps, propTypes } from "./ButtonWithProgress.utils"
  * `classNames?` (object): className strings for each JSX rendered here.
  *   Check *utils.js* for its constitution.
  *
- * `containerProps? (object): Props to spread in container '*div*'.
- *
  * `progressProps?` (object): Props to spread in container
  *   '*ProgressBackground*'.
  *
- * `...otherProps?` (object): Props to spread in '*Button.WithSpinner*'.
+ * `...buttonWithSpinnerProps?` (object): Props to spread in
+ *   '*Button.WithSpinner*'.
  */
 export default function ButtonWithProgress({
   children,
@@ -63,27 +62,21 @@ export default function ButtonWithProgress({
   max,
   shrink,
   classNames,
-  containerProps,
   progressProps,
-  ...otherProps
+  ...buttonWithSpinnerProps
 }) {
   return (
-    <div
-      className={classes.container(classNames.container)}
-      {...containerProps}
+    <Button.WithSpinner
+      classNames={classes.buttonWithSpinner(classNames)}
+      {...{ type, showSpinner, ...buttonWithSpinnerProps }}
     >
-      <Button.WithSpinner
-        classNames={classes.buttonWithProgress(classNames)}
-        {...{ type, showSpinner, ...otherProps }}
-      >
-        {children}
-        <ProgressBackground
-          show={showProgress}
-          className={classes.progress(classNames.progress)}
-          {...{ min, value, max, shrink, ...progressProps }}
-        />
-      </Button.WithSpinner>
-    </div>
+      {children}
+      <ProgressBackground
+        show={showProgress}
+        className={classes.progress(classNames.progress)}
+        {...{ min, value, max, shrink, ...progressProps }}
+      />
+    </Button.WithSpinner>
   )
 }
 

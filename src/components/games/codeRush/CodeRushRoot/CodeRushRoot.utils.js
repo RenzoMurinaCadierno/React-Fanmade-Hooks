@@ -1,4 +1,5 @@
 import PropTypes from "prop-types"
+import { PhoneDial } from "hub"
 
 export const classes = {
   container: (className) => className,
@@ -26,7 +27,7 @@ export const propTypes = {
   })
 }
 
-const digits = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "#", "*"]
+const digits = PhoneDial.VALUES // ['1', '2', '3', ..., '*']
 
 export function getCode() {
   let code = []

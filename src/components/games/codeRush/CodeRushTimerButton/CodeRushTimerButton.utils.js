@@ -1,7 +1,13 @@
 import PropTypes from "prop-types"
-// import styles from './CodeRushTimerButton.module.css'
+import styles from "./CodeRushTimerButton.module.css"
 
-export const classes = { button: (classNames) => classNames }
+export const classes = {
+  timerButton: (classNames = {}) => ({
+    button: (classNames.button ?? "") + styles.Button,
+    spinner: classNames.spinner,
+    progress: classNames.progress
+  })
+}
 
 export const defaultProps = { classNames: {} }
 

@@ -2,8 +2,7 @@ import PropTypes from "prop-types"
 import styles from "./ButtonWithProgress.module.css"
 
 export const classes = {
-  container: (className) => className,
-  buttonWithProgress: (classNames = {}) => ({
+  buttonWithSpinner: (classNames = {}) => ({
     button: (classNames.button ?? "") + " " + styles.Button,
     spinner: classNames.spinner
   }),

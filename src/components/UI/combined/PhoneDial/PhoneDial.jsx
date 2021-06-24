@@ -1,6 +1,13 @@
 import { useCallback } from "react"
 import { Button } from "hub"
-import { classes, defaultProps, propTypes, buttons } from "./PhoneDial.utils"
+import {
+  classes,
+  defaultProps,
+  propTypes,
+  NAMES,
+  VALUES,
+  BUTTONS
+} from "./PhoneDial.utils"
 
 /**
  * Renders an array of '*Button*' components representing a classic cellphone
@@ -59,7 +66,7 @@ export default function PhoneDial({
 
   return (
     <div className={classes.container(classNames?.container)} {...otherProps}>
-      {buttons.map(([btnName, btnRepr]) => (
+      {BUTTONS.map(([btnName, btnRepr]) => (
         // "btnName" is the name ('two', 'hash'), "btnRepr" is the
         // representation ('2', '#')
         <Button
@@ -79,5 +86,8 @@ export default function PhoneDial({
   )
 }
 
+PhoneDial.NAMES = NAMES
+PhoneDial.VALUES = VALUES
+PhoneDial.BUTTONS = BUTTONS
 PhoneDial.defaultProps = defaultProps
 PhoneDial.propTypes = propTypes

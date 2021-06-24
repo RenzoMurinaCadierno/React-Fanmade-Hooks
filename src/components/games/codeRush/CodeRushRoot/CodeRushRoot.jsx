@@ -15,7 +15,7 @@ export default function CodeRushRoot({
   timerButtonProps,
   ...otherProps
 }) {
-  const [code, setCode] = useState([])
+  const [code, setCode] = useState([`Tap to start game`])
   const [attempt, setAttempt] = useState([])
 
   const setNewCodeAndClearAttempt = useCallback(() => {
@@ -27,6 +27,12 @@ export default function CodeRushRoot({
     if (haveExactValues(attempt, code)) setNewCodeAndClearAttempt()
   }, [attempt])
 
+  const triggerGameOver = useCallback((elapsedMs) => {
+    console.log("end!", elapsedMs)
+    setCode([`Time! Score: 999`])
+    setAttempt([])
+  }, [])
+
   return (
     <div className={classes.container(classNames.container)} {...otherProps}>
       <CodeRush.Code
@@ -35,14 +41,14 @@ export default function CodeRushRoot({
       />
       <CodeRush.NumPad
         classNames={classes.numPad(classNames.numPad)}
-        // {...numPadProps}
         {...{ code, attempt, setAttempt, ...numPadProps }}
       />
       <CodeRush.TimerButton
         classNames={classes.timerButton(classNames.timerButton)}
         timeout={2000}
+        onGameStart={setNewCodeAndClearAttempt}
+        onGameOver={triggerGameOver}
         {...timerButtonProps}
-        // onClick={() => setCode(getCode())}
       />
     </div>
   )

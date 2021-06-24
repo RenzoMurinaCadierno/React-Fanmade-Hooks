@@ -19,4 +19,4 @@ then add time to enable when latency is up 2:000, 1:500, 0:500
 test TOAST's useCallback to see renders, then pwa
 
 // commit msg
-Created '*ButtonWithProgress*', started with '*useLatency*' Demo.
+Kept on developing '*useLatency*' Demo.
