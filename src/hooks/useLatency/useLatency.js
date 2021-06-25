@@ -135,6 +135,8 @@ export default function useLatency(configs = {}) {
   })
 
   // useCallbacks will not reconstruct when this variable changes
+  // doNotRerenderOnAction will not enter useEffect below. This, abortAtMs
+  // and releaseAtMs will not work
   const reRenderOnAction = !!(checkpointInterval || !doNotReRenderOnAction)
 
   /* eslint-disable react-hooks/exhaustive-deps */
@@ -148,6 +150,7 @@ export default function useLatency(configs = {}) {
         reRenderOnAction && setIsActive(true)
         refs.current.resolve = resolve
         refs.current.reject = reject
+        // checkpointInterval will control the hook by a setInterval
         if (!checkpointInterval) {
           refs.current.timeout = setTimeout(
             () => release(null, duration),
@@ -191,18 +194,18 @@ export default function useLatency(configs = {}) {
       const isValidAbortAtMs = _validateType(abortAtMs, "number")
       const isValidReleaseAtMs = _validateType(releaseAtMs, "number")
       interval = setInterval(async () => {
+        console.log("interval")
         const elapsedMs = getElapsedMs()
         const isEndTime = elapsedMs >= refs.current.endTime
-        // console.log(elapsedMs, refs.current.endTime, isEndTime)
         const isAbort = isValidAbortAtMs && abortAtMs <= elapsedMs
         const isRelease =
           (isValidReleaseAtMs && releaseAtMs <= elapsedMs) || isEndTime
-        // console.log(isRelease)
         if (isAbort || isRelease) {
-          clearInterval(interval)
+          clearInterval(interval) // finished counter, clear interval
           if (isAbort) await abort(null, elapsedMs)
           else await release(null, isEndTime ? refs.current.endTime : elapsedMs)
         } else if (typeof onCheckpoint === "function") {
+          // we are not finised, trigger checkpoint
           onCheckpoint(elapsedMs)
         }
       }, checkpointInterval)
@@ -215,7 +218,8 @@ export default function useLatency(configs = {}) {
 
 async function _terminate(terminator, refsCurrent, elapsedMs) {
   clearTimeout(refsCurrent.timeout)
-  refsCurrent.initTime = 0
+  // refsCurrent.initTime = 0
+  // refsCurrent.endTime = 0
   await refsCurrent[terminator](elapsedMs)
   refsCurrent.resolve = null
   refsCurrent.reject = null

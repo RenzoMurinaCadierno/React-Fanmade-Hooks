@@ -5,7 +5,7 @@ import { classes, defaultProps, propTypes } from "./CodeRushCode.utils"
 function CodeRushCode({ code, className }) {
   return (
     <Text htmlElem="h4" className={classes.container(className)}>
-      {code.join(" ")}
+      {(code.length > 1 ? "Code: " : "") + code.join(" ")}
     </Text>
   )
 }

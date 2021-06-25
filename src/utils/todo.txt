@@ -13,10 +13,9 @@ button on uselocalstorage, automatically on after user/pass
 
 publishing: https://www.youtube.com/watch?v=Ufwbp838yZA
 
-finish buttonwithspinner. Remeber to add spinner position 'left' 'right'. 
-then add time to enable when latency is up 2:000, 1:500, 0:500
+useClassNameToggle -> useValueToggle(value, timeout, offValue)
 
 test TOAST's useCallback to see renders, then pwa
 
 // commit msg
-Kept on developing '*useLatency*' Demo.
+Found bug on '*useLatency*' hook time calculation. Started fixing it.

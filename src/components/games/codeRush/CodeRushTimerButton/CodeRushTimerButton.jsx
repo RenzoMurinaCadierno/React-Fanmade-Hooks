@@ -14,17 +14,20 @@ export default function CodeRushTimerButton({
   classNames,
   ...otherProps
 }) {
-  const l = (a) => console.log(a)
+  const l = (...a) => console.log(...a)
   const setElaps = (time) => setElapsed(time)
-  const setElaps0 = (time) => setElapsed(0)
+  const res = (text, ms) => {
+    l(text, ms)
+    setElapsed(ms)
+  }
   const { isActive, trigger, abort, release, getElapsedMs } = useLatency({
     checkpointInterval: 187,
-    onCheckpoint: setElaps
-    // abortAtMs: 500
+    onCheckpoint: setElaps,
+    // abortAtMs: 500,
     // releaseAtMs: 200
-    // doNotReRenderOnAction: true
+    doNotReRenderOnAction: true
   })
-
+  // keep on testing hook. All of it. Abort/rlease/end on checkpoint or not
   // test phonedial CONSTANTS here and in useEffectOnce. Then wire with root
   const [elapsed, setElapsed] = useState(0)
 
@@ -32,13 +35,15 @@ export default function CodeRushTimerButton({
   // console.log(elapsed)
   // const startCountDown = () => trigger(timeout).then(onGameOver).catch(_null)
   const startCountDown = () =>
-    trigger(timeout, setElaps0).then(setElaps).catch(setElaps)
-  console.log(elapsed, timeout, "aaaa")
+    trigger(timeout, () => onGameStart())
+      .then((ms) => res("release", ms))
+      .catch((ms) => res("abort", ms))
+  // console.log(elapsed, timeout, "aaaa")
   return (
     <Button.WithProgress
       min={0}
-      max={timeout}
       value={elapsed}
+      max={timeout}
       showSpinner={isActive}
       onClick={startCountDown}
       classNames={classes.timerButton(classNames)}

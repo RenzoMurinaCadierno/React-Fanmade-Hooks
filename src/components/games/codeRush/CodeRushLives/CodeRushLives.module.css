@@ -1,0 +1,23 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+}
+
+.Container[disabled] {
+  filter: var(--disabled-filter);
+}
+
+.LivesContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.Life {
+  transition: var(--generic-transition);
+}
+
+.Life[disabled] {
+  transform: scale(0.8);
+  filter: var(--disabled-filter);
+}

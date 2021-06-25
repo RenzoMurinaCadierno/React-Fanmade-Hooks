@@ -1,29 +1,50 @@
 import PropTypes from "prop-types"
 import { PhoneDial } from "hub"
+import styles from "./CodeRushRoot.module.css"
 
 export const classes = {
   container: (className) => className,
   code: (className) => className,
+  numPadAndStats: (className) =>
+    (className ?? "") + " " + styles.NumPadAndStats,
   numPad: (classNames) => classNames,
+  stats: (classNames) => classNames,
   timerButton: (classNames) => classNames
 }
 
 export const defaultProps = { classNames: {} }
 
 export const propTypes = {
-  container: PropTypes.string,
-  code: PropTypes.string,
-  numPad: PropTypes.exact({
+  classNames: PropTypes.exact({
     container: PropTypes.string,
-    buttons: PropTypes.string
-  }),
-  timerButton: PropTypes.exact({
-    button: PropTypes.string,
-    spinner: PropTypes.exact({
+    code: PropTypes.string,
+    numPadAndStats: PropTypes.string,
+    numPad: PropTypes.exact({
       container: PropTypes.string,
-      dot: PropTypes.string
+      buttons: PropTypes.string
     }),
-    progress: PropTypes.string
+    stats: PropTypes.exact({
+      container: PropTypes.string,
+      score: PropTypes.exact({
+        container: PropTypes.string,
+        text: PropTypes.string,
+        value: PropTypes.string
+      }),
+      lives: PropTypes.exact({
+        container: PropTypes.string,
+        text: PropTypes.string,
+        livesContainer: PropTypes.string,
+        life: PropTypes.string
+      })
+    }),
+    timerButton: PropTypes.exact({
+      button: PropTypes.string,
+      spinner: PropTypes.exact({
+        container: PropTypes.string,
+        dot: PropTypes.string
+      }),
+      progress: PropTypes.string
+    })
   })
 }
 
