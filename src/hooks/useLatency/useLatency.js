@@ -189,12 +189,10 @@ export default function useLatency(configs = {}) {
   useEffect(() => {
     let interval = 0
     if (isActive) {
-      console.log("in")
       _crashOnInvalidCheckpointInterval(checkpointInterval)
       const isValidAbortAtMs = _validateType(abortAtMs, "number")
       const isValidReleaseAtMs = _validateType(releaseAtMs, "number")
       interval = setInterval(async () => {
-        console.log("interval")
         const elapsedMs = getElapsedMs()
         const isEndTime = elapsedMs >= refs.current.endTime
         const isAbort = isValidAbortAtMs && abortAtMs <= elapsedMs

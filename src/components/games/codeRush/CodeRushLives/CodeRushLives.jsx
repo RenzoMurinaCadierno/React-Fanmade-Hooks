@@ -1,39 +1,59 @@
-import { classes, defaultProps, propTypes } from "./CodeRushLives.utils"
+import { useCallback, useEffect, useState } from "react"
+import { useClassNameToggle, Text } from "hub"
+import {
+  classes,
+  defaultProps,
+  propTypes,
+  renderLives,
+  getPerilClassNames
+} from "./CodeRushLives.utils"
 
 export default function CodeRushLives({
   imgSrc,
   imgAlt,
-  maxLives,
   livesLeft,
+  maxLives,
+  onLifeLost,
   classNames,
   textProps,
   livesContainerProps,
   lifeProps,
   ...otherProps
 }) {
-  const livesArray = new Array(maxLives)
-    .fill(null)
-    .map((_, i) => (
-      <img
-        key={i}
-        src={imgSrc}
-        alt={imgAlt}
-        disabled={i > livesLeft}
-        className={classes.life(classNames.life)}
-        {...lifeProps}
-      />
-    ))
+  const [animateLifeLostCN, triggerLifeLostCN] = useClassNameToggle({
+    className: classes.animateLifeLost,
+    timeout: 350
+  })
+
+  useEffect(() => livesLeft !== maxLives && triggerLifeLostCN(), [livesLeft])
 
   return (
     <div className={classes.container(classNames.container)} {...otherProps}>
-      <span className={classes.text(classNames.text)} {...textProps}>
+      <Text
+        htmlElem="h5"
+        italic
+        type="primary-3"
+        className={classes.text(classNames.text)}
+        {...textProps}
+      >
         Lives
-      </span>
+      </Text>
       <div
-        className={classes.livesContainer(classNames.livesContainer)}
+        className={
+          classes.livesContainer(classNames.livesContainer) +
+          " " +
+          animateLifeLostCN
+        }
         {...livesContainerProps}
       >
-        {livesArray}
+        {renderLives(
+          maxLives,
+          livesLeft,
+          imgSrc,
+          imgAlt,
+          classes.life(classNames.life),
+          lifeProps
+        )}
       </div>
     </div>
   )

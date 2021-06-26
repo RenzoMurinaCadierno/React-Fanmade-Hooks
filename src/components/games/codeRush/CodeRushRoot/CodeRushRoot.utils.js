@@ -12,7 +12,7 @@ export const classes = {
   timerButton: (classNames) => classNames
 }
 
-export const defaultProps = { classNames: {} }
+export const defaultProps = { maxLives: 5, classNames: {} }
 
 export const propTypes = {
   classNames: PropTypes.exact({

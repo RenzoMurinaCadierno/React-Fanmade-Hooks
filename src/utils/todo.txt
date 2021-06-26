@@ -17,5 +17,7 @@ useClassNameToggle -> useValueToggle(value, timeout, offValue)
 
 test TOAST's useCallback to see renders, then pwa
 
+preload links https://blog.maximeheckel.com/posts/preloading-views-with-react/
+
 // commit msg
-Found bug on '*useLatency*' hook time calculation. Started fixing it.
+Fixed bug in '*useLatency*'. Started adding scoring and lives logic.
