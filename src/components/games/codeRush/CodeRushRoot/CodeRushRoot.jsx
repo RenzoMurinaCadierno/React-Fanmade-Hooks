@@ -18,24 +18,33 @@ export default function CodeRushRoot({
   timerButtonProps,
   ...otherProps
 }) {
-  const [code, setCode] = useState([`Tap to start game`])
+  const [code, setCode] = useState([`Tap button to start`])
   const [attempt, setAttempt] = useState([])
   const [score, setScore] = useState(0)
-  const [livesLeft, setLivesLeft] = useState(maxLives)
+  const [livesLeft, setLivesLeft] = useState(0)
 
   const setNewCodeAndClearAttempt = useCallback(() => {
     setCode(getCode())
     setAttempt([])
   }, [])
 
-  const triggerGameOver = useCallback((elapsedMs) => {
-    console.log("end!", elapsedMs)
-    setCode([`Time! Score: 999`])
-    setAttempt([])
+  const startGame = useCallback(() => {
+    setNewCodeAndClearAttempt()
+    setScore(0)
+    setLivesLeft(maxLives)
   }, [])
 
-  const loseOneLife = useCallback(
-    () => setLivesLeft((prevSt) => (prevSt ? --prevSt : prevSt)),
+  const triggerGameOver = useCallback((elapsedMs) => {
+    setCode([`Game over! Again?`])
+    setAttempt([])
+    loseLife(true)
+  }, [])
+
+  const loseLife = useCallback(
+    (loseAll) =>
+      setLivesLeft((prevSt) =>
+        loseAll === true ? 0 : prevSt ? --prevSt : prevSt
+      ),
     []
   )
 
@@ -64,10 +73,10 @@ export default function CodeRushRoot({
       </div>
       <CodeRush.TimerButton
         classNames={classes.timerButton(classNames.timerButton)}
-        timeout={5000}
+        timeout={500}
         {...{ score, livesLeft, maxLives }}
-        onGameStart={setNewCodeAndClearAttempt}
-        onLifeLost={loseOneLife}
+        onGameStart={startGame}
+        onLifeLost={loseLife}
         onGameOver={triggerGameOver}
         {...timerButtonProps}
       />

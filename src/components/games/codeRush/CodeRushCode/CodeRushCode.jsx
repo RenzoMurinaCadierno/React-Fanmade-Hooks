@@ -3,9 +3,16 @@ import { Text } from "hub"
 import { classes, defaultProps, propTypes } from "./CodeRushCode.utils"
 
 function CodeRushCode({ code, className }) {
+  const isGameInactive = code.length <= 1
+
   return (
-    <Text htmlElem="h4" className={classes.container(className)}>
-      {(code.length > 1 ? "Code: " : "") + code.join(" ")}
+    <Text
+      htmlElem={isGameInactive ? "h5" : "h4"}
+      italic={isGameInactive}
+      disabled={isGameInactive}
+      className={classes.container(className)}
+    >
+      {(isGameInactive ? "" : "Code: ") + code.join(" ")}
     </Text>
   )
 }

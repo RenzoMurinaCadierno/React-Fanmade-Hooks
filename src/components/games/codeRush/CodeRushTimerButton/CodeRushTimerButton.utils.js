@@ -22,6 +22,17 @@ export const propTypes = {
   })
 }
 
+export function getButtonText(
+  promptRestart,
+  isLatencyActive,
+  elapsedMs,
+  timeout
+) {
+  if (promptRestart) return "Tap to restart"
+  if (isLatencyActive) return getFormattedCountdown(elapsedMs, timeout)
+  return "Start game"
+}
+
 export function getFormattedCountdown(ms, limit) {
   const delta = limit - ms
   const rawRemaningMs = delta < 0 ? 0 : delta

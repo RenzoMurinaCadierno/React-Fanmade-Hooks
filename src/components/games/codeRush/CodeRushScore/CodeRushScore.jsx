@@ -2,7 +2,15 @@ import { useEffect, useState } from "react"
 import { useClassNameToggle, Text } from "hub"
 import { classes, defaultProps, propTypes } from "./CodeRushScore.utils"
 
-export default function CodeRushScore({ score, classNames }) {
+export default function CodeRushScore({
+  text,
+  score,
+  type,
+  classNames,
+  textProps,
+  valueProps,
+  ...otherProps
+}) {
   const [_score, _setScore] = useState(score)
 
   const [scoreAnimationCN, triggerScoreAnimation] = useClassNameToggle({
@@ -17,19 +25,21 @@ export default function CodeRushScore({ score, classNames }) {
   }, [score])
 
   return (
-    <div className={classes.container(classNames.container)}>
+    <div className={classes.container(classNames.container)} {...otherProps}>
       <Text
         htmlElem="h5"
         italic
-        type="primary-3"
+        type={type + "-3"}
         className={classes.text(classNames.text)}
+        {...textProps}
       >
-        Score
+        {text}
       </Text>
       <Text
         htmlElem="h6"
-        type="primary"
+        type={type + "-1"}
         className={classes.value(classNames.value) + " " + scoreAnimationCN}
+        {...valueProps}
       >
         {score}
       </Text>

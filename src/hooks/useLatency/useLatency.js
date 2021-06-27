@@ -24,7 +24,7 @@
 //   const reRenderOnAction = checkpointInterval || !doNotReRenderOnAction
 
 //   /* eslint-disable react-hooks/exhaustive-deps */
-//   const trigger = useCallback(
+//   const fire = useCallback(
 //     async (duration, onStart) => {
 //       await abort()
 //       refs.current.initTime = new Date().getTime()
@@ -80,7 +80,7 @@
 //     return () => clearInterval(interval)
 //   }, [isActive])
 
-//   return { isActive, trigger, release, abort, getElapsedMs }
+//   return { isActive, fire, release, abort, getElapsedMs }
 // }
 
 // async function _terminate(terminator, refsCurrent, elapsedMs) {
@@ -140,7 +140,7 @@ export default function useLatency(configs = {}) {
   const reRenderOnAction = !!(checkpointInterval || !doNotReRenderOnAction)
 
   /* eslint-disable react-hooks/exhaustive-deps */
-  const trigger = useCallback(
+  const fire = useCallback(
     async (duration, onStart) => {
       await abort()
       refs.current.initTime = new Date().getTime()
@@ -211,7 +211,7 @@ export default function useLatency(configs = {}) {
     return () => clearInterval(interval)
   }, [isActive])
 
-  return { isActive, trigger, release, abort, getElapsedMs }
+  return { isActive, fire, release, abort, getElapsedMs }
 }
 
 async function _terminate(terminator, refsCurrent, elapsedMs) {

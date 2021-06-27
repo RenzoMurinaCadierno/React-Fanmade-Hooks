@@ -5,7 +5,6 @@ import { classes, defaultProps, propTypes } from "./CodeRushNumPad.utils"
 export default function CodeRushNumPad({
   code,
   attempt,
-  disabled,
   setAttempt,
   classNames,
   ...otherProps
@@ -33,12 +32,10 @@ export default function CodeRushNumPad({
 
   return (
     <PhoneDial
-      // onButtonClick={onPhoneButtonClick}
-      // buttonProps={buttonProps}
-      genericButtonProps={{ disabled: code[0].length > 1 && !attempt.length }}
+      // genericButtonProps={{ disabled: code[0].length > 1 && !attempt.length }}
+      genericButtonProps={{ disabled: code[0].length > 1 }}
       onButtonClick={updateAttemptAndButtonProps}
       classNames={classes.numPad(classNames)}
-      // {...otherProps}
       {...{ buttonProps, ...otherProps }}
     />
   )

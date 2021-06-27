@@ -21,6 +21,8 @@ import { classes, defaultProps, propTypes } from "./Text.utils"
  *
  * `bold?` (boolean): applies "bold" style.
  *
+ * `noMargin?` (boolean): sets default margin to 0.
+ *
  * `textShadow?` (boolean): applies a text shadow. Used to contrast from
  *   backgrounds that might conflict with this component's `type` stylings.
  *
@@ -34,6 +36,7 @@ function Text({
   small,
   italic,
   bold,
+  noMargin,
   textShadow,
   className,
   onClick,
@@ -52,6 +55,7 @@ function Text({
         italic,
         bold,
         textShadow,
+        noMargin,
         onClick,
         className
       )}

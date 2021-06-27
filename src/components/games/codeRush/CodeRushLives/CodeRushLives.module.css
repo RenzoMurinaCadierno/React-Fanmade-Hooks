@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 90%;
+  transition: var(--generic-transition);
 }
 
 .Container[disabled] {
@@ -14,14 +15,13 @@
   align-items: center;
   border: 1px solid white;
   height: 7vh;
+  margin-top: var(--generic-margin-vw);
 }
 
 .Life {
   transition: var(--generic-transition);
   width: 3vw;
-  /* width: 80%; */
   opacity: 0.9;
-  /* margin: 0 0.3vw; */
 }
 
 .Life[disabled] {
@@ -66,22 +66,14 @@
   20%,
   100% {
     transform: scale(1);
-    /* opacity: 0.9; */
-    /* filter: grayscale(0); */
-    /* filter: hue-rotate(0deg); */
     filter: brightness(100%);
   }
   10% {
     transform: scale(1.05);
-    /* opacity: 1; */
     filter: brightness(110%);
-    /* filter: hue-rotate(30deg) grayscale(0.5); */
   }
   30% {
     transform: scale(0.95);
-    /* opacity: 0.8; */
     filter: brightness(90%);
-    /* filter: grayscale(0.5); */
-    /* filter: hue-rotate(30deg) grayscale(0.5); */
   }
 }

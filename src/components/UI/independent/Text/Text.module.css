@@ -152,6 +152,12 @@
 }
 /* classNames added by `bold` */
 
+/* classNames added by `noMargin` */
+.NoMargin {
+  margin: unset;
+}
+/* classNames added by `noMargin` */
+
 /* classNames added by `onClick` */
 .Clickable {
   cursor: pointer;

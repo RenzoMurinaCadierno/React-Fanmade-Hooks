@@ -8,12 +8,22 @@ export const classes = {
   scoreAnimation: styles.ScoreAnimation
 }
 
-export const defaultProps = { score: 0, classNames: {} }
+export const defaultProps = {
+  text: "Score",
+  score: 0,
+  type: "primary",
+  classNames: {}
+}
 
 export const propTypes = {
+  text: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
+  type: PropTypes.oneOf(["primary", "secondary", "danger"]),
   classNames: PropTypes.exact({
     container: PropTypes.string,
     text: PropTypes.string,
     value: PropTypes.string
-  })
+  }),
+  textProps: PropTypes.object,
+  valueProps: PropTypes.object
 }

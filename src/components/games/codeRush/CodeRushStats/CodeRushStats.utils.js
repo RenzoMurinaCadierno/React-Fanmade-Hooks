@@ -25,3 +25,5 @@ export const propTypes = {
     })
   })
 }
+
+export const textProps = { noMargin: true }

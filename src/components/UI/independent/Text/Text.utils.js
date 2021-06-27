@@ -9,6 +9,7 @@ export const classes = {
     italic,
     bold,
     textShadow,
+    noMargin,
     onClick,
     className
   ) =>
@@ -27,6 +28,8 @@ export const classes = {
     (textShadow ? styles["text-shadow-" + type.toLowerCase()] : "") +
     " " +
     (bold ? styles.Bold : "") +
+    " " +
+    (noMargin ? styles.NoMargin : "") +
     " " +
     (onClick ? styles.Clickable : "")
 }
@@ -58,7 +61,9 @@ export const propTypes = {
   type: PropTypes.oneOf(validTextTypes),
   italic: PropTypes.bool,
   bold: PropTypes.bool,
+  small: PropTypes.bool,
   textShadow: PropTypes.bool,
+  noMargin: PropTypes.bool,
   onClick: PropTypes.func,
   children: PropTypes.node,
   className: PropTypes.string
