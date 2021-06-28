@@ -22,7 +22,7 @@ function CodeRushStats({
   useEffect(() => {
     if (score > hiScore.current) ++hiScore.current
   }, [score])
-
+  add level while score increases
   return (
     <div className={classes.container(classNames.container)} {...otherProps}>
       <CodeRush.Score

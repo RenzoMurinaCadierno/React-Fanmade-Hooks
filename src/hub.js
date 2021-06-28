@@ -57,6 +57,7 @@ import useMountFlag from "./hooks/useMountFlag/useMountFlag"
 import usePreviousValue from "./hooks/usePreviousValue/usePreviousValue"
 import useReRender from "./hooks/useReRender/useReRender"
 import useToggle from "./hooks/useToggle/useToggle"
+import useTimeoutToggle from "./hooks/useTimeoutToggle/useTimeoutToggle"
 import useTimer from "./hooks/useTimer/useTimer"
 
 import UseAnimatedNumber from "./hooks/useAnimatedNumber/demo/UseAnimatedNumber"
@@ -130,6 +131,7 @@ export {
   useReRender,
   useToggle,
   useTimer,
+  useTimeoutToggle,
   UseAnimatedNumber,
   UseClassNameToggle,
   UseCallbackOnce,

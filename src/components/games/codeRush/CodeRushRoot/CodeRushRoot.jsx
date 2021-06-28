@@ -23,35 +23,32 @@ export default function CodeRushRoot({
   const [score, setScore] = useState(0)
   const [livesLeft, setLivesLeft] = useState(0)
 
-  const setNewCodeAndClearAttempt = useCallback(() => {
-    setCode(getCode())
+  const setupIteration = useCallback(({ score, isNewGame }) => {
+    setCode(getCode(score))
+    setScore((prevSt) => (isNewGame ? 0 : ++prevSt))
     setAttempt([])
+    isNewGame && setLivesLeft(maxLives)
   }, [])
 
-  const startGame = useCallback(() => {
-    setNewCodeAndClearAttempt()
-    setScore(0)
-    setLivesLeft(maxLives)
+  const handleGameStart = useCallback(() => {
+    setupIteration({ score: 0, isNewGame: true })
   }, [])
 
-  const triggerGameOver = useCallback((elapsedMs) => {
+  const handleGameOver = useCallback(() => {
     setCode([`Game over! Again?`])
     setAttempt([])
-    loseLife(true)
+    loseLife("all")
   }, [])
 
-  const loseLife = useCallback(
-    (loseAll) =>
-      setLivesLeft((prevSt) =>
-        loseAll === true ? 0 : prevSt ? --prevSt : prevSt
-      ),
-    []
-  )
+  const loseLife = useCallback((amount) => {
+    setLivesLeft((prevSt) =>
+      amount === "all" ? 0 : prevSt ? --prevSt : prevSt
+    )
+  }, [])
 
   useEffect(() => {
     if (haveExactValues(attempt, code)) {
-      setNewCodeAndClearAttempt()
-      setScore((prevSt) => ++prevSt)
+      setupIteration({ score, isNewGame: false })
     }
   }, [attempt])
 
@@ -73,11 +70,11 @@ export default function CodeRushRoot({
       </div>
       <CodeRush.TimerButton
         classNames={classes.timerButton(classNames.timerButton)}
-        timeout={500}
+        timeout={5000}
         {...{ score, livesLeft, maxLives }}
-        onGameStart={startGame}
+        onGameStart={handleGameStart}
         onLifeLost={loseLife}
-        onGameOver={triggerGameOver}
+        onGameOver={handleGameOver}
         {...timerButtonProps}
       />
     </div>

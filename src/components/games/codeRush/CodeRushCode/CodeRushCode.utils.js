@@ -1,7 +1,10 @@
 import PropTypes from "prop-types"
-// import sytles from './CodeRushCode.module.css'
+import styles from "./CodeRushCode.module.css"
 
-export const classes = { container: (className) => className }
+export const classes = {
+  container: (className) => (className ?? "") + " " + styles.Container,
+  animateCode: styles.AnimateCode
+}
 
 export const defaultProps = { code: [] }
 

@@ -17,7 +17,9 @@ useClassNameToggle -> useValueToggle(value, timeout, offValue)
 
 test TOAST's useCallback to see renders, then pwa
 
+comment useTimeoutToggle
+
 preload links https://blog.maximeheckel.com/posts/preloading-views-with-react/
 
 // commit msg
-Fixed bug in '*useLatency*'. Started adding scoring and lives logic.
+Raw typed '*useTimeoutToggle*', corrected abort bug in '*CodeRushTimerButton*'

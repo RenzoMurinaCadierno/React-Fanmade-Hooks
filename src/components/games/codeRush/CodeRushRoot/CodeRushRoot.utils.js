@@ -50,12 +50,16 @@ export const propTypes = {
 
 const digits = PhoneDial.VALUES // ['1', '2', '3', ..., '*']
 
-export function getCode() {
+export function getCode(score) {
+  // socre + 1 due to this function triggering before "score" state updates
+  const amountOfDigitsInCode = Math.floor((score + 1) / 2) + 2
   let code = []
-  while (code.length < 2) {
+
+  while (code.length < amountOfDigitsInCode) {
     const digit = digits[Math.floor(Math.random() * digits.length)]
     if (!code.includes(digit)) code = [...code, digit]
   }
+
   return code
 }
 
