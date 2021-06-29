@@ -1,7 +1,6 @@
 .Container {
   display: flex;
   flex-direction: column;
-  width: 90%;
   transition: var(--generic-transition);
 }
 
@@ -13,9 +12,9 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  border: 1px solid white;
-  height: 7vh;
-  margin-top: var(--generic-margin-vw);
+  height: 3.5vw;
+  margin-top: var(--small-margin-vw);
+  overflow: visible;
 }
 
 .Life {
@@ -37,16 +36,16 @@
   animation: animate-life-lost 345ms linear forwards;
 }
 
-.AnimateLastThreeLives {
-  animation: animate-last-lives 3000ms linear infinite;
+.AnimateThreeOrMoreLives {
+  animation: animate-heart-beat 3000ms 1500ms linear infinite;
 }
 
 .AnimateLastTwoLives {
-  animation: animate-last-lives 2000ms linear infinite;
+  animation: animate-heart-beat 2000ms 500ms linear infinite;
 }
 
 .AnimateLastLife {
-  animation: animate-last-lives 500ms linear infinite;
+  animation: animate-heart-beat 500ms linear infinite;
 }
 
 @keyframes animate-life-lost {
@@ -61,7 +60,7 @@
   }
 }
 
-@keyframes animate-last-lives {
+@keyframes animate-heart-beat {
   0%,
   20%,
   100% {

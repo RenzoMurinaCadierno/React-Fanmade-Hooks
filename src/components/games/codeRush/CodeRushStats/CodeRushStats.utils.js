@@ -27,3 +27,19 @@ export const propTypes = {
 }
 
 export const textProps = { noMargin: true }
+
+export const defaultPenaltyProps = {
+  textProps: { htmlElem: "h6", style: { marginBottom: "unset" } },
+  valueProps: { htmlElem: "p", bold: true }
+}
+
+export function getLevelValue(score, difficulty) {
+  let level = Math.floor(score / (5 - difficulty)) + 1
+  return level >= 12 ? 11 : level
+}
+
+export function getTimePenalty(score, difficulty) {
+  const level = Math.floor(score / (5 - difficulty)) + 1
+  // return level <= 2 ? "0ms" : `-${(level - 2) * 50}ms`
+  return `-${(level - 2) * 50}ms`
+}

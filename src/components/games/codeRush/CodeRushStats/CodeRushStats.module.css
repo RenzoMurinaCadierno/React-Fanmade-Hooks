@@ -1,8 +1,8 @@
 .Container {
-  width: inherit;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  width: 100%;
+  display: grid;
+  grid-template: 1fr 1fr 1fr / 1fr 1fr;
   align-items: center;
   border: 1px solid white;
+  overflow: visible;
 }

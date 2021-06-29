@@ -1,11 +1,10 @@
-import { useCallback, useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useClassNameToggle, Text } from "hub"
 import {
   classes,
   defaultProps,
   propTypes,
-  renderLives,
-  getPerilClassNames
+  renderLives
 } from "./CodeRushLives.utils"
 
 export default function CodeRushLives({

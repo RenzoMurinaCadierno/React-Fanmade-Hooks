@@ -21,11 +21,11 @@ export default function CodeRushNumPad({
         type: prevSt[name]?.type === "secondary" ? "primary" : "secondary"
       }
     }))
-    setAttempt((prevSt) =>
-      prevSt.includes(value)
+    setAttempt((prevSt) => {
+      return prevSt.includes(value)
         ? prevSt.filter((digit) => digit !== value)
         : [...prevSt, value]
-    )
+    })
   }, [])
 
   useEffect(() => !attempt.length && setButtonProps({}), [attempt])

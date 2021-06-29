@@ -86,8 +86,6 @@ export default function PhoneDial({
   )
 }
 
-PhoneDial.NAMES = NAMES
-PhoneDial.VALUES = VALUES
-PhoneDial.BUTTONS = BUTTONS
+PhoneDial.constants = { NAMES, VALUES, BUTTONS }
 PhoneDial.defaultProps = defaultProps
 PhoneDial.propTypes = propTypes

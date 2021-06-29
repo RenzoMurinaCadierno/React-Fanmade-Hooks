@@ -12,7 +12,7 @@ export const classes = {
   timerButton: (classNames) => classNames
 }
 
-export const defaultProps = { maxLives: 5, classNames: {} }
+export const defaultProps = { classNames: {} }
 
 export const propTypes = {
   classNames: PropTypes.exact({
@@ -48,12 +48,17 @@ export const propTypes = {
   })
 }
 
-const digits = PhoneDial.VALUES // ['1', '2', '3', ..., '*']
+const digits = PhoneDial.constants.VALUES // ['1', '2', '3', ..., '*']
 
-export function getCode(score) {
-  // socre + 1 due to this function triggering before "score" state updates
-  const amountOfDigitsInCode = Math.floor((score + 1) / 2) + 2
+export function getCode(score, difficulty = 2) {
   let code = []
+  // socre + 1 due to this function triggering before "score" state increases.
+  // difficulty levels are 1, 2 and 3. Code starts at 2 digits, and adds one
+  // extra digit after (level * correct answers)
+  let amountOfDigitsInCode = Math.floor((score + 1) / (5 - difficulty)) + 2
+
+  // 11 digits in code is max limit
+  amountOfDigitsInCode = amountOfDigitsInCode >= 12 ? 11 : amountOfDigitsInCode
 
   while (code.length < amountOfDigitsInCode) {
     const digit = digits[Math.floor(Math.random() * digits.length)]

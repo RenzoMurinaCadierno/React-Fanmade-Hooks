@@ -12,7 +12,7 @@ export default function UseCount() {
 }
 
 function CmpTest() {
-  return <CodeRush.Root classNames={classes.cmpTest} />
+  return <CodeRush classNames={classes.cmpTest} />
 }
 
 // function CmpTest() {

@@ -7,8 +7,8 @@
 
 .CmpTest {
   /* *'CmpTest*' wrapper */
-  width: 55%;
-  margin: 0 6.5% 0 2.5%;
+  width: 70%;
+  margin: 0 var(--small-margin-vw);
   /* height: 90%; */
   display: flex;
   align-items: center;

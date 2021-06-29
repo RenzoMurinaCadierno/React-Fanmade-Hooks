@@ -11,20 +11,19 @@ export const classes = {
   life: (className) => (className ?? "") + " " + styles.Life,
   livesLeftText: styles.LivesLeftText,
   animateLifeLost: styles.AnimateLifeLost,
-  animateLastThreeLives: styles.AnimateLastThreeLives,
+  animateThreeOrMoreLives: styles.AnimateThreeOrMoreLives,
   animateLastTwoLives: styles.AnimateLastTwoLives,
   animateLastLife: styles.AnimateLastLife
 }
 
 export const defaultProps = {
   imgSrc: heartSVG,
-  imgAlt: "lives",
+  imgAlt: "❤️",
   maxLives: 3,
   classNames: {}
 }
 
 export const propTypes = {
-  imgSrc: PropTypes.string,
   imgSrc: PropTypes.string,
   maxLives: validateMaxLives,
   onLifeLost: PropTypes.func,
@@ -64,31 +63,34 @@ export function renderLives(
   if (livesLeft >= 4) {
     return (
       <>
-        <img className={className} {...sharedProps} />
+        <img
+          className={className + " " + getHeartBeatCN(livesLeft)}
+          {...sharedProps}
+        />
         <Text htmlElem="h6" type="primary-2" className={classes.livesLeftText}>
           x {livesLeft}
         </Text>
       </>
     )
   }
-  console.log("render")
+
   return new Array(maxLives > 3 ? 3 : maxLives)
     .fill(null)
     .map((_, i) => (
       <img
         key={i}
         disabled={i >= livesLeft}
-        className={
-          className + " " + (i < livesLeft ? getPerilClassNames(livesLeft) : "")
-        }
+        className={className + " " + getHeartBeatCN(livesLeft, i >= livesLeft)}
         {...sharedProps}
       />
     ))
 }
 
-export function getPerilClassNames(livesLeft) {
-  if (livesLeft === 3) return classes.animateLastThreeLives
-  if (livesLeft === 2) return classes.animateLastTwoLives
-  if (livesLeft === 1) return classes.animateLastLife
+function getHeartBeatCN(livesLeft, isDisabled) {
+  if (!isDisabled) {
+    if (livesLeft >= 3) return classes.animateThreeOrMoreLives
+    if (livesLeft === 2) return classes.animateLastTwoLives
+    if (livesLeft === 1) return classes.animateLastLife
+  }
   return ""
 }

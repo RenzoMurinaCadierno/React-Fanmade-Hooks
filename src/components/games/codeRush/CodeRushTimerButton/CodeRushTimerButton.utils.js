@@ -22,6 +22,11 @@ export const propTypes = {
   })
 }
 
+export function getTimeoutForLevel(timeout, score, difficulty) {
+  const level = Math.floor(score / (5 - difficulty)) + 1
+  return level <= 2 ? timeout : timeout - (level - 2) * 50
+}
+
 export function getButtonText(
   promptRestart,
   isLatencyActive,
@@ -33,7 +38,7 @@ export function getButtonText(
   return "Start game"
 }
 
-export function getFormattedCountdown(ms, limit) {
+function getFormattedCountdown(ms, limit) {
   const delta = limit - ms
   const rawRemaningMs = delta < 0 ? 0 : delta
   const remainingSecs = Math.floor(rawRemaningMs / 1000).toString()

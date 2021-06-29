@@ -9,7 +9,9 @@ import {
 } from "./CodeRushRoot.utils"
 
 export default function CodeRushRoot({
-  maxLives,
+  timeout,
+  maxLives = CodeRush.constants.MAX_LIVES,
+  difficulty = CodeRush.constants.difficulty.HARD,
   classNames,
   codeProps,
   numPadAndStatsProps,
@@ -24,7 +26,7 @@ export default function CodeRushRoot({
   const [livesLeft, setLivesLeft] = useState(0)
 
   const setupIteration = useCallback(({ score, isNewGame }) => {
-    setCode(getCode(score))
+    setCode(getCode(score, difficulty))
     setScore((prevSt) => (isNewGame ? 0 : ++prevSt))
     setAttempt([])
     isNewGame && setLivesLeft(maxLives)
@@ -66,16 +68,18 @@ export default function CodeRushRoot({
           classNames={classes.numPad(classNames.numPad)}
           {...{ code, attempt, setAttempt, ...numPadProps }}
         />
-        <CodeRush.Stats {...{ score, livesLeft, maxLives }} {...statsProps} />
+        <CodeRush.Stats
+          {...{ difficulty, score, livesLeft, maxLives, ...statsProps }}
+        />
       </div>
       <CodeRush.TimerButton
-        classNames={classes.timerButton(classNames.timerButton)}
-        timeout={5000}
-        {...{ score, livesLeft, maxLives }}
+        // easy: 6000, normal: 5000, hard: 4000
+        timeout={timeout || (7 - difficulty) * 1000}
         onGameStart={handleGameStart}
         onLifeLost={loseLife}
         onGameOver={handleGameOver}
-        {...timerButtonProps}
+        classNames={classes.timerButton(classNames.timerButton)}
+        {...{ difficulty, score, livesLeft, maxLives, ...timerButtonProps }}
       />
     </div>
   )

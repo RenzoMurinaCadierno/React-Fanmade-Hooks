@@ -4,10 +4,14 @@ import {
   classes,
   defaultProps,
   propTypes,
-  textProps
+  textProps,
+  defaultPenaltyProps,
+  getLevelValue,
+  getTimePenalty
 } from "./CodeRushStats.utils"
 
 function CodeRushStats({
+  difficulty,
   score,
   maxLives,
   livesLeft,
@@ -15,34 +19,56 @@ function CodeRushStats({
   hiScoreProps,
   scoreProps,
   livesProps,
+  levelProps,
+  penaltyProps,
   ...otherProps
 }) {
   const hiScore = useRef(0)
+  const timePenalty = getTimePenalty(score, difficulty)
 
   useEffect(() => {
     if (score > hiScore.current) ++hiScore.current
   }, [score])
-  add level while score increases
+  // add level while score increases
   return (
     <div className={classes.container(classNames.container)} {...otherProps}>
-      <CodeRush.Score
-        type="secondary"
-        text="High"
-        score={score > hiScore.current ? score : hiScore.current}
-        {...{ textProps, ...hiScoreProps }}
-      />
-      <CodeRush.Score
+      <CodeRush.Counter
+        text="Score"
+        value={score}
         disabled={!livesLeft}
-        {...{ score, textProps, ...scoreProps }}
+        {...{ textProps, ...scoreProps }}
+      />
+      <CodeRush.Counter
+        text="High"
+        value={score > hiScore.current ? score : hiScore.current}
+        type="secondary"
+        transitionDirection="reverse"
+        {...{ textProps, ...hiScoreProps }}
       />
       <CodeRush.Lives
         disabled={!livesLeft}
         {...{ maxLives, livesLeft, textProps, ...scoreProps }}
       />
+      <CodeRush.Counter
+        text="Level"
+        value={getLevelValue(score, difficulty)}
+        transitionDirection="reverse"
+        disabled={!livesLeft}
+        {...{ textProps, ...levelProps }}
+      />
+      <div />
+      <CodeRush.Counter
+        text="Penalty"
+        value={getTimePenalty(score, difficulty)}
+        type="danger"
+        transitionAxis="y"
+        disabled={!livesLeft || timePenalty === "0ms"}
+        {...{ ...defaultPenaltyProps, ...penaltyProps }}
+      />
     </div>
   )
 }
-
+disabled lives animate, they should not! filler div, what to add?
 CodeRushStats.defaultProps = defaultProps
 CodeRushStats.propTypes = propTypes
 
