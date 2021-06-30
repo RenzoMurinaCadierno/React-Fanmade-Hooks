@@ -1,17 +1,19 @@
-import { useState, useEffect, useCallback } from "react"
 import { CodeRush } from "hub"
-import {
-  classes,
-  defaultProps,
-  propTypes,
-  getCode,
-  haveExactValues
-} from "./CodeRushRoot.utils"
+import { classes, defaultProps, propTypes } from "./CodeRushRoot.utils"
 
 export default function CodeRushRoot({
   timeout,
-  maxLives = CodeRush.constants.MAX_LIVES,
-  difficulty = CodeRush.constants.difficulty.HARD,
+  code,
+  attempt,
+  score,
+  livesLeft,
+  maxLives,
+  mode,
+  handleGameStart,
+  handleGameOver,
+  updateAttempt,
+  loseLife,
+  switchMode,
   classNames,
   codeProps,
   numPadAndStatsProps,
@@ -20,40 +22,6 @@ export default function CodeRushRoot({
   timerButtonProps,
   ...otherProps
 }) {
-  const [code, setCode] = useState([`Tap button to start`])
-  const [attempt, setAttempt] = useState([])
-  const [score, setScore] = useState(0)
-  const [livesLeft, setLivesLeft] = useState(0)
-
-  const setupIteration = useCallback(({ score, isNewGame }) => {
-    setCode(getCode(score, difficulty))
-    setScore((prevSt) => (isNewGame ? 0 : ++prevSt))
-    setAttempt([])
-    isNewGame && setLivesLeft(maxLives)
-  }, [])
-
-  const handleGameStart = useCallback(() => {
-    setupIteration({ score: 0, isNewGame: true })
-  }, [])
-
-  const handleGameOver = useCallback(() => {
-    setCode([`Game over! Again?`])
-    setAttempt([])
-    loseLife("all")
-  }, [])
-
-  const loseLife = useCallback((amount) => {
-    setLivesLeft((prevSt) =>
-      amount === "all" ? 0 : prevSt ? --prevSt : prevSt
-    )
-  }, [])
-
-  useEffect(() => {
-    if (haveExactValues(attempt, code)) {
-      setupIteration({ score, isNewGame: false })
-    }
-  }, [attempt])
-
   return (
     <div className={classes.container(classNames.container)} {...otherProps}>
       <CodeRush.Code
@@ -65,21 +33,22 @@ export default function CodeRushRoot({
         {...numPadAndStatsProps}
       >
         <CodeRush.NumPad
+          onUpdateAttempt={updateAttempt}
           classNames={classes.numPad(classNames.numPad)}
-          {...{ code, attempt, setAttempt, ...numPadProps }}
+          {...{ code, attempt, ...numPadProps }}
         />
         <CodeRush.Stats
-          {...{ difficulty, score, livesLeft, maxLives, ...statsProps }}
+          {...{ mode, switchMode, score, livesLeft, maxLives, ...statsProps }}
         />
       </div>
       <CodeRush.TimerButton
         // easy: 6000, normal: 5000, hard: 4000
-        timeout={timeout || (7 - difficulty) * 1000}
+        timeout={timeout || (7 - mode) * 1000}
         onGameStart={handleGameStart}
         onLifeLost={loseLife}
         onGameOver={handleGameOver}
         classNames={classes.timerButton(classNames.timerButton)}
-        {...{ difficulty, score, livesLeft, maxLives, ...timerButtonProps }}
+        {...{ mode, score, livesLeft, maxLives, ...timerButtonProps }}
       />
     </div>
   )

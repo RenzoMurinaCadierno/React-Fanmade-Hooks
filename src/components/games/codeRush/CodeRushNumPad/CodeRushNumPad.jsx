@@ -5,7 +5,7 @@ import { classes, defaultProps, propTypes } from "./CodeRushNumPad.utils"
 export default function CodeRushNumPad({
   code,
   attempt,
-  setAttempt,
+  onUpdateAttempt,
   classNames,
   ...otherProps
 }) {
@@ -21,11 +21,7 @@ export default function CodeRushNumPad({
         type: prevSt[name]?.type === "secondary" ? "primary" : "secondary"
       }
     }))
-    setAttempt((prevSt) => {
-      return prevSt.includes(value)
-        ? prevSt.filter((digit) => digit !== value)
-        : [...prevSt, value]
-    })
+    onUpdateAttempt(value)
   }, [])
 
   useEffect(() => !attempt.length && setButtonProps({}), [attempt])

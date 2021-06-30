@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react"
-import { useLatency, useTimeoutToggle, Button } from "hub"
+import { useLatency, useTimeoutToggle, Button, CodeRush } from "hub"
 import {
   classes,
   defaultProps,
   propTypes,
   getTimeoutForLevel,
-  getButtonText
+  getButtonText,
+  getButtonType
 } from "./CodeRushTimerButton.utils"
 
 export default function CodeRushTimerButton({
   timeout,
-  difficulty,
+  mode,
   livesLeft,
   maxLives,
   score,
@@ -21,60 +22,68 @@ export default function CodeRushTimerButton({
   ...otherProps
 }) {
   const [elapsedMs, setElapsedMs] = useState(0)
-  const [promptRestart, togglePromptRestart] = useTimeoutToggle(1000)
+  const [isPromptingRestart, toggleIsPromptingRestart] = useTimeoutToggle(1500)
 
   const latency = useLatency({
-    checkpointInterval: 187,
+    checkpointInterval: 87,
     onCheckpoint: (ms) => setElapsedMs(ms)
-    // abortAtMs: 500,
+    // abortAtMs: _timeout
     // releaseAtMs: 200
     // doNotReRenderOnAction: true
   })
+  test everything working here and start commenting
+  const _timeout = getTimeoutForLevel(timeout, score, mode)
+
+  function triggerCountdown(onStart = () => setElapsedMs(0)) {
+    latency.fire(_timeout, onStart).then(onLifeLost).catch(triggerCountdown)
+  }
+
+  function endGame() {
+    latency.release()
+    setElapsedMs(0)
+    toggleIsPromptingRestart(false)
+    onGameOver?.()
+  }
+
+  function handleClick() {
+    if (latency.isActive) {
+      if (isPromptingRestart) return endGame()
+      return toggleIsPromptingRestart(true)
+    }
+    triggerCountdown(onGameStart)
+  }
+
 
   // on each score change but not on the last life
   useEffect(() => score && livesLeft && latency.abort(), [score])
 
   useEffect(() => {
     // on each life change except at game start
-    if (livesLeft && livesLeft !== maxLives) countdown()
+    if (livesLeft && livesLeft !== maxLives) triggerCountdown()
     // on last life when game is running (elapsedMs !== 0)
-    else if (!livesLeft && elapsedMs) restartGame()
+    else if (!livesLeft && elapsedMs) endGame()
   }, [livesLeft])
-
-  function countdown(onStart = () => setElapsedMs(0)) {
-    latency
-      .fire(getTimeoutForLevel(timeout, score, difficulty), onStart)
-      .then(onLifeLost)
-      .catch(countdown)
-  }
-
-  function restartGame() {
-    latency.release()
-    setElapsedMs(0)
-    togglePromptRestart(false)
-    onGameOver?.()
-  }
-
-  function handleButtonClick() {
-    if (latency.isActive) {
-      if (promptRestart) return restartGame()
-      return togglePromptRestart(true)
-    }
-    countdown(onGameStart)
-  }
 
   return (
     <Button.WithProgress
       min={0}
-      value={elapsedMs}
-      max={timeout}
+      // higher values result in bonus time, but progress' value to max to
+      // avoid prop-type errors
+      value={elapsedMs > _timeout ? _timeout : elapsedMs}
+      max={_timeout}
       showSpinner={latency.isActive}
-      type={promptRestart ? "secondary" : "primary"}
-      onClick={handleButtonClick}
+      type={getButtonType(isPromptingRestart, elapsedMs, _timeout)}
+      onClick={handleClick}
       classNames={classes.timerButton(classNames)}
       {...otherProps}
     >
-      {getButtonText(promptRestart, latency.isActive, elapsedMs, timeout)}
+      {getButtonText(
+        isPromptingRestart,
+        latency.isActive,
+        elapsedMs,
+        _timeout,
+        CodeRush.constants.texts.timer
+      )}
     </Button.WithProgress>
   )
 }

@@ -8,6 +8,7 @@
 
 .Container[disabled] {
   filter: var(--disabled-filter);
+  cursor: not-allowed;
 }
 
 .Value {

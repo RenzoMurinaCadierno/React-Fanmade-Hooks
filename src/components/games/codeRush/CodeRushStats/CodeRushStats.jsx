@@ -5,13 +5,16 @@ import {
   defaultProps,
   propTypes,
   textProps,
-  defaultPenaltyProps,
+  smallCounterProps,
+  getDefaultModeProps,
   getLevelValue,
-  getTimePenalty
+  getTimePenaltyValue,
+  getModeValue
 } from "./CodeRushStats.utils"
 
 function CodeRushStats({
-  difficulty,
+  mode,
+  switchMode,
   score,
   maxLives,
   livesLeft,
@@ -21,10 +24,11 @@ function CodeRushStats({
   livesProps,
   levelProps,
   penaltyProps,
+  modeProps,
   ...otherProps
 }) {
   const hiScore = useRef(0)
-  const timePenalty = getTimePenalty(score, difficulty)
+  const timePenaltyValue = getTimePenaltyValue(score, mode, livesLeft)
 
   useEffect(() => {
     if (score > hiScore.current) ++hiScore.current
@@ -36,6 +40,7 @@ function CodeRushStats({
         text="Score"
         value={score}
         disabled={!livesLeft}
+        classNames={classes.score(classNames.score)}
         {...{ textProps, ...scoreProps }}
       />
       <CodeRush.Counter
@@ -43,6 +48,7 @@ function CodeRushStats({
         value={score > hiScore.current ? score : hiScore.current}
         type="secondary"
         transitionDirection="reverse"
+        classNames={classes.highScore(classNames.highScore)}
         {...{ textProps, ...hiScoreProps }}
       />
       <CodeRush.Lives
@@ -51,24 +57,36 @@ function CodeRushStats({
       />
       <CodeRush.Counter
         text="Level"
-        value={getLevelValue(score, difficulty)}
+        value={getLevelValue(score, mode, livesLeft)}
         transitionDirection="reverse"
         disabled={!livesLeft}
+        classNames={classes.level(classNames.level)}
         {...{ textProps, ...levelProps }}
       />
-      <div />
       <CodeRush.Counter
         text="Penalty"
-        value={getTimePenalty(score, difficulty)}
+        value={timePenaltyValue}
         type="danger"
         transitionAxis="y"
-        disabled={!livesLeft || timePenalty === "0ms"}
-        {...{ ...defaultPenaltyProps, ...penaltyProps }}
+        transitionDirection="reverse"
+        disabled={!livesLeft || timePenaltyValue === "0ms"}
+        classNames={classes.penalty(classNames.penalty)}
+        {...{ ...smallCounterProps, ...penaltyProps }}
+      />
+      <CodeRush.Counter
+        text="Mode"
+        value={getModeValue(mode)}
+        type="secondary"
+        transitionAxis="y"
+        disabled={livesLeft}
+        onClick={livesLeft ? null : switchMode}
+        classNames={classes.mode(classNames.mode)}
+        {...{ ...getDefaultModeProps(mode), ...modeProps }}
       />
     </div>
   )
 }
-disabled lives animate, they should not! filler div, what to add?
+
 CodeRushStats.defaultProps = defaultProps
 CodeRushStats.propTypes = propTypes
 

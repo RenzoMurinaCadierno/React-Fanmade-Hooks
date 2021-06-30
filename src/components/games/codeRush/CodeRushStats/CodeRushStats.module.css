@@ -6,3 +6,13 @@
   border: 1px solid white;
   overflow: visible;
 }
+
+.Mode {
+  transition: var(--generic-transition);
+  cursor: pointer;
+}
+
+.Mode:hover:not([disabled]),
+.Mode:active:not([disabled]) {
+  transform: scale(1.05);
+}
