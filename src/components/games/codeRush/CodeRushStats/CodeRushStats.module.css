@@ -1,13 +1,15 @@
+/* all devices landscape */
 .Container {
+  /* wrapper container '*div*' */
   width: 100%;
   display: grid;
   grid-template: 1fr 1fr 1fr / 1fr 1fr;
   align-items: center;
-  border: 1px solid white;
   overflow: visible;
 }
 
 .Mode {
+  /* 'mode' '*CodeRush.Counter*' `className.container` */
   transition: var(--generic-transition);
   cursor: pointer;
 }
@@ -16,3 +18,18 @@
 .Mode:active:not([disabled]) {
   transform: scale(1.05);
 }
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    /* wrapper container '*div*' */
+    width: 100%;
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr 1fr;
+    align-items: center;
+    overflow: visible;
+    border: 1px solid gray;
+  }
+}
+/* end all devices portrait */

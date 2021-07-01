@@ -1,5 +1,5 @@
-import { memo, useEffect, useRef } from "react"
 import { CodeRush } from "hub"
+import { memo } from "react"
 import {
   classes,
   defaultProps,
@@ -16,8 +16,10 @@ function CodeRushStats({
   mode,
   switchMode,
   score,
+  hiScores,
   maxLives,
   livesLeft,
+  timePenalty,
   classNames,
   hiScoreProps,
   scoreProps,
@@ -27,13 +29,13 @@ function CodeRushStats({
   modeProps,
   ...otherProps
 }) {
-  const hiScore = useRef(0)
-  const timePenaltyValue = getTimePenaltyValue(score, mode, livesLeft)
-
-  useEffect(() => {
-    if (score > hiScore.current) ++hiScore.current
-  }, [score])
-  // add level while score increases
+  const timePenaltyValue = getTimePenaltyValue(
+    score,
+    mode,
+    livesLeft,
+    timePenalty
+  )
+    change level and lives order, continue with vh css
   return (
     <div className={classes.container(classNames.container)} {...otherProps}>
       <CodeRush.Counter
@@ -45,7 +47,7 @@ function CodeRushStats({
       />
       <CodeRush.Counter
         text="High"
-        value={score > hiScore.current ? score : hiScore.current}
+        value={hiScores[mode]}
         type="secondary"
         transitionDirection="reverse"
         classNames={classes.highScore(classNames.highScore)}
@@ -90,4 +92,5 @@ function CodeRushStats({
 CodeRushStats.defaultProps = defaultProps
 CodeRushStats.propTypes = propTypes
 
+// `memo` prevents an extra render on each '*PhoneDial*' button click
 export default memo(CodeRushStats)

@@ -218,6 +218,12 @@
   }
   /* end classNames added by `small` */
 
+  /* classNames added by `noMargin` */
+  .NoMargin {
+    margin: unset;
+  }
+  /* classNames added by `noMargin` */
+
   /* classNames added by `textShadow` */
   .text-shadow-primary,
   .text-shadow-primary-0 {

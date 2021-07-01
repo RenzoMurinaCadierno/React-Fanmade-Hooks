@@ -6,8 +6,10 @@ export default function CodeRushRoot({
   code,
   attempt,
   score,
+  hiScores,
   livesLeft,
   maxLives,
+  timePenalty,
   mode,
   handleGameStart,
   handleGameOver,
@@ -38,7 +40,16 @@ export default function CodeRushRoot({
           {...{ code, attempt, ...numPadProps }}
         />
         <CodeRush.Stats
-          {...{ mode, switchMode, score, livesLeft, maxLives, ...statsProps }}
+          {...{
+            mode,
+            switchMode,
+            score,
+            hiScores,
+            livesLeft,
+            maxLives,
+            timePenalty,
+            ...statsProps
+          }}
         />
       </div>
       <CodeRush.TimerButton
@@ -48,7 +59,14 @@ export default function CodeRushRoot({
         onLifeLost={loseLife}
         onGameOver={handleGameOver}
         classNames={classes.timerButton(classNames.timerButton)}
-        {...{ mode, score, livesLeft, maxLives, ...timerButtonProps }}
+        {...{
+          mode,
+          score,
+          livesLeft,
+          maxLives,
+          timePenalty,
+          ...timerButtonProps
+        }}
       />
     </div>
   )

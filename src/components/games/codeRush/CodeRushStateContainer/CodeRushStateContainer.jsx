@@ -1,15 +1,21 @@
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect, useCallback, useRef } from "react"
 import { CodeRush } from "hub"
 import { haveExactValues, getCode } from "./CodeRushStateContainer.utils"
 
 export default function CodeRushStateContainer({
   maxLives = CodeRush.constants.MAX_LIVES,
   difficulty = CodeRush.constants.difficulty.HARD,
+  timePenalty = CodeRush.constants.TIME_PENALTY,
   ...otherProps
 }) {
   const [code, setCode] = useState([CodeRush.constants.texts.code.START_GAME])
   const [attempt, setAttempt] = useState([])
   const [score, setScore] = useState(0)
+  const [hiScores, setHiScores] = useState({
+    [CodeRush.constants.difficulty.EASY]: 0,
+    [CodeRush.constants.difficulty.NORMAL]: 0,
+    [CodeRush.constants.difficulty.HARD]: 0
+  })
   const [livesLeft, setLivesLeft] = useState(0)
   const [mode, setMode] = useState(difficulty)
 
@@ -57,14 +63,22 @@ export default function CodeRushStateContainer({
     }
   }, [attempt])
 
+  useEffect(() => {
+    if (score >= hiScores[mode]) {
+      setHiScores((prevSt) => ({ ...prevSt, [mode]: score }))
+    }
+  }, [score])
+
   return (
     <CodeRush.Root
       {...{
         code,
         attempt,
         score,
+        hiScores,
         maxLives,
         livesLeft,
+        timePenalty,
         mode,
         handleGameStart,
         handleGameOver,

@@ -1,4 +1,5 @@
 import PropTypes from "prop-types"
+import { CodeRush } from "hub"
 import styles from "./CodeRushStats.module.css"
 
 export const classes = {
@@ -29,6 +30,21 @@ const countersPropTypes = counterKeys.reduce(
 )
 
 export const propTypes = {
+  mode: PropTypes.oneOf([
+    CodeRush.constants.difficulty.EASY,
+    CodeRush.constants.difficulty.NORMAL,
+    CodeRush.constants.difficulty.HARD
+  ]).isRequired,
+  switchMode: PropTypes.func,
+  score: PropTypes.number.isRequired,
+  hiScores: PropTypes.exact({
+    [CodeRush.constants.difficulty.EASY]: PropTypes.number,
+    [CodeRush.constants.difficulty.NORMAL]: PropTypes.number,
+    [CodeRush.constants.difficulty.HARD]: PropTypes.number
+  }),
+  maxLives: PropTypes.number.isRequired,
+  livesLeft: PropTypes.number.isRequired,
+  timePenalty: PropTypes.number.isRequired,
   classNames: PropTypes.exact({
     container: PropTypes.string,
     ...countersPropTypes,
@@ -38,7 +54,13 @@ export const propTypes = {
       livesContainer: PropTypes.string,
       life: PropTypes.string
     })
-  })
+  }),
+  scoreProps: PropTypes.object,
+  hiScoreProps: PropTypes.object,
+  livesProps: PropTypes.object,
+  levelProps: PropTypes.object,
+  penaltyProps: PropTypes.object,
+  modeProps: PropTypes.object
 }
 
 export const textProps = { noMargin: true }
@@ -67,10 +89,10 @@ export function getLevelValue(score, difficulty, livesLeft) {
   return level >= 12 ? 11 : level
 }
 
-export function getTimePenaltyValue(score, mode, livesLeft) {
+export function getTimePenaltyValue(score, mode, livesLeft, timePenaltyInMs) {
   if (!livesLeft) return "0ms"
   const level = Math.floor(score / (5 - mode)) + 1
-  return level <= 2 ? "0ms" : `-${(level - 2) * 50}ms`
+  return level <= 2 ? "0ms" : `-${(level - 2) * timePenaltyInMs}ms`
 }
 
 export function getModeValue(mode) {

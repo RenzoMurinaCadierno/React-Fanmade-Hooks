@@ -1,6 +1,19 @@
+/* all devices landscape */
 .NumPadAndStats {
+  /* wrapper container '*div*' for '*CodeRush.NumPad*' and '*CodeRush.Stats*' */
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: 1px solid white;
 }
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .NumPadAndStats {
+    /* wrapper container '*div*' for '*CodeRush.NumPad*' and '*CodeRush.Stats*' */
+    flex-direction: column;
+  }
+}
+/* end all devices portrait */

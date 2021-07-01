@@ -22,11 +22,9 @@ export const propTypes = {
   })
 }
 
-export function getTimeoutForLevel(timeout, score, mode) {
+export function getTimeoutForLevel(timeout, score, mode, timePenaltyInMs) {
   const level = Math.floor(score / (5 - mode)) + 1
-  // console.log(level <= 1 ? timeout : timeout - level * 500)
-  // return level <= 1 ? timeout : timeout - level * 500
-  return level <= 2 ? timeout : timeout - (level - 2) * 50
+  return level <= 2 ? timeout : timeout - (level - 2) * timePenaltyInMs
 }
 
 export function getButtonText(
@@ -45,18 +43,19 @@ export function getButtonText(
 }
 
 export function getButtonType(promptRestart, elapsedMs, timeout) {
-  if (promptRestart) return "danger"
-  if (elapsedMs > timeout) return "secondary"
+  if (promptRestart) return "secondary"
+  if (elapsedMs > timeout) return "danger"
   return "primary"
 }
 
 function getFormattedCountdown(ms, limit, bonusText) {
   const delta = limit - ms
-  if (delta < 0) return bonusText
-  const rawRemaningMs = delta <= 0 ? 0 : delta
+  const rawRemaningMs = delta <= 0 ? delta + limit : delta
   const remainingSecs = Math.floor(rawRemaningMs / 1000).toString()
   const remainingMs = rawRemaningMs % 1000
-  return remainingSecs + ":" + addTrailingZeros(remainingMs)
+  const stringifiedTime = remainingSecs + ":" + addTrailingZeros(remainingMs)
+
+  return delta > 0 ? stringifiedTime : bonusText + " " + stringifiedTime
 }
 
 function addTrailingZeros(number, qtyOfZeros = 3) {

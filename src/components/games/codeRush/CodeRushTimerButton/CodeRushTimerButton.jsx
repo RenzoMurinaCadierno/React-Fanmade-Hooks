@@ -14,6 +14,7 @@ export default function CodeRushTimerButton({
   mode,
   livesLeft,
   maxLives,
+  timePenalty,
   score,
   onGameStart,
   onLifeLost,
@@ -31,8 +32,8 @@ export default function CodeRushTimerButton({
     // releaseAtMs: 200
     // doNotReRenderOnAction: true
   })
-  test everything working here and start commenting
-  const _timeout = getTimeoutForLevel(timeout, score, mode)
+
+  const _timeout = getTimeoutForLevel(timeout, score, mode, timePenalty)
 
   function triggerCountdown(onStart = () => setElapsedMs(0)) {
     latency.fire(_timeout, onStart).then(onLifeLost).catch(triggerCountdown)
@@ -52,7 +53,6 @@ export default function CodeRushTimerButton({
     }
     triggerCountdown(onGameStart)
   }
-
 
   // on each score change but not on the last life
   useEffect(() => score && livesLeft && latency.abort(), [score])

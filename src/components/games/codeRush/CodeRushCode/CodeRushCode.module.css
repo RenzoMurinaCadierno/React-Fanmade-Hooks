@@ -1,11 +1,15 @@
+/* all devices landscape */
 .Container {
+  /* '*Text*' className */
   width: 90%;
 }
 
 .AnimateCode {
   animation: animate-code 245ms linear forwards;
 }
+/* end all devices landscape */
 
+/* animation keyframes */
 @keyframes animate-code {
   0% {
     transform: translateY(0);
@@ -20,3 +24,4 @@
     opacity: 0;
   }
 }
+/* end animation keyframes */

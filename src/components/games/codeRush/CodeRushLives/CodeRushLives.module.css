@@ -1,6 +1,9 @@
+/* all devices landscape */
 .Container {
+  /* wrapper container '*figure*' */
   display: flex;
   flex-direction: column;
+  margin: 0;
   transition: var(--generic-transition);
 }
 
@@ -9,15 +12,16 @@
 }
 
 .LivesContainer {
+  /* 'lives' container '*div*' */
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   height: 3.5vw;
   margin-top: var(--small-margin-vw);
-  overflow: visible;
 }
 
 .Life {
+  /* 'life' '*img*' */
   transition: var(--generic-transition);
   width: 3vw;
   opacity: 0.9;
@@ -29,25 +33,47 @@
 }
 
 .LivesLeftText {
+  /* '*Text*' when `livesLeft` > 3 */
   margin: unset;
 }
 
 .AnimateLifeLost {
+  /* className added by `animateLifeLostCN` */
   animation: animate-life-lost 345ms linear forwards;
 }
 
 .AnimateThreeOrMoreLives {
+  /* className added by "getHeartBeatCN" helper function on `livesLeft` > 3 */
   animation: animate-heart-beat 3000ms 1500ms linear infinite;
 }
 
 .AnimateLastTwoLives {
-  animation: animate-heart-beat 2000ms 500ms linear infinite;
+  /* className added by "getHeartBeatCN" helper function on `livesLeft` === 2 */
+  animation: animate-heart-beat 1500ms 500ms linear infinite;
 }
 
 .AnimateLastLife {
+  /* className added by "getHeartBeatCN" helper function on `livesLeft` === 1 */
   animation: animate-heart-beat 500ms linear infinite;
 }
+/* end all devices landscape */
 
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .LivesContainer {
+    /* 'lives' container '*div*' */
+    height: 3.5vh;
+    margin-top: var(--small-margin-vh);
+  }
+
+  .Life {
+    /* 'life' '*img*' */
+    width: 3vh;
+  }
+}
+/* end all devices portrait */
+
+/* animation keyframes */
 @keyframes animate-life-lost {
   0%,
   100% {
@@ -76,3 +102,4 @@
     filter: brightness(90%);
   }
 }
+/* end animation keyframes */

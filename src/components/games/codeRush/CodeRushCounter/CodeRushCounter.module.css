@@ -1,4 +1,6 @@
+/* all devices landscape */
 .Container {
+  /* wrapper container '*div*' */
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -12,26 +14,43 @@
 }
 
 .Value {
+  /* 'value' '*Text*' */
   height: 3.5vw;
   margin-top: var(--small-margin-vw);
 }
 
 .ValueAnimationHorizontal {
+  /* `transitionAxis` === 'x' && `transitionDirection === 'forwards' */
   animation: value-animation-horizontal 250ms linear forwards;
 }
 
 .ValueAnimationVertical {
+  /* `transitionAxis` === 'y' && `transitionDirection === 'forwards' */
   animation: value-animation-vertical 250ms linear forwards;
 }
 
 .ValueAnimationHorizontalReverse {
+  /* `transitionAxis` === 'x' && `transitionDirection === 'reverse' `*/
   animation: value-animation-horizontal 250ms linear reverse;
 }
 
 .ValueAnimationVerticalReverse {
+  /* `transitionAxis` === 'y' && `transitionDirection === 'reverse' `*/
   animation: value-animation-vertical 250ms linear reverse;
 }
+/* end all devices landscape */
 
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  /* 'value' '*Text*' */
+  .Value {
+    height: 3.5vh;
+    margin-top: var(--small-margin-vh);
+  }
+}
+/* end all devices landscape */
+
+/* animation keyframes */
 @keyframes value-animation-horizontal {
   0%,
   100% {
@@ -63,3 +82,4 @@
     transform: translateY(-100%);
   }
 }
+/* end animation keyframes */

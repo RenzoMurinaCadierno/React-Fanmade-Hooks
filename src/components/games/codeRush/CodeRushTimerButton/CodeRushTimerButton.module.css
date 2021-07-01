@@ -1,5 +1,8 @@
+/* all devices landscape */
 .Button {
+  /* '*Button.WithProgress*' inner '*Button*' */
   width: 75%;
   display: flex;
   justify-content: center;
 }
+/* end all devices landscape */

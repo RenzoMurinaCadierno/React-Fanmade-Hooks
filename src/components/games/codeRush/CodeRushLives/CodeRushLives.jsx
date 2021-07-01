@@ -27,16 +27,18 @@ export default function CodeRushLives({
   useEffect(() => livesLeft !== maxLives && triggerLifeLostCN(), [livesLeft])
 
   return (
-    <div className={classes.container(classNames.container)} {...otherProps}>
-      <Text
-        htmlElem="h5"
-        italic
-        type="primary-3"
-        className={classes.text(classNames.text)}
-        {...textProps}
-      >
-        Lives
-      </Text>
+    <figure className={classes.container(classNames.container)} {...otherProps}>
+      <figcaption>
+        <Text
+          htmlElem="h5"
+          italic
+          type="primary-3"
+          className={classes.text(classNames.text)}
+          {...textProps}
+        >
+          Lives
+        </Text>
+      </figcaption>
       <div
         className={
           classes.livesContainer(classNames.livesContainer) +
@@ -54,7 +56,7 @@ export default function CodeRushLives({
           lifeProps
         )}
       </div>
-    </div>
+    </figure>
   )
 }
 

@@ -9,6 +9,7 @@ import CodeRushTimerButton from "./CodeRushTimerButton/CodeRushTimerButton"
 
 const constants = {
   MAX_LIVES: 5,
+  TIME_PENALTY: 100,
   difficulty: { EASY: 1, NORMAL: 2, HARD: 3 },
   texts: {
     code: {
@@ -18,7 +19,7 @@ const constants = {
     timer: {
       START_GAME: "Start game",
       PROMPT_RESTART: "Tap to restart",
-      BONUS_TIME: "Bonus time!"
+      BONUS_TIME: "Last stand!"
     }
   }
 }
