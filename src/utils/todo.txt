@@ -22,4 +22,4 @@ comment useTimeoutToggle
 preload links https://blog.maximeheckel.com/posts/preloading-views-with-react/
 
 // commit msg
-Individualized hiScore for each mode in '*useLatency*' demo. Started with portrait CSS styles.
+Finished with portrait CSS on '*useLatency*' demo. Started commenting.

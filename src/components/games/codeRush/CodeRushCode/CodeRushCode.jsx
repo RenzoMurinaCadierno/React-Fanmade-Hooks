@@ -12,8 +12,11 @@ function CodeRushCode({ code, className }) {
     timeout: 250
   })
 
-  // trigger animation on `code` change, and set inner `_code` to match `code`
-  // after half the animation duration passes
+  /**
+   * trigger animation on `code` changes, and set inner `_code` to match `code`
+   * after half the animation duration passes
+   */
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     triggerCodeAnimation()
     const changeCodeTimeout = setTimeout(() => _setCode(code), 125)

@@ -1,12 +1,7 @@
 import PropTypes from "prop-types"
 // import styles from './CodeRushNumPad.module.css'
 
-export const classes = {
-  numPad: (classNames = {}) => ({
-    container: classNames.container ?? "",
-    buttons: classNames.buttons ?? ""
-  })
-}
+export const classes = { numPad: (classNames) => classNames }
 
 export const defaultProps = { classNames: {} }
 

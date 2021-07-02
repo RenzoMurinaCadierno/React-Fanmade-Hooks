@@ -5,6 +5,7 @@
   display: grid;
   grid-template: 1fr 1fr 1fr / 1fr 1fr;
   align-items: center;
+  gap: var(--generic-margin-vw) 0;
   overflow: visible;
 }
 
@@ -24,12 +25,15 @@
 @media screen and (orientation: portrait) {
   .Container {
     /* wrapper container '*div*' */
-    width: 100%;
-    display: grid;
+    margin: var(--generic-margin-vh) 0;
     grid-template: 1fr 1fr / 1fr 1fr 1fr;
-    align-items: center;
-    overflow: visible;
-    border: 1px solid gray;
+    gap: 0;
+  }
+
+  .Level {
+    /* 'level' '*CodeRush.Counter*' `className.container`. Places it first */
+    grid-row: 1;
+    grid-column: 1;
   }
 }
 /* end all devices portrait */

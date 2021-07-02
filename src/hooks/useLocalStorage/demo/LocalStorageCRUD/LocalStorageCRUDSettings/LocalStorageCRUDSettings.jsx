@@ -20,7 +20,7 @@ export default function LocalStorageCRUDSettings({
   onDeleteUser,
   onSignout
 }) {
-  const { jumpToSlide } = useContext(Carousel.context)
+  const { jumpToSlide } = useContext(Carousel.Context)
 
   /*****************************************************************************
    *     USAGE EXAMPLE (part 2) - Open local storage tab to track changes!

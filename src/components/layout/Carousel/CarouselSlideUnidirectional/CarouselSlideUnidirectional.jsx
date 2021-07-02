@@ -47,7 +47,7 @@ export default function CarouselSlideUnidirectional({
   ...otherProps
 }) {
   // grab the slide name and direction to transition from parent's context
-  const { direction, activeName } = useContext(Carousel.context)
+  const { direction, activeName } = useContext(Carousel.Context)
   // slide "on screen" state, which triggers when parent's context
   // active name matches this slide's name
   const [activeSt, setActiveSt] = useState(activeName === name)

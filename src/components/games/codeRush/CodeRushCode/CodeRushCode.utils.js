@@ -9,6 +9,6 @@ export const classes = {
 export const defaultProps = { code: [] }
 
 export const propTypes = {
-  code: PropTypes.arrayOf(PropTypes.string),
+  code: PropTypes.arrayOf(PropTypes.string).isRequired,
   className: PropTypes.string
 }

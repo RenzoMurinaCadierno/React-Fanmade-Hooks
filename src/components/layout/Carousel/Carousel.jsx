@@ -51,6 +51,6 @@ ComposedCarousel.Indicator = CarouselIndicator
 ComposedCarousel.Indicators = CarouselIndicators
 ComposedCarousel.Slide = CarouselSlide
 ComposedCarousel.defaultCtx = defaultCtx
-ComposedCarousel.context = context
+ComposedCarousel.Context = context
 
 export default ComposedCarousel

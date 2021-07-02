@@ -55,8 +55,10 @@ export default function CodeRushTimerButton({
   }
 
   // on each score change but not on the last life
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => score && livesLeft && latency.abort(), [score])
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     // on each life change except at game start
     if (livesLeft && livesLeft !== maxLives) triggerCountdown()

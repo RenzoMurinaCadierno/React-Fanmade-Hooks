@@ -11,7 +11,7 @@ import AppbarHomeIcon from "./AppbarHomeIcon/AppbarHomeIcon"
 // to how it is constructed, we cannot pass the toggler as a prop to children.
 // Thus, we create a context here, which will store the toggler as `value` in
 // its "Provider". Chidren can then make use of it by consuming this context.
-const appbarContext = createContext(() => {})
+const AppbarContext = createContext(() => {})
 
 function ComposedAppbar(props) {
   return <AppbarRoot {...props} />
@@ -22,6 +22,6 @@ ComposedAppbar.Searchbar = AppbarSearchbar
 ComposedAppbar.Section = AppbarSection
 ComposedAppbar.Link = AppbarLink
 ComposedAppbar.HomeIcon = AppbarHomeIcon
-ComposedAppbar.context = appbarContext
+ComposedAppbar.Context = AppbarContext
 
 export default ComposedAppbar

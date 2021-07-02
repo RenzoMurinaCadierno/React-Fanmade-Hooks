@@ -228,9 +228,9 @@ export default function CarouselRoot({
           className={classes.slidesContainer(classNames.slidesContainer)}
         >
           {/* context provider and `children` */}
-          <Carousel.context.Provider value={ctx}>
+          <Carousel.Context.Provider value={ctx}>
             {children}
-          </Carousel.context.Provider>
+          </Carousel.Context.Provider>
         </div>
         {/* left and right arrow components to scroll slides */}
         <Carousel.Arrows

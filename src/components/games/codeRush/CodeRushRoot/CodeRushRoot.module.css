@@ -5,7 +5,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid white;
 }
 /* end all devices landscape */
 
@@ -14,6 +13,7 @@
   .NumPadAndStats {
     /* wrapper container '*div*' for '*CodeRush.NumPad*' and '*CodeRush.Stats*' */
     flex-direction: column;
+    width: 80%;
   }
 }
 /* end all devices portrait */

@@ -21,7 +21,7 @@ export default function LocalStorageCRUDAuth({
   userSt: { isAuth, configs = {} },
   onAuth
 }) {
-  const { jumpToSlide } = useContext(Carousel.context)
+  const { jumpToSlide } = useContext(Carousel.Context)
 
   // typing changes the respective input's "value", and submitting/blurring
   // from them triggers validation process to modify "isValid" state

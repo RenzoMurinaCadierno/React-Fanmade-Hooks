@@ -25,6 +25,8 @@ export const defaultProps = {
 
 export const propTypes = {
   imgSrc: PropTypes.string,
+  imgAlt: PropTypes.string,
+  livesLeft: PropTypes.number.isRequired,
   maxLives: validateMaxLives,
   onLifeLost: PropTypes.func,
   classNames: PropTypes.exact({
@@ -38,10 +40,17 @@ export const propTypes = {
   lifeProps: PropTypes.object
 }
 
-function validateMaxLives(prop, propName, cmpName) {
-  const maxLives = prop[propName]
+/**
+ * Validates `maxLives` being an integer higher than 0 and less than 99.
+ *
+ * @param {object} props '*CodeRushLives*' `props`
+ * @param {string} propName `props.maxLives`
+ * @param {string} cmpName '*CodeRushLives*'
+ */
+function validateMaxLives(props, propName, cmpName) {
+  const maxLives = props[propName]
 
-  if (maxLives === undefined) return
+  if (maxLives === undefined) return // undefined is accepted (first render)
 
   if (!Number.isInteger(maxLives) || maxLives < 0 || maxLives > 99) {
     return new Error(
@@ -50,6 +59,19 @@ function validateMaxLives(prop, propName, cmpName) {
   }
 }
 
+/**
+ * Returns the JSX to render inside "lives container" '*div*'.
+ *
+ * It can either be three 'life' '*img*'s on `livesLeft` <= 3, or one 'life'
+ * '*img*' plus a '*Text*' with its multiplier ('x3', 'x5', 'x99').
+ *
+ * @param {number} maxLives Amount of initial lives at game start.
+ * @param {number} livesLeft Amount of lives remaining.
+ * @param {string} src Path to an SVG image.
+ * @param {string} alt Alt for `src`.
+ * @param {string?} className className string to add to 'life' '*img*'.
+ * @param {object?} lifeProps additional props to spread in 'life' '*img*'.
+ */
 export function renderLives(
   maxLives,
   livesLeft,
@@ -58,14 +80,12 @@ export function renderLives(
   className,
   lifeProps
 ) {
-  const sharedProps = { alt, src, ...lifeProps }
-
   if (livesLeft >= 4) {
     return (
       <>
         <img
           className={className + " " + getHeartBeatCN(livesLeft)}
-          {...sharedProps}
+          {...{ alt, src, ...lifeProps }}
         />
         <Text htmlElem="h6" type="primary-2" className={classes.livesLeftText}>
           x {livesLeft}
@@ -81,11 +101,18 @@ export function renderLives(
         key={i}
         disabled={i >= livesLeft}
         className={className + " " + getHeartBeatCN(livesLeft, i >= livesLeft)}
-        {...sharedProps}
+        {...{ alt, src, ...lifeProps }}
       />
     ))
 }
 
+/**
+ * Returns the animation `className` to append to 'life' '*img*', depending on
+ * `livesLeft`.
+ *
+ * @param {number} livesLeft Amount of lives remaining.
+ * @param {boolean} isDisabled `true` returns an empty string (no className).
+ */
 function getHeartBeatCN(livesLeft, isDisabled) {
   if (!isDisabled) {
     if (livesLeft >= 3) return classes.animateThreeOrMoreLives

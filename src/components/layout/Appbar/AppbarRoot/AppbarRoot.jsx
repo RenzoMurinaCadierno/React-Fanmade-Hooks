@@ -101,9 +101,9 @@ export default function AppbarRoot({
             classNames={classes.searchbar(classNames.searchbar)}
           />
           {/* children: links to hooks inside their proper categories */}
-          <Appbar.context.Provider value={toggleOpen}>
+          <Appbar.Context.Provider value={toggleOpen}>
             {children}
-          </Appbar.context.Provider>
+          </Appbar.Context.Provider>
         </div>
       </Modal>
     </header>

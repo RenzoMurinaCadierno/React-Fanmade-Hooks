@@ -8,16 +8,14 @@ export const classes = {
   valueAnimation: (axis, direction) =>
     styles[
       "ValueAnimation" +
-        (axis.toLowerCase() === "y" ? "Vertical" : "Horizontal") +
-        (direction.toLowerCase() === "reverse" ? "Reverse" : "")
+        (axis?.toLowerCase() === "y" ? "Vertical" : "Horizontal") +
+        (direction?.toLowerCase() === "reverse" ? "Reverse" : "")
     ]
 }
 
 export const defaultProps = {
   text: "Count",
   value: 0,
-  transitionAxis: "x",
-  transitionDirection: "forwards",
   type: "primary",
   classNames: {}
 }

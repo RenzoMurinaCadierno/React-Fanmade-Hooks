@@ -4,7 +4,6 @@ import {
   classes,
   defaultProps,
   propTypes,
-  textProps,
   smallCounterProps,
   getDefaultModeProps,
   getLevelValue,
@@ -21,7 +20,7 @@ function CodeRushStats({
   livesLeft,
   timePenalty,
   classNames,
-  hiScoreProps,
+  hiScoresProps,
   scoreProps,
   livesProps,
   levelProps,
@@ -29,42 +28,50 @@ function CodeRushStats({
   modeProps,
   ...otherProps
 }) {
+  /**
+   * Gets the string value for 'penalty' '*CodeRush.Counter*' `value`.
+   * We substract it here since its value is needed to calculate `disabled`.
+   */
   const timePenaltyValue = getTimePenaltyValue(
     score,
     mode,
     livesLeft,
     timePenalty
   )
-    change level and lives order, continue with vh css
+
   return (
+    // wrapper container
     <div className={classes.container(classNames.container)} {...otherProps}>
+      {/* 'score' counter */}
       <CodeRush.Counter
         text="Score"
         value={score}
         disabled={!livesLeft}
         classNames={classes.score(classNames.score)}
-        {...{ textProps, ...scoreProps }}
+        {...{ ...scoreProps }}
       />
+      {/* 'high score' counter */}
       <CodeRush.Counter
         text="High"
         value={hiScores[mode]}
         type="secondary"
-        transitionDirection="reverse"
         classNames={classes.highScore(classNames.highScore)}
-        {...{ textProps, ...hiScoreProps }}
+        {...hiScoresProps}
       />
+      {/* 'lives left' display */}
       <CodeRush.Lives
         disabled={!livesLeft}
-        {...{ maxLives, livesLeft, textProps, ...scoreProps }}
+        {...{ maxLives, livesLeft, ...scoreProps }}
       />
+      {/* 'level' counter */}
       <CodeRush.Counter
         text="Level"
         value={getLevelValue(score, mode, livesLeft)}
-        transitionDirection="reverse"
         disabled={!livesLeft}
         classNames={classes.level(classNames.level)}
-        {...{ textProps, ...levelProps }}
+        {...levelProps}
       />
+      {/* 'time penalty' counter */}
       <CodeRush.Counter
         text="Penalty"
         value={timePenaltyValue}
@@ -75,6 +82,7 @@ function CodeRushStats({
         classNames={classes.penalty(classNames.penalty)}
         {...{ ...smallCounterProps, ...penaltyProps }}
       />
+      {/* 'mode' (difficulty) counter */}
       <CodeRush.Counter
         text="Mode"
         value={getModeValue(mode)}

@@ -54,7 +54,7 @@ export default function Navigation() {
       animateToggler={location.pathname === "/"}
     >
       {/* links will need to close '*AppBar*'. Grab handler from context */}
-      <Appbar.context.Consumer>
+      <Appbar.Context.Consumer>
         {(toggleAppbar) =>
           /* map defaultCategories' array (check *utils.js* for it) */
           Object.entries(categories).map(
@@ -82,7 +82,7 @@ export default function Navigation() {
             )
           )
         }
-      </Appbar.context.Consumer>
+      </Appbar.Context.Consumer>
     </Appbar>
   )
 }
