@@ -8,14 +8,13 @@ import CodeRushStats from "./CodeRushStats/CodeRushStats"
 import CodeRushTimerButton from "./CodeRushTimerButton/CodeRushTimerButton"
 
 const constants = {
-  MAX_LIVES: 5,
-  TIME_PENALTY: 100,
+  setup: {
+    MAX_LIVES: 5,
+    TIME_PENALTY: 100
+  },
   difficulty: { EASY: 1, NORMAL: 2, HARD: 3 },
   texts: {
-    code: {
-      START_GAME: "Tap button to start",
-      GAME_OVER: "Game over! Again?"
-    },
+    code: { START_GAME: "Tap button to start", GAME_OVER: "Game over! Again?" },
     timer: {
       START_GAME: "Start game",
       PROMPT_RESTART: "Tap to restart",

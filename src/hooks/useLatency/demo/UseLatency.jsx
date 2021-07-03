@@ -6,13 +6,9 @@ export default function UseCount() {
   return (
     <Container htmlElem="main" className={classes.container}>
       <CmpDescription {...{ descItems, plainCode, metaTagsProps }} />
-      <CmpTest />
+      <CodeRush classNames={classes.cmpTest} />
     </Container>
   )
-}
-
-function CmpTest() {
-  return <CodeRush classNames={classes.cmpTest} />
 }
 
 // function CmpTest() {
