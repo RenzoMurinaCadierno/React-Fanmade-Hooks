@@ -22,4 +22,4 @@ comment useTimeoutToggle
 preload links https://blog.maximeheckel.com/posts/preloading-views-with-react/
 
 // commit msg
-Kept on commenting '*useLatency*' demo.
+Finsihed commenting '*useLatency*' demo. Started commenting hook.

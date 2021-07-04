@@ -24,8 +24,8 @@ function CodeRushCode({ code, className }) {
   }, [code])
 
   /**
-   * Game is considered inactive when `code` length is less than 1. Those
-   * cases apply when `code` holds 'game start' and 'game over' messages
+   * Game is considered inactive when `code` length is less than 1. Such case
+   * applies when `code` holds 'game start' and 'game over' messages.
    */
   const isGameInactive = code.length <= 1
 

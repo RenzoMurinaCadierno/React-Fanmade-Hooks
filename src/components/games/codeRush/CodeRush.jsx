@@ -1,3 +1,10 @@
+/*************************************************************************
+ * If you are seeking '*useLatency*' hook demo, it lies in
+ * '*CodeRush.TimerButton*'. Sorry for the mess, I could not help but to
+ * create a full game instead of just a button with some decreasing
+ * numbers in it :p
+ ************************************************************************/
+
 import CodeRushRoot from "./CodeRushRoot/CodeRushRoot"
 import CodeRushCode from "./CodeRushCode/CodeRushCode"
 import CodeRushLives from "./CodeRushLives/CodeRushLives"
@@ -7,6 +14,9 @@ import CodeRushStateContainer from "./CodeRushStateContainer/CodeRushStateContai
 import CodeRushStats from "./CodeRushStats/CodeRushStats"
 import CodeRushTimerButton from "./CodeRushTimerButton/CodeRushTimerButton"
 
+/**
+ * Generic constants used across all components with '*CodeRush*' as namespace.
+ */
 const constants = {
   setup: {
     MAX_LIVES: 5,
