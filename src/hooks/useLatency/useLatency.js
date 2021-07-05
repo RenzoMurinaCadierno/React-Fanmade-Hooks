@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from "react"
 
 /**
- * Simulates latency by a promise which resolves at the specified amount of
+ * Simulates latency by a promise which resolves at a specified amount of
  * milliseconds.
  *
- * This hooks returns the latency's active state and imperative handlers to
- * fire it, as well as to prematurely release (resolve) it or abort (reject) it.
+ * Returns the latency's active state and imperative handlers to `fire` it, as
+ * well as to prematurely `release` (resolve) it or `abort` (reject) it.
  *
  * Checkpoint intervals can be set, in which case the declarative logic to
  * release or abort the process at a set amount of milliseconds will be invoked
@@ -17,10 +17,10 @@ import { useCallback, useEffect, useRef, useState } from "react"
  * `checkpointInterval?` (number): An integer higher than 0 used to divide
  *   latency's `duration` (set when invoking "fire" handler) into intervals.
  *   Each of those intervals will perform declarative calls in a "useEffect"
- *   instance, using `configs.abortAtMs`, `configs.releaseAtMs` and
- *   `configs.onCheckPoint`.
+ *   instance, using `configs.abortAtMs`, `configs.releaseAtMs` and/or
+ *   `configs.onCheckpoint`.
  *
- * `onCheckPoint?` (function): Callback triggered on each setInterval iteration
+ * `onCheckpoint?` (function): Callback triggered on each interval iteration
  *   determined by `configs.checkpointInterval`.
  *
  * `abortAtMs?` (number): If `configs.checkpointInterval` is defined, latency
@@ -37,9 +37,30 @@ import { useCallback, useEffect, useRef, useState } from "react"
  *
  *   > **_Warning!_** By doing so, latency's "isActive" state will not update,
  *   callbacks will not be re-constructed, and anything defined in `configs`
- *   will be ignored. Use this parameter only when you need a non-functional
+ *   will be ignored.
+ *
+ *   > **_Note:_** Only use this parameter when you need a non-functional
  *   latency visual indicator or latency that runs in the background that does
  *   not interact with states.
+ *
+ * @returns {object} An object shaped:
+ *
+ * `isActive` (boolean): Latency's active state. `true` means it was fired,
+ *   while `false` indicates it is inactive (not fired, released or aborted).
+ *
+ * `fire` (function): Latency's trigger, which when invoked, initiates the
+ *   timer. It returns the latency Promise, and its arguments are:
+ * * `duration` (number): Latency's timeout in ms, as an integer >= 0.
+ * * `onStart?` (function): Callback triggered when latency fires.
+ *
+ * `release` (function): Resolves the timer promise upon invocation, falling
+ *   in `fire` resolve clause. Gets elapsed milliseconds as argument.
+ *
+ * `abort` (function): Aborts the timer promise upon invocation, falling in
+ *   `fire` reject clause. Gets elapsed milliseconds as argument.
+ *
+ * `getElapsedMs` (function): Returns the elapsed milliseconds from latecy being
+ *   fired up until this function's invocation.
  *
  * @author Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>
  */
@@ -51,7 +72,7 @@ export default function useLatency(configs = {}) {
     releaseAtMs,
     doNotReRenderOnAction
   } = configs
-  revise comments here, add readme and plainCode, and add CmpTest. Then comment useTimeoutToggle
+
   /**
    * Latency's active state, which also serves as useEffect's logic gate.
    */
@@ -59,11 +80,11 @@ export default function useLatency(configs = {}) {
 
   /**
    * References to:
-   * * "timeout" (setTimeout pointer set when firing latency)
-   * * "initTime" (initial time when firing latency, in ms)
-   * * "duration" (interval/timeout full length, in milliseconds)
-   * * "resolve" (Promise's resolve terminator, used to release latency)
-   * * "reject" (Promise's reject terminator, used to abort latency)
+   * * "timeout": setTimeout pointer set when firing latency.
+   * * "initTime": initial time when firing latency, in milliseconds.
+   * * "duration": interval/timeout full length, in milliseconds.
+   * * "resolve": Promise's "resolve" pointer, used to release latency.
+   * * "reject": Promise's "reject" pointer, used to abort latency.
    *
    * Kept as refs due to many methods requiring access to them, while not
    * provoking a re-render at the same time.
@@ -77,10 +98,10 @@ export default function useLatency(configs = {}) {
   })
 
   /**
-   * This variable becomes true if `configs.checkpointInterval` is not defined
-   * or `configs.doNotRerenderOnAction` holds a truthy value.
+   * "reRenderOnAction" becomes true if `configs.checkpointInterval` is not
+   * defined or `configs.doNotRerenderOnAction` is truthy.
    *
-   * If "reRenderOnAction" is true, this hook will not re-render the component
+   * If this variable is true, this hook will not re-render the component
    * it is called from on any action ("fire", "checkpoint", "abort" and
    * "release").
    *
@@ -91,15 +112,15 @@ export default function useLatency(configs = {}) {
   const reRenderOnAction = !!(checkpointInterval || !doNotReRenderOnAction)
 
   /**
-   * Fires a promise-based timeout which replicates latency, which releases
-   * once the amount of ms specified in `duration` expires.
+   * Fires a promise-based timeout which replicates latency, and automatically
+   * resolves once the amount of milliseconds specified in `duration` expires.
    *
-   * It can be prematurely released (resolve) or aborted (reject) by calling
+   * It can be prematurely 'released' (resolve) or 'aborted' (reject) by calling
    * for the related methods in this hook, imperatively (`release` and `abort`).
    *
    * If `checkpointInterval` is defined as an integer higher than 0, instead of
    * a timeout, latency will be controlled by an interval in useEffect, which
-   * enables declarative abort and release. They can be set in
+   * enables declarative 'abort' and 'release'. They can be set in
    * `configs.abortAtMs` and `configs.releaseAtMs`, also as integers higher than
    * 0. If defined, latency will abort or release automatically once the
    * stated milliseconds counting from latency firing pass by.
@@ -123,8 +144,8 @@ export default function useLatency(configs = {}) {
       return new Promise((resolve, reject) => {
         // `configs.reRenderOnAction` fires useEffect interval control below
         reRenderOnAction && setIsActive(true)
-        // make resolve and reject available outside, they are handled
-        // externally needed by many methods
+        // make resolve and reject available outside, they are needed by
+        // external methods
         refs.current.resolve = resolve
         refs.current.reject = reject
         // `configs.checkpointInterval` will need this component to re-render
@@ -132,7 +153,8 @@ export default function useLatency(configs = {}) {
         // It will be controlled by an interval in useEffect below.
         if (!checkpointInterval) {
           // no `configs.checkpointInterval` creates a timeout which
-          // automatically releases after `duration` ms.
+          // automatically releases after `duration` ms. useEffect below is
+          // ignored in this case
           refs.current.timeout = setTimeout(
             () => release(null, duration),
             duration
@@ -150,7 +172,7 @@ export default function useLatency(configs = {}) {
    *
    * @params
    * `_` (object?): The event object, if any. It is defined when `release` is
-   *   triggered from any event-emitting element. It is ignored.
+   *   imperatively triggered from any event-emitting element. It is ignored.
    *
    * `elapsedMs` (number?): The elapsed milliseconds from latency start to
    *   `release` call. If undefined, it is set to the return of "getElapsedMs".
@@ -160,10 +182,10 @@ export default function useLatency(configs = {}) {
     // proceed only if an instance of latency is active (outer resolve ref is
     // defined)
     if (refs.current.resolve) {
-      // truthy `reRenderOnAction` means useEffect below handled the promise
-      // interval. Set "isActive" to false to disable it
+      // truthy "reRenderOnAction" means useEffect below handled the promise
+      // interval. Set "isActive" to false to disable its logic gate
       reRenderOnAction && setIsActive(false)
-      // call for terminate to perform cleanup and to fall to "resolve" clause
+      // call "_terminate" to perform cleanup and to fall to "resolve" clause
       await _terminate("resolve", refs.current, elapsedMs ?? getElapsedMs())
     }
   }, [])
@@ -175,7 +197,7 @@ export default function useLatency(configs = {}) {
    *
    * @params
    * `_` (object?): The event object, if any. It is defined when `abort` is
-   *   triggered from any event-emitting element. It is ignored.
+   *   imperatively triggered from any event-emitting element. It is ignored.
    *
    * `elapsedMs` (number?): The elapsed milliseconds from latency start to
    *   `abort` call. If undefined, it is set to the return of "getElapsedMs".
@@ -185,18 +207,18 @@ export default function useLatency(configs = {}) {
     // proceed only if an instance of latency is active (outer abort ref is
     // defined)
     if (refs.current.reject) {
-      // truthy `reRenderOnAction` means useEffect below handled the promise
-      // interval. Set "isActive" to false to disable it
+      // truthy "reRenderOnAction" means useEffect below handled the promise
+      // interval. Set "isActive" to false to disable its logic gate
       reRenderOnAction && setIsActive(false)
-      // call for terminate to perform cleanup and to fall to "reject" clause
+      // call "_terminate" to perform cleanup and to fall to "reject" clause
       await _terminate("reject", refs.current, elapsedMs ?? getElapsedMs())
     }
   }, [])
 
   /**
-   * Calculates and returns difference between the time when latency was fired
-   * and the time when this method was called, as a positive integer. All
-   * measured in milliseconds.
+   * Calculates and returns difference between the time latency was fired and
+   * the time this method was called at, as a positive integer. All measured in
+   * milliseconds.
    *
    * If `configs.checkpointInterval` is defined, the time difference will be
    * rounded down to the nearest multiple of `configs.checkpointInterval` for
@@ -233,14 +255,14 @@ export default function useLatency(configs = {}) {
       // a `configs.checkpointInterval` >= 0 is required. Crash if invalid.
       _crashOnInvalidCheckpointInterval(checkpointInterval)
       // perform type checks on defined `configs.abortAtMs` and
-      // `configs.releaseAtMs`. Log console errors if invalid.
+      // `configs.releaseAtMs`
       const isValidAbortAtMs = _validateType(abortAtMs, "number")
       const isValidReleaseAtMs = _validateType(releaseAtMs, "number")
       // define the interval which controls each iteration (checkpoint)
       interval = setInterval(async () => {
         // get currently elapsed milliseconds from start up until this time
         const elapsedMs = getElapsedMs()
-        // if "elapsedMs" >= than latency duration, flag end of interval by
+        // if "elapsedMs" >= latency duration, flag end of interval due to
         // reaching its last iteration
         const isEndTime = elapsedMs >= refs.current.duration
         // if `configs.abortAtMs` is valid, flag end of interval by aborting
@@ -249,17 +271,16 @@ export default function useLatency(configs = {}) {
         const isRelease =
           (isValidReleaseAtMs && releaseAtMs <= elapsedMs) || isEndTime
         // on aborting or releasing, clear interval and call for the proper
-        // terminator passing elapsedMs as argument
+        // terminator passing "elapsedMs" as argument
         if (isAbort || isRelease) {
           clearInterval(interval)
           if (isAbort) await abort(null, elapsedMs)
           else
             await release(null, isEndTime ? refs.current.duration : elapsedMs)
           // otherwise, process did not end yet, meaning we are in an interval
-          // loop. Trigger `configs.onCheckpoint` if defined, passing elapsedMs
-          // as argument
+          // iteration. Trigger `configs.onCheckpoint` if defined, passing
+          // "elapsedMs" as argument
         } else if (typeof onCheckpoint === "function") {
-          // we are not finised, trigger checkpoint
           onCheckpoint(elapsedMs)
         }
       }, checkpointInterval)
@@ -279,9 +300,11 @@ export default function useLatency(configs = {}) {
  * This method is called by "release" and "abort" functions.
  *
  * @param {string} terminator Either "resolve" or "reject".
+ *
  * @param {object} refsCurrent `refs.current` reference object.
+ *
  * @param {number} elapsedMs Currently elapsed time from Promise firing until
- *   it was released or aborted, in milliseconds.
+ *   it was fulfilled, in milliseconds.
  */
 async function _terminate(terminator, refsCurrent, elapsedMs) {
   clearTimeout(refsCurrent.timeout)

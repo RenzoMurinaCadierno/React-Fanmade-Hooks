@@ -6,3 +6,9 @@
   justify-content: center;
 }
 /* end all devices landscape */
+
+@media screen and (orientation: portrait) {
+  .Button {
+    width: 65%;
+  }
+}

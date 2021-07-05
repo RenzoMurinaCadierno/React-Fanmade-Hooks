@@ -1,6 +1,11 @@
 import { CmpDescription, Container, CodeRush } from "hub"
 import plainCode from "../utils/plain"
-import { classes, descItems, metaTagsProps } from "./UseLatency.utils"
+import {
+  classes,
+  descItems,
+  codeMenuProps,
+  metaTagsProps
+} from "./UseLatency.utils"
 
 /**
  * Well, '*useLatency*' hook demo was was going to be a simple button with a
@@ -9,10 +14,14 @@ import { classes, descItems, metaTagsProps } from "./UseLatency.utils"
  *
  * The hook's example is in '*CodeRush.TimerButton*'. Fully explained there too.
  */
-export default function UseCount() {
+export default function UseLatency() {
   return (
     <Container htmlElem="main" className={classes.container}>
-      <CmpDescription {...{ descItems, plainCode, metaTagsProps }} />
+      <CmpDescription
+        isCodeMenuAnchorHandledByMediaQuery
+        classNames={classes.cmpDesc}
+        {...{ descItems, plainCode, codeMenuProps, metaTagsProps }}
+      />
       <CodeRush classNames={classes.cmpTest} />
     </Container>
   )

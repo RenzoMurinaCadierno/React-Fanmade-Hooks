@@ -5,8 +5,18 @@
   height: 100%;
 }
 
+.CmpDescContainer,
+.CmpDescTitle {
+  margin: 0;
+}
+
+.CmpDescDescription {
+  font-weight: normal;
+  margin: var(--small-margin-vw);
+}
+
 .CmpTest {
-  width: 70%;
+  width: 65%;
   margin: 0 var(--small-margin-vw);
   display: flex;
   align-items: center;
@@ -14,6 +24,7 @@
   flex-direction: column;
   position: relative;
 }
+
 /* end all devices landscape */
 
 /* all devices portrait */
@@ -24,10 +35,26 @@
     flex-direction: column;
   }
 
+  .CmpDescContainer {
+    width: 100%;
+    margin: var(--small-margin-vh) var(--small-margin-vw) 0
+      var(--small-margin-vw);
+  }
+
+  .CmpDescTitle {
+    margin-top: var(--small-margin-vh);
+  }
+
+  .CmpDescDescription {
+    font-size: var(--small-font-size-vh);
+    margin: var(--small-margin-vh) var(--generic-margin-vh);
+  }
+
   .CmpTest {
     /* *'CmpTest*' wrapper */
     width: 95%;
     height: 60%;
+    margin-bottom: var(--generic-margin-vh);
   }
 }
 
