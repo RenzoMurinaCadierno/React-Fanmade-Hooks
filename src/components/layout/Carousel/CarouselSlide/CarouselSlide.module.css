@@ -10,7 +10,7 @@
 }
 /* end all devices landscape */
 
-/* classNames added by "useClassNameToggle" */
+/* classNames added by "useValueToggle" */
 .AnimateMountLeft {
   animation: animate-mount-left 430ms linear forwards;
 }
@@ -26,7 +26,7 @@
 .AnimateUnmountRight {
   animation: animate-mount-left 430ms linear reverse;
 }
-/* end classNames added by "useClassNameToggle" */
+/* end classNames added by "useValueToggle" */
 
 /* animation keyframes */
 @keyframes animate-mount-left {

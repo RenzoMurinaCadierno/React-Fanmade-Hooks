@@ -43,7 +43,6 @@ import _404Page from "./components/app-specific/nav/pages/_404Page/_404Page"
 import CodeMenu from "./components/app-specific/UI/composed/CodeMenu/CodeMenu"
 
 import useAnimatedNumber from "./hooks/useAnimatedNumber/useAnimatedNumber"
-import useClassNameToggle from "./hooks/useClassNameToggle/useClassNameToggle"
 import useCallbackOnce from "./hooks/useCallbackOnce/useCallbackOnce"
 import useCallbackXTimes from "./hooks/useCallbackXTimes/useCallbackXTimes"
 import useCount from "./hooks/useCount/useCount"
@@ -59,9 +58,9 @@ import useReRender from "./hooks/useReRender/useReRender"
 import useToggle from "./hooks/useToggle/useToggle"
 import useTimeoutToggle from "./hooks/useTimeoutToggle/useTimeoutToggle"
 import useTimer from "./hooks/useTimer/useTimer"
+import useValueToggle from "./hooks/useValueToggle/useValueToggle"
 
 import UseAnimatedNumber from "./hooks/useAnimatedNumber/demo/UseAnimatedNumber"
-import UseClassNameToggle from "./hooks/useClassNameToggle/demo/UseClassNameToggle"
 import UseCallbackOnce from "./hooks/useCallbackOnce/demo/UseCallbackOnce"
 import UseCallbackXTimes from "./hooks/useCallbackXTimes/demo/UseCallbackXTimes"
 import UseCount from "./hooks/useCount/demo/UseCount"
@@ -75,6 +74,7 @@ import UsePreviousValue from "./hooks/usePreviousValue/demo/UsePreviousValue"
 import UseReRender from "./hooks/useReRender/demo/UseReRender"
 import UseTimer from "./hooks/useTimer/demo/UseTimer"
 import UseToggle from "./hooks/useToggle/demo/UseToggle"
+import UseValueToggle from "./hooks/useValueToggle/demo/useValueToggle"
 
 import LocalStorageCRUD from "./hooks/useLocalStorage/demo/LocalStorageCRUD/LocalStorageCRUD"
 
@@ -116,7 +116,6 @@ export {
   Underline,
   Container,
   useAnimatedNumber,
-  useClassNameToggle,
   useCallbackOnce,
   useCallbackXTimes,
   useCount,
@@ -132,8 +131,8 @@ export {
   useToggle,
   useTimer,
   useTimeoutToggle,
+  useValueToggle,
   UseAnimatedNumber,
-  UseClassNameToggle,
   UseCallbackOnce,
   UseCallbackXTimes,
   UseCount,
@@ -147,5 +146,6 @@ export {
   UseReRender,
   UseToggle,
   UseTimer,
+  UseValueToggle,
   LocalStorageCRUD
 }

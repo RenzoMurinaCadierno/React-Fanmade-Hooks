@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useClassNameToggle } from "hub"
+import { useValueToggle } from "hub"
 import { classes, defaultProps, propTypes } from "./Badge.utils"
 
 /**
@@ -81,8 +81,9 @@ export default function Badge({
   // inner state, which will show the badge and trigger (un)mount animation
   const [isShowing, setIsShowing] = useState(!!show)
   // controls mount animation className
-  const [mountCN, triggerMountAnimation] = useClassNameToggle({
-    className: classes.animateMount,
+  const [mountCN, triggerMountAnimation] = useValueToggle({
+    on: classes.animateMount,
+    off: "",
     timeout: 175,
     onStart: () => {
       setIsShowing(true)
@@ -90,8 +91,9 @@ export default function Badge({
     }
   })
   // controls unmount animation className
-  const [unmountCN, triggerUnmountAnimation] = useClassNameToggle({
-    className: classes.animateUnmount,
+  const [unmountCN, triggerUnmountAnimation] = useValueToggle({
+    on: classes.animateUnmount,
+    off: "",
     timeout: 175,
     onFinish: () => {
       setIsShowing(false)
@@ -99,8 +101,9 @@ export default function Badge({
     }
   })
   // controls `content` animation className, triggered when `content` changes
-  const [onChangeCN, triggerOnChangeAnimation] = useClassNameToggle({
-    className: classes.animateOnChange,
+  const [onChangeCN, triggerOnChangeAnimation] = useValueToggle({
+    on: classes.animateOnChange,
+    off: "",
     timeout: 175
   })
 

@@ -41,7 +41,7 @@
 }
 /* end all devices portrait */
 
-/* '*CarouselSlide*' useClassNameToggle added classNames */
+/* '*CarouselSlide*' useValueToggle added classNames */
 .AnimateMount {
   animation: animate-mount 120ms linear forwards;
 }
@@ -49,9 +49,9 @@
 .AnimateUnmount {
   animation: animate-unmount 120ms linear forwards;
 }
-/* end '*CarouselSlide*' useClassNameToggle added classNames */
+/* end '*CarouselSlide*' useValueToggle added classNames */
 
-/* '*CarouselSlide*' useClassNameToggle animation keyframes */
+/* '*CarouselSlide*' useValueToggle animation keyframes */
 @keyframes animate-mount {
   from {
     transform: translateY(130%);
@@ -69,4 +69,4 @@
     transform: translateY(-130%);
   }
 }
-/* end '*CarouselSlide*' useClassNameToggle animation keyframes */
+/* end '*CarouselSlide*' useValueToggle animation keyframes */

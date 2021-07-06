@@ -1,10 +1,10 @@
 import { useState } from "react"
-import useClassNameToggle from "../useClassNameToggle"
+import useValueToggle from "../useValueToggle"
 import { CmpDescription, Text } from "hub"
 import heart from "assets/icons/heart.svg"
 import plainCode from "../utils/plain"
-import { descItems, metaTagsProps } from "./UseClassNameToggle.utils"
-import styles from "./UseClassNameToggle.module.css"
+import { descItems, metaTagsProps } from "./useValueToggle.utils"
+import styles from "./UseValueToggle.module.css"
 
 export default function UseCount() {
   return (
@@ -19,14 +19,16 @@ function CmpTest() {
   const [text, setText] = useState(
     "Once animation starts, it needs to finish to be re-triggered"
   )
-  // "useClassNameToggle" for the animated text
-  const [textCN, renderTextCN] = useClassNameToggle({
-    className: styles.GrowText,
+  // "useValueToggle" for the animated text
+  const [textCN, renderTextCN] = useValueToggle({
+    on: styles.GrowText,
+    off: "",
     timeout: 200
   })
-  // "useClassNameToggle" for the heart image
-  const [heartCN, renderHeartCN, isHeartCNActive] = useClassNameToggle({
-    className: styles.Heartbeat,
+  // "useValueToggle" for the heart image
+  const [heartCN, renderHeartCN, isHeartCNActive] = useValueToggle({
+    on: styles.Heartbeat,
+    off: "",
     timeout: 2500,
     onStart: () => {
       setText("Started. Cannot trigger again until finished")

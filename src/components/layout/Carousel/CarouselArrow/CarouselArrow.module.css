@@ -53,7 +53,7 @@
 }
 /* end all devices portrait */
 
-/* classNames added by "useClassNameToggle" */
+/* classNames added by "useValueToggle" */
 .AnimateArrowLeft {
   animation: animate-arrow-left 300ms ease-in-out forwards;
 }
@@ -61,7 +61,7 @@
 .AnimateArrowRight {
   animation: animate-arrow-right 300ms ease-in-out forwards;
 }
-/* end classNames added by "useClassNameToggle" */
+/* end classNames added by "useValueToggle" */
 /* end all devices landscape */
 
 /* animation keyframes */

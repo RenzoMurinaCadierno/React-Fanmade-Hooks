@@ -2,7 +2,7 @@
   "appbarItems": {
     "Animations, UI/UX": [
       "useAnimatedNumber",
-      "useClassNameToggle",
+      "useValueToggle",
       "useMediaQuery",
       "useTimer"
     ],

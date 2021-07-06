@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useClassNameToggle, Text } from "hub"
+import { useValueToggle, Text } from "hub"
 import { classes, defaultProps, propTypes } from "./CodeRushCounter.utils"
 
 export default function CodeRushCounter({
@@ -22,8 +22,9 @@ export default function CodeRushCounter({
   /**
    * Animation className toggler
    */
-  const [valueAnimationCN, triggerValueAnimation] = useClassNameToggle({
-    className: classes.valueAnimation(transitionAxis, transitionDirection),
+  const [valueAnimationCN, triggerValueAnimation] = useValueToggle({
+    on: classes.valueAnimation(transitionAxis, transitionDirection),
+    off: "",
     timeout: 250
   })
 

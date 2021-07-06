@@ -7,8 +7,10 @@
 }
 /* end all devices landscape */
 
+/* all devices portrait */
 @media screen and (orientation: portrait) {
   .Button {
     width: 65%;
   }
 }
+/* end all devices portrait */

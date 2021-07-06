@@ -1,5 +1,5 @@
 import { memo } from "react"
-import { Container, useClassNameToggle, Carousel } from "hub"
+import { Container, useValueToggle, Carousel } from "hub"
 import pointer from "assets/icons/pointer.svg"
 import { classes, defaultProps, propTypes } from "./CarouselArrow.utils"
 
@@ -32,8 +32,9 @@ function CarouselArrow({
   ...otherProps
 }) {
   // className toggling class, triggerer and animation state boolean
-  const [swingCN, triggerSwingCN, isSwinging] = useClassNameToggle({
-    className: classes["animate-arrow-" + direction],
+  const [swingCN, triggerSwingCN, isSwinging] = useValueToggle({
+    on: classes["animate-arrow-" + direction],
+    off: "",
     timeout: 400
   })
 

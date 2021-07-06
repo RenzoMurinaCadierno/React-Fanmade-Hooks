@@ -40,12 +40,12 @@ Descriptions here are basic, so do not hesitate to check the complete ones at ea
 
   <br />
 
-- **_useClassNameToggle_**
+- **_useValueToggle_**
 
-  - [Working example](https://rfh.netlify.app/use-class-name-toggle)
-  - [Hook folder](https://github.com/RenzoMurinaCadierno/React-Fanmade-Hooks/tree/master/src/hooks/useClassNameToggle)
+  - [Working example](https://rfh.netlify.app/use-value-toggle)
+  - [Hook folder](https://github.com/RenzoMurinaCadierno/React-Fanmade-Hooks/tree/master/src/hooks/useValueToggle)
 
-  Toggles a className _on_ when invoked by the returned handler, which automatically turns back _off_ after a specified timeout.
+  Toggles a value related to _"on"_ state when invoked by the returned handler, which automatically turns back to another value assigned to _"off"_ state after a specified timeout.
 
   <br />
 

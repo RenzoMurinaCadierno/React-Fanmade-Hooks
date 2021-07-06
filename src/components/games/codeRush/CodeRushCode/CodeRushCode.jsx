@@ -1,5 +1,5 @@
 import { memo, useEffect, useState } from "react"
-import { useClassNameToggle, Text } from "hub"
+import { useValueToggle, Text } from "hub"
 import { classes, defaultProps, propTypes } from "./CodeRushCode.utils"
 
 function CodeRushCode({ code, className }) {
@@ -7,8 +7,9 @@ function CodeRushCode({ code, className }) {
   const [_code, _setCode] = useState(code)
 
   // animation toggler
-  const [codeAnimationCN, triggerCodeAnimation] = useClassNameToggle({
-    className: classes.animateCode,
+  const [codeAnimationCN, triggerCodeAnimation] = useValueToggle({
+    on: classes.animateCode,
+    off: "",
     timeout: 250
   })
 

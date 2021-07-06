@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react"
-import { useClassNameToggle, useMountFlag, Carousel } from "hub"
+import { useValueToggle, useMountFlag, Carousel } from "hub"
 import {
   classes,
   propTypes,
@@ -34,7 +34,7 @@ import {
  *     will not behave correctly if you do not take this into consideration.
  *
  * `classNames?` (object): className strings for JSX rendered here AND for
- *   "useClassNameToggle" classNames if you choose to use a timeout different
+ *   "useValueToggle" classNames if you choose to use a timeout different
  *   to the default one. Check *utils.js* for `classNames` object's
  *   constitution, and *module.css* for animation className and keyframes
  *   models.
@@ -54,14 +54,15 @@ export default function CarouselSlideUnidirectional({
   // mount state flag for this component for useEffect below
   const isMounted = useMountFlag()
   // className toggler hook to animate mount phase
-  const [mountCN, triggerMountCN] = useClassNameToggle({
-    className: classNames.animateMount ?? classes["animate-mount-" + direction],
+  const [mountCN, triggerMountCN] = useValueToggle({
+    on: classNames.animateMount ?? classes["animate-mount-" + direction],
+    off: "",
     timeout
   })
   // className toggler hook to animate unmount phase
-  const [unmountCN, triggerUnmountCN] = useClassNameToggle({
-    className:
-      classNames.animateUnmount ?? classes["animate-unmount-" + direction],
+  const [unmountCN, triggerUnmountCN] = useValueToggle({
+    on: classNames.animateUnmount ?? classes["animate-unmount-" + direction],
+    off: "",
     timeout
   })
 

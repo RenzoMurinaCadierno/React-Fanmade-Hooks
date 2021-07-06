@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef, memo } from "react"
-import { useClassNameToggle } from "hub"
+import { useValueToggle } from "hub"
 import {
   classes,
   defaultProps,
@@ -38,12 +38,14 @@ function BTTarget({
   // a ref pointing to target '*div*'. We will pass it as arg to callbacks
   const targetRef = useRef()
   // className toggler handlers for target destruction and content showing afterwards
-  const [tgtDestroyedCN, triggerDestroyTgt, isDestroyed] = useClassNameToggle({
-    className: classes.animateTargetDestroyed,
+  const [tgtDestroyedCN, triggerDestroyTgt, isDestroyed] = useValueToggle({
+    on: classes.animateTargetDestroyed,
+    off: "",
     timeout: destroyAnimationTimeout
   })
-  const [showPtsCN, triggerShowPts] = useClassNameToggle({
-    className: classes.animateScore,
+  const [showPtsCN, triggerShowPts] = useValueToggle({
+    on: classes.animateScore,
+    off: "",
     timeout: destroyAnimationTimeout
   })
 
@@ -123,7 +125,7 @@ function BTTarget({
             className={
               classes.target(st.type, isDestroyed, classNames?.target) +
               " " +
-              tgtDestroyedCN // "useClassNameToggle" dynamically added class
+              tgtDestroyedCN // "useValueToggle" dynamically added class
             }
             // transition delay to modify `type` coloring as `accuracyTimeout` progresses
             style={{ transition: `all ${accuracyTimeout}ms ease-out` }}
@@ -133,7 +135,7 @@ function BTTarget({
             className={
               classes.content(st.type, isDestroyed, classNames?.content) +
               " " +
-              showPtsCN // "useClassNameToggle" dynamically added class
+              showPtsCN // "useValueToggle" dynamically added class
             }
             style={{ transition: `all ${accuracyTimeout}ms ease-out` }}
             {...contentProps}

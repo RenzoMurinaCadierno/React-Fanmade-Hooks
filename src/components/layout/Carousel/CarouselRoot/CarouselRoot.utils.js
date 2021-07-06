@@ -146,7 +146,7 @@ function isCarouselSlideJSX(item) {
  * returned as is. Otherwise, it toggles and returns the opposite state.
  *
  * This is used by '*CarouselSlide*' to determine which animation handler to
- * trigger at mount and unmount phases, since each pair of "useClassNameToggle"
+ * trigger at mount and unmount phases, since each pair of "useValueToggle"
  * are responsible for only one set of animations (e.g.: mount and unmount left,
  * mount and unmount right).
  */

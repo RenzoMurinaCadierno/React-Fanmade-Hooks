@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { useClassNameToggle, Text } from "hub"
+import { useValueToggle, Text } from "hub"
 import {
   classes,
   defaultProps,
@@ -20,8 +20,9 @@ export default function CodeRushLives({
   ...otherProps
 }) {
   // 'life lost' animation className toggler
-  const [animateLifeLostCN, triggerLifeLostCN] = useClassNameToggle({
-    className: classes.animateLifeLost,
+  const [animateLifeLostCN, triggerLifeLostCN] = useValueToggle({
+    on: classes.animateLifeLost,
+    off: "",
     timeout: 350
   })
 
