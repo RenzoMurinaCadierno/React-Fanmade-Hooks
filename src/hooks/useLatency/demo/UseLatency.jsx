@@ -6,9 +6,7 @@ import {
   codeMenuProps,
   metaTagsProps
 } from "./UseLatency.utils"
-check stlyings on all devices. 
-check if useValueToggle didnt break something
-Fast example usetimeouttoggle (spinner and fireworks). 
+
 /**
  * Well, '*useLatency*' hook demo was was going to be a simple button with a
  * spinner, but good ol' myself could not kept from making a full game around

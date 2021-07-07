@@ -152,6 +152,24 @@
 }
 /* classNames added by `bold` */
 
+/* classNames added by `absoluteFill` */
+.AbsoluteFill {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+/* classNames added by `absoluteFill` */
+
+/* classNames added by `flex` */
+.Flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* classNames added by `flex` */
+
 /* classNames added by `noMargin` */
 .NoMargin {
   margin: unset;

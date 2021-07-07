@@ -63,10 +63,15 @@ export default function useValueToggle({
   /**
    * If `on` is toggled, it sets it back to `off` after `timeout`. It also sets
    * "isActive" back to false and triggers `onFinish` if defined.
+   *
+   * If `timeout` is not an integer higher than 0, hook will crash the app with
+   * a meaningful console error message.
    */
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     let animationTimeout
+
+    _crashOnInvalidTimeout(timeout)
 
     if (valSt.isActive) {
       animationTimeout = setTimeout(() => {
@@ -79,4 +84,12 @@ export default function useValueToggle({
   }, [valSt.isActive])
 
   return [valSt.current, trigger, valSt.isActive]
+}
+
+function _crashOnInvalidTimeout(timeout) {
+  if (typeof timeout !== "number" || timeout <= 0) {
+    throw new Error(
+      "Invalid argument `timeout` supplied to `useValueToggle`. It must be an integer higher than 0."
+    )
+  }
 }

@@ -1,24 +1,21 @@
 {
   "appbarItems": {
-    "Animations, UI/UX": [
-      "useAnimatedNumber",
-      "useValueToggle",
-      "useMediaQuery",
-      "useTimer"
-    ],
+    "Animations, UI/UX": ["useAnimatedNumber", "useMediaQuery", "useTimer"],
     "Form handlers": ["useInputHandlers"],
     "State managers": [
       "useCount",
       "useLocalStorage",
       "usePreviousValue",
-      "useReRender",
-      "useToggle"
+      "useToggle",
+      "useTimeoutToggle",
+      "useValueToggle"
     ],
     "Effect controllers": [
       "useCallbackOnce",
       "useCallbackXTimes",
       "useEffectOnce",
       "useEffectXTimes",
+      "useReRender",
       "useLatency"
     ]
   },

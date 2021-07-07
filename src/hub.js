@@ -73,8 +73,9 @@ import UseMediaQuery from "./hooks/useMediaQuery/demo/UseMediaQuery"
 import UsePreviousValue from "./hooks/usePreviousValue/demo/UsePreviousValue"
 import UseReRender from "./hooks/useReRender/demo/UseReRender"
 import UseTimer from "./hooks/useTimer/demo/UseTimer"
+import UseTimeoutToggle from "./hooks/useTimeoutToggle/demo/UseTimeoutToggle"
 import UseToggle from "./hooks/useToggle/demo/UseToggle"
-import UseValueToggle from "./hooks/useValueToggle/demo/useValueToggle"
+import UseValueToggle from "./hooks/useValueToggle/demo/UseValueToggle"
 
 import LocalStorageCRUD from "./hooks/useLocalStorage/demo/LocalStorageCRUD/LocalStorageCRUD"
 
@@ -146,6 +147,7 @@ export {
   UseReRender,
   UseToggle,
   UseTimer,
+  UseTimeoutToggle,
   UseValueToggle,
   LocalStorageCRUD
 }

@@ -1,11 +1,8 @@
-import styles from "./UseValueToggle.module.css"
+import styles from "./UseTimeoutToggle.module.css"
 
 export const classes = {
   cmpDesc: { description: styles.CmpDescDescription },
-  cmpTest: styles.CmpTest,
-  growText: styles.GrowText,
-  heart: styles.Heart,
-  heartbeat: styles.Heartbeat
+  spinnerContainer: styles.SpinnerContainer
 }
 
 export const descItems = {
@@ -22,4 +19,21 @@ export const metaTagsProps = {
   description: descItems.title + " hook. " + descItems.paragraphs[0],
   keywords:
     "value, toggle, value toggle, useValueToggle, react, fanmade, hooks, react fanmade hooks"
+}
+
+export function getType(second) {
+  switch (second) {
+    case 1:
+      return "danger-3"
+    case 2:
+      return "danger"
+    case 3:
+      return "secondary-3"
+    case 4:
+      return "secondary"
+    case 5:
+      return "primary-3"
+    default:
+      return "primary"
+  }
 }

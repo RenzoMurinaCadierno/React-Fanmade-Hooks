@@ -21,6 +21,13 @@ import { classes, defaultProps, propTypes } from "./Text.utils"
  *
  * `bold?` (boolean): applies "bold" style.
  *
+ * `absoluteFill?` (boolean): Adds "position: 'absolute', with "top", "right",
+ *   "bottom" and "left" values of 0, which covers the entire space of its
+ *   closest parent with "position: 'relative'".
+ *
+ * `flex?` (boolean): Adds "display: 'flex'", "align-items: 'center' and
+ *   "justify-content: 'center" stylings.
+ *
  * `noMargin?` (boolean): sets default margin to 0.
  *
  * `textShadow?` (boolean): applies a text shadow. Used to contrast from
@@ -36,6 +43,8 @@ function Text({
   small,
   italic,
   bold,
+  absoluteFill,
+  flex,
   noMargin,
   textShadow,
   className,
@@ -55,6 +64,8 @@ function Text({
         italic,
         bold,
         textShadow,
+        absoluteFill,
+        flex,
         noMargin,
         onClick,
         className

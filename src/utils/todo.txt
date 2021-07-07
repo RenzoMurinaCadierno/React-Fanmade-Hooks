@@ -17,9 +17,13 @@ useClassNameToggle -> useValueToggle(value, timeout, offValue)
 
 test TOAST's useCallback to see renders, then pwa
 
-comment useTimeoutToggle
+check stlyings on all devices. 
+check if useValueToggle didnt break something
+Fast example usetimeouttoggle (spinner and fireworks). 
 
 preload links https://blog.maximeheckel.com/posts/preloading-views-with-react/
 
 // commit msg
-Finsihed commenting '*useLatency*' hook. Added its plainCode. Started with its CmpDescription.
+Checked styles in '*useLatency*' demo. Corrected bugs from '*useValueToggle*' conversion.
+
+

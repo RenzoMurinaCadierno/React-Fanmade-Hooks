@@ -9,6 +9,8 @@ export const classes = {
     italic,
     bold,
     textShadow,
+    absoluteFill,
+    flex,
     noMargin,
     onClick,
     className
@@ -28,6 +30,10 @@ export const classes = {
     (textShadow ? styles["text-shadow-" + type.toLowerCase()] : "") +
     " " +
     (bold ? styles.Bold : "") +
+    " " +
+    (absoluteFill ? styles.AbsoluteFill : "") +
+    " " +
+    (flex ? styles.Flex : "") +
     " " +
     (noMargin ? styles.NoMargin : "") +
     " " +
@@ -63,6 +69,8 @@ export const propTypes = {
   bold: PropTypes.bool,
   small: PropTypes.bool,
   textShadow: PropTypes.bool,
+  absolutefill: PropTypes.bool,
+  flex: PropTypes.bool,
   noMargin: PropTypes.bool,
   onClick: PropTypes.func,
   children: PropTypes.node,

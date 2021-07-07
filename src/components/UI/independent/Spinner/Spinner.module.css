@@ -5,6 +5,7 @@
   width: 5vw;
   height: 0;
   padding-bottom: 5vw;
+  transition: var(--generic-transition);
 }
 
 .Container[disabled] {

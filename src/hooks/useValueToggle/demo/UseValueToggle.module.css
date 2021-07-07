@@ -1,4 +1,8 @@
 /* all devices landscape */
+.CmpDescDescription {
+  font-weight: normal;
+}
+
 .CmpTest {
   /* wrapper for component test area */
   width: 80%;
@@ -31,7 +35,7 @@
 @media screen and (orientation: portrait) {
   .CmpTest {
     /* wrapper for component test area */
-    height: 50%;
+    height: 30%;
     grid-template-rows: 1fr, 4fr;
     grid-template-columns: 1fr;
   }

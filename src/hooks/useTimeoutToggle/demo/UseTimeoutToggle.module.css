@@ -1,0 +1,28 @@
+/* all devices landscape */
+.CmpDescDescription {
+  font-weight: normal;
+}
+
+.CmpTest {
+  /* wrapper for component test area */
+  /* width: 80%; */
+  /* height: 40%; */
+}
+
+.SpinnerContainer {
+  position: relative;
+}
+/* end all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .CmpTest {
+    /* wrapper for component test area */
+    /* height: 30%; */
+  }
+}
+/* end all devices portrait */
+
+/* animation keyframes  */
+
+/* end animation keyframes  */
