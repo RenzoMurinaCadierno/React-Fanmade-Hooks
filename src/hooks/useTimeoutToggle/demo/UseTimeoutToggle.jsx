@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import useTimeoutToggle from "../useTimeoutToggle"
-import { CmpDescription, Spinner, Text } from "hub"
+import { CmpDescription, Spinner, Text, Confetti } from "hub"
 import plainCode from "../utils/plain"
 import {
   classes,
@@ -61,6 +61,7 @@ function CmpTest() {
         >
           {second}
         </Text>
+        <Confetti quantity={1} />
       </div>
     </section>
   )

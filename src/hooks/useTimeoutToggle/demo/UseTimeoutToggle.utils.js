@@ -24,15 +24,15 @@ export const metaTagsProps = {
 export function getType(second) {
   switch (second) {
     case 1:
-      return "danger-3"
+      return "danger-2"
     case 2:
       return "danger"
     case 3:
-      return "secondary-3"
+      return "secondary-2"
     case 4:
       return "secondary"
     case 5:
-      return "primary-3"
+      return "primary-2"
     default:
       return "primary"
   }

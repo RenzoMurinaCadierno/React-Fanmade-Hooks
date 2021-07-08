@@ -4,6 +4,7 @@ import PhoneDial from "./components/UI/combined/PhoneDial/PhoneDial"
 
 import Badge from "./components/UI/composed/Badge/Badge"
 import Button from "./components/UI/composed/Button/Button"
+import Confetti from "./components/UI/composed/Confetti/Confetti"
 import Icon from "./components/UI/composed/Icon/Icon"
 import Input from "./components/UI/composed/Input/Input"
 import Toast from "./components/UI/composed/Toast/Toast"
@@ -84,6 +85,8 @@ export {
   ExpandableMenu,
   PhoneDial,
   Badge,
+  Button,
+  Confetti,
   Icon,
   Input,
   Toast,
@@ -104,7 +107,6 @@ export {
   _404Page,
   Aura,
   Backdrop,
-  Button,
   Coin,
   Die,
   Label,
