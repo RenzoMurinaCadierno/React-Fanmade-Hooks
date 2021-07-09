@@ -1,0 +1,149 @@
+.Container {
+  height: 100%;
+  width: 0.5vw;
+  /* border: 1px solid white; */
+  display: flex;
+  align-items: flex-end;
+  position: absolute;
+}
+
+.Container.anchor-left {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+.Container.anchor-right {
+  right: 0;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.Container.anchor-left.distance-shortest {
+  animation: animate-left-distance-shortest 2.5s ease-out forwards;
+}
+
+.Container.anchor-left.distance-short {
+  animation: animate-left-distance-short 2.5s ease-out forwards;
+}
+
+.Container.anchor-left.distance-medium {
+  animation: animate-left-distance-medium 2.5s ease-out forwards;
+}
+
+.Container.anchor-left.distance-far {
+  animation: animate-left-distance-far 2.5s ease-out forwards;
+}
+
+.Container.anchor-left.distance-farthest {
+  animation: animate-left-distance-farthest 2.5s ease-out forwards;
+}
+
+.Container.anchor-right.distance-shortest {
+  animation: animate-right-distance-shortest 2.5s ease-out forwards;
+}
+
+.Container.anchor-right.distance-short {
+  animation: animate-right-distance-short 2.5s ease-out forwards;
+}
+
+.Container.anchor-right.distance-medium {
+  animation: animate-right-distance-medium 2.5s ease-out forwards;
+}
+
+.Container.anchor-right.distance-far {
+  animation: animate-right-distance-far 2.5s ease-out forwards;
+}
+
+.Container.anchor-right.distance-farthest {
+  animation: animate-right-distance-farthest 2.5s ease-out forwards;
+}
+
+@keyframes animate-left-distance-shortest {
+  from {
+    margin-left: 0;
+  }
+  to {
+    margin-left: 10%;
+  }
+}
+
+@keyframes animate-left-distance-short {
+  from {
+    margin-left: 0;
+  }
+  to {
+    margin-left: 30%;
+  }
+}
+
+@keyframes animate-left-distance-medium {
+  from {
+    margin-left: 0;
+  }
+  to {
+    margin-left: 50%;
+  }
+}
+
+@keyframes animate-left-distance-far {
+  from {
+    margin-left: 0;
+  }
+  to {
+    margin-left: 70%;
+  }
+}
+
+@keyframes animate-left-distance-farthest {
+  from {
+    margin-left: 0;
+  }
+  to {
+    margin-left: 90%;
+  }
+}
+
+@keyframes animate-right-distance-shortest {
+  from {
+    margin-right: 0;
+  }
+  to {
+    margin-right: 10%;
+  }
+}
+
+@keyframes animate-right-distance-short {
+  from {
+    margin-right: 0;
+  }
+  to {
+    margin-right: 30%;
+  }
+}
+
+@keyframes animate-right-distance-medium {
+  from {
+    margin-right: 0;
+  }
+  to {
+    margin-right: 50%;
+  }
+}
+
+@keyframes animate-right-distance-far {
+  from {
+    margin-right: 0;
+  }
+  to {
+    margin-right: 70%;
+  }
+}
+
+@keyframes animate-right-distance-farthest {
+  from {
+    margin-right: 0;
+  }
+  to {
+    margin-right: 90%;
+  }
+}

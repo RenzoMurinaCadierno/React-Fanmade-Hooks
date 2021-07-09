@@ -24,6 +24,4 @@ Fast example usetimeouttoggle (spinner and fireworks).
 preload links https://blog.maximeheckel.com/posts/preloading-views-with-react/
 
 // commit msg
-Checked styles in '*useLatency*' demo. Corrected bugs from '*useValueToggle*' conversion.
-
-
+Started with '*Confetti*'.

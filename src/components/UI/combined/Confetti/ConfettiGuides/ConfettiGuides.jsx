@@ -1,37 +1,29 @@
 import { Confetti } from "hub"
-import { classes, defaultProps } from "./ConfettiGuides.utils"
-go on with distances of each anchor + orientation
+import { classes, defaultProps, propTypes } from "./ConfettiGuides.utils"
+
 export default function ConfettiGuides({
   anchor,
-  orientation,
   distance,
   altitude,
+  children,
   classNames,
-  guideXProps,
-  guideYProps,
-  glitterProps
+  guidesProps
 }) {
+  const { x, y } = guidesProps
   return (
-    <div
-      className={classes.guideX(
-        anchor,
-        orientation,
-        distance,
-        classNames.guideX
-      )}
-      {...guideXProps}
+    <Confetti.Guides.X
+      className={classes.x(classNames.x)}
+      {...{ anchor, distance, ...x }}
     >
-      <div
-        className={classes.guideY(altitude, classNames.guideY)}
-        {...guideYProps}
+      <Confetti.Guides.Y
+        className={classes.y(classNames.y)}
+        {...{ altitude, ...y }}
       >
-        <Confetti.Glitter
-          className={classes.glitter(classNames.glitter)}
-          {...glitterProps}
-        />
-      </div>
-    </div>
+        {children}
+      </Confetti.Guides.Y>
+    </Confetti.Guides.X>
   )
 }
 
 ConfettiGuides.defaultProps = defaultProps
+ConfettiGuides.propTypes = propTypes

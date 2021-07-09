@@ -1,26 +1,22 @@
 import PropTypes from "prop-types"
-import styles from "./ConfettiGlitter.module.css"
+// import styles from "./ConfettiCannon.module.css"
 
 export const classes = {
-  container: (rotateSpeed, rotateOrientation, className) =>
-    (className ?? "") +
-    " " +
-    (rotateSpeed ? styles["rotate-speed-" + rotateSpeed] : "") +
-    " " +
-    (rotateOrientation
-      ? styles["rotate-orientation-" + rotateOrientation]
-      : "") +
-    " " +
-    styles.Container
+  guides: (classNames = {}) => ({
+    x: classNames.x ?? "",
+    y: classNames.y ?? ""
+  }),
+  paperPiece: (className) => className
 }
 
-export const defaultProps = {
-  rotateSpeed: "medium",
-  rotateOrientation: "forwards",
-  style: {}
-}
+export const defaultProps = { classNames: {}, guidesProps: {} }
 
 export const propTypes = {
+  anchor: PropTypes.oneOf(["left", "right"]),
+  altitude: PropTypes.oneOf(["lowest", "low", "medium", "high", "highest"]),
+  color: PropTypes.string,
+  distance: PropTypes.oneOf(["shortest", "short", "medium", "far", "farthest"]),
+  rotateOrientation: PropTypes.oneOf(["forwards", "reverse"]),
   rotateSpeed: PropTypes.oneOf([
     "slowest",
     "slow",
@@ -28,14 +24,16 @@ export const propTypes = {
     "fast",
     "fastest"
   ]),
-  rotateOrientation: PropTypes.oneOf(["forwards", "reverse"]),
-  color: PropTypes.string,
-  className: PropTypes.string,
-  style: PropTypes.object
-}
-
-const colors = ["yellow", "green", "red", "blue", "white", "orange", "purple"]
-
-export function getRandomColor() {
-  return colors[Math.floor(Math.random() * colors.length)]
+  classNames: PropTypes.exact({
+    guides: PropTypes.exact({
+      x: PropTypes.string,
+      y: PropTypes.string
+    }),
+    paperPiece: PropTypes.string
+  }),
+  guidesProps: PropTypes.exact({
+    x: PropTypes.object,
+    y: PropTypes.object
+  }),
+  glitterProps: PropTypes.object
 }

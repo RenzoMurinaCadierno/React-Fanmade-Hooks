@@ -1,0 +1,81 @@
+.Container {
+  height: 2vw;
+  width: inherit;
+  /* border: 1px solid red; */
+  transform: translateY(100%);
+}
+
+.Container.altitude-lowest {
+  animation: altitude-lowest 2.5s ease-out forwards;
+}
+
+.Container.altitude-low {
+  animation: altitude-low 2.5s ease-out forwards;
+}
+
+.Container.altitude-medium {
+  animation: altitude-medium 2.5s ease-out forwards;
+}
+
+.Container.altitude-high {
+  animation: altitude-high 2.5s ease-out forwards;
+}
+
+.Container.altitude-highest {
+  animation: altitude-highest 2.5s ease-out forwards;
+}
+
+@keyframes altitude-lowest {
+  0%,
+  100% {
+    transform: translateY(100%);
+  }
+  20%,
+  30% {
+    transform: translateY(-15vh);
+  }
+}
+
+@keyframes altitude-low {
+  0%,
+  100% {
+    transform: translateY(100%);
+  }
+  20%,
+  30% {
+    transform: translateY(-35vh);
+  }
+}
+
+@keyframes altitude-medium {
+  0%,
+  100% {
+    transform: translateY(100%);
+  }
+  20%,
+  30% {
+    transform: translateY(-50vh);
+  }
+}
+
+@keyframes altitude-high {
+  0%,
+  100% {
+    transform: translateY(100%);
+  }
+  20%,
+  30% {
+    transform: translateY(-75vh);
+  }
+}
+
+@keyframes altitude-highest {
+  0%,
+  100% {
+    transform: translateY(100%);
+  }
+  20%,
+  30% {
+    transform: translateY(-90vh);
+  }
+}

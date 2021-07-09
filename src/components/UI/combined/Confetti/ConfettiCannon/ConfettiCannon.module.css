@@ -1,5 +1,6 @@
 .Container {
   overflow: hidden;
+  pointer-events: none;
 }
 
 .AbsoluteFill {
@@ -16,4 +17,10 @@
   left: 0;
   width: 100vw;
   height: 100vh;
+}
+
+.RelativeWrapper {
+  position: relative;
+  width: inherit;
+  height: inherit;
 }
