@@ -1,64 +1,111 @@
+/*************************** all devices landscape ***************************/
 .Container {
-  height: 100%;
-  width: 0.5vw;
-  /* border: 1px solid white; */
+  /* 'y' guideline '*div*' */
+  height: 100%; /* 'y' axis covers the whole height */
+  width: 0.5vw; /* paper piece's "width" is inherited from here */
   display: flex;
-  align-items: flex-end;
-  position: absolute;
+  align-items: flex-end; /* guideline start at bootom of the screen */
+  position: absolute; /* to move relative to 'relative wrapper' parent */
 }
 
+/* classNames added by `anchor` */
 .Container.anchor-left {
   margin-right: auto;
-  margin-left: 0;
+  margin-left: 0; /* start animation from left-most corner */
 }
 
 .Container.anchor-right {
-  right: 0;
+  right: 0; /* anchor animation to right (left avobe was automatically set */
   margin-left: auto;
-  margin-right: 0;
+  margin-right: 0; /* start animation from right-most corner */
+}
+/* end classNames added by `anchor` */
+
+/* classNames added by `distance` and `anchor` combined */
+.Container.anchor-left.distance-1 {
+  animation: animate-left-distance-1 2.5s ease-out forwards;
 }
 
-.Container.anchor-left.distance-shortest {
-  animation: animate-left-distance-shortest 2.5s ease-out forwards;
+.Container.anchor-left.distance-2 {
+  animation: animate-left-distance-2 2.5s ease-out forwards;
 }
 
-.Container.anchor-left.distance-short {
-  animation: animate-left-distance-short 2.5s ease-out forwards;
+.Container.anchor-left.distance-3 {
+  animation: animate-left-distance-3 2.5s ease-out forwards;
 }
 
-.Container.anchor-left.distance-medium {
-  animation: animate-left-distance-medium 2.5s ease-out forwards;
+.Container.anchor-left.distance-4 {
+  animation: animate-left-distance-4 2.5s ease-out forwards;
 }
 
-.Container.anchor-left.distance-far {
-  animation: animate-left-distance-far 2.5s ease-out forwards;
+.Container.anchor-left.distance-5 {
+  animation: animate-left-distance-5 2.5s ease-out forwards;
 }
 
-.Container.anchor-left.distance-farthest {
-  animation: animate-left-distance-farthest 2.5s ease-out forwards;
+.Container.anchor-left.distance-6 {
+  animation: animate-left-distance-6 2.5s ease-out forwards;
 }
 
-.Container.anchor-right.distance-shortest {
-  animation: animate-right-distance-shortest 2.5s ease-out forwards;
+.Container.anchor-left.distance-7 {
+  animation: animate-left-distance-7 2.5s ease-out forwards;
 }
 
-.Container.anchor-right.distance-short {
-  animation: animate-right-distance-short 2.5s ease-out forwards;
+.Container.anchor-left.distance-8 {
+  animation: animate-left-distance-8 2.5s ease-out forwards;
 }
 
-.Container.anchor-right.distance-medium {
-  animation: animate-right-distance-medium 2.5s ease-out forwards;
+.Container.anchor-left.distance-9 {
+  animation: animate-left-distance-9 2.5s ease-out forwards;
 }
 
-.Container.anchor-right.distance-far {
-  animation: animate-right-distance-far 2.5s ease-out forwards;
+.Container.anchor-right.distance-1 {
+  animation: animate-right-distance-1 2.5s ease-out forwards;
 }
 
-.Container.anchor-right.distance-farthest {
-  animation: animate-right-distance-farthest 2.5s ease-out forwards;
+.Container.anchor-right.distance-2 {
+  animation: animate-right-distance-2 2.5s ease-out forwards;
 }
 
-@keyframes animate-left-distance-shortest {
+.Container.anchor-right.distance-3 {
+  animation: animate-right-distance-3 2.5s ease-out forwards;
+}
+
+.Container.anchor-right.distance-4 {
+  animation: animate-right-distance-4 2.5s ease-out forwards;
+}
+
+.Container.anchor-right.distance-5 {
+  animation: animate-right-distance-5 2.5s ease-out forwards;
+}
+
+.Container.anchor-right.distance-6 {
+  animation: animate-right-distance-6 2.5s ease-out forwards;
+}
+
+.Container.anchor-right.distance-7 {
+  animation: animate-right-distance-7 2.5s ease-out forwards;
+}
+
+.Container.anchor-right.distance-8 {
+  animation: animate-right-distance-8 2.5s ease-out forwards;
+}
+
+.Container.anchor-right.distance-9 {
+  animation: animate-right-distance-9 2.5s ease-out forwards;
+}
+/* end classNames added by `distance` and `anchor` combined */
+/************************* end all devices landscape *************************/
+
+/*************************** all devices portrait ***************************/
+@media screen and (orientation: portrait) {
+  .Container {
+    width: 0.5vh;
+  }
+}
+/************************* end all devices portrait *************************/
+
+/**************************** animation keyframes ****************************/
+@keyframes animate-left-distance-1 {
   from {
     margin-left: 0;
   }
@@ -67,7 +114,16 @@
   }
 }
 
-@keyframes animate-left-distance-short {
+@keyframes animate-left-distance-2 {
+  from {
+    margin-left: 0;
+  }
+  to {
+    margin-left: 20%;
+  }
+}
+
+@keyframes animate-left-distance-3 {
   from {
     margin-left: 0;
   }
@@ -76,7 +132,16 @@
   }
 }
 
-@keyframes animate-left-distance-medium {
+@keyframes animate-left-distance-4 {
+  from {
+    margin-left: 0;
+  }
+  to {
+    margin-left: 40%;
+  }
+}
+
+@keyframes animate-left-distance-5 {
   from {
     margin-left: 0;
   }
@@ -85,7 +150,16 @@
   }
 }
 
-@keyframes animate-left-distance-far {
+@keyframes animate-left-distance-6 {
+  from {
+    margin-left: 0;
+  }
+  to {
+    margin-left: 60%;
+  }
+}
+
+@keyframes animate-left-distance-7 {
   from {
     margin-left: 0;
   }
@@ -94,7 +168,16 @@
   }
 }
 
-@keyframes animate-left-distance-farthest {
+@keyframes animate-left-distance-8 {
+  from {
+    margin-left: 0;
+  }
+  to {
+    margin-left: 80%;
+  }
+}
+
+@keyframes animate-left-distance-9 {
   from {
     margin-left: 0;
   }
@@ -102,8 +185,7 @@
     margin-left: 90%;
   }
 }
-
-@keyframes animate-right-distance-shortest {
+@keyframes animate-right-distance-1 {
   from {
     margin-right: 0;
   }
@@ -112,7 +194,16 @@
   }
 }
 
-@keyframes animate-right-distance-short {
+@keyframes animate-right-distance-2 {
+  from {
+    margin-right: 0;
+  }
+  to {
+    margin-right: 20%;
+  }
+}
+
+@keyframes animate-right-distance-3 {
   from {
     margin-right: 0;
   }
@@ -121,7 +212,16 @@
   }
 }
 
-@keyframes animate-right-distance-medium {
+@keyframes animate-right-distance-4 {
+  from {
+    margin-right: 0;
+  }
+  to {
+    margin-right: 40%;
+  }
+}
+
+@keyframes animate-right-distance-5 {
   from {
     margin-right: 0;
   }
@@ -130,7 +230,16 @@
   }
 }
 
-@keyframes animate-right-distance-far {
+@keyframes animate-right-distance-6 {
+  from {
+    margin-right: 0;
+  }
+  to {
+    margin-right: 60%;
+  }
+}
+
+@keyframes animate-right-distance-7 {
   from {
     margin-right: 0;
   }
@@ -139,7 +248,16 @@
   }
 }
 
-@keyframes animate-right-distance-farthest {
+@keyframes animate-right-distance-8 {
+  from {
+    margin-right: 0;
+  }
+  to {
+    margin-right: 80%;
+  }
+}
+
+@keyframes animate-right-distance-9 {
   from {
     margin-right: 0;
   }
@@ -147,3 +265,4 @@
     margin-right: 90%;
   }
 }
+/************************** end animation keyframes **************************/

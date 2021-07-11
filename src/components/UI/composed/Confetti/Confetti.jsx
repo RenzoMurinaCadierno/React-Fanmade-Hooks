@@ -4,11 +4,13 @@ import ConfettiGuideX from "components/UI/combined/Confetti/ConfettiGuides/Confe
 import ConfettiGuideY from "components/UI/combined/Confetti/ConfettiGuides/ConfettiGuideY/ConfettiGuideY"
 import ConfettiGuides from "components/UI/combined/Confetti/ConfettiGuides/ConfettiGuides"
 import ConfettiPaperPiece from "components/UI/combined/Confetti/ConfettiPaperPiece/ConfettiPaperPiece"
+import ConfettiStateContainer from "components/UI/combined/Confetti/ConfettiStateContainer/ConfettiStateContainer"
 
 function Confetti(props) {
-  return <ConfettiCannon {...props} />
+  return <ConfettiStateContainer {...props} />
 }
 
+Confetti.Cannon = ConfettiCannon
 Confetti.Glitter = ConfettiGlitter
 Confetti.Guides = ConfettiGuides
 Confetti.Guides.X = ConfettiGuideX

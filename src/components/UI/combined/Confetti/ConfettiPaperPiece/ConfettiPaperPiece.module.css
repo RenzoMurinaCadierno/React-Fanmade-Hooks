@@ -1,11 +1,15 @@
+/* all devices portrait */
 .Container {
-  width: inherit;
-  height: inherit;
+  /* container '*div*' (confetti paper piece) */
+  width: inherit; /* inherited from '*ConfettiGuideY*' container */
+  height: inherit; /* inherited from '*ConfettiGuideX*' container */
   border-radius: var(--border-radius-vw);
   transform: rotate(0deg);
-  background-color: whitesmoke;
+  background-color: #fff; /* fail-safe background color */
 }
+/* end all devices portrait */
 
+/* classNames added by `rotateSpeed` and `rotateOrientation` */
 .rotate-speed-slowest.rotate-orientation-forwards {
   animation: rotate-forwards 2.5s linear infinite;
 }
@@ -45,7 +49,9 @@
 .rotate-speed-fastest.rotate-orientation-reverse {
   animation: rotate-reverse 0.5s linear infinite;
 }
+/* end classNames added by `rotateSpeed` and `rotateOrientation` */
 
+/* animation keyframes */
 @keyframes rotate-forwards {
   from {
     transform: rotate(0deg);
@@ -63,3 +69,4 @@
     transform: rotate(-180deg);
   }
 }
+/* end animation keyframes */

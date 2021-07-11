@@ -21,18 +21,31 @@ export const metaTagsProps = {
     "value, toggle, value toggle, useValueToggle, react, fanmade, hooks, react fanmade hooks"
 }
 
+/**
+ * Returns an app's theme `type` to spread as props in '*Spinner*' and '*Text*'
+ * inside '*CmpTest*'.
+ *
+ * @param {number} second "second" in '*UseTimeoutToggle*'. An integer between 0
+ *   and 9.
+ */
 export function getType(second) {
   switch (second) {
     case 1:
       return "danger-2"
     case 2:
-      return "danger"
+      return "danger-1"
     case 3:
-      return "secondary-2"
+      return "danger"
     case 4:
-      return "secondary"
+      return "secondary-2"
     case 5:
+      return "secondary-1"
+    case 6:
+      return "secondary"
+    case 7:
       return "primary-2"
+    case 8:
+      return "primary-1"
     default:
       return "primary"
   }

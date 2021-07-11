@@ -1,26 +1,19 @@
+/* all devices lanscape */
 .Container {
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.AbsoluteFill {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.FullScreen {
-  position: fixed;
+  /* wrapper container '*div*'. Its dimensions are used by guides */
+  position: fixed; /* cover all screen */
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
+  overflow: hidden; /* hide paper pieces flowing off screen */
+  pointer-events: none; /* do not block taps */
 }
 
 .RelativeWrapper {
-  position: relative;
-  width: inherit;
+  /* wrapper '*div*' functioning as parent of 'x' and 'y' guides */
+  position: relative; /* guides need a relative parent to translate */
+  width: inherit; /* match its dimensions to the ones in '*Container*' */
   height: inherit;
 }
+/* end all devices lanscape */

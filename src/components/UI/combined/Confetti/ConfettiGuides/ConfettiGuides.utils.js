@@ -6,24 +6,13 @@ export const classes = {
   y: (className) => className
 }
 
-export const defaultProps = {
-  anchor: "left",
-  distance: "farthest",
-  altitude: "medium",
-  classNames: {},
-  guidesProps: {}
-}
+export const defaultProps = { classNames: {}, guidesProps: {} }
 
 export const propTypes = {
+  children: PropTypes.node.isRequired,
   anchor: PropTypes.oneOf(["left", "right"]),
-  distance: PropTypes.oneOf(["shortest", "short", "medium", "far", "farthest"]),
-  altitude: PropTypes.oneOf(["lowest", "low", "medium", "high", "highest"]),
-  classNames: PropTypes.exact({
-    x: PropTypes.string,
-    y: PropTypes.string
-  }),
-  guidesProps: PropTypes.exact({
-    x: PropTypes.object,
-    y: PropTypes.object
-  })
+  distance: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9]),
+  altitude: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9]),
+  classNames: PropTypes.exact({ x: PropTypes.string, y: PropTypes.string }),
+  guidesProps: PropTypes.exact({ x: PropTypes.object, y: PropTypes.object })
 }

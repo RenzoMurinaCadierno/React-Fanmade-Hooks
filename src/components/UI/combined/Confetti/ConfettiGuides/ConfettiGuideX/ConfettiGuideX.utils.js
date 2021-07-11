@@ -7,18 +7,16 @@ export const classes = {
     " " +
     (anchor ? styles["anchor-" + anchor.toLowerCase()] : "") +
     " " +
-    (distance ? styles["distance-" + distance.toLowerCase()] : "") +
+    (distance ? styles["distance-" + distance] : "") +
     " " +
     styles.Container
 }
 
-export const defaultProps = {
-  anchor: "right",
-  distance: "medium"
-}
+export const defaultProps = { anchor: "right", distance: 5 }
 
 export const propTypes = {
+  children: PropTypes.node.isRequired,
   anchor: PropTypes.oneOf(["left", "right"]),
-  distance: PropTypes.oneOf(["shortest", "short", "medium", "far", "farthest"]),
+  distance: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9]),
   className: PropTypes.string
 }

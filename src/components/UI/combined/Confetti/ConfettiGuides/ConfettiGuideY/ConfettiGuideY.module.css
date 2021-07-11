@@ -1,53 +1,104 @@
+/*************************** all devices landscape ***************************/
 .Container {
-  height: 2vw;
-  width: inherit;
-  /* border: 1px solid red; */
-  transform: translateY(100%);
+  /* 'x' guideline '*div*' */
+  width: 100%; /* 'x' axis covers the whole width */
+  height: 2vw; /* paper piece's "height" is inherited from here */
+  transform: translateY(100%); /* start off screen (pieces will translate in) */
 }
 
-.Container.altitude-lowest {
-  animation: altitude-lowest 2.5s ease-out forwards;
+/* classNames added by `altitude` */
+.Container.altitude-1 {
+  animation: altitude-1 2.5s ease-out forwards;
 }
 
-.Container.altitude-low {
-  animation: altitude-low 2.5s ease-out forwards;
+.Container.altitude-2 {
+  animation: altitude-2 2.5s ease-out forwards;
 }
 
-.Container.altitude-medium {
-  animation: altitude-medium 2.5s ease-out forwards;
+.Container.altitude-3 {
+  animation: altitude-3 2.5s ease-out forwards;
 }
 
-.Container.altitude-high {
-  animation: altitude-high 2.5s ease-out forwards;
+.Container.altitude-4 {
+  animation: altitude-4 2.5s ease-out forwards;
 }
 
-.Container.altitude-highest {
-  animation: altitude-highest 2.5s ease-out forwards;
+.Container.altitude-5 {
+  animation: altitude-5 2.5s ease-out forwards;
 }
 
-@keyframes altitude-lowest {
+.Container.altitude-6 {
+  animation: altitude-6 2.5s ease-out forwards;
+}
+
+.Container.altitude-7 {
+  animation: altitude-7 2.5s ease-out forwards;
+}
+
+.Container.altitude-8 {
+  animation: altitude-8 2.5s ease-out forwards;
+}
+
+.Container.altitude-9 {
+  animation: altitude-9 2.5s ease-out forwards;
+}
+/* end classNames added by `altitude` */
+/************************* end all devices landscape *************************/
+
+/*************************** all devices portrait ***************************/
+@media screen and (orientation: portrait) {
+  .Container {
+    height: 2vh;
+  }
+}
+/************************* end all devices portrait *************************/
+
+/**************************** animation keyframes ****************************/
+@keyframes altitude-1 {
   0%,
   100% {
     transform: translateY(100%);
   }
   20%,
   30% {
-    transform: translateY(-15vh);
+    transform: translateY(-10vh);
   }
 }
 
-@keyframes altitude-low {
+@keyframes altitude-2 {
   0%,
   100% {
     transform: translateY(100%);
   }
   20%,
   30% {
-    transform: translateY(-35vh);
+    transform: translateY(-20vh);
   }
 }
 
-@keyframes altitude-medium {
+@keyframes altitude-3 {
+  0%,
+  100% {
+    transform: translateY(100%);
+  }
+  20%,
+  30% {
+    transform: translateY(-30vh);
+  }
+}
+
+@keyframes altitude-4 {
+  0%,
+  100% {
+    transform: translateY(100%);
+  }
+  20%,
+  30% {
+    transform: translateY(-40vh);
+  }
+}
+
+@keyframes altitude-5 {
   0%,
   100% {
     transform: translateY(100%);
@@ -58,18 +109,40 @@
   }
 }
 
-@keyframes altitude-high {
+@keyframes altitude-6 {
   0%,
   100% {
     transform: translateY(100%);
   }
   20%,
   30% {
-    transform: translateY(-75vh);
+    transform: translateY(-60vh);
   }
 }
 
-@keyframes altitude-highest {
+@keyframes altitude-7 {
+  0%,
+  100% {
+    transform: translateY(100%);
+  }
+  20%,
+  30% {
+    transform: translateY(-70vh);
+  }
+}
+
+@keyframes altitude-8 {
+  0%,
+  100% {
+    transform: translateY(100%);
+  }
+  20%,
+  30% {
+    transform: translateY(-80vh);
+  }
+}
+
+@keyframes altitude-9 {
   0%,
   100% {
     transform: translateY(100%);
@@ -79,3 +152,4 @@
     transform: translateY(-90vh);
   }
 }
+/************************** end animation keyframes **************************/

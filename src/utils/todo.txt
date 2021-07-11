@@ -1,6 +1,5 @@
 useTextProcessor (read write) https://codepen.io/rkotze/pen/zjRXYr
 useMouseCoords -> example button that moves when hovered closeby
-useLatency -> simulate a promise.resolve after timeout
 usePagination
 
 hitTarget spawn % 3 NO. make it % prevst.hits / 3, then by +3, +6, +12
@@ -13,15 +12,11 @@ button on uselocalstorage, automatically on after user/pass
 
 publishing: https://www.youtube.com/watch?v=Ufwbp838yZA
 
-useClassNameToggle -> useValueToggle(value, timeout, offValue)
-
 test TOAST's useCallback to see renders, then pwa
 
-check stlyings on all devices. 
-check if useValueToggle didnt break something
 Fast example usetimeouttoggle (spinner and fireworks). 
 
 preload links https://blog.maximeheckel.com/posts/preloading-views-with-react/
 
 // commit msg
-Started with '*Confetti*'.
+Finished '*Confetti*' logic. Started commenting it.

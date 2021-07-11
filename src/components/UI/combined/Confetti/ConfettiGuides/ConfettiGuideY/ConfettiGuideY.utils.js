@@ -5,14 +5,15 @@ export const classes = {
   container: (altitude, className) =>
     (className ?? "") +
     " " +
-    (altitude ? styles["altitude-" + altitude.toLowerCase()] : "") +
+    (altitude ? styles["altitude-" + altitude] : "") +
     " " +
     styles.Container
 }
 
-export const defaultProps = { altitude: "lowest" }
+export const defaultProps = { altitude: 5 }
 
 export const propTypes = {
-  altitude: PropTypes.oneOf(["lowest", "low", "medium", "high", "highest"]),
+  children: PropTypes.node.isRequired,
+  altitude: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9]),
   className: PropTypes.string
 }

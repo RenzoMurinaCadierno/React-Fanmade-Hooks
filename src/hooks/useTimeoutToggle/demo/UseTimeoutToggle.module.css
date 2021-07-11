@@ -11,6 +11,7 @@
 
 .SpinnerContainer {
   position: relative;
+  cursor: pointer;
 }
 /* end all devices landscape */
 

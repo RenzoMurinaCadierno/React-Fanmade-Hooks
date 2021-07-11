@@ -22,9 +22,8 @@ export default function UseCount() {
 }
 
 function CmpTest() {
-  const [show, setShow] = useState(false)
-  const [second, setSecond] = useState(6)
-  const [isTimeoutToggled, triggerTimeoutToggle] = useTimeoutToggle(6000)
+  const [second, setSecond] = useState(9)
+  const [isTimeoutToggled, triggerTimeoutToggle] = useTimeoutToggle(9000)
 
   const currentType = getType(second)
 
@@ -42,11 +41,11 @@ function CmpTest() {
   useEffect(() => {
     let restartTimeoutId = 0
     if (!second) {
-      restartTimeoutId = setTimeout(() => setSecond(6), 2000)
+      restartTimeoutId = setTimeout(() => setSecond(9), 2000)
     }
     return () => clearTimeout(restartTimeoutId)
   }, [second])
-  console.log(show)
+
   return (
     <section className={classes.cmpTest} aria-label="component testing area">
       <div
@@ -64,13 +63,8 @@ function CmpTest() {
           {second}
         </Text>
       </div>
-      <button
-        onClick={() => setShow(show ? false : true)}
-        style={{ transform: "translateY(-600%)" }}
-      >
-        show
-      </button>
-      {show && <Confetti />}
+      <Confetti quantity={8} show={isTimeoutToggled && second % 2 === 0} />
+      <Confetti quantity={8} show={isTimeoutToggled && second % 3 === 0} />
     </section>
   )
 }
