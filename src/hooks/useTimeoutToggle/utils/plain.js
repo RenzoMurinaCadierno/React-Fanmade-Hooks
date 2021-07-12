@@ -4,98 +4,94 @@ const plainCode = `/************************************************************
  * Or you can use Create-React-App ^3.3.0, since it is already implemented there
  ******************************************************************************/
 
-import { useCallback, useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 
 /**
- * Toggles a value related to _"on"_ state when invoked by the returned handler,
- * which automatically turns back to another value assigned to _"off"_ state
- * after a specified timeout.
+ * Offers a boolean \`false\` that, when set to \`true\` by its handler, it 
+ * automatically resets back to \`false\` after \`timeout\`.
  *
- * @param {object} configs An object shaped:
+ * @param {number} timeout The time active boolean state takes to switch back to
+ *   \`false\` once it was toggled, represented in milliseconds as integer higher
+ *   than 0.
  *
- * \`on?\` (any): Active value (assiged to "on" state). Defaults to \`true\`.
- *
- * \`off?\` (any): Inactive value (assigned to "off" state). Defaults to
- *   \`false\`.
- *
- * \`timeout?\` (number): Delay to set \`on\` back to \`off\` once it was toggled,
- *   measured in milliseconds. Defaults to 1000.
- *
- * \`onStart?\` (function): Callback triggered when \`on\` is toggled.
- *
- * \`onFinish?\` (function): Callback triggered when \`off\` is toggled back from
- *   \`on\`.
+ * @param {function} onToggle Callback to trigger each time active state
+ *   toggles, regardless its state. Passes active state as argument.
  *
  * @returns {Array} An array with:
  *
- * \`elem 0\` (any): \`on\` or \`off\` value, depending on which one is currently
- *   toggled.
+ * \`elem 0\` (boolean): Toggler's current active state.
  *
- * \`elem 1\` (function): Handler that, when triggered, toggles the value from
- *   \`off\` to \`on\`.
- *
- * \`elem 2\` (boolean): Toggler state. \`true\` if \`on\` is toggled, \`false\`
- *   otherwise.
+ * \`elem 1\` (function): Timeout toggle trigger.
+ * * When invoked, active state is set to \`true\`, and resets to \`false\` after
+ *   \`timeout\`.
+ * * Accepts a boolean as argument, in which case, active state is set to that
+ *   boolean. Use this if you need to force active state to \`false\` while
+ *   currently being \`true\`, which aborts the timeout that switches it back.
  *
  * @author Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>
  */
-export default function useValueToggle({
-  on = true,
-  off = false,
-  timeout = 1000,
-  onStart,
-  onFinish
-}) {
-  const [valSt, setValSt] = useState({
-    current: off, // \`off\` when inactive, \`on\` when toggled active.
-    isActive: false // \`false\` when "valSt.current" if \`off\`, \`true\` otherwise.
-  })
+export default function useTimeoutToggle(timeout = 1000, onToggle) {
+  const [state, setState] = useState(false)
 
   /**
-   * Sets value to \`on\` and fires \`onStart\` if defined. It also toggles
-   * "isActive" to \`true\`.
+   * Sets state to the boolean passed as argument, or \`true\` by default.
    *
-   * \`on\` will toggle to \`off\` after \`timeout by a "useEffect".
+   * \`true\` enables setting state to \`false\` after \`timeout\`, while \`false\`
+   * aborts "useEffect" timeout, if any.
    */
-  /* eslint-disable react-hooks/exhaustive-deps */
-  const trigger = useCallback(() => {
-    if (valSt.isActive) return
-
-    setValSt(() => ({ current: on, isActive: true }))
-
-    typeof onStart === "function" && onStart()
-  }, [onStart])
+  const toggleTimeout = useCallback(
+    (st) => setState(() => (typeof st === "boolean" ? !!st : true)),
+    []
+  )
 
   /**
-   * If \`on\` is toggled, it sets it back to \`off\` after \`timeout\`. It also sets
-   * "isActive" back to false and triggers \`onFinish\` if defined.
+   * At mount phase or any time hook's args change, check if they are valid.
    *
-   * If \`timeout\` is not an integer higher than 0, hook will crash the app with
-   * a meaningful console error message.
+   * Crash the app with tracing console errors if validation fails.
+   */
+  useEffect(() => _crashOnInvalidArgs(timeout, onToggle), [timeout, onToggle])
+
+  /**
+   * When "state" is set to \`true\`, set it back to \`false\` aftet \`timeout\`.
+   *
+   * Regardless state, it trigger \`onToggle\` if defined.
    */
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
-    let animationTimeout
+    let togglerTimeout
 
-    _crashOnInvalidTimeout(timeout)
+    if (state) togglerTimeout = setTimeout(() => setState(false), timeout)
 
-    if (valSt.isActive) {
-      animationTimeout = setTimeout(() => {
-        setValSt({ current: off, isActive: false })
-        typeof onFinish === "function" && onFinish()
-      }, timeout)
-    }
+    onToggle?.(state)
 
-    return () => clearTimeout(animationTimeout)
-  }, [valSt.isActive])
+    return () => clearTimeout(togglerTimeout)
+  }, [state])
 
-  return [valSt.current, trigger, valSt.isActive]
+  // return toggler boolean state and its trigger
+  return [state, toggleTimeout]
 }
 
-function _crashOnInvalidTimeout(timeout) {
-  if (typeof timeout !== "number" || timeout <= 0) {
+/**
+ * Crashes the app if hook's args are invalid, logging errors in console.
+ *
+ * @param {number} timeout "useTimeoutToggle" \`timeout\`.
+ *
+ * @param {function} onToggle "useTimeoutToggle" \`onToggle\`.
+ */
+function _crashOnInvalidArgs(timeout, onToggle) {
+  if (!timeout || !Number.isInteger(timeout) || timeout <= 0) {
     throw new Error(
-      "Invalid argument \`timeout\` supplied to \`useValueToggle\`. It must be an integer higher than 0."
+      "Invalid argument \`timeout\` with value \`" +
+        timeout +
+        "\` supplied to \`useTimeoutToggle\`. Expected an integer higher than 0."
+    )
+  }
+
+  if (onToggle && typeof onToggle !== "function") {
+    throw new Error(
+      "Invalid argument \`onToggle\` with value \`" +
+        onToggle +
+        "\` supplied to \`useTimeoutToggle\`. Expected a function."
     )
   }
 }`

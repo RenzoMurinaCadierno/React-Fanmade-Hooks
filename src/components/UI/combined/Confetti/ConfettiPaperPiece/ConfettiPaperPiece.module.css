@@ -51,6 +51,14 @@
 }
 /* end classNames added by `rotateSpeed` and `rotateOrientation` */
 
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  .Container {
+    border-radius: var(--border-radius-vh);
+  }
+}
+/* end all devices portrait */
+
 /* animation keyframes */
 @keyframes rotate-forwards {
   from {

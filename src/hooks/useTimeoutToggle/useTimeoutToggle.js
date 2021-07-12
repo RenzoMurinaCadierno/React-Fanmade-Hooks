@@ -1,12 +1,12 @@
 import { useState, useEffect, useCallback } from "react"
 
 /**
- * Offers a boolean `false` that, when set to `true` by its handler, it resets
- * back to `false` after `timeout`.
+ * Offers a boolean `false` that, when set to `true` by its handler, it
+ * automatically resets back to `false` after `timeout`.
  *
  * @param {number} timeout The time active boolean state takes to switch back to
  *   `false` once it was toggled, represented in milliseconds as integer higher
- *   than 0.
+ *   than 0. Defaults to 1000.
  *
  * @param {function} onToggle Callback to trigger each time active state
  *   toggles, regardless its state. Passes active state as argument.

@@ -25,34 +25,49 @@ function CmpTest() {
   const [second, setSecond] = useState(9)
   const [isTimeoutToggled, triggerTimeoutToggle] = useTimeoutToggle(9000)
 
+  // `type` for '*Spinner*' and '*Text*', depending on current "second"
   const currentType = getType(second)
 
+  /**
+   * When "isTimeoutToggled" becomes `true`, sets an interval that ticks each
+   * second, decreasing "second" by 1 on each tick.
+   */
   useEffect(() => {
-    let intervalId = 0
+    let intervalId
+
     if (isTimeoutToggled) {
       intervalId = setInterval(
         () => setSecond((prevSt) => (prevSt <= 0 ? 0 : --prevSt)),
         1000
       )
     }
+
     return () => clearInterval(intervalId)
   }, [isTimeoutToggled])
 
+  /**
+   * When "second" hits 0, it fires a timeout that re-sets "second" to 9 after
+   * 2000 milliseconds.
+   */
   useEffect(() => {
-    let restartTimeoutId = 0
-    if (!second) {
-      restartTimeoutId = setTimeout(() => setSecond(9), 2000)
-    }
+    let restartTimeoutId
+
+    if (!second) restartTimeoutId = setTimeout(() => setSecond(9), 2000)
+
     return () => clearTimeout(restartTimeoutId)
   }, [second])
 
   return (
+    // wrapper container
     <section className={classes.cmpTest} aria-label="component testing area">
+      {/* container for spinner and its text */}
       <div
         className={classes.spinnerContainer}
         onClick={!second ? null : triggerTimeoutToggle}
       >
+        {/* spinner. Changes `type` each second. Disables when second is 0 */}
         <Spinner size="xl" type={currentType} disabled={!second} />
+        {/* text. Shows current "second". `type` and `disabled` change too. */}
         <Text
           htmlElem="h4"
           absoluteFill
@@ -63,6 +78,7 @@ function CmpTest() {
           {second}
         </Text>
       </div>
+      {/* confetti effect, for funzies. */}
       <Confetti quantity={8} show={isTimeoutToggled && second % 2 === 0} />
       <Confetti quantity={8} show={isTimeoutToggled && second % 3 === 0} />
     </section>

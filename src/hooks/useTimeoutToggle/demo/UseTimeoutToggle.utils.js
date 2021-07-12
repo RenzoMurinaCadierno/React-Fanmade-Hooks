@@ -1,15 +1,18 @@
 import styles from "./UseTimeoutToggle.module.css"
 
 export const classes = {
-  cmpDesc: { description: styles.CmpDescDescription },
+  cmpDesc: {
+    description: styles.CmpDescDescription
+  },
+  cmpTest: styles.CmpTest,
   spinnerContainer: styles.SpinnerContainer
 }
 
 export const descItems = {
-  title: "useValueToggle",
+  title: "useTimeoutToggle",
   paragraphs: [
-    'Toggles a value related to "on" state when invoked by the returned handler, which automatically turns back to another value assigned to "off" state after a specified timeout.',
-    'Try tapping the heart. A "heart-beating" animation className will be added to it, and removed after 2.5 seconds.'
+    "Offers a boolean state and a trigger that, when invoked, sets the state to `true`. Then, after a specified timeout expires, the state is automatically set back to `false`.",
+    "Tap the spinner. Its active state will toggle to `true`, enabling a countdown. Then, after 11 seconds, state switches back to `false`, which allows the countdown to be triggered again."
   ]
 }
 
@@ -18,7 +21,7 @@ export const metaTagsProps = {
   author: "Renzo Nahuel Murina Cadierno <nmcadierno@gmail.com>",
   description: descItems.title + " hook. " + descItems.paragraphs[0],
   keywords:
-    "value, toggle, value toggle, useValueToggle, react, fanmade, hooks, react fanmade hooks"
+    "timeout, toggle, timeout toggle, useTimeoutToggle, react, fanmade, hooks, react fanmade hooks"
 }
 
 /**

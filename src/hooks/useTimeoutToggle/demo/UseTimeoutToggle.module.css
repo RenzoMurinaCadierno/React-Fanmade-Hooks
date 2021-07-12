@@ -5,11 +5,11 @@
 
 .CmpTest {
   /* wrapper for component test area */
-  /* width: 80%; */
-  /* height: 40%; */
+  margin-bottom: var(--large-margin-vw);
 }
 
 .SpinnerContainer {
+  /* wrapper '*div*' hosting '*Spinner*' and '*Text*' */
   position: relative;
   cursor: pointer;
 }
@@ -19,11 +19,7 @@
 @media screen and (orientation: portrait) {
   .CmpTest {
     /* wrapper for component test area */
-    /* height: 30%; */
+    margin-bottom: var(--large-margin-vh);
   }
 }
 /* end all devices portrait */
-
-/* animation keyframes  */
-
-/* end animation keyframes  */

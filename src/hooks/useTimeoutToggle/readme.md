@@ -1,63 +1,33 @@
-# useValueToggle
+# useTimeoutToggle
 
 - [Working example here](https://rfh.netlify.app/use-class-name-toggle)
 
 ## Description
 
-Toggles a value related to _"on"_ state when invoked by the returned handler, which automatically turns back to another value assigned to _"off"_ state after a specified timeout.',
+Offers a boolean `false` that, when set to `true` by its handler, it automatically resets back to `false` after a specified timeout.
 
 ## Parameters
 
-A configuration `object` shaped:
-<br /> <br />
-
-- `on?` (any)
-
-  Active value (assiged to "on" state). Defaults to `true`.
-  <br />
-  <br />
-
-- `off?` (any)
-
-  Inactive value (assigned to "off" state). Defaults to `false`.
-  <br />
-  <br />
-
 - `timeout` (number)
 
-  Delay to set `on` back to `off` once it was toggled, measured in milliseconds. Defaults to `1000`.
-  <br />
-  <br />
+  The time active boolean state takes to switch back to `false` once it was toggled, represented in milliseconds as integer higher than 0. Defaults to `1000`.
 
-- `onStart?` (function)
+- `onToggle?` (function)
 
-  Callback triggered when `on` is toggled from `off`.
-  <br />
-  <br />
-
-- `onFinish?` (function)
-
-  Callback triggered when `off` is toggled back from `on`.
-  <br />
-  <br />
+  Callback to trigger each time active state toggles, regardless its state. Passes active state as argument.
 
 ## Return
 
 An `array` with:
-<br />
 
-- `elem 0` (any)
+- `elem 0` (boolean)
 
-  Either `on` or `off`, depending on which one is currently toggled.
-  <br />
+  Toggler's current active state.
 
-- `elem 1` (function)
+- `elem 1` (boolean)
 
-  Handler that, when triggered, toggles the value from `off` to `on`.
+  Timeout toggle trigger.
 
-  Once toggled, `off` will be set back after `timeout`.  
-  <br />
+  - When invoked, active state is set to `true`, and resets to `false` after `timeout`.
 
-- `elem 2` (boolean)
-
-  Toggler state. It is `true` if `on` is toggled, `false` otherwise.
+  - Accepts a boolean as argument, in which case, active state is set to that boolean. Use this if you need to force active state to `false` while currently being `true`, which aborts the timeout that switches it back.

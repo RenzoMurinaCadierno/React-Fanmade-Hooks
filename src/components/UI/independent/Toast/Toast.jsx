@@ -48,7 +48,7 @@ export default function Toast({
   ...otherProps
 }) {
   const [st, setSt] = useState({ isOpen: false, animation: null })
-
+  test TOAST's useCallback to see renders, then preload links, then pwa
   const changeAnimationSt = useCallback(
     (animationState) => setSt({ isOpen: true, animation: animationState }),
     [setSt]

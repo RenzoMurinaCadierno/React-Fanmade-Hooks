@@ -4,7 +4,7 @@
 
 ## Description
 
-Toggles a value related to _"on"_ state when invoked by the returned handler, which automatically turns back to another value assigned to _"off"_ state after a specified timeout.',
+Toggles a value related to _"on"_ state when invoked by the returned handler, which automatically turns back to another value assigned to _"off"_ state after a specified timeout.
 
 ## Parameters
 
