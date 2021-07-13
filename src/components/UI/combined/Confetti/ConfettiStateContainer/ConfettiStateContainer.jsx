@@ -44,6 +44,7 @@ function ConfettiStateContainer({ show, onStart, onFinish, ...otherProps }) {
    *
    * Such case also triggers `onStart` if defined.
    */
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     if (show && !isActive) {
       setIsActive(true)
@@ -58,6 +59,7 @@ function ConfettiStateContainer({ show, onStart, onFinish, ...otherProps }) {
    *
    * After that timeout, `onFinish` is triggered, if defined.
    */
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     let hideTimeoutId
 
