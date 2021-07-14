@@ -1,25 +1,102 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "version": "1.0.1",
+  "name": "React Fanmade Hooks",
+  "short_name": "R.F.H.",
+  "description": "Hooks for many needs made by React enthusiasts",
+  "author": "Renzo Nahuel Murina Cadierno",
+  "homepage_url": "https://rfh.netlify.app",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "icons/favicon16.png",
+      "sizes": "24x24 16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/favicon32.png",
+      "sizes": "64x64 32x32",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "icons/logo192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "icons/logo512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
+  "orientation": "any",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "shortcuts": [
+    {
+      "name": "useAnimatedNumber",
+      "description": "Animates a number when it changes. Accepts custom timeout, iterations and step, as well as decimal precision and callbacks on start/iteration/end.",
+      "url": "/useAnimatedNumber"
+    },
+    {
+      "name": "useCallbackOnce",
+      "description": "Triggers an assigned callback one time only.",
+      "url": "/useCallbackOnce"
+    },
+    {
+      "name": "useCallbackXTimes",
+      "description": "Triggers an assigned callback the specified amount of times.",
+      "url": "/useCallbackXTimes"
+    },
+    {
+      "name": "useCount",
+      "description": "Gets a count state and its increase, decrease, reset and step handlers, as well as its step's state.",
+      "url": "/useCount"
+    },
+    {
+      "name": "useEffectOnce",
+      "description": "useEffect but it only applies once.",
+      "url": "/useEffectOnce"
+    },
+    {
+      "name": "useEffectXTimes",
+      "description": "useEffect but it stops applying after the specified count.",
+      "url": "/useEffectXTimes"
+    },
+    {
+      "name": "useLocalStorage",
+      "description": "Takes control of a local storage key, offering customizable get, set, del and reset handlers in return, as well as automatic state syncing.",
+      "url": "/useLocalStorage"
+    },
+    {
+      "name": "usePreviousValue",
+      "description": "Saves the former value.",
+      "url": "/usePreviousValue"
+    },
+    {
+      "name": "useReRender",
+      "description": "Forces the component to re-render.",
+      "url": "/useReRender"
+    },
+    {
+      "name": "useTimeoutToggle",
+      "description": "Offers a boolean state and a trigger that, when invoked, sets the state to `true`. Then, after a specified timeout expires, the state is automatically set back to `false`.",
+      "url": "/useTimeoutToggle"
+    },
+    {
+      "name": "useTimer",
+      "description": "Generates and ticks a timer or countdown.",
+      "url": "/useTimer"
+    },
+    {
+      "name": "useToggle",
+      "description": "Switches state between `true` and `false`.",
+      "url": "/useToggle"
+    },
+    {
+      "name": "useValueToggle",
+      "description": "Toggles a value related to \"on\" state when invoked by the returned handler, which automatically turns back to another value assigned to \"off\" state after a specified timeout.",
+      "url": "/useValueToggle"
+    }
+  ]
 }

@@ -10,7 +10,7 @@ export const classes = {
 export const descItems = {
   title: "useToggle",
   paragraphs: [
-    "Switches state between true and false.",
+    "Switches state between `true` and `false`.",
     "Try to toggle typing below."
   ]
 }

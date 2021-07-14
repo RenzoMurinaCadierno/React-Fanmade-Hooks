@@ -1,7 +1,7 @@
-import React, { lazy } from "react"
+import { lazy } from "react"
 
 /**
- * A High Order Component that takes a dynamic import statement and returns a,
+ * A High Order Component that takes a dynamic import statement and returns a
  * `React.lazy` component using that statement as argument.
  *
  * A property `preload` is added to the returned component, which contains:
@@ -53,8 +53,8 @@ export function lazyWithPreload({ importStatement, preload }) {
  * Fulfills `importStatement` promise, returning `module.default` output on
  * resolution, or throwing a detailed error on rejection.
  *
- * If the component was already lazy loaded or preloaded, this function does
- * not call `importStatement`, but returns `Component` as is.
+ * If the component was already lazy loaded or preloaded, this function returns
+ * `Component` as is, without invoking `importStatement`.
  *
  * @param {React.Element} Component The React component wrapped in `React.lazy`
  *   using `importStatement` as argument.
@@ -67,8 +67,10 @@ export function lazyWithPreload({ importStatement, preload }) {
  *   Like `() => import('./components/Todo.js')`
  */
 function preloadComponent(Component, importStatement) {
+  // component already preloaded
   if (Component.preload.status === "preloaded") return Component
 
+  // component already lazy loaded
   if (Component._payload._status === 1) {
     Component.preload.status = "preloaded"
     Component.preload.error = null
