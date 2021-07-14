@@ -18,4 +18,4 @@ PWA https://tomitm.github.io/appmanifest/
 preload links https://blog.maximeheckel.com/posts/preloading-views-with-react/
 
 // commit msg
-Started with pages preload logic
+Tested '*Toast*' useCallback. Ready to migrate to CRA PWA template boilerplate.

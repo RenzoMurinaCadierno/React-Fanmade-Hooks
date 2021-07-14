@@ -62,6 +62,7 @@ export default function Toast({
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     let animationTimeout
+
     if (st.animation === "open") {
       // animation state became "open" due to `show` becoming true. Trigger
       // callback and switch animation state to "active" after timeout
@@ -79,13 +80,14 @@ export default function Toast({
         onClose?.()
       }, 125)
     }
+
     return () => clearTimeout(animationTimeout)
   }, [st.animation])
 
   return (
     // render only if "st.isOpen" is true
     st.isOpen && (
-      // container
+      // wrapper container
       <div
         className={classes.container(
           st.animation,
