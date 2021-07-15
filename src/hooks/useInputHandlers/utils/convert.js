@@ -1,5 +1,5 @@
-const fs = require("fs")
-const readline = require("readline")
+// const fs = require("fs")
+// const readline = require("readline")
 
 // // Write plain words in array format into a new txt
 //
@@ -29,22 +29,22 @@ const readline = require("readline")
 
 // // Count words' lengths for input maxLength validation
 //
-const readInterface = readline.createInterface({
-  input: fs.createReadStream("C:/Users/Renzo/Desktop/words.txt")
-  // output: process.stdout,
-})
+// const readInterface = readline.createInterface({
+//   input: fs.createReadStream("C:/Users/Renzo/Desktop/words.txt")
+//   // output: process.stdout,
+// })
 
-const wordsLengths = {}
+// const wordsLengths = {}
 
-readInterface.on("line", (line) => {
-  if (!line) return
-  const filteredLine = line.replace(/\d+\.\s/g, "")
-  if (wordsLengths[filteredLine.length]) {
-    wordsLengths[filteredLine.length][0]++
-    wordsLengths[filteredLine.length][1].push(filteredLine)
-  } else {
-    wordsLengths[filteredLine.length] = [1, [filteredLine]]
-  }
-})
+// readInterface.on("line", (line) => {
+//   if (!line) return
+//   const filteredLine = line.replace(/\d+\.\s/g, "")
+//   if (wordsLengths[filteredLine.length]) {
+//     wordsLengths[filteredLine.length][0]++
+//     wordsLengths[filteredLine.length][1].push(filteredLine)
+//   } else {
+//     wordsLengths[filteredLine.length] = [1, [filteredLine]]
+//   }
+// })
 
-setTimeout(() => console.log(wordsLengths), 1000)
+// setTimeout(() => console.log(wordsLengths), 1000)

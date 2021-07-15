@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from "react"
+import { Suspense } from "react"
 import { Switch, Route } from "react-router-dom"
 import { Spinner } from "hub"
 import { capitalize, slugify } from "utils/utilityFunctions"

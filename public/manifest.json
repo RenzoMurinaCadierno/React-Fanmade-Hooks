@@ -4,30 +4,29 @@
   "short_name": "R.F.H.",
   "description": "Hooks for many needs made by React enthusiasts",
   "author": "Renzo Nahuel Murina Cadierno",
-  "homepage_url": "https://rfh.netlify.app",
   "icons": [
     {
-      "src": "icons/favicon16.png",
+      "src": "/icons/favicon16.png",
       "sizes": "24x24 16x16",
       "type": "image/png"
     },
     {
-      "src": "icons/favicon32.png",
+      "src": "/icons/favicon32.png",
       "sizes": "64x64 32x32",
       "type": "image/x-icon"
     },
     {
-      "src": "icons/logo192.png",
+      "src": "/icons/logo192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "icons/logo512.png",
+      "src": "/icons/logo512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": "/",
+  "start_url": ".",
   "display": "standalone",
   "orientation": "any",
   "theme_color": "#000000",
