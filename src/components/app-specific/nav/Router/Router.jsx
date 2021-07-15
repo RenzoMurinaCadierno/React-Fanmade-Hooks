@@ -48,10 +48,11 @@ export default function Router() {
     []
   )
 
+  return <Route component={_404Page} />
+
   // return the switch for all routes, with '*Spinner*' as loading fallback
   return (
     <Suspense fallback={<Spinner size="lg" />}>
-      {/* <button onClick={() => setA((a) => !a)}>asdd </button> */}
       <Switch>
         <Route exact path="/" component={HomePage} /> {/* Home */}
         {routesToHookDemos} {/* Routes to all Hook Demo pages */}
