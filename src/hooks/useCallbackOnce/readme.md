@@ -1,6 +1,6 @@
 # useCallbackOnce
 
-- [Working example here](https://rfh.netlify.app/use-callback-once)
+- [Working example here](https://react-fanmade-hooks.netlify.app/use-callback-once)
 
 ## Description
 

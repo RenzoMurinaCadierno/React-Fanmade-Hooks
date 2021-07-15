@@ -1,6 +1,6 @@
 # useAnimatedNumber
 
-- [Working example here](https://rfh.netlify.app/use-animated-number)
+- [Working example here](https://react-fanmade-hooks.netlify.app/use-animated-number)
 
 ## Description
 

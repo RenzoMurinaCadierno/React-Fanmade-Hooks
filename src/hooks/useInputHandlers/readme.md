@@ -1,6 +1,6 @@
 # useInputHandlers
 
-- [Working example here](https://rfh.netlify.app/use-input-handlers)
+- [Working example here](https://react-fanmade-hooks.netlify.app/use-input-handlers)
 
 ## Description
 

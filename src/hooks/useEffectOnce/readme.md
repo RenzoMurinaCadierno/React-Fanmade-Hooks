@@ -1,6 +1,6 @@
 # useEffectOnce
 
-- [Working example here](https://rfh.netlify.app/use-effect-once)
+- [Working example here](https://react-fanmade-hooks.netlify.app/use-effect-once)
 
 ## Description
 

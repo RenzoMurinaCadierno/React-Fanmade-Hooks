@@ -1,7 +1,7 @@
 import { Suspense } from "react"
 import { Switch, Route } from "react-router-dom"
 import { Spinner } from "hub"
-import { capitalize, slugify } from "utils/utilityFunctions"
+import { slugify } from "utils/utilityFunctions"
 import { lazyWithPreload } from "./Router.utils"
 import configs from "app.configs.json"
 
@@ -28,18 +28,22 @@ export default function Router() {
   const routesToHookDemos = Object.values(configs.appbarItems).reduce(
     (acc, hooksInCategory) => [
       ...acc,
-      ...hooksInCategory.map((hookName) => (
-        <Route
-          key={hookName}
-          exact
-          path={"/" + slugify(hookName)}
-          component={lazyWithPreload({
-            importStatement: () =>
-              import(`hooks/${hookName}/demo/${capitalize(hookName, true)}`),
-            preload: true
-          })}
-        />
-      ))
+      ...hooksInCategory.map((hookName) => {
+        const pascalCaseHookName = hookName[0].toUpperCase() + hookName.slice(1)
+
+        return (
+          <Route
+            key={hookName}
+            exact
+            path={"/" + slugify(hookName)}
+            component={lazyWithPreload({
+              importStatement: () =>
+                import(`hooks/${hookName}/demo/${pascalCaseHookName}`),
+              preload: true
+            })}
+          />
+        )
+      })
     ],
     []
   )

@@ -1,6 +1,6 @@
 # useMediaQuery
 
-- [Working example here](https://rfh.netlify.app/use-media-query)
+- [Working example here](https://react-fanmade-hooks.netlify.app/use-media-query)
 
 ## Description
 

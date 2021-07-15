@@ -1,6 +1,6 @@
 # useTimer
 
-- [Working example here](https://rfh.netlify.app/use-timer)
+- [Working example here](https://react-fanmade-hooks.netlify.app/use-timer)
 
 ## Description
 

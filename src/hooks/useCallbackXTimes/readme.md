@@ -1,6 +1,6 @@
 # useCallbackXTimes
 
-- [Working example here](https://rfh.netlify.app/use-callback-x-times)
+- [Working example here](https://react-fanmade-hooks.netlify.app/use-callback-x-times)
 
 ## Description
 

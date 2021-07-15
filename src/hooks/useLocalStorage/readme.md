@@ -1,6 +1,6 @@
 # useLocalStorage
 
-- [Working example here](https://rfh.netlify.app/use-local-storage)
+- [Working example here](https://react-fanmade-hooks.netlify.app/use-local-storage)
 
 ## Description
 

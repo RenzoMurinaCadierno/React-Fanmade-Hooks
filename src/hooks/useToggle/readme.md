@@ -1,6 +1,6 @@
 # useToggle
 
-- [Working example here](https://rfh.netlify.app/use-toggle)
+- [Working example here](https://react-fanmade-hooks.netlify.app/use-toggle)
 
 ## Description
 

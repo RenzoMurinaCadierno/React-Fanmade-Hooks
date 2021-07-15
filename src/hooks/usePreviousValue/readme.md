@@ -1,6 +1,6 @@
 # usePreviousValue
 
-- [Working example here](https://rfh.netlify.app/use-previous-value)
+- [Working example here](https://react-fanmade-hooks.netlify.app/use-previous-value)
 
 ## Description
 

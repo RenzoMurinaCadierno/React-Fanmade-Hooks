@@ -1,6 +1,6 @@
 # useCount
 
-- [Working example here](https://rfh.netlify.app/use-latency)
+- [Working example here](https://react-fanmade-hooks.netlify.app/use-latency)
 
 ## Description
 

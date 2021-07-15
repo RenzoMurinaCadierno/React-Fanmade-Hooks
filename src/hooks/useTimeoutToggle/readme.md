@@ -1,6 +1,6 @@
 # useTimeoutToggle
 
-- [Working example here](https://rfh.netlify.app/use-class-name-toggle)
+- [Working example here](https://react-fanmade-hooks.netlify.app/use-class-name-toggle)
 
 ## Description
 
