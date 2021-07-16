@@ -4,18 +4,15 @@ usePagination
 
 hitTarget spawn % 3 NO. make it % prevst.hits / 3, then by +3, +6, +12
 
-change github url
-
-fiddle SlotsSpinningSlots timeouts
-
 button on uselocalstorage, automatically on after user/pass
 
 publishing: https://www.youtube.com/watch?v=Ufwbp838yZA
 
-test TOAST's useCallback to see renders, then pwa
-PWA https://tomitm.github.io/appmanifest/
-
 preload links https://blog.maximeheckel.com/posts/preloading-views-with-react/
+
+test capitalize function on Deploy (carouselArrows)
+test lighthouse
+ add author to cmpDesc and popups to start screen and done
 
 // commit msg
 Deploy and PWA functional. Website down until remaining features are added.

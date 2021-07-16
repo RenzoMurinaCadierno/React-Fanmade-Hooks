@@ -40,6 +40,9 @@ export default function HomePage() {
         menuIconProps={menuIconProps}
         iconsProps={iconsProps}
       />
+      <Text.WithLayout anchor="left" rotate={-90}>
+        aasassas
+      </Text.WithLayout>
     </main>
   )
 }

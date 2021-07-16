@@ -7,6 +7,7 @@ import Button from "./components/UI/composed/Button/Button"
 import Confetti from "./components/UI/composed/Confetti/Confetti"
 import Icon from "./components/UI/composed/Icon/Icon"
 import Input from "./components/UI/composed/Input/Input"
+import Text from "./components/UI/composed/Text/Text"
 import Toast from "./components/UI/composed/Toast/Toast"
 
 import Aura from "./components/UI/independent/Aura/Aura"
@@ -19,7 +20,6 @@ import ProgressBackground from "./components/UI/independent/ProgressBackground/P
 import Progressbar from "./components/UI/independent/Progressbar/Progressbar"
 import Spinner from "./components/UI/independent/Spinner/Spinner"
 import Switch from "./components/UI/independent/Switch/Switch"
-import Text from "./components/UI/independent/Text/Text"
 import Underline from "./components/UI/independent/Underline/Underline"
 
 import Appbar from "./components/layout/Appbar/Appbar"
@@ -89,6 +89,7 @@ export {
   Confetti,
   Icon,
   Input,
+  Text,
   Toast,
   Appbar,
   Carousel,
@@ -115,7 +116,6 @@ export {
   Progressbar,
   Spinner,
   Switch,
-  Text,
   Underline,
   Container,
   useAnimatedNumber,

@@ -15,29 +15,33 @@ export const classes = {
     onClick,
     className
   ) =>
-    (className ?? "") +
-    " " +
-    styles.Container +
-    " " +
-    (component ? styles[component] : "") +
-    " " +
-    (type ? styles[type.toLowerCase()] : "") +
-    " " +
-    (small ? styles.Small : "") +
-    " " +
-    (italic ? styles.Italic : "") +
-    " " +
-    (textShadow ? styles["text-shadow-" + type.toLowerCase()] : "") +
-    " " +
-    (bold ? styles.Bold : "") +
-    " " +
-    (absoluteFill ? styles.AbsoluteFill : "") +
-    " " +
-    (flex ? styles.Flex : "") +
-    " " +
-    (noMargin ? styles.NoMargin : "") +
-    " " +
-    (onClick ? styles.Clickable : "")
+    (
+      (className ?? "") +
+      " " +
+      styles.Container +
+      " " +
+      (component ? styles[component] : "") +
+      " " +
+      (type ? styles[type.toLowerCase()] : "") +
+      " " +
+      (small ? styles.Small : "") +
+      " " +
+      (italic ? styles.Italic : "") +
+      " " +
+      (textShadow ? styles["text-shadow-" + type.toLowerCase()] : "") +
+      " " +
+      (bold ? styles.Bold : "") +
+      " " +
+      (absoluteFill ? styles.AbsoluteFill : "") +
+      " " +
+      (flex ? styles.Flex : "") +
+      " " +
+      (noMargin ? styles.NoMargin : "") +
+      " " +
+      (onClick ? styles.Clickable : "")
+    )
+      .replace(/\s+/g, " ")
+      .trim()
 }
 
 export const defaultProps = { htmlElem: "p", type: "primary" }
