@@ -1,0 +1,95 @@
+/* all devices landscape */
+.Container {
+  /* wrapper container '*div*'. Handles rotation and anchor */
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Text {
+  /* '*Text*' */
+  word-wrap: break-word;
+}
+
+/* classNames added by `anchor` and `rotation` */
+.center {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.center.Rotate180 {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.top {
+  top: 2%;
+}
+
+.bottom {
+  bottom: 2%;
+}
+
+.top.Rotate180,
+.bottom.Rotate180 {
+  transform: rotate(180deg);
+}
+
+.right {
+  right: 0;
+  justify-content: flex-end;
+}
+
+.left {
+  left: 0;
+  justify-content: flex-start;
+}
+
+.right,
+.left {
+  top: 50%;
+  width: 35%;
+  transform: translateY(-50%);
+}
+
+.right.RotatePlus90,
+.left.RotatePlus90 {
+  justify-content: center;
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.right.RotateMinus90,
+.left.RotateMinus90 {
+  justify-content: center;
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+.right.RotatePlus90,
+.right.RotateMinus90 {
+  right: -13%;
+}
+
+.left.RotatePlus90,
+.left.RotateMinus90 {
+  left: -13%;
+}
+/* classNames added by `anchor` and `rotation` */
+/* and all devices landscape */
+
+/* all devices portrait */
+@media screen and (orientation: portrait) {
+  /* classNames added by `anchor` and `rotation` */
+  .right.RotatePlus90,
+  .right.RotateMinus90 {
+    right: -40% !important;
+    width: 100%;
+  }
+
+  .left.RotatePlus90,
+  .left.RotateMinus90 {
+    left: -40% !important;
+    width: 100%;
+  }
+  /* end classNames added by `anchor` and `rotation` */
+}
+/* end all devices portrait */

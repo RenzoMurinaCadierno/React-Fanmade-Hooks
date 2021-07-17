@@ -15,4 +15,4 @@ test lighthouse
  add author to cmpDesc and popups to start screen and done
 
 // commit msg
-Deploy and PWA functional. Website down until remaining features are added.
+Finished '*Text.WithOrientation*'.
