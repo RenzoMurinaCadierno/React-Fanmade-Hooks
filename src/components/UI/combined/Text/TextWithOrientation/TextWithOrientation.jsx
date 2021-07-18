@@ -1,4 +1,4 @@
-import { Text } from "hub"
+import { Text, Layout } from "hub"
 import { classes, defaultProps, propTypes } from "./TextWithOrientation.utils"
 
 /**
@@ -31,7 +31,7 @@ import { classes, defaultProps, propTypes } from "./TextWithOrientation.utils"
  *
  * `textProps?` (object): Props to spread in '*Text*'.
  *
- * `...otherProps?` (object): Props to spread in wrapper container '*div*'.
+ * `...layoutOrientationProps?` (object): Props to spread in wrapper container '*div*'.
  */
 export default function TextWithLayout({
   children,
@@ -39,19 +39,19 @@ export default function TextWithLayout({
   rotate,
   classNames,
   textProps,
-  ...otherProps
+  ...layoutOrientationProps
 }) {
   return (
-    // wrapper container. Handles rotation and anchor
-    <div
-      className={classes.container(anchor, rotate, classNames.container)}
-      {...otherProps}
+    // wrapper orientation container. Handles rotation and anchor
+    <Layout.Orientation
+      className={classes.orientation(classNames.orientation)}
+      {...{ anchor, rotate, ...layoutOrientationProps }}
     >
       {/* '*Text*' */}
       <Text className={classes.text(classNames.text)} {...textProps}>
         {children}
       </Text>
-    </div>
+    </Layout.Orientation>
   )
 }
 

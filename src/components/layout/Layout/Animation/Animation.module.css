@@ -1,0 +1,151 @@
+.animate-mount-left {
+  animation: animate-left-to-center 260ms ease-in forwards;
+}
+
+.animate-mount-right {
+  animation: animate-center-to-right 260ms ease-in reverse;
+}
+
+.animate-mount-top {
+  animation: animate-top-to-center 260ms ease-in forwards;
+}
+
+.animate-mount-bottom {
+  animation: animate-center-to-bottom 260ms ease-in reverse;
+}
+
+.animate-mount-scale-down {
+  animation: animate-scale-large-to-normal 260ms ease-in forwards;
+}
+
+.animate-mount-scale-up {
+  animation: animate-scale-normal-to-small 260ms ease-in reverse;
+}
+
+.animate-unmount-left {
+  animation: animate-left-to-center 260ms ease-out reverse;
+}
+
+.animate-unmount-right {
+  animation: animate-center-to-right 260ms ease-out forwards;
+}
+
+.animate-unmount-top {
+  animation: animate-top-to-center 260ms ease-out reverse;
+}
+
+.animate-unmount-bottom {
+  animation: animate-center-to-bottom 260ms ease-out forwards;
+}
+
+.animate-unmount-scale-down {
+  animation: animate-scale-normal-to-small 260ms ease-out forwards;
+}
+
+.animate-unmount-scale-up {
+  animation: animate-scale-large-to-normal 260ms ease-out reverse;
+}
+
+.animate-idle-scale {
+  animation: animate-idle-scale-oscillate 1500ms linear infinite;
+}
+
+.animate-idle-opacity {
+  animation: animate-idle-opacity-oscillate 1500ms linear infinite;
+}
+
+@keyframes animate-left-to-center {
+  0% {
+    transform: translateX(-150%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animate-top-to-center {
+  0% {
+    transform: translateY(-150%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animate-scale-large-to-normal {
+  0% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes animate-center-to-right {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(150%);
+    opacity: 0;
+  }
+}
+
+@keyframes animate-center-to-bottom {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(150%);
+    opacity: 0;
+  }
+}
+
+@keyframes animate-scale-normal-to-small {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes animate-idle-scale-oscillate {
+  0%,
+  50%,
+  100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(0.9);
+  }
+  75% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes animate-idle-opacity-oscillate {
+  0%,
+  50%,
+  100% {
+    opacity: 0.9;
+  }
+  25% {
+    opacity: 0.8;
+    filter: brightness(90%);
+  }
+  75% {
+    opacity: 1;
+    filter: brightness(120%);
+  }
+}

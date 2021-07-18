@@ -15,4 +15,4 @@ test lighthouse
  add author to cmpDesc and popups to start screen and done
 
 // commit msg
-Finished '*Text.WithOrientation*'.
+Started with '*Layout*' (Animation and Orientation).

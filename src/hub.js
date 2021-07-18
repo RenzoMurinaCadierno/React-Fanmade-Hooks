@@ -25,6 +25,7 @@ import Underline from "./components/UI/independent/Underline/Underline"
 import Appbar from "./components/layout/Appbar/Appbar"
 import Carousel from "./components/layout/Carousel/Carousel"
 import Container from "./components/layout/Container/Container"
+import Layout from "./components/layout/Layout/Layout"
 import Modal from "./components/layout/Modal/Modal"
 import WarpPortal from "./components/layout/WarpPortal/WarpPortal"
 
@@ -93,6 +94,7 @@ export {
   Toast,
   Appbar,
   Carousel,
+  Layout,
   Modal,
   WarpPortal,
   BT,

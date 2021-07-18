@@ -1,4 +1,4 @@
-import { MetaTags, Text, ExpandableMenu } from "hub"
+import { MetaTags, Text, ExpandableMenu, Layout } from "hub"
 import {
   classes,
   metaTagsProps,
@@ -40,9 +40,9 @@ export default function HomePage() {
         menuIconProps={menuIconProps}
         iconsProps={iconsProps}
       />
-      <Text.WithOrientation anchor="right" rotate="forwards">
-        aaaaaaaaaa aaaa aaaaaaaaaa
-      </Text.WithOrientation>
+      <Layout.Animation>
+        <Text>asasas</Text>
+      </Layout.Animation>
     </main>
   )
 }
