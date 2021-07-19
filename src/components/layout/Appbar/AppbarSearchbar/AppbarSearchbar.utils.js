@@ -4,7 +4,8 @@ import defaultCrossSVG from "assets/icons/cross.svg"
 import styles from "./AppbarSearchbar.module.css"
 
 export const classes = {
-  container: (className) => (className ?? "") + " " + styles.Container,
+  container: (className) =>
+    (className ? className + " " : "") + styles.Container,
   input: (classNames = {}) => ({
     ...classNames,
     container: (classNames.container ?? "") + " " + styles.Input

@@ -40,7 +40,7 @@ export const classes = {
     onChangeCN +
     " " +
     styles.Container,
-  content: (className) => (className ?? "") + " " + styles.Content,
+  content: (className) => (className ? className + " " : "") + styles.Content,
   animateMount: styles.AnimateMount,
   animateUnmount: styles.AnimateUnmount,
   animateOnChange: styles.AnimateOnChange

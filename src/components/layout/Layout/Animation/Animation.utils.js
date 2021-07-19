@@ -2,32 +2,50 @@ import PropTypes from "prop-types"
 import styles from "./Animation.module.css"
 
 export const classes = {
-  container: (className) => className ?? "",
+  container: (className) => (className ? className + " " : ""),
   mount: (from) => styles[`animate-mount-${from}`],
   idle: (animation) => styles[`animate-idle-${animation}`],
   unmount: (to) => styles[`animate-unmount-${to}`]
 }
 
 export const defaultProps = {
-  mount: "left",
-  idle: "opacity",
-  unmount: "scale-up"
+  mount: "right",
+  idle: "scale",
+  unmount: "right",
+  timeout: 1000
 }
-test on rotated Text. Link with Layout.constants then comment
+
 const validMountAndUnmountAnimations = [
-  false,
-  "left",
-  "right",
   "top",
+  "right",
   "bottom",
-  "scale-down",
-  "scale-up"
+  "left",
+  "grow",
+  "shrink"
 ]
 
 export const propTypes = {
+  chidren: PropTypes.node,
   mount: PropTypes.oneOf(validMountAndUnmountAnimations),
-  idle: PropTypes.oneOf([false, "scale", "opacity"]),
+  idle: PropTypes.oneOf(["scale", "fade", "scale-fade"]),
   unmount: PropTypes.oneOf(validMountAndUnmountAnimations),
-  chidren: PropTypes.node.isRequired,
+  timeout: PropTypes.number,
+  onMountStart: PropTypes.func,
+  onMountFinish: PropTypes.func,
+  onIdleStart: PropTypes.func,
+  onUnmountStart: PropTypes.func,
+  onUnmountFinish: PropTypes.func,
   className: PropTypes.string
+}
+
+export function getOnOffAndTimeout(
+  animationName,
+  animationPhase,
+  animationTimeout
+) {
+  return {
+    on: classes[animationPhase](animationName),
+    off: "",
+    timeout: animationTimeout
+  }
 }

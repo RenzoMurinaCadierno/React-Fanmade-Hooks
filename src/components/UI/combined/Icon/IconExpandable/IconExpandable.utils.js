@@ -2,8 +2,9 @@ import PropTypes from "prop-types"
 import styles from "./IconExpandable.module.css"
 
 export const classes = {
-  container: (className) => (className ?? "") + " " + styles.Container,
-  icon: (className) => (className ?? "") + " " + styles.Icon,
+  container: (className) =>
+    (className ? className + " " : "") + styles.Container,
+  icon: (className) => (className ? className + " " : "") + styles.Icon,
   content: (isExpanded, expandDirection, className) =>
     (className ?? "") +
     " " +
@@ -12,7 +13,7 @@ export const classes = {
     (expandDirection ? styles[expandDirection] : "") +
     " " +
     styles.Content,
-  barrier: (className) => (className ?? "") + " " + styles.Barrier
+  barrier: (className) => (className ? className + " " : "") + styles.Barrier
 }
 
 export const defaultProps = {

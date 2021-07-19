@@ -8,7 +8,7 @@ export const classes = {
     (show ? styles.ShowContainer : "") +
     " " +
     styles.Container,
-  title: (className) => (className ?? "") + " " + styles.Title,
+  title: (className) => (className ? className + " " : "") + styles.Title,
   content: (className, show) =>
     (className ?? "") +
     " " +

@@ -2,10 +2,11 @@ import PropTypes from "prop-types"
 import styles from "./SlotsResultSection.module.css"
 
 export const classes = {
-  container: (className) => (className ?? "") + " " + styles.Container,
-  title: (className) => (className ?? "") + " " + styles.Title,
+  container: (className) =>
+    (className ? className + " " : "") + styles.Container,
+  title: (className) => (className ? className + " " : "") + styles.Title,
   titleBackground: (className) =>
-    (className ?? "") + " " + styles.TitleBackground,
+    (className ? className + " " : "") + styles.TitleBackground,
   item: (classNames) => classNames
 }
 

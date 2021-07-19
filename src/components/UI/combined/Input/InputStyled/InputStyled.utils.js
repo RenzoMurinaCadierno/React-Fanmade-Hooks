@@ -2,9 +2,10 @@ import PropTypes from "prop-types"
 import styles from "./InputStyled.module.css"
 
 export const classes = {
-  container: (className) => (className ?? "") + " " + styles.Container,
-  input: (className) => (className ?? "") + " " + styles.Input,
-  label: (className) => (className ?? "") + " " + styles.Label
+  container: (className) =>
+    (className ? className + " " : "") + styles.Container,
+  input: (className) => (className ? className + " " : "") + styles.Input,
+  label: (className) => (className ? className + " " : "") + styles.Label
 }
 
 export const styledInputPropTypes = {

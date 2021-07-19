@@ -2,8 +2,8 @@ import PropTypes from "prop-types"
 import styles from "./TextWithOrientation.module.css"
 
 export const classes = {
-  orientation: (className) => className,
-  text: (className) => (className ?? "") + " " + styles.Text
+  orientation: (className) => className ?? "",
+  text: (className) => (className ? className + " " : "") + styles.Text
 }
 
 export const defaultProps = { classNames: {}, textProps: {} }

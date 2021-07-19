@@ -2,9 +2,10 @@ import PropTypes from "prop-types"
 import styles from "./SlotsScoreSide.module.css"
 
 export const classes = {
-  container: (className) => (className ?? "") + " " + styles.Container,
+  container: (className) =>
+    (className ? className + " " : "") + styles.Container,
   item: (classNames) => classNames,
-  image: (className) => (className ?? "") + " " + styles.Image
+  image: (className) => (className ? className + " " : "") + styles.Image
 }
 
 export const defaultProps = { scoreData: {}, classNames: {} }

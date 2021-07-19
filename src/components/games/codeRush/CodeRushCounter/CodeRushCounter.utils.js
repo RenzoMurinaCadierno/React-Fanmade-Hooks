@@ -2,9 +2,10 @@ import PropTypes from "prop-types"
 import styles from "./CodeRushCounter.module.css"
 
 export const classes = {
-  container: (className) => (className ?? "") + " " + styles.Container,
-  text: (className) => className,
-  value: (className) => (className ?? "") + " " + styles.Value,
+  container: (className) =>
+    (className ? className + " " : "") + styles.Container,
+  text: (className) => className ?? "",
+  value: (className) => (className ? className + " " : "") + styles.Value,
   valueAnimation: (axis, direction) =>
     styles[
       "ValueAnimation" +

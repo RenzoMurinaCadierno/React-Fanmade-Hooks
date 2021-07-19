@@ -1,3 +1,4 @@
+/* classNames added by `mount` */
 .animate-mount-left {
   animation: animate-left-to-center 260ms ease-in forwards;
 }
@@ -14,14 +15,16 @@
   animation: animate-center-to-bottom 260ms ease-in reverse;
 }
 
-.animate-mount-scale-down {
+.animate-mount-shrink {
   animation: animate-scale-large-to-normal 260ms ease-in forwards;
 }
 
-.animate-mount-scale-up {
+.animate-mount-grow {
   animation: animate-scale-normal-to-small 260ms ease-in reverse;
 }
+/* end classNames added by `mount` */
 
+/* classNames added by `unmount` */
 .animate-unmount-left {
   animation: animate-left-to-center 260ms ease-out reverse;
 }
@@ -38,22 +41,30 @@
   animation: animate-center-to-bottom 260ms ease-out forwards;
 }
 
-.animate-unmount-scale-down {
+.animate-unmount-shrink {
   animation: animate-scale-normal-to-small 260ms ease-out forwards;
 }
 
-.animate-unmount-scale-up {
+.animate-unmount-grow {
   animation: animate-scale-large-to-normal 260ms ease-out reverse;
 }
+/* end classNames added by `unmount` */
 
+/* classNames added by `scale` */
 .animate-idle-scale {
   animation: animate-idle-scale-oscillate 1500ms linear infinite;
 }
 
-.animate-idle-opacity {
-  animation: animate-idle-opacity-oscillate 1500ms linear infinite;
+.animate-idle-fade {
+  animation: animate-idle-fade-oscillate 1500ms linear infinite;
 }
 
+.animate-idle-scale-fade {
+  animation: animate-idle-scale-fade-oscillate 1500ms linear infinite;
+}
+/* end classNames added by `unmount` */
+
+/* animation keyframes */
 @keyframes animate-left-to-center {
   0% {
     transform: translateX(-150%);
@@ -115,7 +126,7 @@
     opacity: 1;
   }
   100% {
-    transform: scale(0.5);
+    transform: scale(0.25);
     opacity: 0;
   }
 }
@@ -130,11 +141,11 @@
     transform: scale(0.9);
   }
   75% {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 }
 
-@keyframes animate-idle-opacity-oscillate {
+@keyframes animate-idle-fade-oscillate {
   0%,
   50%,
   100% {
@@ -149,3 +160,23 @@
     filter: brightness(120%);
   }
 }
+
+@keyframes animate-idle-scale-fade-oscillate {
+  0%,
+  50%,
+  100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  25% {
+    opacity: 0.8;
+    filter: brightness(90%);
+    transform: scale(0.9);
+  }
+  75% {
+    opacity: 1;
+    filter: brightness(120%);
+    transform: scale(1.1);
+  }
+}
+/* end animation keyframes */

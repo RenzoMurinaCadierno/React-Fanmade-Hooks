@@ -2,7 +2,8 @@ import PropTypes from "prop-types"
 import styles from "./SlotsScoreItem.module.css"
 
 export const classes = {
-  container: (className) => (className ?? "") + " " + styles.Container,
+  container: (className) =>
+    (className ? className + " " : "") + styles.Container,
   badge: (mainClassNames, animatedClassNames) => ({
     main: {
       container: mainClassNames?.container ?? "",

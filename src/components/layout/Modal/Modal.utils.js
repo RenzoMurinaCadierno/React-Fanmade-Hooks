@@ -3,7 +3,7 @@ import styles from "./Modal.module.css"
 import cross from "./cross.svg"
 
 export const classes = {
-  backdrop: (className) => (className ?? "") + " " + styles.Backdrop,
+  backdrop: (className) => (className ? className + " " : "") + styles.Backdrop,
   container: (isClosing, type, size, scrollable, className) =>
     (className ?? "") +
     (isClosing ? styles.AnimateClose : styles.AnimateOpen) +
@@ -15,8 +15,10 @@ export const classes = {
     (scrollable ? "" : styles.NotScrollable) +
     " " +
     styles.Container,
-  iconContainer: (className) => (className ?? "") + " " + styles.IconContainer,
-  closeIcon: (className) => (className ?? "") + " " + styles.CloseIcon
+  iconContainer: (className) =>
+    (className ? className + " " : "") + styles.IconContainer,
+  closeIcon: (className) =>
+    (className ? className + " " : "") + styles.CloseIcon
 }
 
 export const defaultProps = {

@@ -4,10 +4,11 @@ import PropTypes from "prop-types"
 import styles from "./CarouselRoot.module.css"
 
 export const classes = {
-  container: (className) => (className ?? "") + " " + styles.Container,
-  screen: (className) => (className ?? "") + " " + styles.Screen,
+  container: (className) =>
+    (className ? className + " " : "") + styles.Container,
+  screen: (className) => (className ? className + " " : "") + styles.Screen,
   slidesContainer: (className) =>
-    (className ?? "") + " " + styles.SlidesContainer,
+    (className ? className + " " : "") + styles.SlidesContainer,
   arrowComponent: (classNames) => classNames,
   indicatorsComponent: (classNames) => classNames
 }

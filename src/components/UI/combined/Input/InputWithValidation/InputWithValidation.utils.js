@@ -2,8 +2,9 @@ import PropTypes from "prop-types"
 import styles from "./InputWithValidation.module.css"
 
 export const classes = {
-  container: (className) => (className ?? "") + " " + styles.Container,
-  input: (className) => (className ?? "") + " " + styles.Input,
+  container: (className) =>
+    (className ? className + " " : "") + styles.Container,
+  input: (className) => (className ? className + " " : "") + styles.Input,
   inputStyled: (classNames) => ({
     ...classNames,
     container: (classNames?.container ?? "") + " " + styles.Input

@@ -3,7 +3,8 @@ import { Carousel } from "hub"
 import styles from "./CarouselSlide.module.css"
 
 export const classes = {
-  container: (className) => (className ?? "") + " " + styles.Container,
+  container: (className) =>
+    (className ? className + " " : "") + styles.Container,
   "animate-mount-left": styles.AnimateMountLeft,
   "animate-unmount-left": styles.AnimateUnmountLeft,
   "animate-mount-right": styles.AnimateMountRight,

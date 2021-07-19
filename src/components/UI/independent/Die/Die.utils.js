@@ -10,7 +10,7 @@ export const classes = {
     (isRolling ? styles.Roll : "") +
     " " +
     (isFrozen ? styles.Frozen : ""),
-  digit: (className) => (className ?? "") + " " + styles.Digit
+  digit: (className) => (className ? className + " " : "") + styles.Digit
 }
 
 export const defaultProps = {

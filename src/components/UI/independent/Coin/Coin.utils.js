@@ -12,7 +12,7 @@ export const classes = {
     (isColorInverted ? styles.InvertColor : "") +
     " " +
     styles.Container,
-  result: (className) => (className ?? "") + " " + styles.Result
+  result: (className) => (className ? className + " " : "") + styles.Result
 }
 
 export const defaultProps = {

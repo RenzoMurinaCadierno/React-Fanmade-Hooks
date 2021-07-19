@@ -14,8 +14,8 @@ export const classes = {
     (position ? styles[position.toLowerCase()] : styles.bottom) +
     " " +
     styles.Container,
-  content: (className) => (className ?? "") + " " + styles.Content,
-  toggler: (className) => (className ?? "") + " " + styles.Toggler
+  content: (className) => (className ? className + " " : "") + styles.Content,
+  toggler: (className) => (className ? className + " " : "") + styles.Toggler
 }
 
 export const defaultProps = {

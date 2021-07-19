@@ -35,10 +35,12 @@ const slotsAndStatsItems = {
 /******************************* /CONFIGS ******************************/
 
 export const classes = {
-  container: (className) => (className ?? "") + " " + styles.Container,
-  resetButton: (className) => (className ?? "") + " " + styles.ResetButton,
+  container: (className) =>
+    (className ? className + " " : "") + styles.Container,
+  resetButton: (className) =>
+    (className ? className + " " : "") + styles.ResetButton,
   imgToggleButton: (className) =>
-    (className ?? "") + " " + styles.ImgToggleButton,
+    (className ? className + " " : "") + styles.ImgToggleButton,
   scores: (classNames) => getScoresAndStatsCNs(styles.Scores, classNames),
   stats: (classNames) => getScoresAndStatsCNs(styles.Stats, classNames)
 }

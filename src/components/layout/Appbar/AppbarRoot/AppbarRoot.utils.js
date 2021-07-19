@@ -11,7 +11,7 @@ export const classes = {
   toggler: (classNames) => classNames,
   modal: (classNames) => classNames,
   searchbar: (className) => className,
-  content: (className) => (className ?? "") + " " + styles.Content,
+  content: (className) => (className ? className + " " : "") + styles.Content,
   homeIcon: (classNames) => classNames
 }
 

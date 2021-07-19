@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 export const defaultProps = { classNames: {} }
 
 export const propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   anchor: PropTypes.oneOf(["center", "top", "right", "bottom", "left"]),
   rotate: PropTypes.oneOf(["forwards", "backwards"]),
   classNames: PropTypes.exact({

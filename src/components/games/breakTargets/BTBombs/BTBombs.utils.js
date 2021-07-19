@@ -2,8 +2,9 @@ import PropTypes from "prop-types"
 import styles from "./BTBombs.module.css"
 
 export const classes = {
-  container: (className) => (className ?? "") + " " + styles.Container,
-  bomb: (className) => (className ?? "") + " " + styles.Bomb
+  container: (className) =>
+    (className ? className + " " : "") + styles.Container,
+  bomb: (className) => (className ? className + " " : "") + styles.Bomb
 }
 
 export const defaultProps = { show: true, classNames: {} }

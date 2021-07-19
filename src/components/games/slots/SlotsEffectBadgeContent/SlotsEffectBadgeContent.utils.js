@@ -8,8 +8,8 @@ export const classes = {
     (type ? styles[type.toLowerCase()] : "") +
     " " +
     styles.Container,
-  content: (className) => (className ?? "") + " " + styles.Content,
-  image: (className) => (className ?? "") + " " + styles.Image
+  content: (className) => (className ? className + " " : "") + styles.Content,
+  image: (className) => (className ? className + " " : "") + styles.Image
 }
 
 export const defaultProps = { classNames: {} }

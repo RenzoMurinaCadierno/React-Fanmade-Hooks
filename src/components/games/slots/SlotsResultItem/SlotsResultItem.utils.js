@@ -2,16 +2,17 @@ import PropTypes from "prop-types"
 import styles from "./SlotsResultItem.module.css"
 
 export const classes = {
-  container: (className) => (className ?? "") + " " + styles.Container,
-  image: (className) => (className ?? "") + " " + styles.Image,
+  container: (className) =>
+    (className ? className + " " : "") + styles.Container,
+  image: (className) => (className ? className + " " : "") + styles.Image,
   badge: (classNames = {}) => ({
     ...classNames,
     container: (classNames.container ?? "") + " " + styles.BadgeContainer
   }),
   multiplierFigure: (className) =>
-    (className ?? "") + " " + styles.MultiplierFigure,
+    (className ? className + " " : "") + styles.MultiplierFigure,
   multiplierImage: (className) =>
-    (className ?? "") + " " + styles.MultiplierImage
+    (className ? className + " " : "") + styles.MultiplierImage
 }
 
 export const defaultProps = { classNames: {} }

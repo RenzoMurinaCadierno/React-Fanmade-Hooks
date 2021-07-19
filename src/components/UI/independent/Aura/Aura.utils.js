@@ -3,7 +3,8 @@ import PropTypes from "prop-types"
 import styles from "./Aura.module.css"
 
 export const classes = {
-  container: (className) => (className ?? "") + " " + styles.Container,
+  container: (className) =>
+    (className ? className + " " : "") + styles.Container,
   aura: (isActive, type, blink, size, interval, inheritBoxShape, className) =>
     (className ?? "") +
     (isActive

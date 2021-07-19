@@ -2,7 +2,8 @@ import PropTypes from "prop-types"
 import styles from "./CarouselIndicators.module.css"
 
 export const classes = {
-  container: (className) => (className ?? "") + " " + styles.Container
+  container: (className) =>
+    (className ? className + " " : "") + styles.Container
 }
 
 export const defaultProps = {

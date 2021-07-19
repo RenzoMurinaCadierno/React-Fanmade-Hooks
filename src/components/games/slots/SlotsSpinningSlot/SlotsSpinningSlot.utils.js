@@ -11,8 +11,9 @@ export const classes = {
     animateMount: animateMountCN ?? styles.AnimateMount,
     animateUnmount: animateUnmountCN ?? styles.AnimateUnmount
   }),
-  slotImage: (className) => (className ?? "") + " " + styles.SlotImage,
-  slotIcon: (className) => (className ?? "") + " " + styles.SlotIcon
+  slotImage: (className) =>
+    (className ? className + " " : "") + styles.SlotImage,
+  slotIcon: (className) => (className ? className + " " : "") + styles.SlotIcon
 }
 
 export const defaultProps = { classNames: {} }

@@ -2,13 +2,16 @@ import PropTypes from "prop-types"
 import styles from "./CountBar.module.css"
 
 export const classes = {
-  container: (className) => (className ?? "") + " " + styles.Container,
-  minusButton: (className) => (className ?? "") + " " + styles.MinusButton,
+  container: (className) =>
+    (className ? className + " " : "") + styles.Container,
+  minusButton: (className) =>
+    (className ? className + " " : "") + styles.MinusButton,
   progressbar: (classNames) => ({
     container: (classNames?.container ?? "") + " " + styles.ProgressContainer,
     progress: classNames?.progressbar ?? ""
   }),
-  plusButton: (className) => (className ?? "") + " " + styles.PlusButton
+  plusButton: (className) =>
+    (className ? className + " " : "") + styles.PlusButton
 }
 
 export const defaultProps = {

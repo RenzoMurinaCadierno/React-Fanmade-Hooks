@@ -2,8 +2,9 @@ import PropTypes from "prop-types"
 import styles from "./PhoneDial.module.css"
 
 export const classes = {
-  container: (className) => (className ?? "") + " " + styles.Container,
-  button: (className) => (className ?? "") + " " + styles.Button
+  container: (className) =>
+    (className ? className + " " : "") + styles.Container,
+  button: (className) => (className ? className + " " : "") + styles.Button
 }
 
 export const defaultProps = { buttonProps: {} }

@@ -2,7 +2,8 @@ import PropTypes from "prop-types"
 import styles from "./BTTarget.module.css"
 
 export const classes = {
-  container: (className) => (className ?? "") + " " + styles.Container,
+  container: (className) =>
+    (className ? className + " " : "") + styles.Container,
   target: (type, isDestroyed, className) =>
     (className ?? "") +
     " " +

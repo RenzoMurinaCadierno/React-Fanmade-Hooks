@@ -2,12 +2,13 @@ import PropTypes from "prop-types"
 import styles from "./SlotsResultScreen.module.css"
 
 export const classes = {
-  container: (className) => (className ?? "") + " " + styles.Container,
+  container: (className) =>
+    (className ? className + " " : "") + styles.Container,
   resultsContainer: (className) =>
-    (className ?? "") + " " + styles.ResultsContainer,
+    (className ? className + " " : "") + styles.ResultsContainer,
   scoresSection: (classNames = {}) => classNames,
   statsSection: (classNames = {}) => classNames,
-  button: (className) => (className ?? "") + " " + styles.Button
+  button: (className) => (className ? className + " " : "") + styles.Button
 }
 
 export const defaultProps = { classNames: {} }

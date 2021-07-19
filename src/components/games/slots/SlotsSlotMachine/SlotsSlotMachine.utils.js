@@ -2,8 +2,9 @@ import PropTypes from "prop-types"
 import styles from "./SlotsSlotMachine.module.css"
 
 export const classes = {
-  container: (className) => (className ?? "") + " " + styles.Container,
-  spinningSlot: (className) => className
+  container: (className) =>
+    (className ? className + " " : "") + styles.Container,
+  spinningSlot: (className) => className ?? ""
 }
 
 export const defaultProps = { classNames: {} }

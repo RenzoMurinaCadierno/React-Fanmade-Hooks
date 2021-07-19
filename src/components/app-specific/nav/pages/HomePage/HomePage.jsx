@@ -40,8 +40,8 @@ export default function HomePage() {
         menuIconProps={menuIconProps}
         iconsProps={iconsProps}
       />
-      <Layout.Animation>
-        <Text>asasas</Text>
+      <Layout.Animation className="asd">
+        <Text style={{ transform: "rotate(45deg)" }}>asasas</Text>
       </Layout.Animation>
     </main>
   )

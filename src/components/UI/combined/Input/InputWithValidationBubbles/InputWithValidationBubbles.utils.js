@@ -2,8 +2,10 @@ import PropTypes from "prop-types"
 import styles from "./InputWithValidationBubbles.module.css"
 
 export const classes = {
-  container: (className) => (className ?? "") + " " + styles.Container,
-  input: (className) => (className ?? "") + " " + styles.InputContainer,
+  container: (className) =>
+    (className ? className + " " : "") + styles.Container,
+  input: (className) =>
+    (className ? className + " " : "") + styles.InputContainer,
   inputStyled: (classNames) => ({
     ...classNames,
     container: (classNames?.container ?? "") + " " + styles.InputContainer
@@ -14,8 +16,7 @@ export const classes = {
     (anchor ? styles[anchor.toLowerCase()] : "") +
     " " +
     styles.ValidationContainer,
-  validationMessage: (className) => className,
-  // (className ?? "") + " " + styles.ValidationMessage,
+  validationMessage: (className) => className ?? "",
   validationArrow: (anchor, type, className) =>
     (className ?? "") +
     " " +

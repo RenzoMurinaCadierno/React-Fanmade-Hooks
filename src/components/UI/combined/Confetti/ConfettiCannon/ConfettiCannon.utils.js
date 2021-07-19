@@ -3,9 +3,10 @@ import { Confetti } from "hub"
 import styles from "./ConfettiCannon.module.css"
 
 export const classes = {
-  container: (className) => (className ?? "") + " " + styles.Container,
+  container: (className) =>
+    (className ? className + " " : "") + styles.Container,
   relativeWrapper: (className) =>
-    (className ?? "") + " " + styles.RelativeWrapper,
+    (className ? className + " " : "") + styles.RelativeWrapper,
   glitter: (classNames) => classNames
 }
 

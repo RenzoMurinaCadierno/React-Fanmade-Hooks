@@ -2,7 +2,8 @@ import PropTypes from "prop-types"
 import styles from "./CodeRushStats.module.css"
 
 export const classes = {
-  container: (className) => (className ?? "") + " " + styles.Container,
+  container: (className) =>
+    (className ? className + " " : "") + styles.Container,
   score: (classNames) => classNames,
   highScore: (classNames) => classNames,
   lives: (classNames) => classNames,

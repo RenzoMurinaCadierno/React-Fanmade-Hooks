@@ -2,8 +2,8 @@ import PropTypes from "prop-types"
 import styles from "./CodeRushRoot.module.css"
 
 export const classes = {
-  container: (className) => className,
-  code: (className) => className,
+  container: (className) => className ?? "",
+  code: (className) => className ?? "",
   numPadAndStats: (className) =>
     (className ?? "") + " " + styles.NumPadAndStats,
   numPad: (classNames) => classNames,

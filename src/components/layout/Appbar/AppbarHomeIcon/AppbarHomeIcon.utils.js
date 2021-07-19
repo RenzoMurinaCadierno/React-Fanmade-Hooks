@@ -7,7 +7,7 @@ export const classes = {
     ...classNames,
     container: (classNames?.container ?? "") + " " + styles.Container
   }),
-  img: (className) => className
+  img: (className) => className ?? ""
 }
 
 export const defaultProps = {

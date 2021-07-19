@@ -6,7 +6,7 @@ export const classes = {
     button: (classNames.button ?? "") + " " + styles.Button,
     spinner: classNames.spinner
   }),
-  progress: (className) => className
+  progress: (className) => className ?? ""
 }
 
 export const defaultProps = { classNames: {}, progressProps: {} }

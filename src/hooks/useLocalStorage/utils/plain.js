@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const plainCode = `/******************************************************************************
  * **WARNING!** This code is written in ES2020! 
  * You will need a babel transpiler that fits it.

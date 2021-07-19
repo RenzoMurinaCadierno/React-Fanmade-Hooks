@@ -4,11 +4,12 @@ import heartSVG from "assets/icons/heart.svg"
 import styles from "./CodeRushLives.module.css"
 
 export const classes = {
-  container: (className) => (className ?? "") + " " + styles.Container,
-  text: (className) => className,
+  container: (className) =>
+    (className ? className + " " : "") + styles.Container,
+  text: (className) => className ?? "",
   livesContainer: (className) =>
-    (className ?? "") + " " + styles.LivesContainer,
-  life: (className) => (className ?? "") + " " + styles.Life,
+    (className ? className + " " : "") + styles.LivesContainer,
+  life: (className) => (className ? className + " " : "") + styles.Life,
   livesLeftText: styles.LivesLeftText,
   animateLifeLost: styles.AnimateLifeLost,
   animateThreeOrMoreLives: styles.AnimateThreeOrMoreLives,

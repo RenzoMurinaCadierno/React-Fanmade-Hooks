@@ -2,8 +2,8 @@ import PropTypes from "prop-types"
 // import styles from "./ConfettiGuides.module.css"
 
 export const classes = {
-  x: (className) => className,
-  y: (className) => className
+  x: (className) => className ?? "",
+  y: (className) => className ?? ""
 }
 
 export const defaultProps = { classNames: {}, guidesProps: {} }
