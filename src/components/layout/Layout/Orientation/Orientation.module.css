@@ -1,13 +1,17 @@
 /* all devices landscape */
-.Container {
-  /* wrapper container '*div*'. Handles rotation and anchor */
+/* classNames added by `anchor` and `rotation` */
+.center,
+.top,
+.right,
+.bottom,
+.left {
+  /* shared styles for all orientations */
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* classNames added by `anchor` and `rotation` */
 .center {
   top: 50%;
   transform: translateY(-50%);

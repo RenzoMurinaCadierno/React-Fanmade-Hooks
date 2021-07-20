@@ -4,50 +4,76 @@ import {
   classes,
   defaultProps,
   propTypes,
+  constants,
+  onIdleFinish,
   getOnOffAndTimeout
 } from "./Animation.utils"
 
 /**
+ * Renders a '*div*' capable to control 'mount', 'idle' and/or 'unmount'
+ * animations of its `children`.
  *
  * @param {object} props
  *
- * `children` (React.Node): Anything React can render.
+ * `children?` (React.Node): Anything React can render, which will have its
+ *   'mount', 'idle' and/or 'unmount' animations handled by this component.
  *
- * `mount` (string): animation to be played when component mounts.
+ * `mount?` (string): animation to be played when component mounts.
  * * Can be one of 'top', 'right', 'bottom', 'left', 'grow', 'shrink'.
- * * Defaults to 'left'.
  * * If left undefined, animation state automatically skips to 'idle'.
  *
- * `mount` (string): animation played when component mounts.
- * * Can be one of 'top', 'right', 'bottom', 'left', 'grow', 'shrink'.
- * * Defaults to 'right'.
- * * If left undefined, animation state automatically skips to 'idle'.
- *
- * `idle` (string): animation played after 'mount' animation finished (if
+ * `idle?` (string): animation played after 'mount' animation finished (if
  *   `mount` is defined), or when component mounts (if it is not).
  * * Can be one of 'scale', 'fade', 'scale-fade'.
- * * Defaults to 'scale'.
  * * If left undefined, animation state automatically skips to 'unmount'.
  *
- * `unmount` (string): animation played when component unmounts.
+ * `unmount?` (string): animation played when component unmounts.
  * * Fires either:
  *   * at 'mount' animation finish if `idle` is undefined,
  *   * after `timeout` if `idle` is defined,
  *   * at mount phase if both `mount` and `idle` are undefined.
  * * Can be one of 'top', 'right', 'bottom', 'left', 'grow', 'shrink'.
- * * Defaults to 'right'.
  * * If defined, `children` will unmount from DOM when 'unmount' animation
  *    finishes.
  * * If undefined, no animation is played at unmount and component will
  *    stay rendered in DOM.
+ *
+ * > **Note:** if `mount`, `idle` and `unmount` are undefined, rendered JSX
+ *   will be static, like a regular component.
+ *
+ * `timeout?` (number): The time in milliseconds it takes to trigger 'unmount'
+ *   animation counting from 'idle' animation start (or 'mount' animation
+ *   finish if `idle` is undefined).
+ * * Must be an integer higher than 0.
+ * * Must be defined if `idle` is defined.
+ * * Defaults to 5000.
+ *
+ * `onMountStart?` (function): Callback triggered when 'mount' animation starts.
+ *
+ * `onMountFinish?` (function): Callback triggered when 'mount' animation
+ *   finishes.
+ *
+ * `onIdleStart?` (function): Callback triggered when 'idle' animation starts.
+ * > **Note:** unlike 'mount' and 'unmount', 'idle' has no onFinish callback,
+ *   since idle timeout is meant to be infinite and only overriden by 'unmount'
+ *   animation if defined and triggered.
+ *
+ * `onUnmountStart?` (function): Callback triggered when 'unmount' animation
+ *   starts.
+ *
+ * `onUnmountFinish?` (function): Callback triggered when 'unmount' animation
+ *   finishes.
+ *
+ * `className?` (string): className string to attach to 'animation-handler'
+ *   '*div*'.
  */
-go on commenting, test everything and start combining with orientation
 export default function Animation({
   children,
   mount,
   idle,
   unmount,
   timeout,
+  unmountOn,
   onMountStart,
   onMountFinish,
   onIdleStart,
@@ -58,6 +84,7 @@ export default function Animation({
 }) {
   // controls animation-handler '*div*' and `children` render
   const [show, setShow] = useState(false)
+  const { timeouts, intervals } = constants
 
   /**
    * 'mount' animation className and toggler.
@@ -65,8 +92,8 @@ export default function Animation({
    * > Sets "show" to true when triggered and fires 'idle' or 'unmount'
    *   animations (if any is defined) upon finish.
    */
-  const [mountCN, triggerMountCN, isMountTriggered] = useValueToggle({
-    ...getOnOffAndTimeout(mount, "mount", 250),
+  const [mountCN, triggerMountCN] = useValueToggle({
+    ...getOnOffAndTimeout(mount, "mount", timeouts.MOUNT),
     onStart: () => {
       setShow(true)
       onMountStart?.()
@@ -80,17 +107,18 @@ export default function Animation({
 
   /**
    * 'idle' animation className, toggler and state flag.
-   * > Plays indefinetly after 'mount' animation finished (if it was defined),
+   * > Plays indefinetly after 'mount' animation finishes (if it was defined),
    *   or at mount phase otherwise.
    * > Sets "show" to true when triggered if 'mount' animation is undefined.
    * > Triggers second "useEffect" below on "isIdleTriggered" change.
    */
   const [idleCN, triggerIdleCN, isIdleTriggered] = useValueToggle({
-    ...getOnOffAndTimeout(idle, "idle", 9999999999999),
+    ...getOnOffAndTimeout(idle, "idle", intervals.IDLE),
     onStart: () => {
       if (!mount) setShow(true)
       onIdleStart?.()
-    }
+    },
+    onFinish: onIdleFinish
   })
 
   /**
@@ -105,7 +133,7 @@ export default function Animation({
    * > Sets "show" to false on animation finish.
    */
   const [unmountCN, triggerUnmountCN, isUnmountTriggered] = useValueToggle({
-    ...getOnOffAndTimeout(unmount, "unmount", 250),
+    ...getOnOffAndTimeout(unmount, "unmount", timeouts.UNMOUNT),
     onStart: () => {
       if (!mount && !idle) setShow(true)
       onUnmountStart?.()
@@ -118,13 +146,14 @@ export default function Animation({
 
   /**
    * At mount phase, fire the first defined life-cycle animation found.
-   * If all of them are undefined, render nothing.
+   * If all of them are undefined, render the static JSX.
    */
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     if (mount) triggerMountCN()
     else if (idle) triggerIdleCN()
     else if (unmount) triggerUnmountCN()
+    else setShow(true)
   }, [])
 
   /**
@@ -165,3 +194,6 @@ export default function Animation({
 
 Animation.defaultProps = defaultProps
 Animation.propTypes = propTypes
+
+// add used constants as namespace if needed
+Animation.constants = constants

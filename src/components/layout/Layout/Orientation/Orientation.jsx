@@ -1,4 +1,4 @@
-import { classes, defaultProps, propTypes } from "./Orientation.utils"
+import { classes, propTypes, constants } from "./Orientation.utils"
 
 /**
  * Returns a `children` capable of anchoring to the top, bottom, left or right
@@ -14,7 +14,6 @@ import { classes, defaultProps, propTypes } from "./Orientation.utils"
  * `anchor?` (string): The absolute position to anchor `children`, relative to its
  *   closest parent with `position: relative`.
  * * Can be one of 'top', 'right', 'bottom', 'left'.
- * * Defaults to 'bottom'.
  *
  * `rotate` (string): Controls `children` rotation.
  * * Can be one of 'forwards', 'reverse'.
@@ -47,5 +46,8 @@ export default function Orientation({
   )
 }
 
-Orientation.defaultProps = defaultProps
+// Orientation.defaultProps = defaultProps
 Orientation.propTypes = propTypes
+
+// add used constants as namespace if needed
+Orientation.constants = constants

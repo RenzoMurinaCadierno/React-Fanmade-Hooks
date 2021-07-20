@@ -1,10 +1,10 @@
 import Text from "components/UI/independent/Text/Text"
-import TextWithOrientation from "components/UI/combined/Text/TextWithOrientation/TextWithOrientation"
+import TextWithLayout from "components/UI/combined/Text/TextWithLayout/TextWithLayout"
 
 function ComposedText(props) {
   return <Text {...props} />
 }
 
-ComposedText.WithOrientation = TextWithOrientation
+ComposedText.WithLayout = TextWithLayout
 
 export default ComposedText

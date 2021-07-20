@@ -7,17 +7,29 @@ export const classes = {
     " " +
     (anchor ? styles[anchor.toLowerCase()] : "") +
     " " +
-    (rotate ? getRotationClasses(rotate, anchor) : "") +
-    " " +
-    styles.Container
+    (rotate ? getRotationClasses(rotate, anchor) : "")
 }
 
-export const defaultProps = { anchor: "bottom" }
+// export const defaultProps = {}
+
+/**
+ * Valid orientation anchors and rotations to use in '*Layout.Orientation*'
+ */
+export const constants = {
+  anchors: {
+    CENTER: "center",
+    TOP: "top",
+    RIGHT: "right",
+    BOTTOM: "bottom",
+    LEFT: "left"
+  },
+  rotations: { FORWARDS: "forwards", BACKWARDS: "backwards" }
+}
 
 export const propTypes = {
   children: PropTypes.node.isRequired,
-  anchor: PropTypes.oneOf(["center", "top", "right", "bottom", "left"]),
-  rotate: PropTypes.oneOf(["forwards", "backwards"]),
+  anchor: PropTypes.oneOf(Object.values(constants.anchors)),
+  rotate: PropTypes.oneOf(Object.values(constants.rotations)),
   className: PropTypes.string
 }
 
@@ -36,8 +48,10 @@ export const propTypes = {
  *   'bottom' or 'left'
  */
 function getRotationClasses(rotate, anchor) {
-  if (anchor === "left" || anchor === "right") {
-    return rotate === "forwards" ? styles.RotatePlus90 : styles.RotateMinus90
+  if (anchor === constants.anchors.LEFT || anchor === constants.anchors.RIGHT) {
+    return rotate === constants.rotations.FORWARDS
+      ? styles.RotatePlus90
+      : styles.RotateMinus90
   }
 
   return styles.Rotate180

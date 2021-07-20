@@ -14,5 +14,7 @@ test capitalize function on Deploy (carouselArrows)
 test lighthouse
  add author to cmpDesc and popups to start screen and done
 
+ ReactComponent as Logo in Carousel https://create-react-app.dev/docs/adding-images-fonts-and-files/
+
 // commit msg
-Started with '*Layout*' (Animation and Orientation).
+Finished all '*Layout*' logic. Needs testing before continuing.

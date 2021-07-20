@@ -5,6 +5,7 @@ import {
   menuIconProps,
   iconsProps
 } from "./HomePage.utils"
+import svg from "assets/icons/tick.svg"
 
 /**
  * Renders the Home Page, with app's title and instructions.
@@ -40,9 +41,13 @@ export default function HomePage() {
         menuIconProps={menuIconProps}
         iconsProps={iconsProps}
       />
-      <Layout.Animation className="asd">
-        <Text style={{ transform: "rotate(45deg)" }}>asasas</Text>
-      </Layout.Animation>
+      <Layout
+        animationProps={{ mount: "top" }}
+        // orientationProps={{ anchor: "left", rotate: "backwards" }}
+      >
+        {/* <Text>asasas</Text> */}
+        <img src={svg} alt="😀" />
+      </Layout>
     </main>
   )
 }
