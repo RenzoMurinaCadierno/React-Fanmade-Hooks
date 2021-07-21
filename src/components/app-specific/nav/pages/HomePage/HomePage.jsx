@@ -41,13 +41,13 @@ export default function HomePage() {
         menuIconProps={menuIconProps}
         iconsProps={iconsProps}
       />
-      <Layout
+      <Text.WithRandomizedLayout />
+      {/* <Layout
         animationProps={{ mount: "top" }}
-        // orientationProps={{ anchor: "left", rotate: "backwards" }}
+        orientationProps={{ anchor: "left", rotate: "backwards" }}
       >
-        {/* <Text>asasas</Text> */}
-        <img src={svg} alt="😀" />
-      </Layout>
+        <Text>asasas</Text>
+      </Layout> */}
     </main>
   )
 }

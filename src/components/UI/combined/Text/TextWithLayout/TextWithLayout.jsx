@@ -38,5 +38,3 @@ export default function TextWithLayout({
 
 // TextWithLayout.defaultProps = defaultProps
 TextWithLayout.propTypes = propTypes
-
-test all combinations of orientation and animation vanilla, then add textwithlayout to home
