@@ -1,11 +1,10 @@
-import { MetaTags, Text, ExpandableMenu, Layout } from "hub"
+import { MetaTags, Text, ExpandableMenu } from "hub"
 import {
   classes,
   metaTagsProps,
   menuIconProps,
   iconsProps
 } from "./HomePage.utils"
-import svg from "assets/icons/tick.svg"
 
 /**
  * Renders the Home Page, with app's title and instructions.
