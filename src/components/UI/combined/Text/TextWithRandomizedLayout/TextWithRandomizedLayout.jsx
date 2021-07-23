@@ -3,9 +3,12 @@ import { Text, Layout } from "hub"
 import {
   defaultProps,
   propTypes,
-  RandomLayoutProps,
-  getRandomValueFromArray
+  PropsRandomizer
 } from "./TextWithRandomizedLayout.utils"
+
+/**
+ * Guess how many times the word 'random' appears here an in utils.js :p
+ */
 
 /**
  * Renders a '*Text*' wrapped in '*Layout*', capable of controlling its
@@ -33,68 +36,73 @@ import {
 export default function TextWithRandomizedLayout({
   texts,
   delayBetweenIterations,
+  animationProps,
+  orientationProps,
   ...otherProps
 }) {
   /**
-   * Instance of "RandomLayoutProps", which generates random `animationProps`
-   * and `orientationProps`.
+   * Instance of "PropsRandomizer", which generates random `animationProps` and
+   * `orientationProps` for '*Layout*', as well as `type` and `children` for
+   * '*Text*'.
    */
-  const randomizer = useRef(new RandomLayoutProps())
+  const randomizer = useRef(
+    new PropsRandomizer(animationProps, orientationProps)
+  )
 
   // controls the component mounting and unmounting from DOM
-  const [render, setRender] = useState(false)
+  const [show, setShow] = useState(false)
   // stores an object containing "layoutProps" (random props to spread in
   // '*Layout*'), and "text" (the randomly selected text from `texts`).
-  const [randomValues, setRandomValues] = useState(getRandomValues())
-
-  /**
-   * Returns an object containing random layout props and a randomly selected
-   * text from `texts`.
-   *
-   * Meant to be passed as argument to "setRandomValues" calls.
-   */
-  function getRandomValues() {
-    return {
-      layoutProps: randomizer.current.getRandomProps(),
-      text: getRandomValueFromArray(texts)
-    }
-  }
+  const [randomProps, setRandomProps] = useState(
+    randomizer.current.getRandomProps(texts)
+  )
 
   /**
    * Sets a random text and layout props and renders the JSX if triggered when
-   * "render" is false.
+   * "show" is false.
    *
-   * Otherwise, if it fired when "render" is true, it sets a timeout to unmount
+   * Otherwise, if it fired when "show" is true, it sets a timeout to unmount
    * the JSX rendered in DOM. The timeout equals the sum of 'mount', 'active
    * state' and 'unmount' durations, plus `delayBetweenIterations`.
+   *
+   * 'active state' is how long 'idle' animation takes before triggering
+   * 'unmount' one. It equals `animationProps.timeout`, and if undefined, it
+   * defaults to `Layout.Animation.constants.timeouts.IDLE`.
    */
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     let iterationIntervalId
 
-    if (!render) {
-      setRandomValues(getRandomValues)
-      setRender(true)
+    if (!show) {
+      setRandomProps(() => randomizer.current.getRandomProps(texts))
+      setShow(true)
     } else {
-      const { MOUNT, UNMOUNT, TRIGGER_UNMOUNT } =
-        Layout.Animation.constants.timeouts
+      const { MOUNT, UNMOUNT, IDLE } = Layout.Animation.constants.timeouts
 
       const iterationTimeout =
-        MOUNT + UNMOUNT + TRIGGER_UNMOUNT + delayBetweenIterations
+        MOUNT +
+        UNMOUNT +
+        (animationProps?.timeout || IDLE) +
+        delayBetweenIterations
 
-      iterationIntervalId = setTimeout(() => setRender(false), iterationTimeout)
+      iterationIntervalId = setTimeout(() => setShow(false), iterationTimeout)
     }
 
     return () => clearTimeout(iterationIntervalId)
-  }, [render])
+  }, [show])
 
   return (
-    // render JSX only when "render" is true. This is such to automatically
+    // render JSX only when "show" is true. This is such to automatically
     // fire 'mount' animation when component mounts in DOM.
-    render && (
-      <Layout {...randomValues.layoutProps}>
-        <Text htmlElem="h6" italic textShadow {...otherProps}>
-          {randomValues.text}
+    show && (
+      <Layout {...randomProps.layoutProps}>
+        <Text
+          italic
+          textShadow
+          type={randomProps.textProps.type}
+          {...otherProps}
+        >
+          {randomProps.textProps.text}
         </Text>
       </Layout>
     )

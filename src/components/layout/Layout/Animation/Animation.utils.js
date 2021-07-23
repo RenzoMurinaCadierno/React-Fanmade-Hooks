@@ -32,13 +32,13 @@ export const constants = {
   timeouts: {
     MOUNT: 250,
     UNMOUNT: 250,
-    TRIGGER_UNMOUNT: 1000
+    IDLE: 3000
   },
   intervals: { IDLE: 9999999999999 }
 }
 
 export const defaultProps = {
-  timeout: constants.timeouts.TRIGGER_UNMOUNT
+  timeout: constants.timeouts.IDLE
 }
 
 export const propTypes = {

@@ -42,6 +42,8 @@ import Router from "./components/app-specific/nav/Router/Router"
 import HomePage from "./components/app-specific/nav/pages/HomePage/HomePage"
 import _404Page from "./components/app-specific/nav/pages/_404Page/_404Page"
 
+import FlavorText from "./components/app-specific/UI/combined/FlavorText/FlavorText"
+
 import CodeMenu from "./components/app-specific/UI/composed/CodeMenu/CodeMenu"
 
 import useAnimatedNumber from "./hooks/useAnimatedNumber/useAnimatedNumber"
@@ -101,6 +103,7 @@ export {
   CodeRush,
   Slots,
   CmpDescription,
+  FlavorText,
   CodeMenu,
   ErrorBoundary,
   MetaTags,

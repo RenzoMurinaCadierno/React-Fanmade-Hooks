@@ -17,4 +17,4 @@ test lighthouse
  ReactComponent as Logo in Carousel https://create-react-app.dev/docs/adding-images-fonts-and-files/
 
 // commit msg
-Kept on with '*TextWithRandomizedLayout*'.
+Almost finished with '*TextWithRandomizedLayout*'. Started with '*FlavorText*'.

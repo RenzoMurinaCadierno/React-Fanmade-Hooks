@@ -1,4 +1,4 @@
-import { MetaTags, Text, ExpandableMenu } from "hub"
+import { MetaTags, Text, ExpandableMenu, FlavorText } from "hub"
 import {
   classes,
   metaTagsProps,
@@ -18,7 +18,26 @@ export default function HomePage() {
     // wrapper container
     <main className={classes.container}>
       <MetaTags {...metaTagsProps} />
-      {/* title and subtitles '*Text*'s */}
+      {/* title and description '*Text*'s */}
+      <TitleAndDescription />
+      {/* expandable menu with contact info and repository link */}
+      <ExpandableMenu
+        rotateOnOpen
+        menuIconProps={menuIconProps}
+        iconsProps={iconsProps}
+      />
+      <FlavorText
+        delayBeforeFirstRender={4000}
+        delayBetweenIterations={2000}
+        animationProps={{ timeout: 5000 }}
+      />
+    </main>
+  )
+}
+add click on screen to disable flavortext?
+function TitleAndDescription() {
+  return (
+    <>
       <Text htmlElem="h2" italic className={classes.title}>
         React Fanmade Hooks
       </Text>
@@ -34,19 +53,6 @@ export default function HomePage() {
         Hit the toggler at the top-left of the screen and start exploring. Have
         fun! ;)
       </Text>
-      {/* expandable menu with contact info and repository link */}
-      <ExpandableMenu
-        rotateOnOpen
-        menuIconProps={menuIconProps}
-        iconsProps={iconsProps}
-      />
-      <Text.WithRandomizedLayout />
-      {/* <Layout
-        animationProps={{ mount: "top" }}
-        orientationProps={{ anchor: "left", rotate: "backwards" }}
-      >
-        <Text>asasas</Text>
-      </Layout> */}
-    </main>
+    </>
   )
 }

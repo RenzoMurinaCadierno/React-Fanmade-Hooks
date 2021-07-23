@@ -165,6 +165,7 @@ export default function Animation({
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     const timeoutId =
+      // isIdleTriggered && unmount ? setTimeout(triggerUnmountCN, timeout) : null
       isIdleTriggered && unmount ? setTimeout(triggerUnmountCN, timeout) : null
 
     return () => clearTimeout(timeoutId)
