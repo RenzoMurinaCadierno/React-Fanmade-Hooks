@@ -1,12 +1,12 @@
 import PropTypes from "prop-types"
-import { cn } from "utils/utilityFunctions"
+import cnp from "styles/classNameProcessor"
 import styles from "./Orientation.module.css"
 
 export const classes = {
   container: (anchor, rotate, className) =>
-    cn.get(className) +
-    cn.if(anchor, styles[anchor?.toLowerCase()]) +
-    cn.if(rotate, getRotationClasses(rotate, anchor))
+    cnp.get(className) +
+    cnp.if(anchor, styles[anchor?.toLowerCase()]) +
+    cnp.if(rotate, getRotationClasses(rotate, anchor))
 }
 
 // export const defaultProps = {}

@@ -91,3 +91,21 @@ function preloadComponent(Component, importStatement) {
       )
     })
 }
+
+/**
+ * Takes a camel-or-pascal-cased string and returns its slug form.
+ *
+ * @param {sring} pathName string in camel or pascal case
+ */
+export function slugify(pathName) {
+  let sluggishPath = ""
+
+  for (let i = 0; i < pathName.length; i++) {
+    sluggishPath +=
+      /[A-Z]/.test(pathName[i]) && i
+        ? "-" + pathName[i].toLowerCase()
+        : pathName[i].toLowerCase()
+  }
+
+  return sluggishPath
+}

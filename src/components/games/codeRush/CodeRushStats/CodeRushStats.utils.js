@@ -1,20 +1,20 @@
 import PropTypes from "prop-types"
+import cnp from "styles/classNameProcessor"
 import styles from "./CodeRushStats.module.css"
 
 export const classes = {
-  container: (className) =>
-    (className ? className + " " : "") + styles.Container,
+  container: (className) => cnp.default(styles.Container, className),
   score: (classNames) => classNames,
   highScore: (classNames) => classNames,
   lives: (classNames) => classNames,
   level: (classNames = {}) => ({
     ...classNames,
-    container: (classNames.container ?? "") + " " + styles.Level
+    container: cnp.default(styles.Level, classNames?.container)
   }),
   penalty: (classNames) => classNames,
   mode: (classNames = {}) => ({
     ...classNames,
-    container: (classNames.container ?? "") + " " + styles.Mode
+    container: cnp.default(styles.Mode, classNames?.container)
   })
 }
 

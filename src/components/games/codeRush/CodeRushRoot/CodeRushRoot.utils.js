@@ -1,11 +1,11 @@
 import PropTypes from "prop-types"
+import cnp from "styles/classNameProcessor"
 import styles from "./CodeRushRoot.module.css"
 
 export const classes = {
-  container: (className) => className ?? "",
-  code: (className) => className ?? "",
-  numPadAndStats: (className) =>
-    (className ?? "") + " " + styles.NumPadAndStats,
+  container: (className) => cnp.get(className),
+  code: (className) => cnp.get(className),
+  numPadAndStats: (className) => cnp.default(styles.NumPadAndStats, className),
   numPad: (classNames) => classNames,
   stats: (classNames) => classNames,
   timerButton: (classNames) => classNames

@@ -1,10 +1,10 @@
 import PropTypes from "prop-types"
-import { cn } from "utils/utilityFunctions"
+import cnp from "styles/classNameProcessor"
 import styles from "./Icon.module.css"
 
 export const classes = {
   container: (type, className) =>
-    styles.Container + cn.get(className) + cn.if(type, styles[type])
+    cnp.default(styles.Container, className) + cnp.if(type, styles[type])
 }
 
 export const defaultProps = { type: "primary" }

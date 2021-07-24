@@ -1,25 +1,21 @@
 import PropTypes from "prop-types"
 import styles from "./Modal.module.css"
 import cross from "./cross.svg"
-import { cn } from "utils/utilityFunctions"
+import cnp from "styles/classNameProcessor"
 
 export const classes = {
-  backdrop: (className) => styles.Backdrop + cn.get(className),
+  backdrop: (className) => cnp.default(styles.Backdrop, className),
   container: (isClosing, type, size, scrollable, className) =>
-    styles.Container +
-    cn.get(className) +
-    cn.or(isClosing, styles.AnimateClose, styles.AnimateOpen) +
-    cn.if(type, styles[type?.toLowerCase()]) +
-    cn.if(size, styles[size?.toLowerCase()]) +
-    cn.if(!scrollable, styles.NotScrollable),
-  iconContainer: (className) => styles.IconContainer + cn.get(className),
-  closeIcon: (className) => styles.CloseIcon + cn.get(className)
+    cnp.default(styles.Container, className) +
+    cnp.or(isClosing, styles.AnimateClose, styles.AnimateOpen) +
+    cnp.if(type, styles[type?.toLowerCase()]) +
+    cnp.if(size, styles[size?.toLowerCase()]) +
+    cnp.if(!scrollable, styles.NotScrollable),
+  iconContainer: (className) => cnp.default(styles.IconContainer, className),
+  closeIcon: (className) => cnp.default(styles.CloseIcon, className)
 }
 
-export const defaultProps = {
-  scrollable: true,
-  classNames: {}
-}
+export const defaultProps = { scrollable: true, classNames: {} }
 
 export const propTypes = {
   children: PropTypes.node,

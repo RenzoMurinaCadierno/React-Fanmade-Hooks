@@ -1,13 +1,12 @@
 import PropTypes from "prop-types"
-import { cn } from "utils/utilityFunctions"
+import cnp from "styles/classNameProcessor"
 import styles from "./ConfettiPaperPiece.module.css"
 
 export const classes = {
   container: (rotateSpeed, rotateOrientation, className) =>
-    styles.Container +
-    cn.get(className) +
-    cn.if(rotateSpeed, styles["rotate-speed-" + rotateSpeed]) +
-    cn.if(rotateOrientation, styles["rotate-orientation-" + rotateOrientation])
+    cnp.default(styles.Container, className) +
+    cnp.if(rotateSpeed, styles["rotate-speed-" + rotateSpeed]) +
+    cnp.if(rotateOrientation, styles["rotate-orientation-" + rotateOrientation])
 }
 
 export const defaultProps = {

@@ -1,12 +1,11 @@
 import PropTypes from "prop-types"
-import { cn } from "utils/utilityFunctions"
+import cnp from "styles/classNameProcessor"
 import styles from "./CarouselIndicator.module.css"
 
 export const classes = {
   container: (isActive, className) =>
-    styles.Container +
-    cn.get(className) +
-    cn.if(isActive, styles.ContainerActive)
+    cnp.default(styles.Container, className) +
+    cnp.if(isActive, styles.ContainerActive)
 }
 
 export const propTypes = {

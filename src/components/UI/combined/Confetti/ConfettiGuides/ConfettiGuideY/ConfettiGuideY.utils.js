@@ -1,12 +1,11 @@
 import PropTypes from "prop-types"
-import { cn } from "utils/utilityFunctions"
+import cnp from "styles/classNameProcessor"
 import styles from "./ConfettiGuideY.module.css"
 
 export const classes = {
   container: (altitude, className) =>
-    styles.Container +
-    cn.get(className) +
-    cn.if(altitude, styles["altitude-" + altitude])
+    cnp.default(styles.Container, className) +
+    cnp.if(altitude, styles["altitude-" + altitude])
 }
 
 export const defaultProps = { altitude: 5 }

@@ -1,12 +1,12 @@
 import { memo } from "react"
 import { useLocation } from "react-router-dom"
 import { CodeMenu, Container, MetaTags, Text } from "hub"
-import { getHookNameFromPathName } from "utils/utilityFunctions"
 import {
   classes,
   defaultProps,
   propTypes,
-  defaultMenuIconProps
+  defaultMenuIconProps,
+  getHookNameFromPathName
 } from "./CmpDescription.utils"
 
 /**

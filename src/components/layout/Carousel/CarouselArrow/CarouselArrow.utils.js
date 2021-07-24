@@ -1,16 +1,14 @@
 import PropTypes from "prop-types"
-import { cn } from "utils/utilityFunctions"
+import cnp from "styles/classNameProcessor"
 import styles from "./CarouselArrow.module.css"
 
 export const classes = {
   container: (direction, className) =>
-    styles.Container +
-    cn.get(className) +
-    cn.if(direction, styles[capitalize(direction)]),
+    cnp.default(styles.Container, className) +
+    cnp.if(direction, styles[capitalize(direction)]),
   arrow: (direction, className) =>
-    styles.Arrow +
-    cn.get(className) +
-    cn.if(direction, styles[capitalize(direction)]),
+    cnp.default(styles.Arrow, className) +
+    cnp.if(direction, styles[capitalize(direction)]),
   "animate-arrow-left": styles.AnimateArrowLeft,
   "animate-arrow-right": styles.AnimateArrowRight
 }

@@ -1,14 +1,13 @@
 import { isValidElement } from "react"
 import PropTypes from "prop-types"
 import styles from "./Aura.module.css"
-import { cn } from "utils/utilityFunctions"
+import cnp from "styles/classNameProcessor"
 
 export const classes = {
-  container: (className) => styles.Container + cn.get(className),
+  container: (className) => cnp.default(styles.Container, className),
   aura: (isActive, type, blink, size, interval, inheritBoxShape, className) =>
-    styles.Aura +
-    cn.get(className) +
-    cn.if(
+    cnp.default(styles.Aura, className) +
+    cnp.if(
       isActive,
       styles.BaseAnimation +
         " " +
@@ -18,8 +17,8 @@ export const classes = {
         " " +
         styles[getPascalCasedJoinedWords(interval, "Interval")]
     ) +
-    cn.if(type, styles[type?.toLowerCase()]) +
-    cn.if(inheritBoxShape, styles.InheritBoxShape)
+    cnp.if(type, styles[type?.toLowerCase()]) +
+    cnp.if(inheritBoxShape, styles.InheritBoxShape)
 }
 
 export const defaultProps = {

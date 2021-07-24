@@ -1,11 +1,12 @@
 import PropTypes from "prop-types"
-import { cn } from "utils/utilityFunctions"
+import cnp from "styles/classNameProcessor"
 import styles from "./SlotsResultSection.module.css"
 
 export const classes = {
-  container: (className) => styles.Container + cn.get(className),
-  title: (className) => styles.Title + cn.get(className),
-  titleBackground: (className) => styles.TitleBackground + cn.get(className),
+  container: (className) => cnp.default(styles.Container, className),
+  title: (className) => cnp.default(styles.Title, className),
+  titleBackground: (className) =>
+    cnp.default(styles.TitleBackground, className),
   item: (classNames) => classNames
 }
 

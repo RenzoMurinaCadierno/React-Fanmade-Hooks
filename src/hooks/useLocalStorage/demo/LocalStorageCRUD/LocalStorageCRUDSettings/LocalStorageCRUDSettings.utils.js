@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import { cn } from "utils/utilityFunctions"
+import cnp from "styles/classNameProcessor"
 import styles from "./LocalStorageCRUDSettings.module.css"
 
 export const classes = {
@@ -9,7 +9,7 @@ export const classes = {
   configs: styles.ConfigsGrid,
   button: styles.Button,
   authBanner: (type) =>
-    styles.AuthBanner + cn.if(type, styles[type?.toLowerCase()])
+    styles.AuthBanner + cnp.if(type, styles[type?.toLowerCase()])
 }
 
 export const propTypes = {

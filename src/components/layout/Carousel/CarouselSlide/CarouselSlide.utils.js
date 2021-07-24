@@ -1,10 +1,10 @@
 import PropTypes from "prop-types"
 import { Carousel } from "hub"
 import styles from "./CarouselSlide.module.css"
-import { cn } from "utils/utilityFunctions"
+import cnp from "styles/classNameProcessor"
 
 export const classes = {
-  container: (className) => styles.Container + cn.get(className),
+  container: (className) => cnp.default(styles.Container, className),
   "animate-mount-left": styles.AnimateMountLeft,
   "animate-unmount-left": styles.AnimateUnmountLeft,
   "animate-mount-right": styles.AnimateMountRight,

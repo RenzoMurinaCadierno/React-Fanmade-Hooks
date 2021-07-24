@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import { cn } from "utils/utilityFunctions"
+import cnp from "styles/classNameProcessor"
 import styles from "./Badge.module.css"
 
 export const classes = {
@@ -15,24 +15,23 @@ export const classes = {
     onChangeCN,
     className
   ) =>
-    styles.Container +
-    cn.get(className) +
-    cn.if(size, styles[size?.toLowerCase()]) +
-    cn.if(
+    cnp.default(styles.Container, className) +
+    cnp.if(size, styles[size?.toLowerCase()]) +
+    cnp.if(
       anchor,
       anchor
         .split("-")
         .map((a) => styles[a?.toLowerCase()])
         .join(" ")
     ) +
-    cn.if(type, styles[type?.toLowerCase()]) +
-    cn.if(fontVariant, styles[fontVariant?.toLowerCase()]) +
-    cn.if(typeBackground && type, styles.TypeBackground) +
-    cn.if(noBorder && type, styles.NoBorder) +
-    cn.get(mountCN) +
-    cn.get(unmountCN) +
-    cn.get(onChangeCN),
-  content: (className) => styles.Content + cn.get(className),
+    cnp.if(type, styles[type?.toLowerCase()]) +
+    cnp.if(fontVariant, styles[fontVariant?.toLowerCase()]) +
+    cnp.if(typeBackground && type, styles.TypeBackground) +
+    cnp.if(noBorder && type, styles.NoBorder) +
+    cnp.get(mountCN) +
+    cnp.get(unmountCN) +
+    cnp.get(onChangeCN),
+  content: (className) => styles.Content + cnp.get(className),
   animateMount: styles.AnimateMount,
   animateUnmount: styles.AnimateUnmount,
   animateOnChange: styles.AnimateOnChange

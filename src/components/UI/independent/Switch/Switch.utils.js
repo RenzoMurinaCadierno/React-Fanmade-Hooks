@@ -1,17 +1,16 @@
 import PropTypes from "prop-types"
-import { cn } from "utils/utilityFunctions"
+import cnp from "styles/classNameProcessor"
 import styles from "./Switch.module.css"
 
 export const classes = {
   container: (isOn, isFrozen, className) =>
-    styles.Container +
-    cn.get(className) +
-    cn.if(isOn, styles.ContainerActive) +
-    cn.if(isFrozen, styles.Frozen),
+    cnp.default(styles.Container, className) +
+    cnp.if(isOn, styles.ContainerActive) +
+    cnp.if(isFrozen, styles.Frozen),
   slider: (isOn, className) =>
-    styles.Slider + cn.get(className) + cn.if(isOn, styles.SliderActive),
+    cnp.default(styles.Slider, className) + cnp.if(isOn, styles.SliderActive),
   button: (isOn, className) =>
-    styles.Button + cn.get(className) + cn.if(isOn, styles.ButtonActive)
+    cnp.default(styles.Button, className) + cnp.if(isOn, styles.ButtonActive)
 }
 
 export const defaultProps = { initialState: false, classNames: {} }

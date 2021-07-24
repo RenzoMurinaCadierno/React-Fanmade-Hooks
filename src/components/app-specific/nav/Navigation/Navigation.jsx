@@ -1,10 +1,10 @@
 import { useCallback, useState } from "react"
 import { useHistory, useLocation } from "react-router-dom"
 import { Appbar } from "hub"
-import { slugify } from "utils/utilityFunctions"
 import {
   defaultCategories,
-  getActiveCategoriesAndHooks
+  getActiveCategoriesAndHooks,
+  slugify
 } from "./Navigation.utils"
 
 /**

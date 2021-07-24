@@ -1,9 +1,9 @@
 import PropTypes from "prop-types"
+import cnp from "styles/classNameProcessor"
 import styles from "./BTField.module.css"
 
 export const classes = {
-  container: (className) =>
-    (className ? className + " " : "") + styles.Container
+  container: (className) => cnp.default(styles.Container, className)
 }
 
 export const defaultProps = { type: "primary" }

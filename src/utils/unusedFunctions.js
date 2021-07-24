@@ -1,110 +1,3 @@
-class ClassName {
-  /**
-   * Returns `className` if it is defined, `fallback` otherwise.
-   *
-   * @param {string} className The className to return.
-   *
-   * @param {string} fallback What to return if `className` is undefined.
-   * * Defaults to an empty string.
-   */
-  get = (className, fallback = "") => (className ? " " + className : fallback)
-
-  /**
-   * Returns `className` if `condition` is truthy, `fallback` otherwise.
-   *
-   * @param {string} className The className to return.
-   *
-   * @param {boolean} condition `true` returns `className`, `false` gets
-   *   `fallback`.
-   *
-   * @param {string} fallback What to return if `condition` is `false`.
-   * * Defaults to an empty string.
-   */
-  if = (condition, className, fallback = "") =>
-    condition ? " " + className : fallback
-
-  /**
-   * Returns `classNameTrue` if `condition` is truthy, or `classNameTwo`
-   *   otherwise.
-   *
-   * @param {string} classNameTrue The className to return on
-   *   `condition === true`.
-   *
-   * @param {string} classNameFalse The className to return on
-   *   `condition === false`.
-   *
-   * @param {boolean} condition `true` returns `classNameTrue`, while `false` gets
-   *   `classNameFalse`.
-   */
-  or = (condition, classNameTrue, classNameFalse) =>
-    condition ? " " + classNameTrue : " " + classNameFalse
-}
-
-export const cn = new ClassName()
-
-/**
- * Takes a number and fixes it to the specified amount of decimals.
- *
- * Return type is float, so if extra trailing zeroes are attempted to be fixed,
- * they will be deleted. E.g.: fix(100.220, 2) results in 100.22
- * @param {number} num The number to fix
- * @param {number} toFixed Amount of decimals
- * @returns {number} The desired fixed number (float)
- */
-export function fix(num, toFixed = 0) {
-  const pow = Math.pow(10, toFixed)
-  return Math.round(num * pow) / pow
-}
-
-/**
- * Creates and returns a copy of `arr` with its elements shuffled.
- * @param {Array} arr array to shuffle
- */
-export function copyAndShuffleArray(arr) {
-  const arrCopy = [...arr]
-  const newArr = []
-  for (let i = 0; i < arr.length; i++) {
-    const idx = Math.floor(Math.random() * arrCopy.length)
-    newArr.push(arrCopy[idx])
-    arrCopy.splice(idx, 1)
-  }
-  return newArr
-}
-
-/**
- * Takes a camel-or-pascal-cased string and returns its slug form
- * @param {sring} pathName string in camel or pascal case
- */
-export function slugify(pathName) {
-  let processedPath = ""
-  for (let i = 0; i < pathName.length; i++) {
-    processedPath +=
-      /[A-Z]/.test(pathName[i]) && i
-        ? "-" + pathName[i].toLowerCase()
-        : pathName[i].toLowerCase()
-  }
-  return processedPath
-}
-
-/**
- * Returns the camelcased hook name from location.pathname, used
- * to complete the URL name for 'Icon.Expandable' in 'CmpDescription'
- * to create the link to hook's folder in Github repository
- * @param {string} pathName location.pathName (from React Router).
- *   Its slugified, format "/use-hook-name"
- */
-export function getHookNameFromPathName(pathName) {
-  return pathName
-    .slice(1) // remove the '/'
-    .split("-") // separate slug and get all words
-    .map(
-      // capitalize everything but first word ("use")
-      (word, i) =>
-        i ? word[0].toUpperCase() + word.slice(1).toLowerCase() : word
-    )
-    .join("") // join back
-}
-
 /*******************************************************************************
  *
  * UNUSED FUNCTIONS, kept only if needed later. Uncomment them to enable import.
@@ -236,4 +129,67 @@ export function getHookNameFromPathName(pathName) {
 //       return types.every((type) => typeof variable !== type)
 //     }
 //   }
+// }
+
+// /**
+//  * Takes a number and fixes it to the specified amount of decimals.
+//  *
+//  * Return type is float, so if extra trailing zeroes are attempted to be fixed,
+//  * they will be deleted. E.g.: fix(100.220, 2) results in 100.22
+//  * @param {number} num The number to fix
+//  * @param {number} toFixed Amount of decimals
+//  * @returns {number} The desired fixed number (float)
+//  */
+//  export function fix(num, toFixed = 0) {
+//   const pow = Math.pow(10, toFixed)
+//   return Math.round(num * pow) / pow
+// }
+
+// /**
+//  * Creates and returns a copy of `arr` with its elements shuffled.
+//  * @param {Array} arr array to shuffle
+//  */
+//  export function copyAndShuffleArray(arr) {
+//   const arrCopy = [...arr]
+//   const newArr = []
+//   for (let i = 0; i < arr.length; i++) {
+//     const idx = Math.floor(Math.random() * arrCopy.length)
+//     newArr.push(arrCopy[idx])
+//     arrCopy.splice(idx, 1)
+//   }
+//   return newArr
+// }
+
+// /**
+//  * Takes a camel-or-pascal-cased string and returns its slug form
+//  * @param {sring} pathName string in camel or pascal case
+//  */
+//  export function slugify(pathName) {
+//   let processedPath = ""
+//   for (let i = 0; i < pathName.length; i++) {
+//     processedPath +=
+//       /[A-Z]/.test(pathName[i]) && i
+//         ? "-" + pathName[i].toLowerCase()
+//         : pathName[i].toLowerCase()
+//   }
+//   return processedPath
+// }
+
+// /**
+//  * Returns the camelcased hook name from location.pathname, used
+//  * to complete the URL name for 'Icon.Expandable' in 'CmpDescription'
+//  * to create the link to hook's folder in Github repository
+//  * @param {string} pathName location.pathName (from React Router).
+//  *   Its slugified, format "/use-hook-name"
+//  */
+//  export function getHookNameFromPathName(pathName) {
+//   return pathName
+//     .slice(1) // remove the '/'
+//     .split("-") // separate slug and get all words
+//     .map(
+//       // capitalize everything but first word ("use")
+//       (word, i) =>
+//         i ? word[0].toUpperCase() + word.slice(1).toLowerCase() : word
+//     )
+//     .join("") // join back
 // }

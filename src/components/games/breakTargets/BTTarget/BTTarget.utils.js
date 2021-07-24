@@ -1,25 +1,17 @@
 import PropTypes from "prop-types"
+import cnp from "styles/classNameProcessor"
 import styles from "./BTTarget.module.css"
 
 export const classes = {
-  container: (className) =>
-    (className ? className + " " : "") + styles.Container,
+  container: (className) => cnp.default(styles.Container, className),
   target: (type, isDestroyed, className) =>
-    (className ?? "") +
-    " " +
-    (type ? styles[type] : "") +
-    " " +
-    (isDestroyed ? styles.Destroyed : "") +
-    " " +
-    styles.Target,
+    cnp.default(styles.Target, className) +
+    cnp.if(type, styles[type]) +
+    cnp.if(isDestroyed, styles.Destroyed),
   content: (type, isDestroyed, className) =>
-    (className ?? "") +
-    " " +
-    (type ? styles[type] : "") +
-    " " +
-    (isDestroyed ? styles.Destroyed : "") +
-    " " +
-    styles.Content,
+    cnp.default(styles.Content, className) +
+    cnp.if(type, styles[type]) +
+    cnp.if(isDestroyed, styles.Destroyed),
   animateTargetDestroyed: styles.AnimateTargetDestroyed,
   animateScore: styles.AnimateScore
 }

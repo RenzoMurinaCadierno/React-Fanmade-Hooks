@@ -1,16 +1,17 @@
 import PropTypes from "prop-types"
-import { cn } from "utils/utilityFunctions"
+import cnp from "styles/classNameProcessor"
 import styles from "./SlotsResultItem.module.css"
 
 export const classes = {
-  container: (className) => styles.Container + cn.get(className),
-  image: (className) => styles.Image + cn.get(className),
+  container: (className) => cnp.default(styles.Container, className),
+  image: (className) => cnp.default(styles.Image, className),
   badge: (classNames = {}) => ({
     ...classNames,
-    container: styles.BadgeContainer + cn.get(classNames?.container)
+    container: cnp.default(styles.BadgeContainer, classNames?.container)
   }),
-  multiplierFigure: (className) => styles.MultiplierFigure + cn.get(className),
-  multiplierImage: (className) => styles.MultiplierImage + cn.get(className)
+  multiplierFigure: (className) =>
+    cnp.default(styles.MultiplierFigure, className),
+  multiplierImage: (className) => cnp.default(styles.MultiplierImage, className)
 }
 
 export const defaultProps = { classNames: {} }

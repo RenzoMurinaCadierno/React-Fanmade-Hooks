@@ -1,14 +1,14 @@
 import PropTypes from "prop-types"
-import { cn } from "utils/utilityFunctions"
+import cnp from "styles/classNameProcessor"
 import styles from "./Spinner.module.css"
 
 export const classes = {
   container: (size, className) =>
     styles.Container +
-    cn.get(className) +
-    cn.if(size, styles[size?.toLowerCase()]),
+    cnp.get(className) +
+    cnp.if(size, styles[size?.toLowerCase()]),
   dot: (type, className) =>
-    styles.Dot + cn.get(className) + cn.if(type, styles[type?.toLowerCase()])
+    styles.Dot + cnp.get(className) + cnp.if(type, styles[type?.toLowerCase()])
 }
 
 export const defaultProps = { classNames: {} }

@@ -1,8 +1,7 @@
 import { Suspense } from "react"
 import { Switch, Route } from "react-router-dom"
 import { Spinner } from "hub"
-import { slugify } from "utils/utilityFunctions"
-import { lazyWithPreload } from "./Router.utils"
+import { lazyWithPreload, slugify } from "./Router.utils"
 import configs from "app.configs.json"
 
 /**

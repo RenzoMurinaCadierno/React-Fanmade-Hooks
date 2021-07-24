@@ -1,22 +1,26 @@
-import styles from "./UseMediaQuery.module.css"
+import cnp from "styles/classNameProcessor"
 import linkedin from "assets/icons/linkedin.svg"
 import twitter from "assets/icons/twitter.svg"
 import facebook from "assets/icons/facebook.svg"
 import instagram from "assets/icons/instagram.svg"
+import styles from "./UseMediaQuery.module.css"
 
 export const classes = {
-  container: (mqView) => styles[`Container-${mqView}`] + " " + styles.Container,
-  header: (mqView) => styles[`Header-${mqView}`] + " " + styles.Header,
+  container: (mqView) =>
+    cnp.join(styles.Container, styles[`Container-${mqView}`]),
+  header: (mqView) => cnp.join(styles.Header, styles[`Header-${mqView}`]),
   descAndMQs: (mqView) =>
-    styles[`DescAndMQs-${mqView}`] + " " + styles.DescAndMQs,
+    cnp.join(styles.DescAndMQs, styles[`DescAndMQs-${mqView}`]),
   cmpDesc: (mqView) => ({
     container: styles.CmpDescContainer,
-    description:
-      styles[`CmpDescContent-${mqView}`] + " " + styles.CmpDescContent
+    description: cnp.join(
+      styles.CmpDescContent,
+      styles[`CmpDescContent-${mqView}`]
+    )
   }),
   currentMQs: styles.CurrentMQs,
   mqSeparation: (mqView) =>
-    styles[`MQSeparation-${mqView}`] + " " + styles.MQSeparation
+    cnp.join(styles[`MQSeparation-${mqView}`], styles.MQSeparation)
 }
 
 export const descItems = {

@@ -2,16 +2,16 @@ import PropTypes from "prop-types"
 import defaultSearchSVG from "assets/icons/search.svg"
 import defaultCrossSVG from "assets/icons/cross.svg"
 import styles from "./AppbarSearchbar.module.css"
-import { cn } from "utils/utilityFunctions"
+import cnp from "styles/classNameProcessor"
 
 export const classes = {
-  container: (className) => styles.Container + cn.get(className),
+  container: (className) => cnp.default(styles.Container, className),
   input: (classNames = {}) => ({
     ...classNames,
-    container: styles.Input + cn.get(classNames?.container)
+    container: cnp.default(styles.Input, classNames?.container)
   }),
   icon: (isInputEmpty, className) =>
-    styles.Icon + cn.get(className) + cn.if(!isInputEmpty, styles.Animate)
+    cnp.default(styles.Icon, className) + cnp.if(!isInputEmpty, styles.Animate)
 }
 
 export const defaultProps = {

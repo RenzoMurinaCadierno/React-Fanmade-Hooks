@@ -1,8 +1,6 @@
 import PropTypes from "prop-types"
 
-export const classes = {
-  arrowComponent: (classNames) => classNames
-}
+export const classes = { arrowComponent: (classNames) => classNames }
 
 export const defaultProps = { classNames: {} }
 

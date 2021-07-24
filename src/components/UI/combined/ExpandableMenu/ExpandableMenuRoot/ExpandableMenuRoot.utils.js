@@ -4,13 +4,12 @@ import pointer from "assets/icons/pointer.svg"
 import mail from "assets/icons/mail.svg"
 import linkedin from "assets/icons/linkedin.svg"
 import github from "assets/icons/github.svg"
-import { cn } from "utils/utilityFunctions"
+import cnp from "styles/classNameProcessor"
 
 export const classes = {
   container: (anchor, className) =>
-    styles.Container +
-    cn.get(className) +
-    cn.if(anchor, styles[anchor?.toLowerCase()]),
+    cnp.default(styles.Container, className) +
+    cnp.if(anchor, styles[anchor?.toLowerCase()]),
   mainIcon: (classNames) => classNames,
   listIcon: (classNames) => classNames
 }

@@ -1,13 +1,14 @@
 import PropTypes from "prop-types"
-import { cn } from "utils/utilityFunctions"
+import cnp from "styles/classNameProcessor"
 import styles from "./AppbarSection.module.css"
 
 export const classes = {
   container: (className, show) =>
-    styles.Container + cn.get(className) + cn.if(show, styles.ShowContainer),
-  title: (className) => styles.Title + cn.get(className),
+    cnp.default(styles.Container, className) +
+    cnp.if(show, styles.ShowContainer),
+  title: (className) => cnp.default(styles.Title, className),
   content: (className, show) =>
-    styles.Content + cn.get(className) + cn.if(show, styles.ShowContent)
+    cnp.default(styles.Content, className) + cnp.if(show, styles.ShowContent)
 }
 
 export const defaultProps = { title: "Title", classNames: {} }

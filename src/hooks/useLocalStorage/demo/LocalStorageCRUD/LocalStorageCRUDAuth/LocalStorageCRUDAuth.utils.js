@@ -1,4 +1,5 @@
 import PropTypes from "prop-types"
+import cnp from "styles/classNameProcessor"
 import styles from "./LocalStorageCRUDAuth.module.css"
 
 export const classes = {
@@ -9,7 +10,7 @@ export const classes = {
     inputStyled: { label: styles.InputLabel }
   },
   button: styles.Button,
-  authBanner: (type) => (type ? styles[type] : "") + " " + styles.AuthBanner
+  authBanner: (type) => styles.AuthBanner + cnp.if(type, styles[type])
 }
 
 export const propTypes = {

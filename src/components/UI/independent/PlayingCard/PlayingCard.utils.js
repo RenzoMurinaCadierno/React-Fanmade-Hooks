@@ -1,15 +1,15 @@
 import PropTypes from "prop-types"
-import { cn } from "utils/utilityFunctions"
+import cnp from "styles/classNameProcessor"
 import styles from "./PlayingCard.module.css"
 
 export const classes = {
   container: (onClick, className) =>
-    styles.Container + cn.get(className) + cn.if(onClick, styles.Clickable),
+    cnp.default(styles.Container, className) +
+    cnp.if(onClick, styles.Clickable),
   suit: (suit, reverse, className) =>
-    styles.Suit +
-    cn.get(className) +
-    cn.if(suit, styles[suit]) +
-    cn.if(reverse, styles.Reverse)
+    cnp.default(styles.Suit, className) +
+    cnp.if(suit, styles[suit]) +
+    cnp.if(reverse, styles.Reverse)
 }
 
 export const defaultProps = { classNames: {} }

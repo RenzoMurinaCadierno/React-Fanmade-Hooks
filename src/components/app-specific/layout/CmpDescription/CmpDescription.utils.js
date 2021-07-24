@@ -4,9 +4,9 @@ import { urls } from "app.configs.json"
 
 export const classes = {
   codeIcon: (classNames) => classNames,
-  container: (className) => className ?? "",
-  title: (className) => className ?? "",
-  description: (className) => className ?? ""
+  container: (className) => className,
+  title: (className) => className,
+  description: (className) => className
 }
 
 export const defaultProps = {
@@ -90,4 +90,24 @@ export const propTypes = {
  */
 export const defaultMenuIconProps = {
   menuIconProps: { aura: { size: "small", interval: "long" } }
+}
+
+/**
+ * Returns the camelcased hook name from location.pathname, used
+ * to complete the URL name for 'Icon.Expandable' in 'CmpDescription'
+ * to create the link to hook's folder in Github repository.
+ *
+ * @param {string} pathName location.pathName (from React Router).
+ *   Its slugified, format "/use-hook-name"
+ */
+export function getHookNameFromPathName(pathName) {
+  return pathName
+    .slice(1) // remove the '/'
+    .split("-") // separate slug and get all words
+    .map(
+      // capitalize everything but first word ("use")
+      (word, i) =>
+        i ? word[0].toUpperCase() + word.slice(1).toLowerCase() : word
+    )
+    .join("") // join back
 }

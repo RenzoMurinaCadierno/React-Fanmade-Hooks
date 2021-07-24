@@ -16,4 +16,4 @@ test lighthouse
  ReactComponent as Logo in Carousel https://create-react-app.dev/docs/adding-images-fonts-and-files/
 
 // commit msg
-Started cleaning up className logic handling code. 
+Finished cleaning up classNames logic across the app.

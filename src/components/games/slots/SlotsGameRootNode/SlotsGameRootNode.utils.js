@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
+import cnp from "styles/classNameProcessor"
 import styles from "./SlotsGameRootNode.module.css"
-import { cn, copyAndShuffleArray } from "utils/utilityFunctions"
 import apple from "../assets/apple.svg"
 import cherry from "../assets/cherry.svg"
 import heart from "../assets/heart.svg"
@@ -35,9 +35,10 @@ const slotsAndStatsItems = {
 /******************************* /CONFIGS ******************************/
 
 export const classes = {
-  container: (className) => styles.Container + cn.get(className),
-  resetButton: (className) => styles.ResetButton + cn.get(className),
-  imgToggleButton: (className) => styles.ImgToggleButton + cn.get(className),
+  container: (className) => cnp.default(styles.Container, className),
+  resetButton: (className) => cnp.default(styles.ResetButton, className),
+  imgToggleButton: (className) =>
+    cnp.default(styles.ImgToggleButton, className),
   scores: (classNames) => getScoresAndStatsCNs(styles.Scores, classNames),
   stats: (classNames) => getScoresAndStatsCNs(styles.Stats, classNames)
 }
@@ -46,7 +47,7 @@ export const classes = {
 function getScoresAndStatsCNs(defaultClassName, classNames = {}) {
   return {
     ...classNames,
-    container: defaultClassName + cn.get(classNames?.container)
+    container: cnp.default(defaultClassName, classNames?.container)
   }
 }
 
@@ -70,6 +71,24 @@ export const propTypes = {
     scores: slotsScoreSideClassNamesShape,
     stats: slotsScoreSideClassNamesShape
   })
+}
+
+/**
+ * Creates and returns a copy of `arr` with its elements shuffled.
+ *
+ * @param {Array} arr array to shuffle
+ */
+export function copyAndShuffleArray(arr) {
+  const arrCopy = [...arr]
+  const newArr = []
+
+  for (let i = 0; i < arr.length; i++) {
+    const idx = Math.floor(Math.random() * arrCopy.length)
+    newArr.push(arrCopy[idx])
+    arrCopy.splice(idx, 1)
+  }
+
+  return newArr
 }
 
 /**

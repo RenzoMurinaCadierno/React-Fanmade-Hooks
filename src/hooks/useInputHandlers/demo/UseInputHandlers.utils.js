@@ -1,4 +1,5 @@
 import { Text } from "hub"
+import cnp from "styles/classNameProcessor"
 import styles from "./UseInputHandlers.module.css"
 
 const amountOfWords = 5
@@ -12,7 +13,7 @@ export const classes = {
   cmpTest: styles.CmpTest,
   summary: styles.Summary,
   answer: (isCorrect) =>
-    (isCorrect ? styles.CorrectAnswer : "") + " " + styles.Answer,
+    styles.Answer + cnp.if(isCorrect, styles.CorrectAnswer),
   input: { container: styles.InputContainer }
 }
 

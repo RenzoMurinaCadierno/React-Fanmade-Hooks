@@ -1,24 +1,22 @@
 import PropTypes from "prop-types"
-import { cn } from "utils/utilityFunctions"
+import cnp from "styles/classNameProcessor"
 import styles from "./InputWithValidationBubbles.module.css"
 
 export const classes = {
-  container: (className) => styles.Container + cn.get(className),
-  input: (className) => styles.InputContainer + cn.get(className),
+  container: (className) => cnp.default(styles.Container, className),
+  input: (className) => cnp.default(styles.InputContainer, className),
   inputStyled: (classNames = {}) => ({
     ...classNames,
-    container: styles.InputContainer + cn.get(classNames?.container)
+    container: cnp.default(styles.InputContainer, classNames?.container)
   }),
   validationContainer: (anchor, className) =>
-    styles.ValidationContainer +
-    cn.get(className) +
-    cn.if(anchor, styles[anchor?.toLowerCase()]),
+    cnp.default(styles.ValidationContainer, className) +
+    cnp.if(anchor, styles[anchor?.toLowerCase()]),
   validationMessage: (className) => className,
   validationArrow: (anchor, type, className) =>
-    styles.Pointer +
-    cn.get(className) +
-    cn.if(type, styles[type?.toLowerCase()]) +
-    cn.if(anchor, styles[anchor?.toLowerCase()])
+    cnp.default(styles.Pointer, className) +
+    cnp.if(type, styles[type?.toLowerCase()]) +
+    cnp.if(anchor, styles[anchor?.toLowerCase()])
 }
 
 export const defaultProps = {

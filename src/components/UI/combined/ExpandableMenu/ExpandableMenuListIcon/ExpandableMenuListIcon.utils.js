@@ -1,16 +1,16 @@
 import PropTypes from "prop-types"
-import { cn } from "utils/utilityFunctions"
+import cnp from "styles/classNameProcessor"
 import styles from "./ExpandableMenuListIcon.module.css"
 
 export const classes = {
   icon: (classNames = {}) => ({
     ...classNames,
-    container: styles.Icon + cn.get(classNames?.container)
+    container: cnp.default(styles.Icon, classNames?.container)
   }),
   iconWithToast: (classNames = {}) => ({
     iconExpandable: {
       ...classNames,
-      container: styles.Icon + cn.get(classNames?.container)
+      container: cnp.default(styles.Icon, classNames?.container)
     },
     toast: classNames?.toast
   })

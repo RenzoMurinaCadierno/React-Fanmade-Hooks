@@ -1,12 +1,11 @@
 import PropTypes from "prop-types"
-import { cn } from "utils/utilityFunctions"
+import cnp from "styles/classNameProcessor"
 import styles from "./ProgressBackground.module.css"
 
 export const classes = {
   container: (type, className) =>
-    styles.Container +
-    cn.get(className) +
-    cn.if(type, styles[type?.toLowerCase()])
+    cnp.default(styles.Container, className) +
+    cnp.if(type, styles[type?.toLowerCase()])
 }
 
 export const defaultProps = { show: true, min: 0, value: 0, max: 100 }

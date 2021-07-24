@@ -1,3 +1,4 @@
+import cnp from "styles/classNameProcessor"
 import styles from "./UseReRender.module.css"
 
 export const classes = {
@@ -5,7 +6,7 @@ export const classes = {
   cmpDesc: { container: styles.CmpContainer, description: styles.CmpDesc },
   cmpTest: styles.Grid,
   arrow: (direction) =>
-    (direction && styles["arrow-" + direction]) + " " + styles.Arrow,
+    styles.Arrow + cnp.if(direction, styles["arrow-" + direction]),
   button: styles.Button
 }
 

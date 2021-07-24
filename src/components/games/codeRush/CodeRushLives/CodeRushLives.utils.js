@@ -1,15 +1,14 @@
 import PropTypes from "prop-types"
 import { Text } from "hub"
+import cnp from "styles/classNameProcessor"
 import heartSVG from "assets/icons/heart.svg"
 import styles from "./CodeRushLives.module.css"
 
 export const classes = {
-  container: (className) =>
-    (className ? className + " " : "") + styles.Container,
-  text: (className) => className ?? "",
-  livesContainer: (className) =>
-    (className ? className + " " : "") + styles.LivesContainer,
-  life: (className) => (className ? className + " " : "") + styles.Life,
+  container: (className) => cnp.default(styles.Container, className),
+  text: (className) => className,
+  livesContainer: (className) => cnp.default(styles.LivesContainer, className),
+  life: (className) => cnp.default(styles.Life, className),
   livesLeftText: styles.LivesLeftText,
   animateLifeLost: styles.AnimateLifeLost,
   animateThreeOrMoreLives: styles.AnimateThreeOrMoreLives,

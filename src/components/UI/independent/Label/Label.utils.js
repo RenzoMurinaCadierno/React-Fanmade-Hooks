@@ -1,13 +1,12 @@
 import PropTypes from "prop-types"
-import { cn } from "utils/utilityFunctions"
+import cnp from "styles/classNameProcessor"
 import styles from "./Label.module.css"
 
 export const classes = {
   container: (isActive, targetInputType, className) =>
-    styles.Container +
-    cn.get(className) +
-    cn.if(targetInputType, styles[targetInputType?.toLowerCase()]) +
-    cn.if(
+    cnp.default(styles.Container, className) +
+    cnp.if(targetInputType, styles[targetInputType?.toLowerCase()]) +
+    cnp.if(
       targetInputType && isActive,
       styles[targetInputType?.toLowerCase() + "Active"]
     )

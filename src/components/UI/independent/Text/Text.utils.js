@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import { cn } from "utils/utilityFunctions"
+import cnp from "styles/classNameProcessor"
 import styles from "./Text.module.css"
 
 export const classes = {
@@ -16,18 +16,17 @@ export const classes = {
     onClick,
     className
   ) =>
-    styles.Container +
-    cn.get(className) +
-    cn.if(component, styles[component]) +
-    cn.if(type, styles[type?.toLowerCase()]) +
-    cn.if(small, styles.Small) +
-    cn.if(italic, styles.Italic) +
-    cn.if(textShadow, styles["text-shadow-" + type?.toLowerCase()]) +
-    cn.if(bold, styles.Bold) +
-    cn.if(absoluteFill, styles.AbsoluteFill) +
-    cn.if(flex, styles.Flex) +
-    cn.if(noMargin, styles.NoMargin) +
-    cn.if(onClick, styles.Clickable)
+    cnp.default(styles.Container, className) +
+    cnp.if(component, styles[component]) +
+    cnp.if(type, styles[type?.toLowerCase()]) +
+    cnp.if(small, styles.Small) +
+    cnp.if(italic, styles.Italic) +
+    cnp.if(textShadow, styles["text-shadow-" + type?.toLowerCase()]) +
+    cnp.if(bold, styles.Bold) +
+    cnp.if(absoluteFill, styles.AbsoluteFill) +
+    cnp.if(flex, styles.Flex) +
+    cnp.if(noMargin, styles.NoMargin) +
+    cnp.if(onClick, styles.Clickable)
 }
 
 export const defaultProps = { htmlElem: "p", type: "primary" }

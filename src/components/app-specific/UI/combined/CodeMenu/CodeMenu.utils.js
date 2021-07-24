@@ -1,4 +1,5 @@
 import PropTypes from "prop-types"
+import cnp from "styles/classNameProcessor"
 import code from "assets/icons/code.svg"
 import copySVG from "assets/icons/copy.svg"
 import linkSVG from "assets/icons/link.svg"
@@ -7,7 +8,7 @@ import styles from "./CodeMenu.module.css"
 export const classes = {
   codeMenu: (classNames = {}) => ({
     ...classNames,
-    container: (classNames.container ?? "") + " " + styles.Container
+    container: cnp.default(styles.Container, classNames?.container)
   })
 }
 

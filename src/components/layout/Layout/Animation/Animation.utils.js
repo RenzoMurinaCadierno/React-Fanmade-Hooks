@@ -1,8 +1,9 @@
 import PropTypes from "prop-types"
+import cnp from "styles/classNameProcessor"
 import styles from "./Animation.module.css"
 
 export const classes = {
-  container: (className) => className,
+  container: (className) => cnp.get(className),
   mount: (from) => styles[`animate-mount-${from}`],
   idle: (animation) => styles[`animate-idle-${animation}`],
   unmount: (to) => styles[`animate-unmount-${to}`]

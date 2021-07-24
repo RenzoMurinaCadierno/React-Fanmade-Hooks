@@ -1,10 +1,10 @@
 import PropTypes from "prop-types"
-import { cn } from "utils/utilityFunctions"
+import cnp from "styles/classNameProcessor"
 import styles from "./Underline.module.css"
 
 export const classes = {
   container: (className, isFocused) =>
-    styles.Container + cn.get(className) + cn.if(isFocused, styles.Focused)
+    cnp.default(styles.Container, className) + cnp.if(isFocused, styles.Focused)
 }
 
 export const propTypes = {
