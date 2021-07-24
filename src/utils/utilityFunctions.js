@@ -1,30 +1,46 @@
-/**
- * Takes a string a returns it all of its words' first letter in uppercase
- * and the rest in lowercase
- *
- * @param {string} string The string to capitalize
- * @param {boolean} onlyFirstChar True capitalizes only the first character.
- *   The rest of the string remains intact. Defaults to false.
- */
-export function capitalize(string, onlyFirstChar = false) {
-  return string
-    .split(/\s+/)
-    .map(
-      (word) =>
-        word[0].toUpperCase() +
-        (onlyFirstChar ? word.slice(1) : word.slice(1).toLowerCase())
-    )
-    .join(" ")
+class ClassName {
+  /**
+   * Returns `className` if it is defined, `fallback` otherwise.
+   *
+   * @param {string} className The className to return.
+   *
+   * @param {string} fallback What to return if `className` is undefined.
+   * * Defaults to an empty string.
+   */
+  get = (className, fallback = "") => (className ? " " + className : fallback)
+
+  /**
+   * Returns `className` if `condition` is truthy, `fallback` otherwise.
+   *
+   * @param {string} className The className to return.
+   *
+   * @param {boolean} condition `true` returns `className`, `false` gets
+   *   `fallback`.
+   *
+   * @param {string} fallback What to return if `condition` is `false`.
+   * * Defaults to an empty string.
+   */
+  if = (condition, className, fallback = "") =>
+    condition ? " " + className : fallback
+
+  /**
+   * Returns `classNameTrue` if `condition` is truthy, or `classNameTwo`
+   *   otherwise.
+   *
+   * @param {string} classNameTrue The className to return on
+   *   `condition === true`.
+   *
+   * @param {string} classNameFalse The className to return on
+   *   `condition === false`.
+   *
+   * @param {boolean} condition `true` returns `classNameTrue`, while `false` gets
+   *   `classNameFalse`.
+   */
+  or = (condition, classNameTrue, classNameFalse) =>
+    condition ? " " + classNameTrue : " " + classNameFalse
 }
 
-/**
- * Takes a string and replaces any instance of more than one continuous
- * space to only one
- * @param {string} string the target string
- */
-export function shortenSpaces(string) {
-  return string.replace(/\s{2,}/, " ")
-}
+export const cn = new ClassName()
 
 /**
  * Takes a number and fixes it to the specified amount of decimals.
@@ -39,43 +55,6 @@ export function fix(num, toFixed = 0) {
   const pow = Math.pow(10, toFixed)
   return Math.round(num * pow) / pow
 }
-
-/**
- * Takes a variable and returns a series of functions related to its type check
- * @param {any} variable
- */
-export function typeOf(variable) {
-  return {
-    is: function (type) {
-      return typeof variable === type
-    },
-    isNot: function (type) {
-      return typeof variable !== type
-    },
-    isSome: function (...types) {
-      return types.some((type) => typeof variable === type)
-    },
-    isNotSome: function (...types) {
-      return types.some((type) => typeof variable !== type)
-    },
-    isEvery: function (...types) {
-      return types.every((type) => typeof variable === type)
-    },
-    isNotEvery: function (...types) {
-      return types.every((type) => typeof variable !== type)
-    }
-  }
-}
-
-// export function testRolls(max, qtyOfTests) {
-//   const res = {}
-//   for (let i = 0; i < qtyOfTests; i++) {
-//     const currNo = Math.floor(Math.random() * max) + 1
-//     if (!res[currNo]) res[currNo] = 1
-//     else res[currNo]++
-//   }
-//   console.log(res)
-// }
 
 /**
  * Creates and returns a copy of `arr` with its elements shuffled.
@@ -126,58 +105,135 @@ export function getHookNameFromPathName(pathName) {
     .join("") // join back
 }
 
-/**
- * Creates a closure that stores an array of hashes and returns handlers
- * to add new hashes and remove used ones.
+/*******************************************************************************
  *
- * @returns {object} An object with two entries:
+ * UNUSED FUNCTIONS, kept only if needed later. Uncomment them to enable import.
  *
- * `get` (function): creates, stores in the array and returns a hash of any
- *   given length (passed as a number argument).
- *
- * `remove` (function): removes the hash passed as argument from the array.
- */
-export const hash = (function () {
-  // characters used to create the hash
-  const chars = "abcdefghijklmnopqrstuvw0123456789"
-  // Set to store created hashes
-  let usedHashes = new Set()
-  /**
-   * Hash generator function
-   * @param {number} qtyOfChars the amount of random characters in the hash
-   */
-  function get(qtyOfChars = 5) {
-    // base string for all hashes
-    let hash = ""
-    while (true) {
-      // loop a number of times equal to qtyOfChars
-      for (let i = 0; i < qtyOfChars; i++) {
-        // get a random char from chars Set
-        let nextChar = chars[Math.floor(Math.random() * chars.length)]
-        // 50-50 chance to make it uppercase
-        if (Math.random() < 0.5) nextChar = nextChar.toUpperCase()
-        // append it to the hash string beinf formed
-        hash += nextChar
-      }
-      // if the closure's Set of hashes does not include this one
-      // we just created, push it and return it
-      if (!usedHashes.has(hash)) {
-        usedHashes.add(hash)
-        return hash
-      }
-      // otherwise, restore to initial value and start again
-      hash = ""
-    }
-  }
-  /**
-   * Removes the specified hash from the hash Set
-   * @param {string} hash the hash string to remove
-   */
-  function remove(hash) {
-    usedHashes.delete(hash)
-    return hash
-  }
-  // the IIFE will create the array as closure, and return the hash
-  // getter and remover functions
-  return { get, remove }
-})()
+ ******************************************************************************/
+
+// /**
+//  * Takes a string and replaces any instance of more than one continuous
+//  * space to only one
+//  * @param {string} string the target string
+//  */
+//  export function shortenSpaces(string) {
+//   return string.replace(/\s+/g, " ").trim()
+// }
+
+// /**
+//  * Takes a string a returns it all of its words' first letter in uppercase
+//  * and the rest in lowercase
+//  *
+//  * @param {string} string The string to capitalize
+//  * @param {boolean} onlyFirstChar True capitalizes only the first character.
+//  *   The rest of the string remains intact. Defaults to false.
+//  */
+// function capitalize(string, onlyFirstChar = false) {
+//   return string
+//     .split(/\s+/)
+//     .map(
+//       (word) =>
+//         word[0].toUpperCase() +
+//         (onlyFirstChar ? word.slice(1) : word.slice(1).toLowerCase())
+//     )
+//     .join(" ")
+// }
+
+// /**
+//  * Logs results for '*Die*' component in console.
+//  *
+//  * @param {number} max Highest number to roll as an integer.
+//  * @param {number} qtyOfTests Amount of rolls as an integer >= 1.
+//  */
+// function testRolls(max, qtyOfTests) {
+//   const res = {}
+//   for (let i = 0; i < qtyOfTests; i++) {
+//     const currNo = Math.floor(Math.random() * max) + 1
+//     if (!res[currNo]) res[currNo] = 1
+//     else res[currNo]++
+//   }
+//   console.log(res)
+// }
+
+// /**
+//  * Creates a closure that stores an array of hashes and returns handlers
+//  * to add new hashes and remove used ones.
+//  *
+//  * @returns {object} An object with two entries:
+//  *
+//  * `get` (function): creates, stores in the array and returns a hash of any
+//  *   given length (passed as a number argument).
+//  *
+//  * `remove` (function): removes the hash passed as argument from the array.
+//  */
+//  export const hash = (function () {
+//   // characters used to create the hash
+//   const chars = "abcdefghijklmnopqrstuvw0123456789"
+//   // Set to store created hashes
+//   let usedHashes = new Set()
+//   /**
+//    * Hash generator function
+//    * @param {number} qtyOfChars the amount of random characters in the hash
+//    */
+//   function get(qtyOfChars = 5) {
+//     // base string for all hashes
+//     let hash = ""
+//     while (true) {
+//       // loop a number of times equal to qtyOfChars
+//       for (let i = 0; i < qtyOfChars; i++) {
+//         // get a random char from chars Set
+//         let nextChar = chars[Math.floor(Math.random() * chars.length)]
+//         // 50-50 chance to make it uppercase
+//         if (Math.random() < 0.5) nextChar = nextChar.toUpperCase()
+//         // append it to the hash string beinf formed
+//         hash += nextChar
+//       }
+//       // if the closure's Set of hashes does not include this one
+//       // we just created, push it and return it
+//       if (!usedHashes.has(hash)) {
+//         usedHashes.add(hash)
+//         return hash
+//       }
+//       // otherwise, restore to initial value and start again
+//       hash = ""
+//     }
+//   }
+//   /**
+//    * Removes the specified hash from the hash Set
+//    * @param {string} hash the hash string to remove
+//    */
+//   function remove(hash) {
+//     usedHashes.delete(hash)
+//     return hash
+//   }
+//   // the IIFE will create the array as closure, and return the hash
+//   // getter and remover functions
+//   return { get, remove }
+// })()
+
+// /**
+//  * Takes a variable and returns a series of functions related to its type check
+//  * @param {any} variable
+//  */
+//  export function typeOf(variable) {
+//   return {
+//     is: function (type) {
+//       return typeof variable === type
+//     },
+//     isNot: function (type) {
+//       return typeof variable !== type
+//     },
+//     isSome: function (...types) {
+//       return types.some((type) => typeof variable === type)
+//     },
+//     isNotSome: function (...types) {
+//       return types.some((type) => typeof variable !== type)
+//     },
+//     isEvery: function (...types) {
+//       return types.every((type) => typeof variable === type)
+//     },
+//     isNotEvery: function (...types) {
+//       return types.every((type) => typeof variable !== type)
+//     }
+//   }
+// }

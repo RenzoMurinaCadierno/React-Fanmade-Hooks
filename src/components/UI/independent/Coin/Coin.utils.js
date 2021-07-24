@@ -1,18 +1,15 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./Coin.module.css"
 
 export const classes = {
   container: (isTossing, isFrozen, isColorInverted, className) =>
-    (className ?? "") +
-    " " +
-    (isTossing ? styles.Toss : "") +
-    " " +
-    (isFrozen ? styles.Frozen : "") +
-    " " +
-    (isColorInverted ? styles.InvertColor : "") +
-    " " +
-    styles.Container,
-  result: (className) => (className ? className + " " : "") + styles.Result
+    styles.Container +
+    cn.get(className) +
+    cn.if(isTossing, styles.Toss) +
+    cn.if(isFrozen, styles.Frozen) +
+    cn.if(isColorInverted, styles.InvertColor),
+  result: (className) => styles.Result + cn.get(className)
 }
 
 export const defaultProps = {

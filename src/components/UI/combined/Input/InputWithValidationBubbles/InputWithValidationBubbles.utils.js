@@ -1,30 +1,24 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./InputWithValidationBubbles.module.css"
 
 export const classes = {
-  container: (className) =>
-    (className ? className + " " : "") + styles.Container,
-  input: (className) =>
-    (className ? className + " " : "") + styles.InputContainer,
-  inputStyled: (classNames) => ({
+  container: (className) => styles.Container + cn.get(className),
+  input: (className) => styles.InputContainer + cn.get(className),
+  inputStyled: (classNames = {}) => ({
     ...classNames,
-    container: (classNames?.container ?? "") + " " + styles.InputContainer
+    container: styles.InputContainer + cn.get(classNames?.container)
   }),
   validationContainer: (anchor, className) =>
-    (className ?? "") +
-    " " +
-    (anchor ? styles[anchor.toLowerCase()] : "") +
-    " " +
-    styles.ValidationContainer,
-  validationMessage: (className) => className ?? "",
+    styles.ValidationContainer +
+    cn.get(className) +
+    cn.if(anchor, styles[anchor?.toLowerCase()]),
+  validationMessage: (className) => className,
   validationArrow: (anchor, type, className) =>
-    (className ?? "") +
-    " " +
-    (type ? styles[type.toLowerCase()] : "") +
-    " " +
-    (anchor ? styles[anchor.toLowerCase()] : "") +
-    " " +
-    styles.Pointer
+    styles.Pointer +
+    cn.get(className) +
+    cn.if(type, styles[type?.toLowerCase()]) +
+    cn.if(anchor, styles[anchor?.toLowerCase()])
 }
 
 export const defaultProps = {

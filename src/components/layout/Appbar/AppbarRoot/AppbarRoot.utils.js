@@ -1,17 +1,14 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./AppbarRoot.module.css"
 
 export const classes = {
   container: (isOpen, className) =>
-    (className ?? "") +
-    " " +
-    (isOpen ? styles.Open : "") +
-    " " +
-    styles.Container,
+    styles.Container + cn.get(className) + cn.if(isOpen, styles.Open),
   toggler: (classNames) => classNames,
   modal: (classNames) => classNames,
   searchbar: (className) => className,
-  content: (className) => (className ? className + " " : "") + styles.Content,
+  content: (className) => styles.Content + cn.get(className),
   homeIcon: (classNames) => classNames
 }
 

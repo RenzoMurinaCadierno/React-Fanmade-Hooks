@@ -26,6 +26,7 @@ export default function HomePage() {
         menuIconProps={menuIconProps}
         iconsProps={iconsProps}
       />
+      {/* animated text that appears on top/right/bottom/left */}
       <FlavorText
         delayBeforeFirstRender={4000}
         delayBetweenIterations={2000}
@@ -34,7 +35,7 @@ export default function HomePage() {
     </main>
   )
 }
-add click on screen to disable flavortext?
+
 function TitleAndDescription() {
   return (
     <>

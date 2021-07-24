@@ -1,19 +1,16 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./IconExpandable.module.css"
 
 export const classes = {
-  container: (className) =>
-    (className ? className + " " : "") + styles.Container,
-  icon: (className) => (className ? className + " " : "") + styles.Icon,
+  container: (className) => styles.Container + cn.get(className),
+  icon: (className) => styles.Icon + cn.get(className),
   content: (isExpanded, expandDirection, className) =>
-    (className ?? "") +
-    " " +
-    (isExpanded ? styles.ContentExpanded : "") +
-    " " +
-    (expandDirection ? styles[expandDirection] : "") +
-    " " +
-    styles.Content,
-  barrier: (className) => (className ? className + " " : "") + styles.Barrier
+    styles.Content +
+    cn.get(className) +
+    cn.if(isExpanded, styles.ContentExpanded) +
+    cn.if(expandDirection, styles[expandDirection]),
+  barrier: (className) => styles.Barrier + cn.get(className)
 }
 
 export const defaultProps = {

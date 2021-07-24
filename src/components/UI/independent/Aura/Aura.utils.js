@@ -1,27 +1,25 @@
 import { isValidElement } from "react"
 import PropTypes from "prop-types"
 import styles from "./Aura.module.css"
+import { cn } from "utils/utilityFunctions"
 
 export const classes = {
-  container: (className) =>
-    (className ? className + " " : "") + styles.Container,
+  container: (className) => styles.Container + cn.get(className),
   aura: (isActive, type, blink, size, interval, inheritBoxShape, className) =>
-    (className ?? "") +
-    (isActive
-      ? styles.BaseAnimation +
+    styles.Aura +
+    cn.get(className) +
+    cn.if(
+      isActive,
+      styles.BaseAnimation +
         " " +
         styles[getPascalCasedJoinedWords(blink, "Blink")] +
         " " +
         styles[getPascalCasedJoinedWords(size, "Size")] +
         " " +
         styles[getPascalCasedJoinedWords(interval, "Interval")]
-      : "") +
-    " " +
-    (type ? styles[type.toLowerCase()] : "") +
-    " " +
-    (inheritBoxShape ? styles.InheritBoxShape : "") +
-    " " +
-    styles.Aura
+    ) +
+    cn.if(type, styles[type?.toLowerCase()]) +
+    cn.if(inheritBoxShape, styles.InheritBoxShape)
 }
 
 export const defaultProps = {
@@ -42,7 +40,7 @@ export const defaultProps = {
  * @returns {string} The joint string of all resulting pascal-cased words.
  */
 function getPascalCasedJoinedWords(...words) {
-  return words.reduce(
+  return words?.reduce(
     (acc, word) => (acc += word[0].toUpperCase() + word.slice(1).toLowerCase()),
     ""
   )

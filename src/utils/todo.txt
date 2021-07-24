@@ -10,11 +10,10 @@ publishing: https://www.youtube.com/watch?v=Ufwbp838yZA
 
 preload links https://blog.maximeheckel.com/posts/preloading-views-with-react/
 
-test capitalize function on Deploy (carouselArrows)
 test lighthouse
  add author to cmpDesc and popups to start screen and done
 
  ReactComponent as Logo in Carousel https://create-react-app.dev/docs/adding-images-fonts-and-files/
 
 // commit msg
-Almost finished with '*TextWithRandomizedLayout*'. Started with '*FlavorText*'.
+Started cleaning up className logic handling code. 

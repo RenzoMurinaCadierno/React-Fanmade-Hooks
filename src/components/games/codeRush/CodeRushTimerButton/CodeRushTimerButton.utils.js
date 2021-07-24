@@ -8,7 +8,7 @@ export const classes = {
     progress: classNames.progress
   })
 }
-
+continue from here
 export const defaultProps = { classNames: {} }
 
 export const propTypes = {

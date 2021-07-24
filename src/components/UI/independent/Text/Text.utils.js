@@ -1,4 +1,5 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./Text.module.css"
 
 export const classes = {
@@ -15,33 +16,18 @@ export const classes = {
     onClick,
     className
   ) =>
-    (
-      (className ?? "") +
-      " " +
-      styles.Container +
-      " " +
-      (component ? styles[component] : "") +
-      " " +
-      (type ? styles[type.toLowerCase()] : "") +
-      " " +
-      (small ? styles.Small : "") +
-      " " +
-      (italic ? styles.Italic : "") +
-      " " +
-      (textShadow ? styles["text-shadow-" + type.toLowerCase()] : "") +
-      " " +
-      (bold ? styles.Bold : "") +
-      " " +
-      (absoluteFill ? styles.AbsoluteFill : "") +
-      " " +
-      (flex ? styles.Flex : "") +
-      " " +
-      (noMargin ? styles.NoMargin : "") +
-      " " +
-      (onClick ? styles.Clickable : "")
-    )
-      .replace(/\s+/g, " ")
-      .trim()
+    styles.Container +
+    cn.get(className) +
+    cn.if(component, styles[component]) +
+    cn.if(type, styles[type?.toLowerCase()]) +
+    cn.if(small, styles.Small) +
+    cn.if(italic, styles.Italic) +
+    cn.if(textShadow, styles["text-shadow-" + type?.toLowerCase()]) +
+    cn.if(bold, styles.Bold) +
+    cn.if(absoluteFill, styles.AbsoluteFill) +
+    cn.if(flex, styles.Flex) +
+    cn.if(noMargin, styles.NoMargin) +
+    cn.if(onClick, styles.Clickable)
 }
 
 export const defaultProps = { htmlElem: "p", type: "primary" }

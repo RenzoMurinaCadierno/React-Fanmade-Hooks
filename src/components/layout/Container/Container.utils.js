@@ -1,4 +1,5 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./Container.module.css"
 
 export const classes = {
@@ -11,25 +12,14 @@ export const classes = {
     circle,
     className
   ) =>
-    (
-      (className ?? "") +
-      " " +
-      styles.Container +
-      " " +
-      (type ? styles[type.toLowerCase()] : "") +
-      " " +
-      (flexDirection ? styles[flexDirection.toLowerCase()] : "") +
-      " " +
-      (alignItems ? styles["align-" + alignItems.toLowerCase()] : "") +
-      " " +
-      (justifyContent
-        ? styles["justify-" + justifyContent.toLowerCase()]
-        : "") +
-      " " +
-      (roundBorders ? styles.RoundBorders : "") +
-      " " +
-      (circle ? styles.Circle : "")
-    ).trim()
+    styles.Container +
+    cn.get(className) +
+    cn.if(type, styles[type?.toLowerCase()]) +
+    cn.if(flexDirection, styles[flexDirection?.toLowerCase()]) +
+    cn.if(alignItems, styles["align-" + alignItems?.toLowerCase()]) +
+    cn.if(justifyContent, styles["justify-" + justifyContent?.toLowerCase()]) +
+    cn.if(roundBorders, styles.RoundBorders) +
+    cn.if(circle, styles.Circle)
 }
 
 export const defaultProps = { htmlElem: "div" }

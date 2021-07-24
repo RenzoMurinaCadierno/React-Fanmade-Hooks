@@ -1,25 +1,22 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./CarouselArrow.module.css"
 
 export const classes = {
   container: (direction, className) =>
-    (className ?? "") +
-    " " +
-    (direction ? styles[capitalize(direction)] : "") +
-    " " +
-    styles.Container,
+    styles.Container +
+    cn.get(className) +
+    cn.if(direction, styles[capitalize(direction)]),
   arrow: (direction, className) =>
-    (className ?? "") +
-    " " +
-    (direction ? styles[capitalize(direction)] : "") +
-    " " +
-    styles.Arrow,
+    styles.Arrow +
+    cn.get(className) +
+    cn.if(direction, styles[capitalize(direction)]),
   "animate-arrow-left": styles.AnimateArrowLeft,
   "animate-arrow-right": styles.AnimateArrowRight
 }
 
 function capitalize(word) {
-  return word[0].toUpperCase() + word.slice(1).toLowerCase()
+  return word?.[0].toUpperCase() + word?.slice(1).toLowerCase()
 }
 
 export const defaultProps = { classNames: {}, arrowImgProps: {} }

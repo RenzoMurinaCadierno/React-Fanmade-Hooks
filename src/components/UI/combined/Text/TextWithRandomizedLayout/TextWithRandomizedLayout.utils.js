@@ -24,6 +24,7 @@ export const defaultProps = {
     "7 months of joyful crying",
     "//, best bug fixer",
     "console.log count: 2518",
+    "Meetings can be mails",
     "undefined"
   ],
   delayBetweenIterations: 2000

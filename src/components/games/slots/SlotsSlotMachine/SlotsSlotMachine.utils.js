@@ -1,10 +1,10 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./SlotsSlotMachine.module.css"
 
 export const classes = {
-  container: (className) =>
-    (className ? className + " " : "") + styles.Container,
-  spinningSlot: (className) => className ?? ""
+  container: (className) => styles.Container + cn.get(className),
+  spinningSlot: (className) => className
 }
 
 export const defaultProps = { classNames: {} }

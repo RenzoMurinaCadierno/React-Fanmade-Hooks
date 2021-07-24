@@ -1,13 +1,13 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./InputWithValidation.module.css"
 
 export const classes = {
-  container: (className) =>
-    (className ? className + " " : "") + styles.Container,
-  input: (className) => (className ? className + " " : "") + styles.Input,
-  inputStyled: (classNames) => ({
+  container: (className) => styles.Container + cn.get(className),
+  input: (className) => styles.Input + cn.get(className),
+  inputStyled: (classNames = {}) => ({
     ...classNames,
-    container: (classNames?.container ?? "") + " " + styles.Input
+    container: styles.Input + cn.get(classNames?.container)
   })
 }
 

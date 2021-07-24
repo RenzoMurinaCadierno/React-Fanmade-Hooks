@@ -1,4 +1,5 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./Badge.module.css"
 
 export const classes = {
@@ -14,33 +15,24 @@ export const classes = {
     onChangeCN,
     className
   ) =>
-    (className ?? "") +
-    " " +
-    (size ? styles[size.toLowerCase()] : "") +
-    " " +
-    (anchor
-      ? anchor
-          .split("-")
-          .map((a) => styles[a.toLowerCase()])
-          .join(" ")
-      : "") +
-    " " +
-    (type ? styles[type.toLowerCase()] : "") +
-    " " +
-    (fontVariant ? styles[fontVariant.toLowerCase()] : "") +
-    " " +
-    (typeBackground && type ? styles.TypeBackground : "") +
-    " " +
-    (noBorder && type ? styles.NoBorder : "") +
-    " " +
-    mountCN +
-    " " +
-    unmountCN +
-    " " +
-    onChangeCN +
-    " " +
-    styles.Container,
-  content: (className) => (className ? className + " " : "") + styles.Content,
+    styles.Container +
+    cn.get(className) +
+    cn.if(size, styles[size?.toLowerCase()]) +
+    cn.if(
+      anchor,
+      anchor
+        .split("-")
+        .map((a) => styles[a?.toLowerCase()])
+        .join(" ")
+    ) +
+    cn.if(type, styles[type?.toLowerCase()]) +
+    cn.if(fontVariant, styles[fontVariant?.toLowerCase()]) +
+    cn.if(typeBackground && type, styles.TypeBackground) +
+    cn.if(noBorder && type, styles.NoBorder) +
+    cn.get(mountCN) +
+    cn.get(unmountCN) +
+    cn.get(onChangeCN),
+  content: (className) => styles.Content + cn.get(className),
   animateMount: styles.AnimateMount,
   animateUnmount: styles.AnimateUnmount,
   animateOnChange: styles.AnimateOnChange

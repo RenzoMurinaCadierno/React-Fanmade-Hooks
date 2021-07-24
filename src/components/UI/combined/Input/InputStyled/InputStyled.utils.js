@@ -1,11 +1,11 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./InputStyled.module.css"
 
 export const classes = {
-  container: (className) =>
-    (className ? className + " " : "") + styles.Container,
-  input: (className) => (className ? className + " " : "") + styles.Input,
-  label: (className) => (className ? className + " " : "") + styles.Label
+  container: (className) => styles.Container + cn.get(className),
+  input: (className) => styles.Input + cn.get(className),
+  label: (className) => styles.Label + cn.get(className)
 }
 
 export const styledInputPropTypes = {

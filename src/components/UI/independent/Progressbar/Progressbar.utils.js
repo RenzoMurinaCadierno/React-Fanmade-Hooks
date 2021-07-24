@@ -1,19 +1,14 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./Progressbar.module.css"
 
 export const classes = {
   container: (onClick, className) =>
-    (className ?? "") +
-    " " +
-    styles.Container +
-    " " +
-    (onClick ? styles.Clickable : ""),
+    styles.Container + cn.get(className) + cn.if(onClick, styles.Clickable),
   progress: (growFrom, className) =>
-    (className ?? "") +
-    " " +
     styles.Progress +
-    " " +
-    (growFrom ? styles["grow-" + growFrom] : "")
+    cn.get(className) +
+    cn.if(growFrom, styles["grow-" + growFrom])
 }
 
 export const defaultProps = {

@@ -1,12 +1,11 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./SlotsResultSection.module.css"
 
 export const classes = {
-  container: (className) =>
-    (className ? className + " " : "") + styles.Container,
-  title: (className) => (className ? className + " " : "") + styles.Title,
-  titleBackground: (className) =>
-    (className ? className + " " : "") + styles.TitleBackground,
+  container: (className) => styles.Container + cn.get(className),
+  title: (className) => styles.Title + cn.get(className),
+  titleBackground: (className) => styles.TitleBackground + cn.get(className),
   item: (classNames) => classNames
 }
 

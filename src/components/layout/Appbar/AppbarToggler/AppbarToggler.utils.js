@@ -1,16 +1,14 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./AppbarToggler.module.css"
 
 export const classes = {
-  container: (classNames) => (classNames ?? "") + " " + styles.Container,
+  container: (className) => styles.Container + cn.get(className),
   toggler: (isActive, animate, className) =>
-    (className ?? "") +
-    " " +
-    (isActive ? styles.Active : "") +
-    " " +
-    (animate ? styles.Animate : "") +
-    " " +
-    styles.Toggler
+    styles.Toggler +
+    cn.get(className) +
+    cn.if(isActive, styles.Active) +
+    cn.if(animate, styles.Animate)
 }
 
 export const defaultProps = { classNames: {}, togglerDisplayProps: {} }

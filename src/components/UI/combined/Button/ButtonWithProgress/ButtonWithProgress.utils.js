@@ -1,12 +1,13 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./ButtonWithProgress.module.css"
 
 export const classes = {
   buttonWithSpinner: (classNames = {}) => ({
-    button: (classNames.button ?? "") + " " + styles.Button,
-    spinner: classNames.spinner
+    ...classNames,
+    button: styles.Button + cn.get(classNames?.button)
   }),
-  progress: (className) => className ?? ""
+  progress: (className) => className
 }
 
 export const defaultProps = { classNames: {}, progressProps: {} }

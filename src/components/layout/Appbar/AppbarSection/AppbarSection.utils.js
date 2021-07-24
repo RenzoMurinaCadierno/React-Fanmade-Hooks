@@ -1,20 +1,13 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./AppbarSection.module.css"
 
 export const classes = {
   container: (className, show) =>
-    (className ?? "") +
-    " " +
-    (show ? styles.ShowContainer : "") +
-    " " +
-    styles.Container,
-  title: (className) => (className ? className + " " : "") + styles.Title,
+    styles.Container + cn.get(className) + cn.if(show, styles.ShowContainer),
+  title: (className) => styles.Title + cn.get(className),
   content: (className, show) =>
-    (className ?? "") +
-    " " +
-    (show ? styles.ShowContent : "") +
-    " " +
-    styles.Content
+    styles.Content + cn.get(className) + cn.if(show, styles.ShowContent)
 }
 
 export const defaultProps = { title: "Title", classNames: {} }

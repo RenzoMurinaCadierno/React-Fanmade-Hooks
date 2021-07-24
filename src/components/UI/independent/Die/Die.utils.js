@@ -1,16 +1,14 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./Die.module.css"
 
 export const classes = {
   container: (isRolling, isFrozen, className) =>
-    (className ?? "") +
-    " " +
     styles.Container +
-    " " +
-    (isRolling ? styles.Roll : "") +
-    " " +
-    (isFrozen ? styles.Frozen : ""),
-  digit: (className) => (className ? className + " " : "") + styles.Digit
+    cn.get(className) +
+    cn.if(isRolling, styles.Roll) +
+    cn.if(isFrozen, styles.Frozen),
+  digit: (className) => styles.Digit + cn.get(className)
 }
 
 export const defaultProps = {

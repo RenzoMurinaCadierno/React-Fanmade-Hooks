@@ -67,7 +67,9 @@ export function getIconsProps(url, plainCode) {
         toastProps: {
           timeout: 4000,
           children: "Tap here to open hook's code in a new tab",
-          onClick: () => isNonEmptyString(url) && window.open(url, "_blank")
+          contentProps: {
+            onClick: () => isNonEmptyString(url) && window.open(url, "_blank")
+          }
         }
       },
       {

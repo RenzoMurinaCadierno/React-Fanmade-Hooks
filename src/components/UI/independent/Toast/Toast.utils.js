@@ -1,21 +1,22 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./Toast.module.css"
 
 export const classes = {
   container: (animation, position, className) =>
-    (className ?? "") +
-    " " +
-    (animation === "open"
-      ? styles[(position.toLowerCase() || "bottom") + "-open"]
-      : animation === "close"
-      ? styles[(position.toLowerCase() || "bottom") + "-close"]
-      : "") +
-    " " +
-    (position ? styles[position.toLowerCase()] : styles.bottom) +
-    " " +
-    styles.Container,
-  content: (className) => (className ? className + " " : "") + styles.Content,
-  toggler: (className) => (className ? className + " " : "") + styles.Toggler
+    styles.Container +
+    cn.get(className) +
+    cn.or(
+      animation === "open",
+      styles[(position?.toLowerCase() || "bottom") + "-open"],
+      cn.if(
+        animation === "close",
+        styles[(position?.toLowerCase() || "bottom") + "-close"]
+      )
+    ) +
+    cn.or(position, styles[position?.toLowerCase()], styles.bottom),
+  content: (className) => styles.Content + cn.get(className),
+  toggler: (className) => styles.Toggler + cn.get(className)
 }
 
 export const defaultProps = {

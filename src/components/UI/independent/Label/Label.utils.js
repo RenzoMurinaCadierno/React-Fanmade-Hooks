@@ -1,17 +1,16 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./Label.module.css"
 
 export const classes = {
   container: (isActive, targetInputType, className) =>
-    (className ?? "") +
-    " " +
     styles.Container +
-    " " +
-    (targetInputType ? styles[targetInputType.toLowerCase()] : "") +
-    " " +
-    (targetInputType && isActive
-      ? styles[targetInputType.toLowerCase() + "Active"]
-      : "")
+    cn.get(className) +
+    cn.if(targetInputType, styles[targetInputType?.toLowerCase()]) +
+    cn.if(
+      targetInputType && isActive,
+      styles[targetInputType?.toLowerCase() + "Active"]
+    )
 }
 
 export const defaultProps = { targetInputType: "text" }

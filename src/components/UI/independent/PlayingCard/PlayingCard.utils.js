@@ -1,21 +1,15 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./PlayingCard.module.css"
 
 export const classes = {
   container: (onClick, className) =>
-    (className ?? "") +
-    " " +
-    (onClick ? styles.Clickable : "") +
-    " " +
-    styles.Container,
+    styles.Container + cn.get(className) + cn.if(onClick, styles.Clickable),
   suit: (suit, reverse, className) =>
-    (className ?? "") +
-    " " +
-    (suit ? styles[suit] : "") +
-    " " +
-    (reverse ? styles.Reverse : "") +
-    " " +
-    styles.Suit
+    styles.Suit +
+    cn.get(className) +
+    cn.if(suit, styles[suit]) +
+    cn.if(reverse, styles.Reverse)
 }
 
 export const defaultProps = { classNames: {} }

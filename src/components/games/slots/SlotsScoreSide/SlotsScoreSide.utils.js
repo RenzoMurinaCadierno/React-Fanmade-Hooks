@@ -1,11 +1,11 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./SlotsScoreSide.module.css"
 
 export const classes = {
-  container: (className) =>
-    (className ? className + " " : "") + styles.Container,
+  container: (className) => styles.Container + cn.get(className),
   item: (classNames) => classNames,
-  image: (className) => (className ? className + " " : "") + styles.Image
+  image: (className) => styles.Image + cn.get(className)
 }
 
 export const defaultProps = { scoreData: {}, classNames: {} }

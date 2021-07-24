@@ -1,21 +1,18 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./ButtonWithSpinner.module.css"
 
 export const classes = {
   button: (spinnerAnchor, className) =>
-    (className ?? "") +
-    " " +
-    (spinnerAnchor ? styles[spinnerAnchor.toLowerCase()] : "") +
-    " " +
-    styles.Button,
+    styles.Button +
+    cn.get(className) +
+    cn.if(spinnerAnchor, styles[spinnerAnchor?.toLowerCase()]),
   spinner: (children, spinnerAnchor, classNames = {}) => ({
     ...classNames,
     container:
-      (classNames.container ?? "") +
-      " " +
-      (spinnerAnchor && children ? styles[spinnerAnchor.toLowerCase()] : "") +
-      " " +
-      styles.Spinner
+      styles.Spinner +
+      cn.get(classNames?.container) +
+      cn.if(spinnerAnchor && children, styles[spinnerAnchor?.toLowerCase()])
   })
 }
 

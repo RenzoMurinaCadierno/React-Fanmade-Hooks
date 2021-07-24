@@ -1,15 +1,13 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./AppbarLink.module.css"
 
 export const classes = {
   container: (isActive, longString, className) =>
-    (className ?? "") +
-    " " +
-    (isActive ? styles.Active : "") +
-    " " +
-    (longString ? styles.LongString : "") +
-    " " +
-    styles.Container
+    styles.Container +
+    cn.get(className) +
+    cn.if(isActive, styles.Active) +
+    cn.if(longString, styles.LongString)
 }
 
 export const propTypes = {

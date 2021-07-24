@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 export const classes = {
   aura: (classNames) => classNames,
-  icon: (className) => className ?? "",
+  icon: (className) => className,
   iconExpandable: (classNames) => classNames
 }
 

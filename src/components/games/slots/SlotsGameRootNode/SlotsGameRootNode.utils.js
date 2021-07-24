@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import styles from "./SlotsGameRootNode.module.css"
-import { copyAndShuffleArray } from "utils/utilityFunctions"
+import { cn, copyAndShuffleArray } from "utils/utilityFunctions"
 import apple from "../assets/apple.svg"
 import cherry from "../assets/cherry.svg"
 import heart from "../assets/heart.svg"
@@ -35,12 +35,9 @@ const slotsAndStatsItems = {
 /******************************* /CONFIGS ******************************/
 
 export const classes = {
-  container: (className) =>
-    (className ? className + " " : "") + styles.Container,
-  resetButton: (className) =>
-    (className ? className + " " : "") + styles.ResetButton,
-  imgToggleButton: (className) =>
-    (className ? className + " " : "") + styles.ImgToggleButton,
+  container: (className) => styles.Container + cn.get(className),
+  resetButton: (className) => styles.ResetButton + cn.get(className),
+  imgToggleButton: (className) => styles.ImgToggleButton + cn.get(className),
   scores: (classNames) => getScoresAndStatsCNs(styles.Scores, classNames),
   stats: (classNames) => getScoresAndStatsCNs(styles.Stats, classNames)
 }
@@ -48,9 +45,8 @@ export const classes = {
 // avoids code duplication
 function getScoresAndStatsCNs(defaultClassName, classNames = {}) {
   return {
-    container: (classNames.container ?? "") + " " + defaultClassName,
-    item: classNames.item ?? {},
-    image: classNames.image ?? ""
+    ...classNames,
+    container: defaultClassName + cn.get(classNames?.container)
   }
 }
 

@@ -1,18 +1,15 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./SlotsBadgeWithScoreAnimation.module.css"
 
 export const classes = {
   animated: (isStarBadge, classNames) => ({
+    ...classNames,
     container:
-      (classNames?.container ?? "") +
-      " " +
-      styles[isStarBadge ? "AnimatedStarContainer" : "AnimatedContainer"],
-    content: classNames?.content ?? ""
+      styles[isStarBadge ? "AnimatedStarContainer" : "AnimatedContainer"] +
+      cn.get(classNames?.container)
   }),
-  main: (classNames) => ({
-    container: classNames?.container ?? "",
-    content: classNames?.content ?? ""
-  })
+  main: (classNames) => classNames
 }
 
 export const defaultProps = { classNames: {} }

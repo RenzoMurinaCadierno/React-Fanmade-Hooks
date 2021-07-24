@@ -1,15 +1,13 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./ConfettiGuideX.module.css"
 
 export const classes = {
   container: (anchor, distance, className) =>
-    (className ?? "") +
-    " " +
-    (anchor ? styles["anchor-" + anchor.toLowerCase()] : "") +
-    " " +
-    (distance ? styles["distance-" + distance] : "") +
-    " " +
-    styles.Container
+    styles.Container +
+    cn.get(className) +
+    cn.if(anchor, styles["anchor-" + anchor?.toLowerCase()]) +
+    cn.if(distance, styles["distance-" + distance])
 }
 
 export const defaultProps = { anchor: "right", distance: 5 }

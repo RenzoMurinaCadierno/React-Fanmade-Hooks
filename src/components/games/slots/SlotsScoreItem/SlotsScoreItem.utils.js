@@ -1,19 +1,10 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./SlotsScoreItem.module.css"
 
 export const classes = {
-  container: (className) =>
-    (className ? className + " " : "") + styles.Container,
-  badge: (mainClassNames, animatedClassNames) => ({
-    main: {
-      container: mainClassNames?.container ?? "",
-      content: mainClassNames?.content ?? ""
-    },
-    animated: {
-      container: animatedClassNames?.container ?? "",
-      content: animatedClassNames?.content ?? ""
-    }
-  })
+  container: (className) => styles.Container + cn.get(className),
+  badge: (classNames) => classNames
 }
 
 export const defaultProps = {
@@ -42,7 +33,10 @@ export const propTypes = {
   propThatTriggersScoreEffect: validatePropThatTriggersScoreEffect,
   classNames: PropTypes.exact({
     container: PropTypes.string,
-    content: PropTypes.string
+    badge: PropTypes.exact({
+      main: PropTypes.object,
+      animated: PropTypes.object
+    })
   }),
   otherBadgeProps: PropTypes.object
 }

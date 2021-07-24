@@ -1,14 +1,13 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./SlotsResultScreen.module.css"
 
 export const classes = {
-  container: (className) =>
-    (className ? className + " " : "") + styles.Container,
-  resultsContainer: (className) =>
-    (className ? className + " " : "") + styles.ResultsContainer,
+  container: (className) => styles.Container + cn.get(className),
+  resultsContainer: (className) => styles.ResultsContainer + cn.get(className),
   scoresSection: (classNames = {}) => classNames,
   statsSection: (classNames = {}) => classNames,
-  button: (className) => (className ? className + " " : "") + styles.Button
+  button: (className) => styles.Button + cn.get(className)
 }
 
 export const defaultProps = { classNames: {} }

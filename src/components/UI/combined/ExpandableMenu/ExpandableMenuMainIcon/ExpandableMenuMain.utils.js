@@ -1,15 +1,14 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./ExpandableMenuMainIcon.module.css"
 
 export const classes = {
   icon: (open, rotateOnOpen, classNames = {}) => ({
-    aura: classNames?.aura ?? {},
+    aura: cn.get(classNames?.aura, {}),
     icon:
-      (classNames?.icon ?? "") +
-      " " +
-      (open ? (rotateOnOpen ? styles.RotateOpen : styles.Open) : "") +
-      " " +
-      styles.Icon
+      styles.Icon +
+      cn.get(classNames?.icon) +
+      cn.if(open, cn.or(rotateOnOpen, styles.RotateOpen, styles.Open))
   })
 }
 

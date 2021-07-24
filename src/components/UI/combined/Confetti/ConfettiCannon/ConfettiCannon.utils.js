@@ -1,12 +1,11 @@
 import PropTypes from "prop-types"
 import { Confetti } from "hub"
+import { cn } from "utils/utilityFunctions"
 import styles from "./ConfettiCannon.module.css"
 
 export const classes = {
-  container: (className) =>
-    (className ? className + " " : "") + styles.Container,
-  relativeWrapper: (className) =>
-    (className ? className + " " : "") + styles.RelativeWrapper,
+  container: (className) => styles.Container + cn.get(className),
+  relativeWrapper: (className) => styles.RelativeWrapper + cn.get(className),
   glitter: (classNames) => classNames
 }
 

@@ -1,15 +1,14 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./SlotsEffectBadgeContent.module.css"
 
 export const classes = {
   container: (type, className) =>
-    (className ?? "") +
-    " " +
-    (type ? styles[type.toLowerCase()] : "") +
-    " " +
-    styles.Container,
-  content: (className) => (className ? className + " " : "") + styles.Content,
-  image: (className) => (className ? className + " " : "") + styles.Image
+    styles.Container +
+    cn.get(className) +
+    cn.if(type, styles[type?.toLowerCase()]),
+  content: (className) => styles.Content + cn.get(className),
+  image: (className) => styles.Image + cn.get(className)
 }
 
 export const defaultProps = { classNames: {} }

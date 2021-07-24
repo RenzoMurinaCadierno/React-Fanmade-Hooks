@@ -1,17 +1,14 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./Button.module.css"
 
 export const classes = {
   container: (growState, type, coloredBg, className) =>
-    (className ?? "") +
-    " " +
     styles.Container +
-    " " +
-    (growState ? styles.Grow : "") +
-    " " +
-    (type ? styles[type] : "") +
-    " " +
-    (type && coloredBg ? styles[type + "-colored"] : "")
+    cn.get(className) +
+    cn.if(growState, styles.Grow) +
+    cn.if(type, styles[type]) +
+    cn.if(type && coloredBg, styles[type + "-colored"])
 }
 
 export const propTypes = {

@@ -71,6 +71,7 @@ export default function ExpandableMenuListIcon({
 }) {
   // flag to determine which '*Icon.Expandable*' to render (with or w/o toast)
   const _isIconWithToast = isIconWithToast(toastProps)
+
   // props shared by both '*Icon.Expandable*' and '*Icon.Expandable.WithToast*'
   const sharedIconProps = {
     expandDirection: iconExpandDirection,
@@ -79,6 +80,7 @@ export default function ExpandableMenuListIcon({
       classes[_isIconWithToast ? "iconWithToast" : "icon"](classNames),
     ...iconProps
   }
+
   // if `toastProps` is defined and valid, render '*Icon.Expandable.WithToast*'.
   // Otherwise, '*Icon.Expandable*'
   return _isIconWithToast ? (

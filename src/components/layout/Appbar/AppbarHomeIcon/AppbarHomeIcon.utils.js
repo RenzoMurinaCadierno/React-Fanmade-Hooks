@@ -1,13 +1,14 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import defaultHomeIconSVG from "assets/icons/home.svg"
 import styles from "./AppbarHomeIcon.module.css"
 
 export const classes = {
   iconExpandable: (classNames = {}) => ({
     ...classNames,
-    container: (classNames?.container ?? "") + " " + styles.Container
+    container: styles.Container + cn.get(classNames?.container)
   }),
-  img: (className) => className ?? ""
+  img: (className) => className
 }
 
 export const defaultProps = {

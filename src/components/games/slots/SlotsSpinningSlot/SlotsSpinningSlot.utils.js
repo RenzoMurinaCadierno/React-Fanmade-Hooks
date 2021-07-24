@@ -1,19 +1,19 @@
 import PropTypes from "prop-types"
+import { cn } from "utils/utilityFunctions"
 import styles from "./SlotsSpinningSlot.module.css"
 
 export const classes = {
   slotCarousel: (classNames = {}) => ({
     ...classNames,
-    container: (classNames.container ?? "") + " " + styles.SlotCarouselContainer
+    container: styles.SlotCarouselContainer + cn.get(classNames?.container)
   }),
   slotSlide: (containerCN, animateMountCN, animateUnmountCN) => ({
-    container: containerCN ?? "",
+    container: cn.get(containerCN),
     animateMount: animateMountCN ?? styles.AnimateMount,
     animateUnmount: animateUnmountCN ?? styles.AnimateUnmount
   }),
-  slotImage: (className) =>
-    (className ? className + " " : "") + styles.SlotImage,
-  slotIcon: (className) => (className ? className + " " : "") + styles.SlotIcon
+  slotImage: (className) => styles.SlotImage + cn.get(className),
+  slotIcon: (className) => styles.SlotIcon + cn.get(className)
 }
 
 export const defaultProps = { classNames: {} }

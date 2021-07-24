@@ -1,14 +1,13 @@
 import React from "react"
-import { Carousel } from "hub"
 import PropTypes from "prop-types"
+import { Carousel } from "hub"
+import { cn } from "utils/utilityFunctions"
 import styles from "./CarouselRoot.module.css"
 
 export const classes = {
-  container: (className) =>
-    (className ? className + " " : "") + styles.Container,
-  screen: (className) => (className ? className + " " : "") + styles.Screen,
-  slidesContainer: (className) =>
-    (className ? className + " " : "") + styles.SlidesContainer,
+  container: (className) => styles.Container + cn.get(className),
+  screen: (className) => styles.Screen + cn.get(className),
+  slidesContainer: (className) => styles.SlidesContainer + cn.get(className),
   arrowComponent: (classNames) => classNames,
   indicatorsComponent: (classNames) => classNames
 }
