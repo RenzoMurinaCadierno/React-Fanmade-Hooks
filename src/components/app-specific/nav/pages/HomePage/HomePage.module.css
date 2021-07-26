@@ -19,7 +19,7 @@
   margin-top: 8vw;
   transition: var(--generic-transition);
   transform: scale(0);
-  /* animation: display-logo 650ms linear forwards; */
+  animation: display-logo 650ms linear forwards;
 }
 
 .Title {
@@ -63,25 +63,25 @@
 /* end all devices portrait */
 
 /* animation keyframes */
-/* @keyframes display-logo {
+@keyframes display-logo {
   0% {
-    transform: scale(0) rotate3d(1deg);
+    transform: scale(0) rotate3d(1, 1, 1, 0deg);
     opacity: 0;
   }
   70% {
-    transform: scale(1.3) rotate3d(1, 1, 1, 359deg);
+    transform: scale(1.3) rotate3d(1, 1, 1, 360deg);
     opacity: 1;
   }
   80% {
-    transform: scale(1) rotate3d(1, 1, 1, 359deg);
+    transform: scale(1) rotate3d(1, 1, 1, 360deg);
   }
   90% {
-    transform: scale(1.15) rotate3d(1, 1, 1, 359deg);
+    transform: scale(1.15) rotate3d(1, 1, 1, 360deg);
   }
   100% {
-    transform: scale(1) rotate3d(1, 1, 1, 359deg);
+    transform: scale(1) rotate3d(1, 1, 1, 360deg);
   }
-} */
+}
 
 @keyframes display-title {
   0% {
