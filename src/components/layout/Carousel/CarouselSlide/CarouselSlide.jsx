@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext } from "react"
 import { useValueToggle, useMountFlag, Carousel } from "hub"
+import cnp from "styles/classNameProcessor"
 import {
   classes,
   defaultProps,
@@ -115,14 +116,10 @@ export default function CarouselSlide({
       <div
         className={
           classes.container(classNames.container) +
-          " " +
-          mountCN +
-          " " +
-          unmountCN +
-          " " +
-          mountRevCN +
-          " " +
-          unmountRevCN
+          cnp.get(mountCN) +
+          cnp.get(unmountCN) +
+          cnp.get(mountRevCN) +
+          cnp.get(unmountRevCN)
         }
         {...otherProps}
       >

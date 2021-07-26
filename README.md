@@ -13,7 +13,7 @@ In [this website](https://react-fanmade-hooks.netlify.app).
 ## Hooks
 
 Here's the list of all hooks this library currently holds.
-WE
+
 Descriptions here are basic, so do not hesitate to check the complete ones at each hook's individual READMEs ;)
 
 <br />
@@ -37,15 +37,6 @@ Descriptions here are basic, so do not hesitate to check the complete ones at ea
   - amount of decimals
 
   It also accepts callbacks to be triggered on different animation stages.
-
-  <br />
-
-- **_useValueToggle_**
-
-  - [Working example](https://react-fanmade-hooks.netlify.app/use-value-toggle)
-  - [Hook folder](https://github.com/RenzoMurinaCadierno/React-Fanmade-Hooks/tree/master/src/hooks/useValueToggle)
-
-  Toggles a value related to _"on"_ state when invoked by the returned handler, which automatically turns back to another value assigned to _"off"_ state after a specified timeout.
 
   <br />
 
@@ -119,21 +110,30 @@ Descriptions here are basic, so do not hesitate to check the complete ones at ea
 
   <br />
 
-- **_useReRender_**
-
-  - [Working example](https://react-fanmade-hooks.netlify.app/use-re-render)
-  - [Hook folder](https://github.com/RenzoMurinaCadierno/React-Fanmade-Hooks/tree/master/src/hooks/useReRender)
-
-  Returns a function that upon calling it, the component will re-render.
-
-  <br />
-
 - **_useToggle_**
 
   - [Working example](https://react-fanmade-hooks.netlify.app/use-toggle)
   - [Hook folder](https://github.com/RenzoMurinaCadierno/React-Fanmade-Hooks/tree/master/src/hooks/useToggle)
 
   Returns a boolean state and its handler to toggle it.
+
+  <br />
+
+  - **_useTimeoutToggle_**
+
+  - [Working example](https://react-fanmade-hooks.netlify.app/use-timeout-toggle)
+  - [Hook folder](https://github.com/RenzoMurinaCadierno/React-Fanmade-Hooks/tree/master/src/hooks/useTimeoutToggle)
+
+  Offers a boolean `false` that, when set to `true` by its handler, it automatically resets back to `false` after a specified timeout.
+
+  <br />
+
+  - **_useValueToggle_**
+
+  - [Working example](https://react-fanmade-hooks.netlify.app/use-value-toggle)
+  - [Hook folder](https://github.com/RenzoMurinaCadierno/React-Fanmade-Hooks/tree/master/src/hooks/useValueToggle)
+
+  Toggles a value related to _"on"_ state when invoked by the returned handler, which automatically turns back to another value assigned to _"off"_ state after a specified timeout.
 
   <br />
 
@@ -180,3 +180,27 @@ Descriptions here are basic, so do not hesitate to check the complete ones at ea
   Triggers a callback each time passed dependencies array change (or on each render if no dependencies), but only up to the specified number in `times` argument.
 
   Once the callback was triggered that many times, _useEffect_ stops working.
+
+  <br />
+
+- **_useLatency_**
+
+  - [Working example](https://react-fanmade-hooks.netlify.app/use-latency)
+  - [Hook folder](https://github.com/RenzoMurinaCadierno/React-Fanmade-Hooks/tree/master/src/hooks/useLatency)
+
+  Simulates latency by a promise which resolves at a specified amount of milliseconds.
+
+  Returns the latency's active state and imperative handlers to `fire` it, as well as to prematurely `release` (resolve) it or `abort` (reject) it.
+
+  Checkpoint intervals can be set, in which case the declarative logic to release or abort the process at a set amount of milliseconds will be invoked on each checkpoint across the whole latency timeout, and a callback on each loop will also trigger, if defined.
+
+  <br />
+
+- **_useReRender_**
+
+  - [Working example](https://react-fanmade-hooks.netlify.app/use-re-render)
+  - [Hook folder](https://github.com/RenzoMurinaCadierno/React-Fanmade-Hooks/tree/master/src/hooks/useReRender)
+
+  Returns a function that upon calling it, the component will re-render.
+
+  <br />

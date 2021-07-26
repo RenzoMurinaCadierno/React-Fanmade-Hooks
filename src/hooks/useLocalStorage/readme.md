@@ -55,7 +55,7 @@ A single configuration object (hereby named **configs**) shaped:
 
 <br />
 
-- `selfRebuildValue`: (any)
+- `selfRebuildValue?` (any)
 
   If local storage was removed entirely and a value is attempted to be set to it, it is automatically rebuilt. By defining this parameter, local storage will be rebuilt with the hereby defined value. If left `undefined` (default), it will use the `configs.value` passed initially, at mount.
 
@@ -64,6 +64,8 @@ A single configuration object (hereby named **configs**) shaped:
 - `reRenderOn?` (string|Array)
 
   A string with value **set**, **get** or **del**, or an array with any combination of those strings as elements. If defined, the component this hook is at will re-render after successful operations of functions with those names.
+
+  > **WARNING:** Do NOT use alongside `configs.updateOnValueChange`. When setting outer state linked to `configs.value`, `configs.reRenderOn` will re-render the component, triggering the modifier handlers again and causing an infinite loop.
 
 <br />
 

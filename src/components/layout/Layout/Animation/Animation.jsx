@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { useValueToggle } from "hub"
+import cnp from "styles/classNameProcessor"
 import {
   classes,
   defaultProps,
@@ -179,9 +180,9 @@ export default function Animation({
         // Thus, if "isUnmountTriggered" is true, we ignore "idleCN".
         className={
           classes.container(className) +
-          (mount ? mountCN : "") +
-          (idle && isUnmountTriggered ? "" : idleCN) +
-          (unmount ? unmountCN : "")
+          cnp.if(mountCN, mountCN) +
+          cnp.if(!idle || !isUnmountTriggered, idleCN) +
+          cnp.if(unmount, unmountCN)
         }
         {...otherProps}
       >

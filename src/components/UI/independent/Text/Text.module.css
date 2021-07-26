@@ -140,6 +140,12 @@
 }
 /* end classNames added by `textShadow` */
 
+/* classNames added by `backgroundContrast` */
+.BackgroundContrast {
+  text-shadow: var(--text-shadow-background-vw);
+}
+/* end classNames added by `backgroundContrast` */
+
 /* classNames added by `italic` */
 .Italic {
   font-style: italic;
@@ -276,5 +282,11 @@
     text-shadow: var(--text-shadow-danger-1-vh);
   }
   /* end classNames added by `textShadow` */
+
+  /* classNames added by `backgroundContrast` */
+  .BackgroundContrast {
+    text-shadow: var(--text-shadow-background-vh);
+  }
+  /* end classNames added by `backgroundContrast` */
 }
 /* end all devices portrait */

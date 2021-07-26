@@ -1,5 +1,6 @@
 import { memo, useEffect, useState } from "react"
 import { useValueToggle, Text } from "hub"
+import cnp from "styles/classNameProcessor"
 import { classes, defaultProps, propTypes } from "./CodeRushCode.utils"
 
 function CodeRushCode({ code, className }) {
@@ -35,7 +36,7 @@ function CodeRushCode({ code, className }) {
       htmlElem="h5"
       italic={isGameInactive}
       disabled={isGameInactive}
-      className={classes.container(className) + " " + codeAnimationCN}
+      className={classes.container(className) + cnp.get(codeAnimationCN)}
     >
       {_code.join(" ")}
     </Text>

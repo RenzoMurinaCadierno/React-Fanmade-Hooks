@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useValueToggle, Text } from "hub"
+import cnp from "styles/classNameProcessor"
 import { classes, defaultProps, propTypes } from "./CodeRushCounter.utils"
 
 export default function CodeRushCounter({
@@ -57,7 +58,7 @@ export default function CodeRushCounter({
         htmlElem="h6"
         type={type + "-1"}
         noMargin
-        className={classes.value(classNames.value) + " " + valueAnimationCN}
+        className={classes.value(classNames.value) + cnp.get(valueAnimationCN)}
         {...valueProps}
       >
         {_value}

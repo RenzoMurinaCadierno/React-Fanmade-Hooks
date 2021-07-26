@@ -7,6 +7,7 @@ import styles from "./HomePage.module.css"
 
 export const classes = {
   container: styles.Container,
+  logo: styles.Logo,
   title: styles.Title,
   subtitle: styles.Subtitle,
   instructions: styles.Instructions

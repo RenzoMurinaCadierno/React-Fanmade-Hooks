@@ -1,5 +1,6 @@
 import { memo } from "react"
 import { Container, useValueToggle, Carousel } from "hub"
+import cnp from "styles/classNameProcessor"
 import pointer from "assets/icons/pointer.svg"
 import { classes, defaultProps, propTypes } from "./CarouselArrow.utils"
 
@@ -63,7 +64,9 @@ function CarouselArrow({
         alt={`${
           direction === Carousel.defaultCtx.directions[0] ? "previous" : "next"
         } slide`}
-        className={classes.arrow(direction, classNames.arrow) + " " + swingCN}
+        className={
+          classes.arrow(direction, classNames.arrow) + cnp.get(swingCN)
+        }
         {...arrowImgProps}
       />
     </Container>

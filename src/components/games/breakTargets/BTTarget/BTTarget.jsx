@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef, memo } from "react"
 import { useValueToggle } from "hub"
+import cnp from "styles/classNameProcessor"
 import {
   classes,
   defaultProps,
@@ -124,8 +125,7 @@ function BTTarget({
             onClick={() => !isDestroyed && breakTarget()}
             className={
               classes.target(st.type, isDestroyed, classNames?.target) +
-              " " +
-              tgtDestroyedCN // "useValueToggle" dynamically added class
+              cnp.get(tgtDestroyedCN) // "useValueToggle" dynamically added class
             }
             // transition delay to modify `type` coloring as `accuracyTimeout` progresses
             style={{ transition: `all ${accuracyTimeout}ms ease-out` }}
@@ -134,8 +134,7 @@ function BTTarget({
           <span
             className={
               classes.content(st.type, isDestroyed, classNames?.content) +
-              " " +
-              showPtsCN // "useValueToggle" dynamically added class
+              cnp.get(showPtsCN) // "useValueToggle" dynamically added class
             }
             style={{ transition: `all ${accuracyTimeout}ms ease-out` }}
             {...contentProps}

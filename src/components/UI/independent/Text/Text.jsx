@@ -33,9 +33,14 @@ import { classes, defaultProps, propTypes } from "./Text.utils"
  * `textShadow?` (boolean): applies a text shadow. Used to contrast from
  *   backgrounds that might conflict with this component's `type` stylings.
  *
+ * `backgroundContrast?` (boolean): applies a dark text shadow. Used to contrast
+ *   from bright backgrounds if no `textShadow` is defined.
+ *
  * `className?` (string): incoming className string to add to the component.
  *
  * `onClick?` (function): callback to trigger when clicking on this component.
+ *
+ * `...otherProps?` (object): Props to spread in rendered JSX.
  */
 function Text({
   htmlElem,
@@ -47,6 +52,7 @@ function Text({
   flex,
   noMargin,
   textShadow,
+  backgroundContrast,
   className,
   onClick,
   children,
@@ -64,6 +70,7 @@ function Text({
         italic,
         bold,
         textShadow,
+        backgroundContrast,
         absoluteFill,
         flex,
         noMargin,

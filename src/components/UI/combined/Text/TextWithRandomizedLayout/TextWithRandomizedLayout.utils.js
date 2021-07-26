@@ -23,11 +23,17 @@ export const defaultProps = {
     "Lost job to DELETE FROM",
     "7 months of joyful crying",
     "//, best bug fixer",
-    "console.log count: 2518",
+    "console.log count: 7518",
     "Meetings can be mails",
+    "Lost track of coffee cups",
+    "99.9% free of Easter eggs",
+    '1 ";": $1 weekend.-',
+    "I miss tutorial hell",
+    "Standard background ftw",
+    "... --- ...",
     "undefined"
   ],
-  delayBetweenIterations: 2000
+  delayBetweenIterations: 5000
 }
 
 export const propTypes = {
@@ -53,10 +59,20 @@ function validateDelayBetweenIterations(props, propName, cmpName) {
   }
 }
 
+/**
+ * Returns a random element in `arr`.
+ *
+ * @param {Array} arr The array to return an element from.
+ */
 export function getRandomValueFromArray(arr) {
   return arr[Math.floor(Math.random() * arr.length)]
 }
 
+/**
+ * Class used to generate and return random props to spread in '*Layout*' and
+ * '*Text*', in order to create erratic animation, orientation and stylings for
+ * falvor text.
+ */
 export class PropsRandomizer {
   constructor(animationProps, orientationProps) {
     this.otherLayoutProps = { animationProps, orientationProps }

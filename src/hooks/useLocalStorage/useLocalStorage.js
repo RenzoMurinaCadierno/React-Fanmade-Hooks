@@ -57,7 +57,7 @@ import { useEffect, useCallback, useState } from "react"
  *     local storage object, then any operation on it might (and most
  *     probably will) fail.
  *
- * `selfRebuildValue`: (any): if local storage was removed entirely and a
+ * `selfRebuildValue?` (any): if local storage was removed entirely and a
  *   value is attempted to be set to it, it is automatically rebuilt. By
  *   defining this parameter, local storage will be rebuilt with the hereby
  *   defined value. If left undefined (default), it will use the `configs.value`
@@ -67,6 +67,11 @@ import { useEffect, useCallback, useState } from "react"
  *   or an array with any combination of those strings as elements. If
  *   defined, the component this hook is at will re-render after successful
  *   operations of functions with those names.
+ *
+ *   * **WARNING:** Do NOT use alongside `configs.updateOnValueChange`. When
+ *     setting outer state linked to `configs.value`, `configs.reRenderOn` will
+ *     re-render the component, triggering the modifier handlers again and
+ *     causing an infinite loop.
  *
  * `noConsole?` (boolean): this hook heavily warns in console of any invalid
  *   or unsuccessful operations. Setting this value to true will disable
@@ -696,7 +701,7 @@ function _getPathStrings(target, string = "", result = []) {
   // value
   for (const key in target.get()) {
     const prevStr = string // save current path string to reset after recursion
-    string += "`" + key + "`." // add current key to path string
+    string += key + "." // add current key to path string
     _getPathStrings(_val(target.get()[key]), string, result) // recurse on value
     string = prevStr // reset path string for next keys
   }

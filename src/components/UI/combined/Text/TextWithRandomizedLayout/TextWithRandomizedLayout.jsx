@@ -52,10 +52,11 @@ export default function TextWithRandomizedLayout({
   // controls the component mounting and unmounting from DOM
   const [show, setShow] = useState(false)
   // stores an object containing "layoutProps" (random props to spread in
-  // '*Layout*'), and "text" (the randomly selected text from `texts`).
-  const [randomProps, setRandomProps] = useState(
-    randomizer.current.getRandomProps(texts)
-  )
+  // '*Layout*'), and "textProps" (the randomly selected text from `texts`).
+  const [randomProps, setRandomProps] = useState({
+    layoutProps: {},
+    textProps: {}
+  })
 
   /**
    * Sets a random text and layout props and renders the JSX if triggered when

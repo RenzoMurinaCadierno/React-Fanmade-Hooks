@@ -344,7 +344,7 @@ function _crashOnInvalidCheckpointInterval(checkpointInterval) {
     !(Number.isInteger(checkpointInterval) && checkpointInterval > 0)
   ) {
     throw new TypeError(
-      "Invalid value supplied to \`checkpointInterval\` at \`configs\` parameter in \`useLatency\` hook.\n\nIt must be a number higher than 0.\n"
+      "Invalid value supplied to \`checkpointInterval\` at \`configs\` parameter in \`useLatency\` hook.\\n\\nIt must be a number higher than 0.\\n"
     )
   }
 }`

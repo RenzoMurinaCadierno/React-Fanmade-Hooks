@@ -1,3 +1,9 @@
+/**
+ * Collection of static methods that process classNames logic.
+ *
+ * Methods are `get`, `default`, `if`, `or`, `join` and `switch`. Check their
+ * description on each signature.
+ */
 export default class classNameProcessor {
   /**
    * Returns `className` if it is defined, `fallback` otherwise.

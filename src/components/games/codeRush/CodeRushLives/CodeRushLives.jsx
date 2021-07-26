@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { useValueToggle, Text } from "hub"
+import cnp from "styles/classNameProcessor"
 import {
   classes,
   defaultProps,
@@ -54,8 +55,7 @@ export default function CodeRushLives({
       <div
         className={
           classes.livesContainer(classNames.livesContainer) +
-          " " +
-          animateLifeLostCN
+          cnp.get(animateLifeLostCN)
         }
         {...livesContainerProps}
       >

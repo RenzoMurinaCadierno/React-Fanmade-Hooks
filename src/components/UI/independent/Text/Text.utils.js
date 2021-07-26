@@ -10,6 +10,7 @@ export const classes = {
     italic,
     bold,
     textShadow,
+    backgroundContrast,
     absoluteFill,
     flex,
     noMargin,
@@ -22,6 +23,7 @@ export const classes = {
     cnp.if(small, styles.Small) +
     cnp.if(italic, styles.Italic) +
     cnp.if(textShadow, styles["text-shadow-" + type?.toLowerCase()]) +
+    cnp.if(backgroundContrast, styles.BackgroundContrast) +
     cnp.if(bold, styles.Bold) +
     cnp.if(absoluteFill, styles.AbsoluteFill) +
     cnp.if(flex, styles.Flex) +

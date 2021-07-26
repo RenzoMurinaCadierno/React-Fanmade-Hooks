@@ -99,7 +99,12 @@ export const inputConfigs = {
 
 export const inputProps = {
   user: { name: "user", label: "username", autoComplete: "off" },
-  pass: { name: "pass", label: "password", type: "password" }
+  pass: {
+    name: "pass",
+    label: "password",
+    type: "password",
+    autoComplete: "off"
+  }
 }
 
 // anchor validation bubble on top from user input, and on bottom
