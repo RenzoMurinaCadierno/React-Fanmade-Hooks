@@ -1,5 +1,5 @@
 import { Text } from "hub"
-import { urls } from "app.configs.json"
+import { urls, contact } from "app.configs.json"
 import mail from "assets/icons/mail.svg"
 import linkedin from "assets/icons/linkedin.svg"
 import github from "assets/icons/github.svg"
@@ -56,7 +56,7 @@ export const iconsProps = {
     {
       icon: <img src={mail} alt="mail" />,
       content: "Contact",
-      toastProps: getToastProps("Contact us at nmcadierno@gmail.com")
+      toastProps: getToastProps("Contact us at " + contact.mail)
     },
     {
       icon: <img src={linkedin} alt="linkedin" />,

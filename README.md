@@ -119,7 +119,7 @@ Descriptions here are basic, so do not hesitate to check the complete ones at ea
 
   <br />
 
-  - **_useTimeoutToggle_**
+- **_useTimeoutToggle_**
 
   - [Working example](https://react-fanmade-hooks.netlify.app/use-timeout-toggle)
   - [Hook folder](https://github.com/RenzoMurinaCadierno/React-Fanmade-Hooks/tree/master/src/hooks/useTimeoutToggle)
@@ -128,7 +128,7 @@ Descriptions here are basic, so do not hesitate to check the complete ones at ea
 
   <br />
 
-  - **_useValueToggle_**
+- **_useValueToggle_**
 
   - [Working example](https://react-fanmade-hooks.netlify.app/use-value-toggle)
   - [Hook folder](https://github.com/RenzoMurinaCadierno/React-Fanmade-Hooks/tree/master/src/hooks/useValueToggle)

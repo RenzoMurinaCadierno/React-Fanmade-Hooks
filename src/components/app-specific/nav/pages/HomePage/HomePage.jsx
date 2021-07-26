@@ -34,7 +34,7 @@ export default function HomePage() {
       <FlavorText
         delayBeforeFirstRender={7000}
         delayBetweenIterations={2000}
-        animationProps={{ timeout: 5000 }}
+        animationProps={{ timeout: 6000 }}
       />
     </main>
   )

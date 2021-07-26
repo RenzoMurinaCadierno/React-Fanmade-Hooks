@@ -65,7 +65,7 @@
 /* animation keyframes */
 @keyframes display-logo {
   0% {
-    transform: scale(0) rotate3d(0);
+    transform: scale(0) rotate3d(0deg);
     opacity: 0;
   }
   70% {
