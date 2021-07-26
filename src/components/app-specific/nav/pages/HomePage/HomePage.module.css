@@ -19,7 +19,7 @@
   margin-top: 8vw;
   transition: var(--generic-transition);
   transform: scale(0);
-  animation: display-logo 650ms linear forwards;
+  /* animation: display-logo 650ms linear forwards; */
 }
 
 .Title {
@@ -63,7 +63,7 @@
 /* end all devices portrait */
 
 /* animation keyframes */
-@keyframes display-logo {
+/* @keyframes display-logo {
   0% {
     transform: scale(0) rotate3d(1deg);
     opacity: 0;
@@ -81,7 +81,7 @@
   100% {
     transform: scale(1) rotate3d(1, 1, 1, 359deg);
   }
-}
+} */
 
 @keyframes display-title {
   0% {
