@@ -4,6 +4,7 @@ import { initialConsoleLog } from "./App.utils"
 import "./App.css"
 
 export default function App() {
+  // welcoming console.log
   useEffect(() => console.log(initialConsoleLog), [])
 
   return (

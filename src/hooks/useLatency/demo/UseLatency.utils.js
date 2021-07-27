@@ -1,7 +1,7 @@
 import styles from "./UseLatency.module.css"
 
 export const descItems = {
-  title: "useCount",
+  title: "useLatency",
   paragraphs: [
     "Simulates latency with a promise that resolves at a specified amount of ms. Can be prematurely resolved or rejected.",
     "Try replicating the code! Starting fires a latency that keeps game on.",
