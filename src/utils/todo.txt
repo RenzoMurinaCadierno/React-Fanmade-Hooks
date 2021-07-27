@@ -16,4 +16,4 @@ test lighthouse
  ReactComponent as Logo in Carousel https://create-react-app.dev/docs/adding-images-fonts-and-files/
 
 // commit msg
-Finished checking everything works. Ready to deploy beta.
+Modified initial console log and fixed bug in '*UseTimeoutToggle*' demo.

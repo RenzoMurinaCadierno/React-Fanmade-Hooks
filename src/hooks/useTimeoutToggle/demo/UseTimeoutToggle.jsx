@@ -9,7 +9,7 @@ import {
   getType
 } from "./UseTimeoutToggle.utils"
 
-export default function UseCount() {
+export default function UseTimeoutToggle() {
   return (
     <>
       <CmpDescription
@@ -25,7 +25,9 @@ function CmpTest() {
   const [second, setSecond] = useState(9)
   const [isTimeoutToggled, triggerTimeoutToggle] = useTimeoutToggle(9000)
 
-  // `type` for '*Spinner*' and '*Text*', depending on current "second"
+  /**
+   * `type` for '*Spinner*' and '*Text*', depending on current "second".
+   */
   const currentType = getType(second)
 
   /**
@@ -36,10 +38,11 @@ function CmpTest() {
     let intervalId
 
     if (isTimeoutToggled) {
-      intervalId = setInterval(
-        () => setSecond((prevSt) => (prevSt <= 0 ? 0 : --prevSt)),
-        1000
-      )
+      intervalId = setInterval(() => {
+        // clear interval if "second" === 0. Otherwise, decrease it by 1
+        if (!second) return clearInterval(intervalId)
+        setSecond((prevSt) => prevSt - 1)
+      }, 1000)
     }
 
     return () => clearInterval(intervalId)

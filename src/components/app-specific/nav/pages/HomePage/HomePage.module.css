@@ -19,22 +19,22 @@
   margin-top: 8vw;
   transition: var(--generic-transition);
   transform: scale(0);
-  animation: display-logo 650ms linear forwards;
+  animation: display-logo 700ms 750ms linear forwards;
 }
 
 .Title {
   transform: scale(0);
-  animation: display-title 700ms 500ms ease-out forwards;
+  animation: display-title 650ms 250ms ease-out forwards;
 }
 
 .Subtitle {
   opacity: 0;
-  animation: display-subtitle 750ms 1300ms ease-out forwards;
+  animation: display-subtitle 750ms 1550ms ease-out forwards;
 }
 
 .Instructions {
   opacity: 0;
-  animation: display-instructions 850ms 2200ms ease-out forwards;
+  animation: display-instructions 850ms 2450ms ease-out forwards;
 }
 
 /* end all devices landscape */

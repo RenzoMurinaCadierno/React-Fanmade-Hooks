@@ -1,3 +1,7 @@
+/**
+ * Yes, I know. I should have unit tested instead of this whole mess :/
+ */
+
 // import React, { useState } from "react"
 // import useLocalStorage from "../useLocalStorage"
 // import { Container, CmpDescription } from "hub"
