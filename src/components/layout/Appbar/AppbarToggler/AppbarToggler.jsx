@@ -28,7 +28,10 @@ export default function AppbarToggler({
 }) {
   return (
     // wrapper container, keeps styles consistent in children '*div*'
-    <div className={classes.container(classNames.container)} {...otherProps}>
+    <div
+      className={classes.container(isActive, classNames.container)}
+      {...otherProps}
+    >
       {/* The 3 dots as a '*div*', ::before and ::after */}
       <div
         className={classes.toggler(isActive, animate, classNames.toggler)}

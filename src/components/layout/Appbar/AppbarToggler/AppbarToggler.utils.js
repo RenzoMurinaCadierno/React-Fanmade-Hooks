@@ -3,7 +3,8 @@ import cnp from "styles/classNameProcessor"
 import styles from "./AppbarToggler.module.css"
 
 export const classes = {
-  container: (className) => cnp.default(styles.Container, className),
+  container: (isActive, className) =>
+    cnp.default(styles.Container, className) + cnp.if(isActive, styles.Active),
   toggler: (isActive, animate, className) =>
     cnp.default(styles.Toggler, className) +
     cnp.if(isActive, styles.Active) +
