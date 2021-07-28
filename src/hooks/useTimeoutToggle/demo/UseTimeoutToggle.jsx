@@ -34,6 +34,7 @@ function CmpTest() {
    * When "isTimeoutToggled" becomes `true`, sets an interval that ticks each
    * second, decreasing "second" by 1 on each tick.
    */
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     let intervalId
 
