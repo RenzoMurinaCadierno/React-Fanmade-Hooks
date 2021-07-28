@@ -12,6 +12,7 @@
   align-items: center;
   justify-content: center;
   padding: var(--small-padding-vw);
+  margin-right: var(--small-margin-vw);
   z-index: 20;
 }
 
@@ -42,6 +43,7 @@
     width: 70%;
     border-radius: var(--border-radius-large-vh);
     padding: var(--small-padding-vh);
+    margin-right: var(--small-margin-vh);
   }
 
   .Input {

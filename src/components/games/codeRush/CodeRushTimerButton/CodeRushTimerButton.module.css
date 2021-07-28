@@ -4,6 +4,7 @@
   width: 75%;
   display: flex;
   justify-content: center;
+  padding: var(--generic-padding-vw) var(--small-padding-vw);
 }
 /* end all devices landscape */
 
@@ -11,6 +12,7 @@
 @media screen and (orientation: portrait) {
   .Button {
     width: 65%;
+    padding: var(--generic-padding-vh) var(--small-padding-vh);
   }
 }
 /* end all devices portrait */

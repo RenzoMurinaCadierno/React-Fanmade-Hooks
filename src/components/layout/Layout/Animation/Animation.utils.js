@@ -95,5 +95,7 @@ export function getOnOffAndTimeout(
 }
 
 export function onIdleFinish() {
-  console.log("Nice easter egg hunting there! ;)")
+  console.log(
+    "Nice hunting there! ;) Though, hope you dug up for this, not that it was triggered by an error :p"
+  )
 }

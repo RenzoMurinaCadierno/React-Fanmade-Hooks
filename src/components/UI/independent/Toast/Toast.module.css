@@ -35,6 +35,7 @@
   border-radius: var(--border-radius-vw);
   transform: rotate(45deg);
   background-color: var(--primary-1);
+  cursor: pointer;
 }
 
 .Toggler::after {

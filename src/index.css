@@ -1,9 +1,12 @@
-@import "./styles/global.css";
+/* root imports, available anywhere in the app */
+@import "./styles/generic.css";
 @import "./styles/font.css";
 @import "./styles/colors.css";
 @import "./styles/borders.css";
 @import "./styles/shadows.css";
+/* end root imports, available anywhere in the app */
 
+/* all devices portrait */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -17,3 +20,30 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* scrollbars across the whole app */
+::-webkit-scrollbar {
+  width: 1vw;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-track-bgcolor);
+  border-radius: var(--border-radius-vw);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(27, 177, 231, 0.3);
+  border-radius: var(--border-radius-vw);
+}
+/* end scrollbars across the whole app */
+/* end all devices landscape */
+
+/* all devices portrait */
+/* scrollbars across the whole app */
+@media screen and (orientation: portrait) {
+  ::-webkit-scrollbar {
+    width: 1vh;
+  }
+}
+/* end scrollbars across the whole app */
+/* end all devices portrait */

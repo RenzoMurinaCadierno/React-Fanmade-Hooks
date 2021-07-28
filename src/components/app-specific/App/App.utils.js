@@ -16,7 +16,7 @@ const logs = {
     css: "font-size: 105%; font-style: italic; text-shadow: 0.2vw -0.2vw 0.3vw #d6851a"
   },
   contact: {
-    msg: "   > mail: nmcadierno@gmail.com\n   > Face: React Fanmade Hooks\n   > Twitter: @fanmade_hooks",
+    msg: "   > mail: nmcadierno@gmail.com\n   > Repo: https://bit.ly/377wDVq\n   > Face: React Fanmade Hooks\n   > Twitter: @fanmade_hooks",
     css: "font-size: 95%; font-style: italic"
   }
 }
