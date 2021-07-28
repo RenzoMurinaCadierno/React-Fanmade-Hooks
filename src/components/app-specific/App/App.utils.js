@@ -12,8 +12,12 @@ const logs = {
     css: "font-size: 105%; font-weight: bold; font-style: italic"
   },
   signature: {
-    msg: "  - R.N.M.C.\n\n     mail: nmcadierno@gmail.com\n     Face: React Fanmade Hooks\n     Twitter: @fanmade_hooks",
+    msg: "  R.N.M.C. - 2021",
     css: "font-size: 105%; font-style: italic; text-shadow: 0.2vw -0.2vw 0.3vw #d6851a"
+  },
+  contact: {
+    msg: "   > mail: nmcadierno@gmail.com\n   > Face: React Fanmade Hooks\n   > Twitter: @fanmade_hooks",
+    css: "font-size: 95%; font-style: italic"
   }
 }
 
