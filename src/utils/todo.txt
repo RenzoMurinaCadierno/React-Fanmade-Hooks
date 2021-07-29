@@ -16,4 +16,4 @@ test lighthouse
  ReactComponent as Logo in Carousel https://create-react-app.dev/docs/adding-images-fonts-and-files/
 
 // commit msg
-Corrected inconsistent styles and customized scrollbar.
+Fixed '*Appbar.Toggler*' anchor inconsistency.

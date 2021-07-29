@@ -2,9 +2,9 @@
 .Container {
   /* wrapper for 'toggler' UI */
   position: absolute;
-  top: 0;
-  left: 0;
-  /* width: %; */
+  top: 1vh;
+  left: 0vw;
+  width: 4%;
   cursor: pointer;
   z-index: 20;
   pointer-events: all;
@@ -73,7 +73,9 @@
 @media screen and (orientation: portrait) {
   .Container {
     /* wrapper for 'toggler' UI */
-    width: 10%;
+    width: 6%;
+    top: 1vh;
+    left: 1vw;
   }
 
   .Toggler {
